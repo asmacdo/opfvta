@@ -4,8 +4,8 @@ from samri.pipelines import manipulations
 bids_base = '~/ni_data/ofM.vta/bids'
 
 # Preprocess all of the data:
-generic(bids_base, "/usr/share/mouse-brain-atlases/dsurqec_200micron.nii",
-	registration_mask="/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii",
+generic(bids_base,
+	template='mouse',
 	functional_match={'acquisition':['EPI'],},
 	structural_match={'acquisition':['TurboRARE'],},
 	actual_size=True,
