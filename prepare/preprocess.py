@@ -1,7 +1,10 @@
+from os import path
+
 from samri.pipelines.preprocess import generic, legacy
 from samri.pipelines import manipulations
 
-bids_base = '~/ni_data/ofM.vta/bids'
+scratch_dir = '~/data_scratch/opfvta'
+bids_base = path.join(scratch_dir,'bids')
 
 # Preprocess all of the data:
 generic(bids_base,
@@ -9,5 +12,6 @@ generic(bids_base,
 	functional_match={'acquisition':['EPI'],},
 	structural_match={'acquisition':['TurboRARE'],},
 	actual_size=True,
-	out_base='~/ni_data/ofM.vta/preprocessing',
+        workflow_name='preprocess',
+	out_base=scratch_dir,
 	)
