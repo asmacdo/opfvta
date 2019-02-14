@@ -13,10 +13,22 @@ groups = pd.read_csv(groups_path)
 
 df = pd.merge(df, groups, on='Subject', how='outer')
 
+df['Task Category'] = df['Task']
+task_categories = {
+	'CogBr':'Block',
+	'CogBm':'Block',
+	'CogMwf':'Block',
+	'CogB':'Block',
+	'JPogP':'Phasic',
+	'CogP':'Phasic',
+	'JPogT':'Tonic',
+	}
+df = df.replace({'Task Category': task_categories})
+df = df.loc[df['Task Category'] != 'Tonic']
+
 ax = swarmplot(
-	x="OrthogonalStereotacticTarget_code",
-	hue="Task",
+	hue="OrthogonalStereotacticTarget_code",
+	x="Task Category",
 	y='Mean VTA t',
 	data=df,
 	)
-plt.xticks(rotation=90)

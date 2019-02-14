@@ -15,4 +15,3 @@ ax = swarmplot(
 	data=df,
 	hue="Subject",
 	)
-plt.xticks(rotation=90)
