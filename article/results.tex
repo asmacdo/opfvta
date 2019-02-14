@@ -3,17 +3,17 @@
 \begin{sansmath}
 \py{pytex_subfigs(
         [
-                {'script':'scripts/implant.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/taskgroup.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Task group comparison. \\vspace{1em}'
+                        },
+                {'script':'scripts/implant_coordinates.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
+			'caption':'Implant coordinate comparison. \\vspace{1em}'
+                        },
+                {'script':'scripts/implant_depth.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'Implant coordinate comparison.'
                         ,},
-                {'script':'scripts/injection.py', 'label':'tasks','conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Injection site comparison.'
-                        ,},
-                {'script':'scripts/implant_taskgroup.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/implant_pa.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'Implant coordinate comparison.'
-                        ,},
-                {'script':'scripts/injection_taskgroup.py', 'label':'tasks','conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Injection site comparison.'
                         ,},
                 ],
         caption='
