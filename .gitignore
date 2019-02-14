@@ -1,5 +1,6 @@
 *.aux
 *.log
-*.pytxcode
-*.pyc
+*.pdf
 *.pgf
+*.pyc
+*.pytxcode
