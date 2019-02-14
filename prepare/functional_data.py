@@ -36,6 +36,18 @@ df = df.rename(
 		'Modality':'Contrast',
 		})
 
+df['Task Category'] = df['Task']
+task_categories = {
+	'CogBr':'Block',
+	'CogBm':'Block',
+	'CogMwf':'Block',
+	'CogB':'Block',
+	'JPogP':'Phasic',
+	'CogP':'Phasic',
+	'JPogT':'Tonic',
+	}
+df = df.replace({'Task Category': task_categories})
+
 df.to_csv('../data/functional_significance.csv')
 
 df = pd.DataFrame([])
@@ -63,5 +75,17 @@ df = df.rename(
 
 # Create processing and template-independent unique identifiers
 df['Scan'] = df['Subject']+':'+df['Session']+':'+df['Contrast']
+
+df['Task Category'] = df['Task']
+task_categories = {
+	'CogBr':'Block',
+	'CogBm':'Block',
+	'CogMwf':'Block',
+	'CogB':'Block',
+	'JPogP':'Phasic',
+	'CogP':'Phasic',
+	'JPogT':'Tonic',
+	}
+df = df.replace({'Task Category': task_categories})
 
 df.to_csv('../data/functional_t.csv')
