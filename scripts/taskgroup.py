@@ -25,9 +25,13 @@ task_categories = {
 	}
 df = df.replace({'Task Category': task_categories})
 df = df.loc[df['Task Category'] != 'Tonic']
+# do not take into account unimplanted animals
+df = df[pd.notnull(df['PA rel. Bregma [mm]'])]
+
+df['Implant PA/Depth'] = df['PA rel. Bregma [mm]'].map(str) +'/'+ df['Depth rel. skull [mm]'].map(str)
 
 ax = swarmplot(
-	hue="OrthogonalStereotacticTarget_code",
+	hue="Implant PA/Depth",
 	x="Task Category",
 	y='Mean VTA t',
 	data=df,

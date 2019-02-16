@@ -31,6 +31,20 @@ for i in _operations['Animal_id'].unique():
 		df['Operation_delay'] = delay
 		operations = pd.concat([operations,df],sort=True)
 
+operations['PA rel. Bregma [mm]'] = operations['OrthogonalStereotacticTarget_posteroanterior']
+operations['Depth rel. skull [mm]'] = operations['OrthogonalStereotacticTarget_depth']
+operations['\Delta PA_{Bregma}'] = operations['OrthogonalStereotacticTarget_posteroanterior']
+# Removing internal LabbookDB identifier columns
+df = df.drop(
+	[
+		'Operation_animal_id',
+		'OpticFiberImplantProtocol_code',
+		'OpticFiberImplantProtocol_id',
+		'OpticFiberImplantProtocol_name',
+		'OpticFiberImplantProtocol_optic_fiber_implant_id',
+		'OpticFiberImplantProtocol_stereotactic_target_id',
+	],
+	1)
 
 operations['Subject'] = operations['Animal_id'].apply(lambda x: animal_id(db_path, 'ETH/AIC', x, reverse=True))
 operations.to_csv('../data/groups.csv')

@@ -25,10 +25,12 @@ task_categories = {
 	}
 df = df.replace({'Task Category': task_categories})
 df = df.loc[df['Task Category'] == 'Block']
+# do not take into account unimplanted animals
+df = df[pd.notnull(df['PA rel. Bregma [mm]'])]
 
 ax = swarmplot(
-	x="OrthogonalStereotacticTarget_posteroanterior",
-	hue="OrthogonalStereotacticTarget_depth",
+	x="PA rel. Bregma [mm]",
+	hue="Depth rel. skull [mm]",
 	y='Mean VTA t',
 	data=df,
 	)
