@@ -13,15 +13,20 @@ filtered_groups = groups.loc[
 	(groups['PA rel. Bregma [mm]'] >= -3.3)
 	]
 filtered_animals = filtered_groups['Subject'].tolist()
+other_animals = groups.loc[~groups['Subject'].isin(filtered_animals), 'Subject'].tolist()
 
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
 	mask='/home/hioanas/gentoo/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii',
 	n_jobs_percentage=.33,
-	groupby='subject',
+	groupby='subject_set',
 	#The JPogT task in the current data has only one run, and cannot be modelled at the second level.
 	exclude={'task':['JPogT'],},
 	out_base=scratch_dir,
+	target_set=[
+		{'subject':filtered_animals},
+		{'subject':other_animals},
+		],
 	)
 
 #glm.l2_common_effect(l1_base,
