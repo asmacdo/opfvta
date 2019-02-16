@@ -251,8 +251,6 @@ def latex_figure(name, environment,
 	content += '\\input{%s.pgf}\n' % name
 	if not label:
 		label = name
-	if caption and not caption.rstrip().endswith('.'):
-		caption += '.'
 	if caption:
 		# `\label` needs to be in `\caption` to avoid issues in some cases
 		content += "\\caption{%s\\label{%s:%s}}\n" % (caption, fig_label_prefix, label)
