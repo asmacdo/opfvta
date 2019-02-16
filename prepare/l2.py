@@ -12,8 +12,8 @@ filtered_groups = groups.loc[
 	(groups['Depth rel. skull [mm]'] >= 4.4) &
 	(groups['PA rel. Bregma [mm]'] >= -3.3)
 	]
-filtered_animals = filtered_groups['Subject'].tolist()
-other_animals = groups.loc[~groups['Subject'].isin(filtered_animals), 'Subject'].tolist()
+filtered_animals = [str(i) for i in filtered_groups['Subject'].tolist()]
+other_animals = [str(i) for i in groups.loc[~groups['Subject'].isin(filtered_animals), 'Subject'].tolist()]
 
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
