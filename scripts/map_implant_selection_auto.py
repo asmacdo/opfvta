@@ -6,7 +6,7 @@ stat_map = "{}/l2/sub-6573.6574.6575.6576.6578.6586.6587.6588.6589.6590.6591.659
 template = "/usr/share/mouse-brain-atlases/dsurqec_40micron_masked.nii"
 
 maps.stat3D(stat_map,
-	scale=0.2,
+	scale=0.3,
 	template=template,
 	show_plot=False,
 	threshold=3,

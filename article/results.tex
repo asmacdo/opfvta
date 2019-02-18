@@ -4,16 +4,16 @@
 \py{pytex_subfigs(
         [
                 {'script':'scripts/taskgroup.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Task group comparison. \\vspace{1em}'
+                        'caption':'Task group comparison for animals targeted with all implant coordinates. \\vspace{1em}'
                         },
                 {'script':'scripts/implant_coordinates.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Implant coordinate comparison. \\vspace{1em}'
+			'caption':'2D implant coordinate comparison for block stimulation scans only. \\vspace{1em}'
                         },
                 {'script':'scripts/implant_depth.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Implant coordinate comparison.'
+			'caption':'Implant coordinate comparison for block stimulation scans only, sliced by depth.'
                         ,},
                 {'script':'scripts/implant_pa.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Implant coordinate comparison.'
+			'caption':'Implant coordinate comparison for block stimulation scans only, sliced by PA coordinates.'
                         ,},
                 ],
         caption='
@@ -26,16 +26,16 @@
 \begin{sansmath}
 \py{pytex_subfigs(
         [
-                {'script':'scripts/map_implant_selection.py', 'label':'subjects', 'conf':'article/1col_maps.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_implant_selection.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Best coordinate group with slices centered on VTA. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_implant_selection_auto.py', 'label':'subjects', 'conf':'article/1col_maps.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_implant_selection_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Best coordinate group centered on langest cluster. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_implant_rest.py', 'label':'subjects', 'conf':'article/1col_maps.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_implant_rest.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'Remaining coordinate group centered on VTA.'
                         },
-                {'script':'scripts/map_implant_rest_auto.py', 'label':'subjects', 'conf':'article/1col_maps.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_implant_rest_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'Remaining coordinate group centered on largest cluster.'
                         },
                 ],
