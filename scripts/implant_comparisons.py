@@ -12,17 +12,6 @@ groups = pd.read_csv(groups_path)
 
 df = pd.merge(df, groups, on='Subject', how='outer')
 
-df['Task Category'] = df['Task']
-task_categories = {
-	'CogBr':'Block',
-	'CogBm':'Block',
-	'CogMwf':'Block',
-	'CogB':'Block',
-	'JPogP':'Phasic',
-	'CogP':'Phasic',
-	'JPogT':'Tonic',
-	}
-df = df.replace({'Task Category': task_categories})
 df = df.loc[df['Task Category'] == 'Block']
 # do not take into account unimplanted animals
 df = df[pd.notnull(df['PA rel. Bregma [mm]'])]
