@@ -27,10 +27,10 @@
 \py{pytex_subfigs(
         [
                 {'script':'scripts/map_implant_selection.py', 'label':'subjects', 'conf':'article/1col_maps.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Best coordinate group with slices centered on VTA. \\vspace{1em}'
+                        'caption':'Best coordinate group with slices centered on VTA. \\vspace{1.2em}'
                         },
                 {'script':'scripts/map_implant_selection_auto.py', 'label':'subjects', 'conf':'article/1col_maps.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Best coordinate group centered on langest cluster. \\vspace{1em}'
+                        'caption':'Best coordinate group centered on langest cluster. \\vspace{1.2em}'
                         },
                 {'script':'scripts/map_implant_rest.py', 'label':'subjects', 'conf':'article/1col_maps.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'Remaining coordinate group centered on VTA.'
@@ -41,8 +41,8 @@
                 ],
         caption='
                 \\textbf{Best coordinate group scans elicit activity in the Striatum and the Nucleus Accumbens, whereas remaining scans do not.}
-                Depicted are statistical maps of the second-level analysis for block stimulation protocols, comparing different subject groups segmented by implant coordinates --- best coordinate group ($\mathrm{PA \geq -3.3 ; IS \geq -4.4}$) and remaining scans.
-                Slices are centered on VTA coordinates ($RAS = 0.5/-3.2/-4.5$) and on the largest cluster, respectively.
+                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis for block stimulation protocols, comparing different subject groups segmented by implant coordinates --- best coordinate group ($\mathrm{PA \geq -3.3 ; IS \geq -4.4}$) and remaining scans.
+                Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5 -3.2 -4.5}$) and on the largest cluster, respectively.
                 ',
         label='fig:var',
         )}
