@@ -44,7 +44,7 @@ df = df.drop(
 		'OpticFiberImplantProtocol_optic_fiber_implant_id',
 		'OpticFiberImplantProtocol_stereotactic_target_id',
 	],
-	1,
+	axis=1,
 	)
 
 operations['Subject'] = operations['Animal_id'].apply(lambda x: animal_id(db_path, 'ETH/AIC', x, reverse=True))
