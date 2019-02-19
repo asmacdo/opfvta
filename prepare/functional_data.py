@@ -4,6 +4,7 @@ from samri.report.snr import df_significant_signal
 from samri.report.utilities import df_roi_data
 from samri.utilities import bids_autofind_df
 
+prefix = ''
 scratch_dir = '~/data_scratch/opfvta/'
 
 # Total significance
@@ -16,7 +17,7 @@ in_df = bids_autofind_df('{}/l1/'.format(scratch_dir),
 		'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_(?P<modality>cbv|bold)_pfstat\.nii\.gz',
 	)
 df_ = df_significant_signal(in_df,
-	mask_path='/home/hioanas/gentoo/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii',
+	mask_path='{}/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	exclude_ones=True,
 	)
 df_ = df_significant_signal(df_,
