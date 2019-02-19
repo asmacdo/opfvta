@@ -13,16 +13,23 @@ from lib.utils import float_to_tex, inline_anova, inline_factor
 #	**kwargs
 #	):
 
-df_path = path.abspath('../data/functional_significance.csv')
+df_path = path.abspath('../data/functional_t.csv')
 groups_path = path.abspath('../data/groups.csv')
 df = pd.read_csv(df_path)
 groups = pd.read_csv(groups_path)
 
-print(df)
-print(groups)
+df = pd.merge(df, groups, on='Subject', how='outer')
+#df = df.loc[pd.notnull(df['Depth rel. skull [mm]']) & pd.notnull(df['PA rel. Bregma [mm]'])]
+df = df.dropna(subset=['Depth rel. skull [mm]', 'PA rel. Bregma [mm]'])
 
-#formula = 'Q("{}") ~ {}'
-#model = smf.mixedlm(formula, df, groups='Uid')
-#fit = model.fit()
-#summary = fit.summary()
+print(df.columns)
+#print(df)
+#print(groups)
+#df.to_csv('df.csv')
+
+formula = 'Q("Mean VTA t") ~ Q("Depth rel. skull [mm]") + Q("PA rel. Bregma [mm]") + Task'
+model = smf.mixedlm(formula, df, groups='Subject')
+fit = model.fit()
+summary = fit.summary()
+print(summary)
 #tex = inline_factor(summary, factor, 'tex', **kwargs)
