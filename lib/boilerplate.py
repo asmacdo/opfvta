@@ -141,6 +141,29 @@ def variancep(
 
 	return float_to_tex(result.pvalue, max_len, **kwargs)
 
+def anova(
+	data_path='data/functional_t.csv',
+	groups_path='data/groups.csv',
+	dependent_variable='Q("Mean VTA t")',
+	expression='Q("Depth rel. skull [mm]") + Q("PA rel. Bregma [mm]") + Q("Task Category")',
+	factor='Q("Task Category")',
+	typ=3,
+	**kwargs
+	):
+	data = pd.read_csv(path.abspath(data_path))
+	groups = pd.read_csv(path.abspath(groups_path))
+
+	df = pd.merge(data, groups, on='Subject', how='outer')
+	df = df.dropna(subset=['Depth rel. skull [mm]', 'PA rel. Bregma [mm]'])
+	# This should not be needed, temporary backup for missing data
+	df = df.dropna(subset=['Mean VTA t'])
+
+	formula = '{} ~ {}'.format(dependent_variable, expression)
+	ols = smf.ols(formula, df).fit()
+	summary = sm.stats.anova_lm(ols, typ=typ, robust='hc3')
+	tex = inline_anova(summary, factor, 'tex', **kwargs)
+	return tex
+
 def variance_test(
         factor,
         workflow,
