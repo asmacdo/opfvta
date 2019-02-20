@@ -1,5 +1,12 @@
 \section{Results}
 
+We note that the VTA mean t statistic is sensitive to the stimulation protocol
+(\py{boilerplate.anova(expression='Q("Depth rel. skull [mm]") + Q("PA rel. Bregma [mm]") + Task',factor='Task')}),
+but not to the depth
+(\py{boilerplate.anova(expression='Q("Depth rel. skull [mm]") + Q("PA rel. Bregma [mm]") + Task',factor='Q("Depth rel. skull [mm]")')})
+or the PA coordinates
+(\py{boilerplate.anova(expression='Q("Depth rel. skull [mm]") + Q("PA rel. Bregma [mm]") + Task',factor='Q("PA rel. Bregma [mm]")')}).
+
 \begin{sansmath}
 \py{pytex_subfigs(
         [
