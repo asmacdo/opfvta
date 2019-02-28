@@ -1,5 +1,5 @@
-import numpy as np
 import pandas as pd
+import numpy as np
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 from os import path

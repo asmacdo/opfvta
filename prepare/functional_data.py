@@ -5,7 +5,7 @@ from samri.report.utilities import df_roi_data
 from samri.utilities import bids_autofind_df
 
 prefix = ''
-scratch_dir = '~/data_scratch/opfvta/'
+scratch_dir = '~/.scratch/opfvta/'
 
 # Total significance
 
