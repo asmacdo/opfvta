@@ -2,7 +2,7 @@ from os import path
 from samri.pipelines import glm
 import pandas as pd
 
-scratch_dir = '~/data_scratch/opfvta'
+scratch_dir = '~/.scratch/opfvta'
 l1_base = '{}/l1/'.format(scratch_dir)
 
 groups_path = path.abspath('../data/groups.csv')

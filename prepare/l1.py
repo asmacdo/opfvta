@@ -1,7 +1,7 @@
 from os import path
 from samri.pipelines import glm
 
-scratch_dir = '~/data_scratch/opfvta'
+scratch_dir = '~/.scratch/opfvta'
 
 preprocess_base = path.join(scratch_dir,'preprocess')
 

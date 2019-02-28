@@ -3,7 +3,7 @@ from os import path
 from samri.pipelines.preprocess import generic, legacy
 from samri.pipelines import manipulations
 
-scratch_dir = '~/data_scratch/opfvta'
+scratch_dir = '~/.scratch/opfvta'
 bids_base = path.join(scratch_dir,'bids')
 
 # Preprocess all of the data:
