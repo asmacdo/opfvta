@@ -7,6 +7,17 @@ from samri.utilities import bids_autofind_df
 prefix = ''
 scratch_dir = '~/.scratch/opfvta/'
 
+task_categories = {
+	'CogBl':'Block',
+	'CogBr':'Block',
+	'CogBm':'Block',
+	'CogMwf':'Block',
+	'CogB':'Block',
+	'JPogP':'Phasic',
+	'CogP':'Phasic',
+	'JPogT':'Tonic',
+	}
+
 # Total significance
 
 df = pd.DataFrame([])
@@ -38,15 +49,6 @@ df = df.rename(
 		})
 
 df['Task Category'] = df['Task']
-task_categories = {
-	'CogBr':'Block',
-	'CogBm':'Block',
-	'CogMwf':'Block',
-	'CogB':'Block',
-	'JPogP':'Phasic',
-	'CogP':'Phasic',
-	'JPogT':'Tonic',
-	}
 df = df.replace({'Task Category': task_categories})
 
 df.to_csv('../data/functional_significance.csv')
@@ -78,15 +80,6 @@ df = df.rename(
 df['Scan'] = df['Subject']+':'+df['Session']+':'+df['Contrast']
 
 df['Task Category'] = df['Task']
-task_categories = {
-	'CogBr':'Block',
-	'CogBm':'Block',
-	'CogMwf':'Block',
-	'CogB':'Block',
-	'JPogP':'Phasic',
-	'CogP':'Phasic',
-	'JPogT':'Tonic',
-	}
 df = df.replace({'Task Category': task_categories})
 
 df.to_csv('../data/functional_t.csv')
