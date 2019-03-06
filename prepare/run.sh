@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+PREFIX=`python -c "import portage; print(portage.root)"`
 
 if [ ! -d ~/.scratch ]; then
 	echo "You seem to be lacking a ~/.scratch/ directory."
@@ -10,7 +11,7 @@ if [ ! -d ~/.scratch ]; then
 fi
 
 if [ ! -d ~/.scratch/opfvta/bids ]; then
-	if [ -d "/usr/share/opfvta_bidsdata" ]; then
+	if [ -d "${PREFIX}usr/share/opfvta_bidsdata" ]; then
 		[ -d ~/.scratch/opfvta ] || mkdir ~/.scratch/opfvta
 		ln -s /usr/share/opfvta_bidsdata ~/.scratch/opfvta/bids
 	else

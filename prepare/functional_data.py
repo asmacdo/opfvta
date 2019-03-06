@@ -1,10 +1,11 @@
 import pandas as pd
+import portage
 
 from samri.report.snr import df_significant_signal
 from samri.report.utilities import df_roi_data
 from samri.utilities import bids_autofind_df
 
-prefix = ''
+prefix = portage.root
 scratch_dir = '~/.scratch/opfvta/'
 
 # Total significance
