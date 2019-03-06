@@ -1,12 +1,12 @@
 ,Acquisition,Contrast,Path,Run,Session,Subject,Task,Mean VTA t,Median VTA t,Scan,Task Category
 0,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-3839/ses-ofM/sub-3839_ses-ofM_task-CogBr_acq-EPI_run-1_cbv_tstat.nii.gz,1,ofM,3839,CogBr,0.7996948957443237,0.8519300818443298,3839:ofM:CBV,Block
 1,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-3839/ses-ofM/sub-3839_ses-ofM_task-JPogP_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofM,3839,JPogP,-0.39102473855018616,-0.4006333351135254,3839:ofM:CBV,Phasic
-2,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5681/ses-ofM/sub-5681_ses-ofM_task-CogBl_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofM,5681,CogBl,-0.5617244243621826,-0.6519126296043396,5681:ofM:CBV,CogBl
+2,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5681/ses-ofM/sub-5681_ses-ofM_task-CogBl_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofM,5681,CogBl,-0.5617244243621826,-0.6519126296043396,5681:ofM:CBV,Block
 3,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5681/ses-ofM/sub-5681_ses-ofM_task-JPogP_acq-EPI_run-1_cbv_tstat.nii.gz,1,ofM,5681,JPogP,-0.5044147968292236,-0.6896477341651917,5681:ofM:CBV,Phasic
 4,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5682/ses-ofMr1/sub-5682_ses-ofMr1_task-CogB_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofMr1,5682,CogB,-0.047997865825891495,0.20650716125965118,5682:ofMr1:CBV,Block
-5,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5682/ses-ofMr2/sub-5682_ses-ofMr2_task-CogBl_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofMr2,5682,CogBl,2.5030596256256104,2.191408634185791,5682:ofMr2:CBV,CogBl
-6,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5683/ses-ofM/sub-5683_ses-ofM_task-CogBl_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofM,5683,CogBl,2.3017079830169678,2.396291494369507,5683:ofM:CBV,CogBl
-7,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5683/ses-ofMr1/sub-5683_ses-ofMr1_task-CogBl_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofMr1,5683,CogBl,-1.003987193107605,-0.9403826594352722,5683:ofMr1:CBV,CogBl
+5,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5682/ses-ofMr2/sub-5682_ses-ofMr2_task-CogBl_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofMr2,5682,CogBl,2.5030596256256104,2.191408634185791,5682:ofMr2:CBV,Block
+6,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5683/ses-ofM/sub-5683_ses-ofM_task-CogBl_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofM,5683,CogBl,2.3017079830169678,2.396291494369507,5683:ofM:CBV,Block
+7,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5683/ses-ofMr1/sub-5683_ses-ofMr1_task-CogBl_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofMr1,5683,CogBl,-1.003987193107605,-0.9403826594352722,5683:ofMr1:CBV,Block
 8,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5683/ses-ofMr3/sub-5683_ses-ofMr3_task-JPogT_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofMr3,5683,JPogT,1.1616443395614624,1.4775183200836182,5683:ofMr3:CBV,Tonic
 9,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5685/ses-ofM/sub-5685_ses-ofM_task-CogB_acq-EPI_run-1_cbv_tstat.nii.gz,1,ofM,5685,CogB,1.7809028625488281,1.6703139543533325,5685:ofM:CBV,Block
 10,EPI,CBV,/home/chymera/.scratch/opfvta/l1/sub-5685/ses-ofM/sub-5685_ses-ofM_task-JPogP_acq-EPI_run-0_cbv_tstat.nii.gz,0,ofM,5685,JPogP,-0.6662512421607971,-0.1453789323568344,5685:ofM:CBV,Phasic
