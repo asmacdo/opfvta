@@ -10,4 +10,5 @@ maps.stat3D(stat_map,
 	show_plot=False,
 	threshold=3,
 	threshold_mesh=3,
+	pos_values=True,
 	)
