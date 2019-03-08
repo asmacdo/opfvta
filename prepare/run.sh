@@ -11,11 +11,7 @@ if [ ! -d ~/.scratch ]; then
 fi
 
 if [ ! -d ~/.scratch/opfvta/bids ]; then
-<<<<<<< HEAD
-	if [ -d "/usr/share/opfvta_bidsdata" ]; then
-=======
 	if [ -d "${PREFIX}usr/share/opfvta_bidsdata" ]; then
->>>>>>> 127cead7c7a647f96c9c182d41e66c6090f8b5e2
 		[ -d ~/.scratch/opfvta ] || mkdir ~/.scratch/opfvta
 		ln -s /usr/share/opfvta_bidsdata ~/.scratch/opfvta/bids
 	else

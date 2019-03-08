@@ -3,10 +3,7 @@ from samri.pipelines import glm
 import pandas as pd
 import portage
 
-<<<<<<< HEAD
-=======
 prefix = portage.root
->>>>>>> 127cead7c7a647f96c9c182d41e66c6090f8b5e2
 scratch_dir = '~/.scratch/opfvta'
 l1_base = '{}/l1/'.format(scratch_dir)
 

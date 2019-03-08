@@ -5,10 +5,6 @@ from samri.report.snr import df_significant_signal
 from samri.report.utilities import df_roi_data
 from samri.utilities import bids_autofind_df
 
-<<<<<<< HEAD
-prefix = ''
-scratch_dir = '~/.scratch/opfvta/'
-=======
 prefix = portage.root
 scratch_dir = '~/.scratch/opfvta/'
 
@@ -22,7 +18,6 @@ task_categories = {
 	'CogP':'Phasic',
 	'JPogT':'Tonic',
 	}
->>>>>>> 127cead7c7a647f96c9c182d41e66c6090f8b5e2
 
 # Total significance
 
