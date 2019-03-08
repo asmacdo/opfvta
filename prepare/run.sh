@@ -13,7 +13,7 @@ fi
 if [ ! -d ~/.scratch/opfvta/bids ]; then
 	if [ -d "${PREFIX}usr/share/opfvta_bidsdata" ]; then
 		[ -d ~/.scratch/opfvta ] || mkdir ~/.scratch/opfvta
-		ln -s /usr/share/opfvta_bidsdata ~/.scratch/opfvta/bids
+		ln -s "${PREFIX}usr/share/opfvta_bidsdata" ~/.scratch/opfvta/bids
 	else
 		echo "No OPFVTA BIDS data distribution found, processing from scanner OPFVTA data:"
 		SAMRI bru2bids -o ~/.scratch/opfvta/ -f '{"acquisition":["EPI"]}' -s '{"acquisition":["TurboRARE"]}' ~/ni_data/ofM.vta/
