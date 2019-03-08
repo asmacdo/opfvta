@@ -1,7 +1,12 @@
 from os import path
 from samri.pipelines import glm
 import pandas as pd
+import portage
 
+<<<<<<< HEAD
+=======
+prefix = portage.root
+>>>>>>> 127cead7c7a647f96c9c182d41e66c6090f8b5e2
 scratch_dir = '~/.scratch/opfvta'
 l1_base = '{}/l1/'.format(scratch_dir)
 
@@ -17,7 +22,7 @@ other_animals = [str(i) for i in groups.loc[~groups['Subject'].isin(filtered_ani
 
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
-	mask='/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii',
+	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='task',
 	n_jobs_percentage=.33,
 	#The JPogT task in the current data has only one run, and cannot be modelled at the second level.
@@ -27,7 +32,7 @@ glm.l2_common_effect(l1_base,
 
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
-	mask='/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii',
+	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
 	#Only considering block stimulation (filtering out tonic and phasic stimulation).

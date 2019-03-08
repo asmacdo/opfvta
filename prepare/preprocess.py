@@ -11,7 +11,6 @@ generic(bids_base,
 	template='mouse',
 	functional_match={'acquisition':['EPI'],},
 	structural_match={'acquisition':['TurboRARE'],},
-	actual_size=True,
         workflow_name='preprocess',
 	out_base=scratch_dir,
 	)

@@ -1,11 +1,28 @@
 import pandas as pd
+import portage
 
 from samri.report.snr import df_significant_signal
 from samri.report.utilities import df_roi_data
 from samri.utilities import bids_autofind_df
 
+<<<<<<< HEAD
 prefix = ''
 scratch_dir = '~/.scratch/opfvta/'
+=======
+prefix = portage.root
+scratch_dir = '~/.scratch/opfvta/'
+
+task_categories = {
+	'CogBl':'Block',
+	'CogBr':'Block',
+	'CogBm':'Block',
+	'CogMwf':'Block',
+	'CogB':'Block',
+	'JPogP':'Phasic',
+	'CogP':'Phasic',
+	'JPogT':'Tonic',
+	}
+>>>>>>> 127cead7c7a647f96c9c182d41e66c6090f8b5e2
 
 # Total significance
 
@@ -38,15 +55,6 @@ df = df.rename(
 		})
 
 df['Task Category'] = df['Task']
-task_categories = {
-	'CogBr':'Block',
-	'CogBm':'Block',
-	'CogMwf':'Block',
-	'CogB':'Block',
-	'JPogP':'Phasic',
-	'CogP':'Phasic',
-	'JPogT':'Tonic',
-	}
 df = df.replace({'Task Category': task_categories})
 
 df.to_csv('../data/functional_significance.csv')
@@ -78,15 +86,6 @@ df = df.rename(
 df['Scan'] = df['Subject']+':'+df['Session']+':'+df['Contrast']
 
 df['Task Category'] = df['Task']
-task_categories = {
-	'CogBr':'Block',
-	'CogBm':'Block',
-	'CogMwf':'Block',
-	'CogB':'Block',
-	'JPogP':'Phasic',
-	'CogP':'Phasic',
-	'JPogT':'Tonic',
-	}
 df = df.replace({'Task Category': task_categories})
 
 df.to_csv('../data/functional_t.csv')
