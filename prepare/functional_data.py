@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import portage
 
@@ -54,6 +55,8 @@ df = df.replace({'Task Category': task_categories})
 
 df.to_csv('../data/functional_significance.csv')
 
+# VTA Significance
+
 df = pd.DataFrame([])
 in_df = bids_autofind_df('{}/l1/'.format(scratch_dir),
 	path_template='sub-{{subject}}/ses-{{session}}/'\
@@ -82,5 +85,22 @@ df['Scan'] = df['Subject']+':'+df['Session']+':'+df['Contrast']
 
 df['Task Category'] = df['Task']
 df = df.replace({'Task Category': task_categories})
+
+# Stimulation protocol parametrization
+
+df['Frequencies'] = ''
+df['Frequency'] = ''
+df['Durations'] = ''
+df['Duration'] = ''
+df['Pulse Width'] = ''
+df['Pulse Widths'] = ''
+for task in df['Task'].unique():
+	events = pd.read_csv('../data/{}.tsv'.format(task), sep='\t')
+	df.loc[df['Task']==task, 'Frequencies'] = ','.join([str(i) for i in events['frequency'].unique()])
+	df.loc[df['Task']==task, 'Frequency'] = np.mean(events['frequency'].unique())
+	df.loc[df['Task']==task, 'Durations'] = ','.join([str(i) for i in events['duration'].unique()])
+	df.loc[df['Task']==task, 'Duration'] = np.mean(events['duration'].unique())
+	df.loc[df['Task']==task, 'Pulse Widths'] = ','.join([str(i) for i in events['pulse_width'].unique()])
+	df.loc[df['Task']==task, 'Pulse Width'] = np.mean(events['pulse_width'].unique())
 
 df.to_csv('../data/functional_t.csv')
