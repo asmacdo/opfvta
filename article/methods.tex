@@ -1,5 +1,16 @@
 \section{The Optimized Workflow}
-We perform statistical modelling with the Statsmodels \cite{statsmodels} package, and incrementally hone in on variance sources, as the qualitative modelling of our variables precludes robust estimation of high-order interaction terms. 
+We perform statistical modelling with the Statsmodels \cite{statsmodels} package, and incrementally hone in on variance sources, as the qualitative modelling of our variables precludes robust estimation of high-order interaction terms.
+
+\py{
+        pytex_tab(inner_tabular=boilerplate.events_tab('data/CogB.tsv'),
+                label='stim',
+                caption='Stimulation protocol, as delivered during functional scans.',
+                options_pre='[htp] \\scriptsize \\centering \\resizebox{\\columnwidth}{!}{',
+                data='data/CogB.tsv',
+                options_post='}',
+                )
+        }
+
 
 \subsection{Reproducibility}
 

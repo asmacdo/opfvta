@@ -35,7 +35,9 @@ def pytex_printonly(script, data=''):
 
 	return s.getvalue()
 
-def pytex_tab(script,
+def pytex_tab(
+	inner_tabular='',
+	script='',
 	caption='',
 	label='',
 	options_post='',
@@ -43,10 +45,9 @@ def pytex_tab(script,
 	data='',
 	):
 	"""
-	Print a LaTeX formatted table (including outer table environment and additional options), based on a script which returns an inner tabular environment and table structure.
+	Print a LaTeX formatted table (including outer table environment and additional options), based on a script which returns an inner tabular environment, or based on an inner tabular environment string.
 	Such scripts are best created using Pandas' `pd.to_latex()` function.
 	"""
-	pytex.add_dependencies(script)
 	import sys
 	try:
 		from StringIO import StringIO
@@ -66,10 +67,13 @@ def pytex_tab(script,
 		yield stdout
 		sys.stdout = old
 
-	with stdoutIO() as s:
-		exec(open(script).read(), locals())
+	if script and not inner_tabular:
+		pytex.add_dependencies(script)
+		with stdoutIO() as s:
+			exec(open(script).read(), locals())
+		inner_tabular = s.getvalue()
 
-	tab = latex_table(s.getvalue(),
+	tab = latex_table(inner_tabular,
 		caption=caption,
 		label=label,
 		options_post=options_post,

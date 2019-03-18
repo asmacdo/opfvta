@@ -5,6 +5,20 @@ import statsmodels.formula.api as smf
 from os import path
 from lib.utils import float_to_tex, inline_anova, inline_factor
 
+def events_tab(events_path):
+	df = pd.read_csv(events_path,sep='\t')
+	df = df[['onset','duration','frequency','pulse_width']]
+	df = df.rename(columns={
+		'onset'         :   '\makecell[r]{Onset \\\\ {[}s{]}}',
+		'duration'      :   '\makecell[r]{Duration \\\\ {[}s{]}}',
+		'frequency'     :   '\makecell[r]{Frequency \\\\ {[}Hz{]}}',
+		'pulse_width'   :   '\makecell[r]{Pulse Width \\\\ {[}s{]}}',
+		'wavelength'    :   '\makecell[r]{Wavelength \\\\ {[}nm{]}}',
+		})
+	df = df.reset_index(drop=True)
+	df_tex = df.to_latex(index=False, escape=False)
+	return df_tex
+
 def anova(
 	data_path='data/functional_t.csv',
 	groups_path='data/groups.csv',
