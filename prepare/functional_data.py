@@ -17,7 +17,7 @@ task_categories = {
 	'CogB':'Block',
 	'JPogP':'Phasic',
 	'CogP':'Phasic',
-	'JPogT':'Tonic',
+	#'JPogT':'Tonic',
 	}
 
 # Total significance
