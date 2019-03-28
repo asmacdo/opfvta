@@ -13,6 +13,7 @@ groups = pd.read_csv(groups_path)
 
 df = pd.merge(df, groups, on='Subject', how='outer')
 
+df = df.loc[df['Task Category'] == 'Block']
 # do not take into account unimplanted animals
 df = df[pd.notnull(df['PA rel. Bregma [mm]'])]
 
