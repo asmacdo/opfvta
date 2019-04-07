@@ -6,10 +6,9 @@ import numpy as np
 df = pd.read_csv('../data/groups.csv')
 ids = sorted(df['subject'].tolist())
 
-data_dir = '~/ni_data/ofM.dr'
+data_dir = '~/ni_data/ofM.vta'
 bru2bids(data_dir,
 	inflated_size=False,
-	exclude={"task":["JPogT"]},
 	functional_match={
 		"subject":ids,
 		'acquisition':['EPI'],
@@ -18,6 +17,6 @@ bru2bids(data_dir,
 		"subject":ids,
 		'acquisition':['TurboRARE'],
 		},
-	out_base='~/.scratch/drlfom',
+	out_base='~/.scratch/opfvta',
 	keep_crashdump=True,
 	)
