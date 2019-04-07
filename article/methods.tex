@@ -1,4 +1,21 @@
-\section{The Optimized Workflow}
+\section{Methods}
+
+\subsection{MR Acquisition}
+
+Anatomical scans are acquired via a TurboRARE sequence, with a RARE factor of 8, an echo time (TE) of \SI{30}{\milli\second}, an inter-echo spacing of \SI{10}{\milli\second}, and a repetition time (TR) of \SI{2500}{\milli\second}, sampled at a sagittal and horizontal resolution of $\mathrm{\Delta x(\nu)=\Delta y(\phi)=\SI{75}{\micro\meter}}$, and a coronal resolution of $\mathrm{\Delta z(t)=\SI{450}{\micro\meter}}$.
+Functional scans are acquired with a flip angle of \SI{60}{\degree} and with $\mathrm{TR/TE = \SI{1000}{\milli\second}/\SI{15}{\milli\second}}$ and $\mathrm{TR/TE = \SI{1000}{\milli\second}/\SI{5.5}{\milli\second}}$, respectively.
+Functional scans are sampled at $\mathrm{\Delta x(\nu)=\Delta y(\phi)=\SI{225}{\micro\meter}}$, and $\mathrm{\Delta z(t)=\SI{450}{\micro\meter}}$ .
+All aforementioned scans are acquired with a Bruker PharmaScan system (\SI{7}{\tesla}, \SI{16}{\centi\meter} bore), and an in-house T/R coil.
+
+\subsection{Animal Preparation}
+
+The measured animals were fitted with an optic fiber implant ($\mathrm{l=\SI{4.7}{\milli\meter} \ d=\SI{400}{\micro\meter}}$) targeting the right Ventral Tegmental Area (VTA) of the midbrain.
+The nucleus was rendered sensitive to optical stimulation by transgenic expression of Cre recombinase under the Dopamine Transporter (DAT) promoter \cite{Scott2005} and viral injection of rAAVs delivering a plasmid with Cre-conditional expression of Channelrhodopsin and YFP ---
+pAAV-EF1a-double floxed-hChR2(H134R)-EYFP-WPRE-HGHpA, a gift from Karl Deisseroth (\href{https://www.addgene.org/20298/}{Addgene plasmid \#20298}).
+
+The right side of the VTA was stimulated via an Omicron LuxX 488-60 laser (\SI{488}{\nano\meter}) tuned to \SI{30}{\milli\watt} at contact with the fiber implant, according to a series of protocols listed in \cref{tab:stim}.
+
+\subsection{Statistics}
 We perform statistical modelling with the Statsmodels \cite{statsmodels} package, and incrementally hone in on variance sources, as the qualitative modelling of our variables precludes robust estimation of high-order interaction terms.
 
 \subsection{Reproducibility}
