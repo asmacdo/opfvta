@@ -16,12 +16,22 @@ coordinates = coordinates.loc[coordinates['Best Cluster']==True]
 pas = coordinates['PA rel. Bregma [mm]'].tolist()
 depths = coordinates['Depth rel. skull [mm]'].tolist()
 
-filtered_groups = groups.loc[
+filtered_group = groups.loc[
 	(groups['Depth rel. skull [mm]'].isin(depths)) &
-	(groups['PA rel. Bregma [mm]'].isin(pas))
+	(groups['PA rel. Bregma [mm]'].isin(pas)) &
+	(groups['Genotype_code']=='datg')
 	]
-filtered_animals = [str(i) for i in filtered_groups['Subject'].tolist()]
-other_animals = [str(i) for i in groups.loc[~groups['Subject'].isin(filtered_animals), 'Subject'].tolist()]
+other_group = groups.loc[
+	(~groups['Depth rel. skull [mm]'].isin(depths)) &
+	(~groups['PA rel. Bregma [mm]'].isin(pas)) &
+	(groups['Genotype_code']=='datg')
+	]
+control_group = groups.loc[
+	(groups['Genotype_code']=='dawt')
+	]
+filtered_animals = [str(i) for i in filtered_group['Subject'].tolist()]
+other_animals = [str(i) for i in other_group['Subject'].tolist()]
+control_animals = [str(i) for i in control_group['Subject'].tolist()]
 
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
@@ -39,7 +49,8 @@ glm.l2_common_effect(l1_base,
 	exclude={'task':['JPogP','CogP'],},
 	out_base=scratch_dir,
 	target_set=[
-		{'subject':filtered_animals},
-		{'subject':other_animals},
+		{'subject':filtered_animals, 'alias':'filtered'},
+		{'subject':other_animals, 'alias':'other'},
+		{'subject':control_animals, 'alias':'control'},
 		],
 	)
