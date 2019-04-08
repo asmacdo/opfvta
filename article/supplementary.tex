@@ -1,3 +1,7 @@
+\renewcommand{\thetable}{S\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
 \section{Supplementary Materials}
 \py{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogB.tsv'),
@@ -67,16 +71,16 @@
 \begin{sansmath}
 \py{pytex_subfigs(
         [
-                {'script':'scripts/map_implant_selection_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_filtered_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Best coordinate group with slices centered on VTA. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_implant_selection_auto_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_filtered_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Best coordinate group centered on langest cluster. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_implant_rest_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_other_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'Remaining coordinate group centered on VTA.'
                         },
-                {'script':'scripts/map_implant_rest_auto_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_other_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'Remaining coordinate group centered on largest cluster.'
                         },
                 ],
@@ -93,10 +97,10 @@
 \py{pytex_subfigs(
         [
                 {'script':'scripts/implant_depth.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Implant coordinate comparison for block stimulation scans only, sliced by depth.'
+                        'caption':'Implant coordinate comparison for block stimulation scans only, sliced by depth. \\vspace{1.2em}'
                         ,},
                 {'script':'scripts/implant_pa.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Implant coordinate comparison for block stimulation scans only, sliced by PA coordinates.'
+			'caption':'Implant coordinate comparison for block stimulation scans only, sliced by PA coordinates. \\vspace{1.2em}'
                         ,},
                 {'script':'scripts/implant_depth_block.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'Implant coordinate comparison for block stimulation scans only, sliced by depth.'
@@ -110,12 +114,42 @@
                 ',
         label='fig:var',
         )}
+\end{sansmath}
+
+Modelling interaction effects we observe the depth
+(\py{boilerplate.anova(expression='Q("Task Category")*C(Q("Depth rel. skull [mm]")) + Q("Task Category")*C(Q("PA rel. Bregma [mm]"))',factor='C(Q("Depth rel. skull [mm]"))')})
+or the PA coordinates
+(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("PA rel. Bregma [mm]"))')}).
+
+For block stimulation protocols we observe the depth
+(\py{boilerplate.anova_block(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("Depth rel. skull [mm]"))')})
+or the PA coordinates
+(\py{boilerplate.anova_block(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("PA rel. Bregma [mm]"))')}).
+
+\begin{sansmath}
 \py{pytex_subfigs(
         [
                 {'script':'scripts/f_vta_subjects_t.py', 'label':'subjects', 'conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'VTA signal intensity across subjects.'
                         ,},
                 {'script':'scripts/f_vta_tasks_t.py', 'label':'tasks','conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'VTA signal intensity across stimulation protocols.'
+                        ,},
+                ],
+        caption='
+                Multivariate (subject and stimulation protocol) comparisons of significance and signal intensity at the whole-brain level or restricted to the VTA region of interest.
+                ',
+        label='fig:var',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\py{pytex_subfigs(
+        [
+                {'script':'scripts/implant_coordinates_block.py', 'label':'subjects', 'conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
+			'caption':'VTA signal intensity across subjects.'
+                        ,},
+                {'script':'scripts/implant_coordinates_phasic.py', 'label':'tasks','conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'VTA signal intensity across stimulation protocols.'
                         ,},
                 ],
