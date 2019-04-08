@@ -24,5 +24,5 @@ python preprocess.py || exit 1
 python l1.py || exit 1
 python functional_data.py || exit 1
 python implant_coordinates.py || exit 1
-#python l2.py || exit 1
-#rsync -avP --exclude='*_cope.nii*' --exclude='*_zstat.nii*' ~/.scratch/opfvta/l2* ../data/
+python l2.py || exit 1
+rsync -avP --exclude='*_cope.nii*' --exclude='*_zstat.nii*' ~/.scratch/opfvta/l2* ../data/
