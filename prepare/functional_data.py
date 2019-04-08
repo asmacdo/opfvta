@@ -21,7 +21,6 @@ task_categories = {
 	}
 
 # Total significance
-
 df = pd.DataFrame([])
 in_df = bids_autofind_df('{}/l1/'.format(scratch_dir),
 	path_template='sub-{{subject}}/ses-{{session}}/'\
@@ -87,7 +86,6 @@ df['Task Category'] = df['Task']
 df = df.replace({'Task Category': task_categories})
 
 # Stimulation protocol parametrization
-
 df['Frequencies'] = ''
 df['Frequency'] = ''
 df['Durations'] = ''
@@ -102,5 +100,12 @@ for task in df['Task'].unique():
 	df.loc[df['Task']==task, 'Duration'] = np.mean(events['duration'].unique())
 	df.loc[df['Task']==task, 'Pulse Widths'] = ','.join([str(i) for i in events['pulse_width'].unique()])
 	df.loc[df['Task']==task, 'Pulse Width'] = np.mean(events['pulse_width'].unique())
+
+# Genotype filtering
+groups_path = '../data/groups.csv'
+groups = pd.read_csv(groups_path)
+subjects = groups.loc[groups['Genotype_code']=='datg','Subject'].tolist()
+subjects = [str(i) for i in subjects]
+df = df.loc[df['Subject'].isin(subjects)]
 
 df.to_csv('../data/functional_t.csv')
