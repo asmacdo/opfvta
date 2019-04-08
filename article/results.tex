@@ -9,10 +9,16 @@ bot not the PA coordinates
 
 (\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}),
 
-For block stimulation protocols we observe the depth
-(\py{boilerplate.anova_block(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("Depth rel. skull [mm]"))')})
-or the PA coordinates
-(\py{boilerplate.anova_block(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("PA rel. Bregma [mm]"))')}).
+We note that the VTA mean t statistic is sensitive to the stimulation protocol
+(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}),
+the depth
+(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]"))')}),
+bot not the PA coordinates
+(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("PA rel. Bregma [mm]"))')}),
+and the interaction thereof
+(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}),
+(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}),
+.
 
 \begin{sansmath}
 \py{pytex_subfigs(
@@ -34,16 +40,22 @@ or the PA coordinates
 \begin{sansmath}
 \py{pytex_subfigs(
         [
-                {'script':'scripts/map_implant_selection.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_filtered.py', 'label':'subjects', 'conf':'article/1col_map_2x3.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Best coordinate group with slices centered on VTA. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_implant_selection_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_filtered_auto.py', 'label':'subjects', 'conf':'article/1col_map_2x3.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Best coordinate group centered on langest cluster. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_implant_rest.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_other.py', 'label':'subjects', 'conf':'article/1col_map_2x3.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'Remaining coordinate group centered on VTA.'
                         },
-                {'script':'scripts/map_implant_rest_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_other_auto.py', 'label':'subjects', 'conf':'article/1col_map_2x3.conf', 'options_pre':'{.48\\textwidth}',
+			'caption':'Remaining coordinate group centered on largest cluster.'
+                        },
+                {'script':'scripts/map_control.py', 'label':'subjects', 'conf':'article/1col_map_2x3.conf', 'options_pre':'{.48\\textwidth}',
+			'caption':'Remaining coordinate group centered on VTA.'
+                        },
+                {'script':'scripts/map_control_auto.py', 'label':'subjects', 'conf':'article/1col_map_2x3.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'Remaining coordinate group centered on largest cluster.'
                         },
                 ],
