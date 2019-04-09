@@ -14,6 +14,7 @@ groups = pd.read_csv(groups_path)
 df = pd.merge(df, groups, on='Subject', how='outer')
 
 df = df.loc[df['Task Category'] == 'Block']
+df = df.loc[df['Genotype_code'] == 'datg']
 # do not take into account unimplanted animals
 df = df[pd.notnull(df['PA rel. Bregma [mm]'])]
 

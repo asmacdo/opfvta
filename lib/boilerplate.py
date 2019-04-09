@@ -25,6 +25,8 @@ def anova(
 	dependent_variable='Q("Mean VTA t")',
 	expression='Q("Depth rel. skull [mm]") + Q("PA rel. Bregma [mm]") + Q("Task Category")',
 	factor='Q("Task Category")',
+	genotype='datg',
+	task_category='',
 	typ=3,
 	**kwargs
 	):
@@ -32,6 +34,10 @@ def anova(
 	groups = pd.read_csv(path.abspath(groups_path))
 
 	df = pd.merge(data, groups, on='Subject', how='outer')
+	if genotype:
+		df = df.loc[df['Genotype_code'] == genotype]
+	if task_category:
+		df = df.loc[df['Task Category'] == task_category]
 	df = df.dropna(subset=['Depth rel. skull [mm]', 'PA rel. Bregma [mm]'])
 
 	formula = '{} ~ {}'.format(dependent_variable, expression)

@@ -101,11 +101,4 @@ for task in df['Task'].unique():
 	df.loc[df['Task']==task, 'Pulse Widths'] = ','.join([str(i) for i in events['pulse_width'].unique()])
 	df.loc[df['Task']==task, 'Pulse Width'] = np.mean(events['pulse_width'].unique())
 
-# Genotype filtering
-groups_path = '../data/groups.csv'
-groups = pd.read_csv(groups_path)
-subjects = groups.loc[groups['Genotype_code']=='datg','Subject'].tolist()
-subjects = [str(i) for i in subjects]
-df = df.loc[df['Subject'].isin(subjects)]
-
 df.to_csv('../data/functional_t.csv')
