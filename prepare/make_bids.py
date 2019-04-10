@@ -4,7 +4,7 @@ from samri.pipelines.reposit import bru2bids
 import numpy as np
 
 df = pd.read_csv('../data/groups.csv')
-ids = sorted(df['subject'].tolist())
+ids = sorted(df['Subject'].tolist())
 
 data_dir = '~/ni_data/ofM.vta'
 bru2bids(data_dir,
