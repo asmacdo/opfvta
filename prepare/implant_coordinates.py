@@ -7,6 +7,9 @@ from sklearn.cluster import KMeans
 def make_summary(df, task_category=''):
         if task_category:
                 df = df.loc[df['Task Category']==task_category]
+                task_category_string = '_{}'.format(task_category.lower())
+        else:
+                task_category_string = task_category
         coordinates = []
         for depth, pa in product(depths,pas):
                 my_slice = df.loc[
@@ -45,7 +48,8 @@ def make_summary(df, task_category=''):
         coordinates['Best Cluster'] = ''
         coordinates['Best Cluster'] = best
 
-        coordinates.to_csv('../data/implant_coordinates{}.csv'.format(task_category.lower()))
+        coordinates['VTA t'] = coordinates['VTA t'].round(3)
+        coordinates.to_csv('../data/implant_coordinates{}.csv'.format(task_category_string))
 
 data_path = path.abspath('../data/functional_t.csv')
 df = pd.read_csv(data_path)
@@ -55,6 +59,7 @@ groups = pd.read_csv(groups_path)
 #groups = groups.loc[groups['Genotype_code']=='datg']
 
 df = pd.merge(df, groups, on='Subject', how='outer')
+df = df.loc[df['Genotype_code']=='datg']
 
 # Dropna because we do not take into account unimplanted animals
 depths = df['Depth rel. skull [mm]'].dropna().unique()

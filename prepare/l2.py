@@ -12,18 +12,24 @@ groups = pd.read_csv(groups_path)
 
 coordinates_path = path.abspath('../data/implant_coordinates.csv')
 coordinates = pd.read_csv(coordinates_path)
-coordinates = coordinates.loc[coordinates['Best Cluster']==True]
-pas = coordinates['PA rel. Bregma [mm]'].tolist()
-depths = coordinates['Depth rel. skull [mm]'].tolist()
+best_coordinates = coordinates.loc[coordinates['Best Cluster']==True]
+best_coordinates['D/PA'] = list(zip(
+	best_coordinates['Depth rel. skull [mm]'],
+	best_coordinates['PA rel. Bregma [mm]']
+	))
+dpas = best_coordinates['D/PA'].tolist()
+
+groups['D/PA'] = list(zip(
+	groups['Depth rel. skull [mm]'],
+	groups['PA rel. Bregma [mm]']
+	))
 
 filtered_group = groups.loc[
-	(groups['Depth rel. skull [mm]'].isin(depths)) &
-	(groups['PA rel. Bregma [mm]'].isin(pas)) &
+	(groups['D/PA'].isin(dpas)) &
 	(groups['Genotype_code']=='datg')
 	]
 other_group = groups.loc[
-	(~groups['Depth rel. skull [mm]'].isin(depths)) &
-	(~groups['PA rel. Bregma [mm]'].isin(pas)) &
+	(~groups['D/PA'].isin(dpas)) &
 	(groups['Genotype_code']=='datg')
 	]
 control_group = groups.loc[
