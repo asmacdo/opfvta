@@ -72,20 +72,20 @@
 \py{pytex_subfigs(
         [
                 {'script':'scripts/map_filtered_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Best coordinate group with slices centered on VTA. \\vspace{1.2em}'
+                        'caption':'Block stimulation, slices centered on VTA. \\vspace{1.2em}'
                         },
                 {'script':'scripts/map_filtered_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Best coordinate group centered on langest cluster. \\vspace{1.2em}'
+                        'caption':'Block stimulation, slices centered on langest cluster. \\vspace{1.2em}'
                         },
                 {'script':'scripts/map_other_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Remaining coordinate group centered on VTA.'
+                        'caption':'Phasic stimulation, slices centered on VTA.'
                         },
                 {'script':'scripts/map_other_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Remaining coordinate group centered on largest cluster.'
+                        'caption':'Phasic stimulation, slices centered on langest cluster.'
                         },
                 ],
         caption='
-                \\textbf{Best coordinate group scans elicit activity in the Striatum and the Nucleus Accumbens, whereas remaining scans do not.}
+                \\textbf{No stimulation protocol category elicits coherent negative activation clusters.}
                 Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis for block stimulation protocols, comparing different subject groups segmented by implant coordinates --- best coordinate group ($\mathrm{PA \geq -3.3 ; IS \geq -4.4}$) and remaining scans.
                 Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
                 ',
@@ -147,14 +147,15 @@ or the PA coordinates
 \py{pytex_subfigs(
         [
                 {'script':'scripts/implant_coordinates_block.py', 'label':'subjects', 'conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'VTA signal intensity across subjects.'
+			'caption':'VTA activation intensity for block stimulation.'
                         ,},
                 {'script':'scripts/implant_coordinates_phasic.py', 'label':'tasks','conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'VTA signal intensity across stimulation protocols.'
+			'caption':'VTA activation intensity for phasic stimulation.'
                         ,},
                 ],
         caption='
-                Multivariate (subject and stimulation protocol) comparisons of significance and signal intensity at the whole-brain level or restricted to the VTA region of interest.
+                \\textbf{Highest-sensitivity implant coordinates show different distribution for block and phasic stimulation.}
+                Depicted are depth and posteroanterior coordinate-resolved distributions of implant targets and VTA activation intensities; dot diameters indicate sample size.
                 ',
         label='fig:var',
         )}
