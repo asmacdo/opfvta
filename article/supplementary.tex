@@ -71,22 +71,70 @@
 \begin{sansmath}
 \py{pytex_subfigs(
         [
-                {'script':'scripts/map_filtered_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_filtered_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation, slices centered on VTA. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_filtered_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_filtered_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation, slices centered on langest cluster. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_other_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_other_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Phasic stimulation, slices centered on VTA.'
                         },
-                {'script':'scripts/map_other_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_other_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Phasic stimulation, slices centered on langest cluster.'
                         },
                 ],
         caption='
                 \\textbf{No stimulation protocol category elicits coherent negative activation clusters.}
                 Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis for block stimulation protocols, comparing different subject groups segmented by implant coordinates --- best coordinate group ($\mathrm{PA \geq -3.3 ; IS \geq -4.4}$) and remaining scans.
+                Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
+                ',
+        label='fig:var',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\py{pytex_subfigs(
+        [
+                {'script':'scripts/map_phasic_filtered_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Best coordinate group, slices centered on VTA. \\vspace{1.2em}'
+                        },
+                {'script':'scripts/map_phasic_filtered_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Best coordinate group, slices centered on langest cluster. \\vspace{1.2em}'
+                        },
+                {'script':'scripts/map_phasic_other_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Remaining coordinate group, slices centered on VTA.'
+                        },
+                {'script':'scripts/map_phasic_other_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Remaining coordinate group, slices centered on langest cluster.'
+                        },
+                ],
+        caption='
+                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 1.5}$) of the second-level analysis for phasic stimulation protocols, comparing different subject groups segmented by implant coordinates --- best coordinate group ($\mathrm{PA \geq -3.3 ; IS \geq -4.4}$) and remaining scans.
+                Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
+                ',
+        label='fig:var',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\py{pytex_subfigs(
+        [
+                {'script':'scripts/map_phasic_filtered.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Best coordinate group, slices centered on VTA. \\vspace{1.2em}'
+                        },
+                {'script':'scripts/map_phasic_filtered_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Best coordinate group, slices centered on langest cluster. \\vspace{1.2em}'
+                        },
+                {'script':'scripts/map_phasic_other.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Remaining coordinate group, slices centered on VTA.'
+                        },
+                {'script':'scripts/map_phasic_other_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Remaining coordinate group, slices centered on langest cluster.'
+                        },
+                ],
+        caption='
+                Depicted are statistical maps (thresholded at $\mathrm{t geq 1.5}$) of the second-level analysis for phasic stimulation protocols, comparing different subject groups segmented by implant coordinates --- best coordinate group ($\mathrm{PA \geq -3.3 ; IS \geq -4.4}$) and remaining scans.
                 Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
                 ',
         label='fig:var',
