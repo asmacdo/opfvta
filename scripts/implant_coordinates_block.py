@@ -18,4 +18,12 @@ ax = sns.scatterplot(
 	sizes=(15, 150),
 	palette=cmap,
 	)
+best_coordinates = df.loc[df['Best Cluster']==True]
+lines_markersize = mpl.rcParams['lines.markersize']
+plt.scatter(
+	best_coordinates['PA rel. Bregma [mm]'].tolist(),
+	best_coordinates['Depth rel. skull [mm]'].tolist(),
+	c='w',
+	s=lines_markersize/8,
+	)
 plt.gca().invert_yaxis()
