@@ -48,7 +48,7 @@ def make_summary(df, task_category=''):
         coordinates['Best Cluster'] = ''
         coordinates['Best Cluster'] = best
 
-        coordinates['VTA t'] = coordinates['VTA t'].round(3)
+        coordinates['VTA t'] = coordinates['VTA t'].round(2)
         coordinates.to_csv('../data/implant_coordinates{}.csv'.format(task_category_string))
 
 data_path = path.abspath('../data/functional_t.csv')
