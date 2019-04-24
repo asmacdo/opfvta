@@ -8,7 +8,7 @@ bids_base = path.join(scratch_dir,'bids')
 
 # Preprocess all of the data:
 generic(bids_base,
-	#functional_blur_xy=0.4,
+	#functional_blur_xy=0.3,
 	template='mouse',
 	functional_match={'acquisition':['EPI'],},
 	structural_match={'acquisition':['TurboRARE'],},

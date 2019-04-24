@@ -208,3 +208,38 @@ glm.l2_common_effect(l1_base,
 		{'subject':other_animals, 'alias':'phasic_other'},
 		],
 	)
+
+# no classification
+
+animals = [str(i) for i in groups['Subject'].tolist()]
+glm.l2_common_effect(l1_base,
+	workflow_name='l2',
+	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	groupby='subject_set',
+	n_jobs_percentage=.33,
+	exclude={'task':[
+		'JPogP',
+		'CogP',
+		],},
+	out_base=scratch_dir,
+	target_set=[
+		{'subject':animals, 'alias':'block'},
+		],
+	)
+
+glm.l2_common_effect(l1_base,
+	workflow_name='l2',
+	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	groupby='subject_set',
+	n_jobs_percentage=.33,
+	exclude={'task':[
+		'CogBl',
+		'CogBr',
+		'CogMwf',
+		'CogBr',
+		],},
+	out_base=scratch_dir,
+	target_set=[
+		{'subject':animals, 'alias':'phasic'},
+		],
+	)
