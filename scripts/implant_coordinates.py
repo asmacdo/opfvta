@@ -23,7 +23,7 @@ plt.scatter(
 	best_coordinates['PA rel. Bregma [mm]'].tolist(),
 	best_coordinates['Depth rel. skull [mm]'].tolist(),
 	c='w',
-	s=lines_markersize/4.,
+	s=lines_markersize/8.,
 	)
 legend = plt.legend()
 plt.gca().invert_yaxis()
