@@ -61,6 +61,7 @@ glm.l2_common_effect(l1_base,
 		{'subject':other_animals, 'alias':'block_other'},
 		{'subject':control_animals, 'alias':'block_control'},
 		],
+	run_mode='fe',
 	)
 
 coordinates_path = path.abspath('../data/implant_coordinates_phasic.csv')
@@ -87,6 +88,24 @@ filtered_animals = [str(i) for i in filtered_group['Subject'].tolist()]
 other_animals = [str(i) for i in other_group['Subject'].tolist()]
 control_animals = [str(i) for i in control_group['Subject'].tolist()]
 
+# Mismatched classification
+glm.l2_common_effect(l1_base,
+	workflow_name='l2mismatched',
+	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	groupby='subject_set',
+	n_jobs_percentage=.33,
+	exclude={'task':[
+		'JPogP',
+		'CogP',
+		],},
+	out_base=scratch_dir,
+	target_set=[
+		{'subject':filtered_animals, 'alias':'block_filtered'},
+		{'subject':other_animals, 'alias':'block_other'},
+		],
+	run_mode='fe',
+	)
+
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
@@ -103,6 +122,7 @@ glm.l2_common_effect(l1_base,
 		{'subject':filtered_animals, 'alias':'phasic_filtered'},
 		{'subject':other_animals, 'alias':'phasic_other'},
 		],
+	run_mode='fe',
 	)
 
 # Stimulus-protocol agnostic classification
@@ -144,6 +164,7 @@ glm.l2_common_effect(l1_base,
 		{'subject':filtered_animals, 'alias':'block_filtered'},
 		{'subject':other_animals, 'alias':'block_other'},
 		],
+	run_mode='fe',
 	)
 
 glm.l2_common_effect(l1_base,
@@ -162,6 +183,7 @@ glm.l2_common_effect(l1_base,
 		{'subject':filtered_animals, 'alias':'phasic_filtered'},
 		{'subject':other_animals, 'alias':'phasic_other'},
 		],
+	run_mode='fe',
 	)
 
 # manual classification
@@ -189,6 +211,7 @@ glm.l2_common_effect(l1_base,
 		{'subject':filtered_animals, 'alias':'block_filtered'},
 		{'subject':other_animals, 'alias':'block_other'},
 		],
+	run_mode='fe',
 	)
 
 glm.l2_common_effect(l1_base,
@@ -207,6 +230,7 @@ glm.l2_common_effect(l1_base,
 		{'subject':filtered_animals, 'alias':'phasic_filtered'},
 		{'subject':other_animals, 'alias':'phasic_other'},
 		],
+	run_mode='fe',
 	)
 
 # no classification
@@ -225,6 +249,7 @@ glm.l2_common_effect(l1_base,
 	target_set=[
 		{'subject':animals, 'alias':'block'},
 		],
+	run_mode='fe',
 	)
 
 glm.l2_common_effect(l1_base,
@@ -242,4 +267,5 @@ glm.l2_common_effect(l1_base,
 	target_set=[
 		{'subject':animals, 'alias':'phasic'},
 		],
+	run_mode='fe',
 	)
