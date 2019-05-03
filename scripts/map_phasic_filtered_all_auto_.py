@@ -9,6 +9,6 @@ maps.stat3D(stat_map,
 	scale=0.3,
 	template=template,
 	show_plot=False,
-	threshold=2,
-	threshold_mesh=2,
+	threshold=3,
+	threshold_mesh=3,
 	)
