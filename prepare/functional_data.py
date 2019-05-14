@@ -33,7 +33,7 @@ df_ = df_significant_signal(in_df,
 	exclude_ones=True,
 	)
 df_ = df_significant_signal(df_,
-	mask_path='../data/vta.nii.gz',
+	mask_path='../data/vta_right.nii.gz',
 	column_string='VTA Significance',
 	exclude_ones=True,
 	)
@@ -64,7 +64,7 @@ in_df = bids_autofind_df('{}/l1/'.format(scratch_dir),
 		'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_(?P<modality>cbv|bold)_tstat\.nii.gz',
 	)
 df_ = df_roi_data(in_df,
-	mask_path='../data/vta.nii.gz',
+	mask_path='../data/vta_right.nii.gz',
 	column_string='VTA t',
 	)
 df = df.append(df_)
