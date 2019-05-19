@@ -61,7 +61,7 @@ df['Task Category'] = df['Task']
 df = df.replace({'Task Category': task_categories})
 
 df.to_csv('../data/functional_significance_all.csv')
-df = df.loc[df['Habituation']=='DGnohab']
+df = df.loc[df['Habituation']=='Cnohab']
 df.to_csv('../data/functional_significance.csv')
 
 # VTA Significance
@@ -121,5 +121,5 @@ for task in df['Task'].unique():
 	df.loc[df['Task']==task, 'Pulse Width'] = np.mean(events['pulse_width'].unique())
 
 df.to_csv('../data/functional_t_all.csv')
-df = df.loc[df['Habituation']=='DGnohab']
+df = df.loc[df['Habituation']=='Cnohab']
 df.to_csv('../data/functional_t.csv')
