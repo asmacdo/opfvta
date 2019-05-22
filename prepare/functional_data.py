@@ -20,32 +20,22 @@ task_categories = {
 	#'JPogT':'Tonic',
 	}
 
-# Total significance
-habituations = [
-        i[3:]
-        for i in os.listdir(scratch_dir)
-        if i.startswith('l1_') and not i.endswith('_work')
-        ]
-
-df = pd.DataFrame([])
-for h in habituations:
-	in_df = bids_autofind_df('{}/l1_{}/'.format(scratch_dir,h),
-		path_template='sub-{{subject}}/ses-{{session}}/'\
-			'sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_{{modality}}_pfstat.nii.gz',
-		match_regex='.+sub-(?P<sub>.+)/ses-(?P<ses>.+)/'\
-			'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_(?P<modality>cbv|bold)_pfstat\.nii\.gz',
-		)
-	df_ = df_significant_signal(in_df,
-		mask_path='{}/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
-		exclude_ones=True,
-		)
-	df_ = df_significant_signal(df_,
-		mask_path='../data/vta_right.nii.gz',
-		column_string='VTA Significance',
-		exclude_ones=True,
-		)
-	df_['habituation'] = h
-	df = df.append(df_)
+# VTA Significance
+in_df = bids_autofind_df('{}/l1/'.format(scratch_dir),
+	path_template='sub-{{subject}}/ses-{{session}}/'\
+		'sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_{{modality}}_pfstat.nii.gz',
+	match_regex='.+sub-(?P<sub>.+)/ses-(?P<ses>.+)/'\
+		'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_(?P<modality>cbv|bold)_pfstat\.nii\.gz',
+	)
+df_ = df_significant_signal(in_df,
+	mask_path='{}/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	exclude_ones=True,
+	)
+df = df_significant_signal(df_,
+	mask_path='../data/vta_right.nii.gz',
+	column_string='VTA Significance',
+	exclude_ones=True,
+	)
 
 # Ready Strings for Printing
 df['modality'] = df['modality'].str.upper()
@@ -60,33 +50,19 @@ df = df.rename(
 df['Task Category'] = df['Task']
 df = df.replace({'Task Category': task_categories})
 
-df.to_csv('../data/functional_significance_all.csv')
-df = df.loc[df['Habituation']=='Cnohab']
 df.to_csv('../data/functional_significance.csv')
 
-# VTA Significance
-
-# Total significance
-habituations = [
-        i[3:]
-        for i in os.listdir(scratch_dir)
-        if i.startswith('l1_') and not i.endswith('_work')
-        ]
-
-df = pd.DataFrame([])
-for h in habituations:
-	in_df = bids_autofind_df('{}/l1_{}/'.format(scratch_dir,h),
-		path_template='sub-{{subject}}/ses-{{session}}/'\
-			'sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_{{modality}}_tstat.nii.gz',
-		match_regex='.+sub-(?P<sub>.+)/ses-(?P<ses>.+)/'\
-			'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_(?P<modality>cbv|bold)_tstat\.nii.gz',
-		)
-	df_ = df_roi_data(in_df,
-		mask_path='../data/vta_right.nii.gz',
-		column_string='VTA t',
-		)
-	df_['habituation'] = h
-	df = df.append(df_)
+# VTA t
+in_df = bids_autofind_df('{}/l1/'.format(scratch_dir),
+	path_template='sub-{{subject}}/ses-{{session}}/'\
+		'sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_{{modality}}_tstat.nii.gz',
+	match_regex='.+sub-(?P<sub>.+)/ses-(?P<ses>.+)/'\
+		'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_(?P<modality>cbv|bold)_tstat\.nii.gz',
+	)
+df = df_roi_data(in_df,
+	mask_path='../data/vta_right.nii.gz',
+	column_string='VTA t',
+	)
 
 # Ready Strings for Printing
 df['modality'] = df['modality'].str.upper()
@@ -120,6 +96,4 @@ for task in df['Task'].unique():
 	df.loc[df['Task']==task, 'Pulse Widths'] = ','.join([str(i) for i in events['pulse_width'].unique()])
 	df.loc[df['Task']==task, 'Pulse Width'] = np.mean(events['pulse_width'].unique())
 
-df.to_csv('../data/functional_t_all.csv')
-df = df.loc[df['Habituation']=='Cnohab']
 df.to_csv('../data/functional_t.csv')

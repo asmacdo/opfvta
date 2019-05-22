@@ -5,7 +5,7 @@ import portage
 
 prefix = portage.root
 scratch_dir = '~/.scratch/opfvta'
-l1_base = '{}/l1_Cnohab/'.format(scratch_dir)
+l1_base = '{}/l1/'.format(scratch_dir)
 
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
