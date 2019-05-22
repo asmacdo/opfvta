@@ -1,6 +1,6 @@
-# Opto-fMRI of the Mouse Dorsal Raphe
+# Opto-fMRI of the Ventral Tegmental Area
 
-These are the content files used to generate scientific communication materials for the “Opto-fMRI of the Mouse Dorsal Raphe” project.
+These are the content files used to generate scientific communication materials for the “Opto-fMRI of Ventral Tegmental Area” project.
 
 ## Compilation Instructions
 
