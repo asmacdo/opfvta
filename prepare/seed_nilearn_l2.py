@@ -5,10 +5,10 @@ import portage
 
 prefix = portage.root
 scratch_dir = '~/.scratch/opfvta'
-l1_base = '{}/seed_vta_right/'.format(scratch_dir)
+l1_base = '{}/seed_nilearn_l1/'.format(scratch_dir)
 
 glm.l2_common_effect(l1_base,
-	workflow_name='seed_l2',
+	workflow_name='seed_nilearn_l2',
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='task',
 	n_jobs_percentage=.33,
@@ -47,7 +47,7 @@ other_animals = [str(i) for i in other_group['Subject'].tolist()]
 control_animals = [str(i) for i in control_group['Subject'].tolist()]
 
 glm.l2_common_effect(l1_base,
-	workflow_name='seed_l2',
+	workflow_name='seed_nilearn_l2',
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
@@ -90,7 +90,7 @@ control_animals = [str(i) for i in control_group['Subject'].tolist()]
 
 # Mismatched classification
 glm.l2_common_effect(l1_base,
-	workflow_name='seed_l2mismatched',
+	workflow_name='seed_nilearn_l2mismatched',
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
@@ -107,7 +107,7 @@ glm.l2_common_effect(l1_base,
 	)
 
 glm.l2_common_effect(l1_base,
-	workflow_name='seed_l2',
+	workflow_name='seed_nilearn_l2',
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
@@ -151,7 +151,7 @@ filtered_animals = [str(i) for i in filtered_group['Subject'].tolist()]
 other_animals = [str(i) for i in other_group['Subject'].tolist()]
 
 glm.l2_common_effect(l1_base,
-	workflow_name='seed_l2_',
+	workflow_name='seed_nilearn_l2_',
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
@@ -168,7 +168,7 @@ glm.l2_common_effect(l1_base,
 	)
 
 glm.l2_common_effect(l1_base,
-	workflow_name='seed_l2_',
+	workflow_name='seed_nilearn_l2_',
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
@@ -198,7 +198,7 @@ filtered_animals = [str(i) for i in filtered_group['Subject'].tolist()]
 other_animals = [str(i) for i in other_group['Subject'].tolist()]
 
 glm.l2_common_effect(l1_base,
-	workflow_name='seed_l2Manual',
+	workflow_name='seed_nilearn_l2Manual',
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
@@ -215,7 +215,7 @@ glm.l2_common_effect(l1_base,
 	)
 
 glm.l2_common_effect(l1_base,
-	workflow_name='seed_l2Manual',
+	workflow_name='seed_nilearn_l2Manual',
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
@@ -237,7 +237,7 @@ glm.l2_common_effect(l1_base,
 
 animals = [str(i) for i in groups['Subject'].tolist()]
 glm.l2_common_effect(l1_base,
-	workflow_name='seed_l2',
+	workflow_name='seed_nilearn_l2',
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
@@ -253,7 +253,7 @@ glm.l2_common_effect(l1_base,
 	)
 
 glm.l2_common_effect(l1_base,
-	workflow_name='seed_l2',
+	workflow_name='seed_nilearn_l2',
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
