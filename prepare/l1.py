@@ -1,20 +1,27 @@
 from os import path
 from samri.pipelines import glm
-from samri.pipelines.glm import seed
 
 scratch_dir = '~/.scratch/opfvta'
 
 preprocess_base = path.join(scratch_dir,'preprocess')
 
-seed(preprocess_base,'../data/vta_right.nii.gz',
+glm.seed(preprocess_base,'../data/vta_right.nii.gz',
 	mask='mouse',
 	n_jobs_percentage=.33,
 	exclude={
 		'task':['rest','JPogT'],
 		},
-	match={'type':['cbv']},
+	match={
+		'type':['cbv'],
+		#'subject':['6593'],
+		#'task':['CogBr'],
+		},
+	lowpass_sigma=2,
+	highpass_sigma=225,
 	out_base=scratch_dir,
 	workflow_name='seed_vta_right',
+	metric='median',
+	top_voxel='{}/l1/sub-{{subject}}/ses-{{session}}/sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_{{modality}}_tstat.nii.gz'.format(scratch_dir),
 	)
 
 glm.l1(preprocess_base,
