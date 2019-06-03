@@ -96,31 +96,6 @@
 \begin{sansmath}
 \py{pytex_subfigs(
         [
-                {'script':'scripts/map_phasic_filtered_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation of best implant category group, slices centered on VTA. \\vspace{1.2em}'
-                        },
-                {'script':'scripts/map_phasic_filtered_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation of best implant category group, slices centered on langest cluster. \\vspace{1.2em}'
-                        },
-                {'script':'scripts/map_phasic_other_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation of eliminated implant category group, slices centered on VTA.'
-                        },
-                {'script':'scripts/map_phasic_other_all_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation of eliminated implant category group, slices centered on langest cluster.'
-                        },
-                ],
-        caption='
-                \\textbf{No implant category group elicits coherent negative activation clusters upon phasic stimulation.}
-                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 2}$) of the second-level analysis for phasic stimulation protocols, divided by implant category group.
-                Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
-                ',
-        label='fig:var',
-        )}
-\end{sansmath}
-
-\begin{sansmath}
-\py{pytex_subfigs(
-        [
                 {'script':'scripts/implant_coordinates_block.py', 'label':'subjects', 'conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'VTA activation intensity for block stimulation.'
                         label='fig:impl_block',
@@ -177,8 +152,8 @@ or the PA coordinates
                 {'script':'scripts/f_vta_subjects_t.py', 'label':'subjects', 'conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'VTA signal intensity across subjects.'
                         ,},
-                {'script':'scripts/f_vta_tasks_t.py', 'label':'tasks','conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'VTA signal intensity across stimulation protocols.'
+                {'script':'scripts/distributions_block_filtered_seed.py', 'label':'tasks','conf':'article/distributions.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'ROI response distributions.'
                         ,},
                 ],
         caption='
@@ -218,31 +193,6 @@ or the PA coordinates
 \begin{sansmath}
 \py{pytex_subfigs(
         [
-                {'script':'scripts/map_phasic_filtered_all_.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation of best implant category group, slices centered on VTA. \\vspace{1.2em}'
-                        },
-                {'script':'scripts/map_phasic_filtered_all_auto_.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation of best implant category group, slices centered on langest cluster. \\vspace{1.2em}'
-                        },
-                {'script':'scripts/map_phasic_other_all_.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation of eliminated implant category group, slices centered on VTA.'
-                        },
-                {'script':'scripts/map_phasic_other_all_auto_.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation of eliminated implant category group, slices centered on langest cluster.'
-                        },
-                ],
-        caption='
-                \\textbf{No implant category group (determined for all stimulation protocols) elicits coherent negative activation clusters upon phasic stimulation.}
-                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 2}$) of the second-level analysis for phasic stimulation protocols, divided by implant category group.
-                Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
-                ',
-        label='fig:var',
-        )}
-\end{sansmath}
-
-\begin{sansmath}
-\py{pytex_subfigs(
-        [
                 {'script':'scripts/map_block_filtered_allManual.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of rostralmost implant category group, slices centered on VTA. \\vspace{1.2em}'
                         },
@@ -269,48 +219,24 @@ or the PA coordinates
 \py{pytex_subfigs(
         [
                 {'script':'scripts/map_block.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of all implant categories, slices centered on VTA. Thresholded at $\mathrm{\lvert t \\rvert \geq 3}$ \\vspace{1.2em}'
+                        'caption':'Block stimulation, slices centered on VTA. Thresholded at $\mathrm{\lvert t \\rvert \geq 3}$ \\vspace{1.2em}'
                         },
                 {'script':'scripts/map_block_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of all implant categoried, slices centered on langest cluster. Thresholded at $\mathrm{\lvert t \\rvert \geq 3}$ \\vspace{1.2em}'
+                        'caption':'Block stimulation, slices centered on langest cluster. Thresholded at $\mathrm{\lvert t \\rvert \geq 3}$ \\vspace{1.2em}'
                         },
                 {'script':'scripts/map_phasic.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation of all implant categories, slices centered on VTA. Thresholded at $\mathrm{\lvert t \\rvert \geq 2}$ \\vspace{1.2em}'
+                        'caption':'Phasic stimulation, slices centered on VTA. Thresholded at $\mathrm{\lvert t \\rvert \geq 2}$ \\vspace{1.2em}'
                         },
                 {'script':'scripts/map_phasic_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation of all implant categoried, slices centered on langest cluster. Thresholded at $\mathrm{\lvert t \\rvert \geq 2}$ \\vspace{1.2em}'
+                        'caption':'Phasic stimulation, slices centered on langest cluster. Thresholded at $\mathrm{\lvert t \\rvert \geq 2}$ \\vspace{1.2em}'
                         },
                 ],
         caption='
-                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis for block stimulation protocols, divided by stimulation categoy.
+                \textbf{No negative activation patterns are salient upon either block or phasic VTA stimulation.}
+                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis divided by stimulation category and binning all implant coordinates.
                 Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
                 ',
-        label='fig:var',
-        )}
-\end{sansmath}
-
-\begin{sansmath}
-\py{pytex_subfigs(
-        [
-                {'script':'scripts/map_block_filtered_allmismatched.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of best implant category group, slices centered on VTA. \\vspace{1.2em}'
-                        },
-                {'script':'scripts/map_block_filtered_all_automismatched.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of best implant category group, slices centered on langest cluster. \\vspace{1.2em}'
-                        },
-                {'script':'scripts/map_block_other_allmismatched.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of eliminated implant category group, slices centered on VTA.'
-                        },
-                {'script':'scripts/map_block_other_all_automismatched.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of eliminated implant category group, slices centered on langest cluster.'
-                        },
-                ],
-        caption='
-                \\textbf{No implant category group (determined for phasic stimulation category) elicits coherent negative activation clusters upon block stimulation.}
-                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
-                Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
-                ',
-        label='fig:var',
+        label='fig:all',
         )}
 \end{sansmath}
 
