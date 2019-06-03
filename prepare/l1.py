@@ -27,8 +27,6 @@ glm.seed(preprocess_base,'../data/vta_right.nii.gz',
 		},
 	match={
 		'type':['cbv'],
-		#'subject':['6593'],
-		#'task':['CogBr'],
 		},
 	lowpass_sigma=2,
 	highpass_sigma=225,
