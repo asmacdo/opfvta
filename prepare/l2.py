@@ -175,24 +175,6 @@ glm.l2_common_effect(seed_base,
 	run_mode='fe',
 	)
 
-## Mismatched classification: Block scans according to Phasic classification
-glm.l2_common_effect(l1_base,
-	workflow_name='l2mismatched',
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
-	groupby='subject_set',
-	n_jobs_percentage=.33,
-	exclude={'task':[
-		'JPogP',
-		'CogP',
-		],},
-	out_base=scratch_dir,
-	target_set=[
-		{'subject':filtered_animals, 'alias':'block_filtered'},
-		{'subject':other_animals, 'alias':'block_other'},
-		],
-	run_mode='fe',
-	)
-
 # Stimulus-protocol agnostic classification
 coordinates_path = path.abspath('../data/implant_coordinates.csv')
 coordinates = pd.read_csv(coordinates_path)
