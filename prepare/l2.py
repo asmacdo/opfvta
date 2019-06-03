@@ -313,25 +313,6 @@ glm.l2_common_effect(l1_base,
 	run_mode='fe',
 	)
 
-glm.l2_common_effect(l1_base,
-	workflow_name='l2Manual',
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
-	groupby='subject_set',
-	n_jobs_percentage=.33,
-	exclude={'task':[
-		'CogBl',
-		'CogBr',
-		'CogMwf',
-		'CogBr',
-		],},
-	out_base=scratch_dir,
-	target_set=[
-		{'subject':filtered_animals, 'alias':'phasic_filtered'},
-		{'subject':other_animals, 'alias':'phasic_other'},
-		],
-	run_mode='fe',
-	)
-
 # No classification
 animals = [str(i) for i in groups['Subject'].tolist()]
 glm.l2_common_effect(l1_base,
