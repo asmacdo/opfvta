@@ -16,6 +16,7 @@ df = pd.merge(df, groups, on='Subject', how='outer')
 df = df.loc[df['Genotype_code'] == 'datg']
 # do not take into account unimplanted animals
 df = df[pd.notnull(df['PA rel. Bregma [mm]'])]
+df = df[pd.notnull(df['Mean VTA t'])]
 
 ax = swarmplot(
 	x="PA rel. Bregma [mm]",

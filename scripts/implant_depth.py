@@ -16,6 +16,7 @@ df = df.loc[df['Genotype_code'] == 'datg']
 
 # do not take into account unimplanted animals
 df = df[pd.notnull(df['PA rel. Bregma [mm]'])]
+df = df[pd.notnull(df['Mean VTA t'])]
 
 ax = swarmplot(
 	x="Depth rel. skull [mm]",
