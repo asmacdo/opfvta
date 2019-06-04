@@ -30,24 +30,23 @@ This contrast is chosen to enable short echo-time imaging and minimize artefacts
 \subsection{Preprocessing}
 
 Data conversion from the proprietary ParaVision format was performed via the Bruker-to-BIDS repositing pipeline \cite{aowsis} of the SAMRI package (version \textcolor{mg}{\texttt{0.4}} \cite{samri}).
-Following conversion, data was dummy-scan corrected, registered, and subject to controlled smoothing in the coronal plane via the SAMRI registration workflow \cite{irsabi}.
+Following conversion, data was dummy-scan corrected, registered, and subject to controlled smoothing via the SAMRI registration workflow \cite{irsabi}.
 The first 10 volumes were discarded as part of dummy scan correction (automatically including volumes excluded by the scanner software).
 Registration was performed using a mouse-brain-optimized parameter set for ANTs (version \textcolor{mg}{\texttt{2.3.1}} \cite{ants}), and data was transformed to a stereotactically oriented standard space (version \textcolor{mg}{\texttt{0.5.3}} \cite{atlases_generator}) based on a high-resolution $\mathrm{T_2}$-weighted atlas \cite{dsu}.
 Controlled spatial smoothing was applied in the coronal plane up to \SI{250}{\micro\meter}.
 
 The registered time course data was frequency filtered depending on the analysis workflow.
-For stimulus-evoked activity, the data was low-pass filtered at a period threshold of \SI{225}{\second}, and for seed-based functional connectivity, the data was band-pass filtered within \SIrange{2}{225}{\second}.
+For stimulus-evoked activity, the data was low-pass filtered at a period threshold of \SI{225}{\second}, and for seed-based functional connectivity, the data was band-pass filtered within a period range of \SIrange{2}{225}{\second}.
 
 \subsection{Statistics}
 Volumetric data was modelled using functions from the FSL software package (version \textcolor{mg}{\texttt{5.0.11}}).
 First-level regression was applied to the temporally resolved volumetric data via FSL's \textcolor{mg}{\texttt{glm}} function, whereas the second-level analysis was applied to the first-level contrast and variance estimates via FSL's \textcolor{mg}{\texttt{flameo}}.
 
-Stimulus-evoked first-level regression was based on a convolution of the stimulus sequence with an opto-fMRI impulse response function, estimated via a beta fit of the responses reported in \cref{Grandjean2019}.
+Stimulus-evoked first-level regression was based on a convolution of the stimulus sequence with an opto-fMRI impulse response function, estimated by a beta fit of the responses reported in \cite{Grandjean2019}.
 Seed-based functional connectivity analysis was based regression using the time course of the voxel most sensitive to the stimulus-evoked activity (per scan) in the VTA region of interest.
 
-Higher-level statistical modelling is performed with the Statsmodels (version \textcolor{mg}{\texttt{0.9.9}} \cite{statsmodels}) package. 
-%and incrementally hone in on variance sources, as the qualitative modelling of our variables precludes robust estimation of high-order interaction terms.
-
+Higher-level statistical modelling was performed with the Statsmodels (version \textcolor{mg}{\texttt{0.9.9}} \cite{statsmodels}) package.
+Model parameters were estimated using the ordinary least squares method, and a type 3 analysis of variance (ANOVA) was employed to control estimate variability for unbalanced categories.
 
 \subsection{Reproducibility}
 
