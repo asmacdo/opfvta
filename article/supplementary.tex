@@ -71,31 +71,6 @@
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block_filtered_all.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of best implant category group, slices centered on VTA. \\vspace{1.2em}'
-                        },
-                {'script':'scripts/map_block_filtered_all_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of best implant category group, slices centered on langest cluster. \\vspace{1.2em}'
-                        },
-                {'script':'scripts/map_block_other_all.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of eliminated implant category group, slices centered on VTA.'
-                        },
-                {'script':'scripts/map_block_other_all_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of eliminated implant category group, slices centered on langest cluster.'
-                        },
-                ],
-        caption='
-                \\textbf{No implant category group elicits coherent negative activation clusters upon block stimulation.}
-                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
-                Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
-                ',
-        label='fig:var',
-        )}
-\end{sansmath}
-
-\begin{sansmath}
-\sessionpy{pytex_subfigs(
-        [
                 {'script':'scripts/implant_coordinates_block.py', 'label':'subjects', 'conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'VTA activation intensity for block stimulation.',
                         'label':'fig:impl_block',
@@ -284,5 +259,24 @@ or the PA coordinates
                 Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
                 ',
         label='fig:var',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\sessionpy{pytex_subfigs(
+        [
+                {'script':'scripts/map_block_filtered_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Block stimulation of best implant category group',
+                        },
+                {'script':'scripts/map_block_other_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Block stimulation of eliminated implant category group.',
+                        },
+                ],
+        caption='
+                \\textbf{The uncorrected population-level response to block stimulation does not significantly differ from the negative-control corrected results in \cref{fig:sumb,fig:sumba}.}
+                Depicted are t-statistic maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
+                Slices are centered on the largest cluster.
+                ',
+        label='fig:ucontrolled',
         )}
 \end{sansmath}
