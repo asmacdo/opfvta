@@ -1,32 +1,35 @@
 \section{Results}
 
 We note that the VTA mean t statistic is sensitive to the stimulation protocol
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Task',factor='Task')}),
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Task',factor='Task')}),
 the depth
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Task',factor='C(Q("Depth rel. skull [mm]"))')})
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Task',factor='C(Q("Depth rel. skull [mm]"))')})
 bot not the PA coordinates
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Task',factor='C(Q("PA rel. Bregma [mm]"))')}).
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Task',factor='C(Q("PA rel. Bregma [mm]"))')}).
 
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}),
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}),
 
 We note that the VTA mean t statistic is sensitive to the stimulation protocol
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}),
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}),
 the depth
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]"))')}),
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]"))')}),
 bot not the PA coordinates
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("PA rel. Bregma [mm]"))')}),
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("PA rel. Bregma [mm]"))')}),
 and the interaction thereof
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}),
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}),
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}),
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}),
 .
 
 \begin{sansmath}
-\py{pytex_subfigs(
+\sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/taskgroup.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/taskgroup.py', 'label':'subjects', 'conf':'article/3xq.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Task group comparison for animals targeted at all explored combinations of implant coordinates. \\vspace{1em}'
                         },
-                {'script':'scripts/implant_coordinates.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/implant_coordinates.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.48\\textwidth}',
+			'caption':'Implant coordinate comparison for all stimulation protocols resolved along the dimensions of the sagittal plane. \\vspace{1em}'
+                        },
+                {'script':'scripts/implant_coordinates.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'Implant coordinate comparison for all stimulation protocols resolved along the dimensions of the sagittal plane. \\vspace{1em}'
                         },
                 ],
