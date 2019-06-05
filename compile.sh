@@ -22,4 +22,5 @@ else
 	pdflatex -shell-escape ${TARGET}.tex &&\
 	pdflatex -shell-escape ${TARGET}.tex
 	pdflatex -shell-escape ${TARGET}.tex
+	pdflatex -shell-escape ${TARGET}.tex
 fi
