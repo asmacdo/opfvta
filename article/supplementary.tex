@@ -3,7 +3,7 @@
 \renewcommand{\thefigure}{S\arabic{figure}}
 
 \section{Supplementary Materials}
-\py{
+\sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogB.tsv'),
                 label='CogB',
                 caption='“CogB” stimulation protocol.',
@@ -12,7 +12,7 @@
                 options_post='}',
                 )
         }
-\py{
+\sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogBr.tsv'),
                 label='CogBr',
                 caption='“CogBr” stimulation protocol.',
@@ -21,7 +21,7 @@
                 options_post='}',
                 )
         }
-\py{
+\sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogBl.tsv'),
                 label='CogBl',
                 caption='“CogBl” stimulation protocol.',
@@ -30,7 +30,7 @@
                 options_post='}',
                 )
         }
-\py{
+\sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogBm.tsv'),
                 label='CogBm',
                 caption='“CogBm” stimulation protocol.',
@@ -39,7 +39,7 @@
                 options_post='}',
                 )
         }
-\py{
+\sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogMwf.tsv'),
                 label='CogMwf',
                 caption='“CogMwf” stimulation protocol.',
@@ -48,7 +48,7 @@
                 options_post='}',
                 )
         }
-\py{
+\sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogP.tsv'),
                 label='CogP',
                 caption='“CogP” stimulation protocol.',
@@ -57,7 +57,7 @@
                 options_post='}',
                 )
         }
-\py{
+\sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/JPogP.tsv'),
                 label='JPogP',
                 caption='“JPogP” stimulation protocol.',
@@ -69,7 +69,7 @@
 
 
 \begin{sansmath}
-\py{pytex_subfigs(
+\sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/map_block_filtered_all.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of best implant category group, slices centered on VTA. \\vspace{1.2em}'
@@ -94,7 +94,7 @@
 \end{sansmath}
 
 \begin{sansmath}
-\py{pytex_subfigs(
+\sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/implant_coordinates_block.py', 'label':'subjects', 'conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
 			'caption':'VTA activation intensity for block stimulation.'
@@ -111,21 +111,17 @@
         )}
 \end{sansmath}
 
+
+
 \begin{sansmath}
-\py{pytex_subfigs(
+\py[var]{pytex_subfigs(
         [
-                {'script':'scripts/implant_depth.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation scans only, sliced by depth. \\vspace{1.2em}'
-                        ,},
-                {'script':'scripts/implant_pa.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Block stimulation scans only, sliced by PA coordinates. \\vspace{1.2em}'
-                        ,},
-                {'script':'scripts/implant_depth_block.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'All stimulation category scans, sliced by depth.'
-                        ,},
-                {'script':'scripts/implant_pa_block.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'All stimulation category scans, sliced by PA coordinates.'
-                        ,},
+                {'script':'scripts/f_vta_subjects_t.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.35\\textwidth}',
+                        },
+                {'script':'scripts/implant_depth.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.32\\textwidth}',
+                        },
+                {'script':'scripts/implant_pa.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.32\\textwidth}',
+                        },
                 ],
         caption='
                 Multivariate (depth and posteroantior) implant coordinate comparisons of signal intensity in the VTA region of interest.
@@ -135,78 +131,85 @@
 \end{sansmath}
 
 Modelling interaction effects we observe the depth
-(\py{boilerplate.anova(expression='Q("Task Category")*C(Q("Depth rel. skull [mm]")) + Q("Task Category")*C(Q("PA rel. Bregma [mm]"))',factor='C(Q("Depth rel. skull [mm]"))')})
+(\sessionpy{boilerplate.anova(expression='Q("Task Category")*C(Q("Depth rel. skull [mm]")) + Q("Task Category")*C(Q("PA rel. Bregma [mm]"))',factor='C(Q("Depth rel. skull [mm]"))')})
 or the PA coordinates
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("PA rel. Bregma [mm]"))')}).
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("PA rel. Bregma [mm]"))')}).
 
 For block stimulation protocols we observe the depth
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("Depth rel. skull [mm]"))', task_category='Block')})
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("Depth rel. skull [mm]"))', task_category='Block')})
 or the PA coordinates
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("PA rel. Bregma [mm]"))', task_category='Block')}).
+(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("PA rel. Bregma [mm]"))', task_category='Block')}).
 
 \begin{sansmath}
-\py{pytex_subfigs(
+\sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/f_vta_subjects_t.py', 'label':'subjects', 'conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'VTA signal intensity across subjects.'
-                        ,},
-                {'script':'scripts/distributions_block_filtered_seed.py', 'label':'tasks','conf':'article/distributions.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'ROI response distributions.'
-                        ,},
+                {'script':'scripts/map_block_filtered_seed.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on VTA. \\vspace{-.2em}',
+                        'label':'seed_map',
+                        },
+                {'script':'scripts/map_block_filtered_seed_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on langest cluster. \\vspace{-.2em}',
+                        'label':'seed_map_auto',
+                        },
+                {'script':'scripts/distributions_block_filtered_seed.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
+                        'caption':'Distribution densities in the 10 regions with the highest functional connectivity to the VTA seed.',
+                        'label':'seed_dist',
+                        },
                 ],
         caption='
-                Multivariate (subject and stimulation protocol) comparisons of significance and signal intensity at the whole-brain level or restricted to the VTA region of interest.
+                \\textbf{Seed-based functional connectivity of VTA dopaminetgic projections shows laterality and a primary projection weighting towards the Nucleus Accumbens.}
+                Depicted are volumetric population t-statistic maps --- \subref{fig:seed_map} and \subref{fig:seed_map_auto} --- thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \subref{fig:seed_dist}.
                 ',
-        label='fig:var',
+        label='fig:seed',
+        options_pre='\\centering',
         )}
 \end{sansmath}
 
 \section{Other Filtering Methods}
 
 \begin{sansmath}
-\py{pytex_subfigs(
+\sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block_filtered_all_.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of best implant category group, slices centered on VTA. \\vspace{1.2em}'
+                {'script':'scripts/map_block_filtered_auto_.py', 'label':'subjects', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
+                        'caption':'Block stimulation of best implant category group.',
+                        'label':'bs_f',
                         },
-                {'script':'scripts/map_block_filtered_all_auto_.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of best implant category group, slices centered on langest cluster. \\vspace{1.2em}'
+                {'script':'scripts/map_block_other_auto_.py', 'label':'subjects', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
+                        'caption':'Block stimulation of eliminated implant category group.',
+                        'label':'bs_o',
                         },
-                {'script':'scripts/map_block_other_all_.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of eliminated implant category group, slices centered on VTA.'
-                        },
-                {'script':'scripts/map_block_other_all_auto_.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of eliminated implant category group, slices centered on langest cluster.'
+                {'script':'scripts/implant_coordinates.py', 'label':'subjects', 'conf':'article/3x1_withmap.conf', 'options_pre':'{.32\\textwidth}',
+                        'caption':'Implant group segmentation (dotted markers indicate best category).',
+                        'label':'bs_c',
                         },
                 ],
         caption='
-                \\textbf{No implant category group (determined for all stimulation protocols) elicits coherent negative activation clusters upon block stimulation.}
-                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
-                Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
+                \\textbf{Implant category grouping of block stimulation trials (determined for all stimulation protocols) does not show better projection segmentation than block stimulation implant category grouping.}
+                Depicted are t-statistic maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group with slices are centered on the largest cluster --- \subref{fig:bs_f} and \subref{fig:bs_o}.
                 ',
-        label='fig:var',
+        label='fig:bs_',
         )}
 \end{sansmath}
 
 \begin{sansmath}
-\py{pytex_subfigs(
+\sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block_filtered_allManual.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_filteredManual.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of rostralmost implant category group, slices centered on VTA. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_block_filtered_all_autoManual.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_filtered_autoManual.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of rostralmost implant category group, slices centered on langest cluster. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_block_other_allManual.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_otherManual.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of caudalmost implant category group, slices centered on VTA.'
                         },
-                {'script':'scripts/map_block_other_all_autoManual.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_other_autoManual.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of caudalmost implant category group, slices centered on langest cluster.'
                         },
                 ],
         caption='
-                \\textbf{No implant category group (detetermined by PA coordinate category separation at -3.25) elicits coherent negative activation clusters upon block stimulation.}
-                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
+                \\textbf{Implant category grouping of block stimulation trials (determined by PA coordinate separation at -3.25) does not show better projection segmentation than block stimulation implant category grouping.}
+                Depicted are statistical maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
                 Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
                 ',
         label='fig:var',
@@ -214,24 +217,24 @@ or the PA coordinates
 \end{sansmath}
 
 \begin{sansmath}
-\py{pytex_subfigs(
+\sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/map_block.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation, slices centered on VTA. Thresholded at $\mathrm{\lvert t \\rvert \geq 3}$ \\vspace{1.2em}'
+                        'caption':'Block stimulation, slices centered on VTA. Thresholded at \\vspace{1.2em}'
                         },
                 {'script':'scripts/map_block_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation, slices centered on langest cluster. Thresholded at $\mathrm{\lvert t \\rvert \geq 3}$ \\vspace{1.2em}'
+                        'caption':'Block stimulation, slices centered on langest cluster. \\vspace{1.2em}'
                         },
                 {'script':'scripts/map_phasic.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation, slices centered on VTA. Thresholded at $\mathrm{\lvert t \\rvert \geq 2}$ \\vspace{1.2em}'
+                        'caption':'Phasic stimulation, slices centered on VTA.'
                         },
                 {'script':'scripts/map_phasic_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation, slices centered on langest cluster. Thresholded at $\mathrm{\lvert t \\rvert \geq 2}$ \\vspace{1.2em}'
+                        'caption':'Phasic stimulation, slices centered on langest cluster.'
                         },
                 ],
         caption='
-                \textbf{No negative activation patterns are salient upon either block or phasic VTA stimulation.}
-                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis divided by stimulation category and binning all implant coordinates.
+                \\textbf{No negative activation patterns are salient upon either block or phasic VTA stimulation.}
+                Depicted are t-statistic maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis divided by stimulation category and binning all implant coordinates.
                 Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
                 ',
         label='fig:all',
@@ -239,31 +242,27 @@ or the PA coordinates
 \end{sansmath}
 
 \begin{sansmath}
-\py{pytex_subfigs(
+\sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block_filtered_seed.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on VTA. \\vspace{1.2em}'
-                        },
-                {'script':'scripts/map_block_filtered_seed_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on langest cluster. \\vspace{1.2em}'
-                        },
                 {'script':'scripts/map_block_filtered_seed_controlled.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Contrast with control group, slices centered on VTA.'
+                        'caption':'Slices centered on VTA.'
                         },
                 {'script':'scripts/map_block_filtered_seed_controlled_auto.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Constrast with control group, slices centered on langest cluster.'
+                        'caption':'Slices centered on langest cluster.'
                         },
                 ],
         caption='
-                Depicted are statistical maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of the second-level analysis for VTA seed functional connectivity during best-implant block stimulation protocols.
+                Depicted are t-statistic maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation task VTA seed functional connectivity, observed in best-implant transgenic animals, as opposed to negative control animals.
                 Slices are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and on the largest cluster, respectively.
+                This comparison is only provided for the sake of completeness and analogy with the stimulus-evoked analysis.
+                Conceptually this comparison is not of primary interest, since seed-based functional connectivity attempts to include precisely the baseline functioning of the system into the evaluation.
                 ',
-        label='fig:var',
+        label='fig:scc',
         )}
 \end{sansmath}
 
 \begin{sansmath}
-\py{pytex_subfigs(
+\sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/map_block_filtered_controlled.py', 'label':'subjects', 'conf':'article/1col_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Slices centered on VTA. \\vspace{1.2em}'
