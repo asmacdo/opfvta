@@ -11,9 +11,10 @@ df['Structure'] = df['Structure'].str.title()
 roi_distributions(df,
         max_rois=10,
         exclude_tissue_type=['CSF'],
-        #xlim=[-19,10],
+        #xlim=[-3,6],
         start=0.3,
         cmap='autumn_r',
         value_label='t Values',
         bw=.1,
+        hspace=-0.5,
         )
