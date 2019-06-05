@@ -97,17 +97,19 @@
 \sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/implant_coordinates_block.py', 'label':'subjects', 'conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'VTA activation intensity for block stimulation.'
-                        ,},
+			'caption':'VTA activation intensity for block stimulation.',
+                        'label':'fig:impl_block',
+                        },
                 {'script':'scripts/implant_coordinates_phasic.py', 'label':'tasks','conf':'article/1col_2x3.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'VTA activation intensity for phasic stimulation.'
-                        ,},
+			'caption':'VTA activation intensity for phasic stimulation.',
+                        'label':'fig:impl_phasic',
+                        },
                 ],
         caption='
                 \\textbf{Highest-sensitivity implant coordinates show different distribution for block and phasic stimulation.}
                 Depicted are depth and posteroanterior coordinate-resolved distributions of implant targets and VTA activation intensities; dot diameters indicate sample size.
                 ',
-        label='fig:var',
+        label='fig:impl',
         )}
 \end{sansmath}
 
@@ -116,11 +118,25 @@
 \begin{sansmath}
 \py[var]{pytex_subfigs(
         [
+<<<<<<< HEAD
                 {'script':'scripts/f_vta_subjects_t.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.35\\textwidth}',
                         },
                 {'script':'scripts/implant_depth.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.32\\textwidth}',
                         },
                 {'script':'scripts/implant_pa.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.32\\textwidth}',
+=======
+                {'script':'scripts/implant_depth.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Block stimulation scans only, sliced by depth. \\vspace{1.2em}',
+                        },
+                {'script':'scripts/implant_pa.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
+			'caption':'Block stimulation scans only, sliced by PA coordinates. \\vspace{1.2em}',
+                        },
+                {'script':'scripts/implant_depth_block.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
+			'caption':'All stimulation category scans, sliced by depth.',
+                        },
+                {'script':'scripts/implant_pa_block.py', 'label':'subjects', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
+			'caption':'All stimulation category scans, sliced by PA coordinates.',
+>>>>>>> 98f36b1911cc85b90ea14d52956d463b5e1e534b
                         },
                 ],
         caption='

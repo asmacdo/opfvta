@@ -1,5 +1,6 @@
 \section{Results}
 
+<<<<<<< HEAD
 We note that the VTA mean t statistic is sensitive to the stimulation protocol
 (\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Task',factor='Task')}),
 the depth
@@ -8,6 +9,21 @@ bot not the PA coordinates
 (\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Task',factor='C(Q("PA rel. Bregma [mm]"))')}).
 
 (\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}),
+=======
+We note that the VTA mean t statistic is sensitive to the stimulation protocol category
+(block and phasic stimulation \py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category") + Task',factor='Q("Task Category")')})
+more so than to the individual stimulation protocol
+(block and phasic stimulation \py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category") + Task',factor='Task')})
+i.
+
+
+the depth
+(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))+C(Q("PA rel. Bregma [mm]")) + Task',factor='C(Q("Depth rel. skull [mm]"))')})
+bot not the PA coordinates
+(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))+C(Q("PA rel. Bregma [mm]")) + Task',factor='C(Q("PA rel. Bregma [mm]"))')}).
+
+(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))+C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}),
+>>>>>>> 98f36b1911cc85b90ea14d52956d463b5e1e534b
 
 We note that the VTA mean t statistic is sensitive to the stimulation protocol
 (\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}),
