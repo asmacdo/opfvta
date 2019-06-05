@@ -85,11 +85,15 @@ def pytex_subfigs(scripts,
 	caption='',
 	label='',
 	placement='[h]',
+	options_pre='',
+	options_post='',
 	):
 	"""
 	Executes a series of Python scripts, grabbing the figures individually, and placing them as subfigures in a figure environment
 	"""
 	subfigs = '\\begin{{figure*}}{}\n'.format(placement)
+	if options_pre:
+		subfigs += '{}\n'.format(options_pre)
 	for script in scripts:
 		try:
 			script_conf = script['conf']
@@ -111,6 +115,10 @@ def pytex_subfigs(scripts,
 			script_options_pre = script['options_pre']
 		except KeyError:
 			script_options_pre=''
+		try:
+			script_options_pre_caption = script['options_pre_caption']
+		except KeyError:
+			script_options_pre_caption = ''
 		subfig = pytex_fig(script['script'],
 			conf=script_conf,
 			caption=script_caption,
@@ -118,11 +126,16 @@ def pytex_subfigs(scripts,
 			environment='subfigure',
 			options_post=script_options_post,
 			options_pre=script_options_pre,
+			options_pre_caption=script_options_pre_caption,
 			)
 		subfigs += subfig
 		subfigs += '\\hfill\n'
-	subfigs += '\\caption{{{}}}\n'.format(caption)
-	subfigs += '\\label{{{}}}\n'.format(label)
+	if caption:
+		subfigs += '\\caption{{{}}}\n'.format(caption)
+	if label:
+		subfigs += '\\label{{{}}}\n'.format(label)
+	if options_post:
+		subfigs += '{}\n'.format(options_post)
 	subfigs += '\\end{figure*}'
 	return subfigs
 
@@ -133,7 +146,8 @@ def pytex_fig(script,
 	multicol=False,
 	environment='figure',
 	options_post='',
-	options_pre='[htp]'
+	options_pre='[htp]',
+	options_pre_caption='',
 	):
 	'''
 	Executes a Python script while applying the custom style.
@@ -169,6 +183,7 @@ def pytex_fig(script,
 		label=label,
 		options_post=options_post,
 		options_pre=options_pre,
+		options_pre_caption=options_pre_caption,
 		)
 	return fig
 
@@ -242,6 +257,7 @@ def latex_figure(name, environment,
 	label='',
 	width=1,
 	options_post='',
+	options_pre_caption='',
 	options_pre='[htp]',
 	):
 	"""
@@ -253,6 +269,8 @@ def latex_figure(name, environment,
 	content = '\\centering\n'
 	content += '\\makeatletter\\let\\input@path\\Ginput@path\\makeatother\n'
 	content += '\\input{%s.pgf}\n' % name
+	if options_pre_caption:
+		content += '{}\n'.format(options_pre_caption)
 	if not label:
 		label = name
 	if caption:
