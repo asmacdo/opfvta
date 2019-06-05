@@ -6,6 +6,7 @@ import seaborn as sns
 
 data_path = path.abspath('data/implant_coordinates.csv')
 df = pd.read_csv(data_path)
+lines_markersize = mpl.rcParams['lines.markersize']
 
 cmap = sns.cubehelix_palette(dark=.3, light=.8, as_cmap=True)
 ax = sns.scatterplot(
@@ -16,16 +17,16 @@ ax = sns.scatterplot(
 	data=df,
 	sizes=(15, 150),
 	palette=cmap,
+	sizes=(2,4),
 	)
 best_coordinates = df.loc[df['Best Cluster']==True]
-lines_markersize = mpl.rcParams['lines.markersize']
 plt.scatter(
 	best_coordinates['PA rel. Bregma [mm]'].tolist(),
 	best_coordinates['Depth rel. skull [mm]'].tolist(),
 	c='w',
 	s=lines_markersize/8.,
 	)
-legend = plt.legend()
+# Hack to circumvent strange decimal numbering
 handles, labels = ax.get_legend_handles_labels()
 newlabels = []
 for i in labels:
