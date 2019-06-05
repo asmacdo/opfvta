@@ -21,4 +21,5 @@ else
 	bibtex ${TARGET} &&\
 	pdflatex -shell-escape ${TARGET}.tex &&\
 	pdflatex -shell-escape ${TARGET}.tex
+	pdflatex -shell-escape ${TARGET}.tex
 fi
