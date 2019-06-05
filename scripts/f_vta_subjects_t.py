@@ -20,5 +20,7 @@ ax = swarmplot(
 	y='Mean VTA t',
 	data=df,
 	hue="Task",
+	size=mpl.rcParams['lines.markersize'],
 	)
+ax.tick_params(axis='x', which='major', labelsize=mpl.rcParams['font.size']-3)
 plt.xticks(rotation=90)

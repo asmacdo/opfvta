@@ -22,5 +22,8 @@ ax = swarmplot(
 	x="Depth rel. skull [mm]",
 	hue="PA rel. Bregma [mm]",
 	y='Mean VTA t',
+	size=mpl.rcParams['lines.markersize'],
 	data=df,
 	)
+from matplotlib.ticker import NullFormatter
+ax.get_xaxis().set_major_formatter(NullFormatter())

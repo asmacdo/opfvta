@@ -23,4 +23,6 @@ ax = swarmplot(
 	hue="Depth rel. skull [mm]",
 	y='Mean VTA t',
 	data=df,
+	size=mpl.rcParams['lines.markersize'],
 	)
+ax.get_yaxis().set_visible(False)
