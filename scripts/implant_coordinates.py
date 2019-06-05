@@ -26,4 +26,16 @@ plt.scatter(
 	s=lines_markersize/8.,
 	)
 legend = plt.legend()
+handles, labels = ax.get_legend_handles_labels()
+newlabels = []
+for i in labels:
+	try:
+		i = float(i)
+	except:
+		pass
+	else:
+		i = "{0:.1f}".format(i)
+		i = str(i)
+	newlabels.append(i)
+ax.legend(handles, newlabels)
 plt.gca().invert_yaxis()
