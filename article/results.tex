@@ -28,57 +28,125 @@ and the interaction thereof
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/taskgroup.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.325\\textwidth}',
-                        'caption':'Task group comparison for animals targeted at all explored combinations of implant coordinates.'
+                {'script':'scripts/taskgroup.py', 'conf':'article/3x1.conf', 'options_pre':'{.322\\textwidth}',
+                        'caption':'Task group comparison for animals targeted at all explored combinations of implant coordinates.',
+                        'label':'mvt',
                         },
-                {'script':'scripts/implant_coordinates_block.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.325\\textwidth}',
-			'caption':'Implant coordinate comparison by coordinates and VTA activation in block stimulation trials.'
+                {'script':'scripts/implant_coordinates_block.py', 'conf':'article/3x1_coordinates.conf', 'options_pre':'{.322\\textwidth}',
+                        'caption':'Implant coordinate comparison for block stimulation trials (dotted markers indicate best category).',
+                        'label':'mvib',
                         },
-                {'script':'scripts/implant_coordinates_phasic.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.325\\textwidth}',
-			'caption':'Implant coordinate comparison by coordinates and VTA activation in phasic stimulation trials.'
+                {'script':'scripts/implant_coordinates_phasic.py', 'conf':'article/3x1_coordinates.conf', 'options_pre':'{.322\\textwidth}',
+                        'caption':'Implant coordinate comparison for phasic stimulation trials (dotted markers indicate best category).',
+                        'label':'mvip',
                         },
                 ],
         caption='
-                \\textbf{We resolve the sensitivity of VTA activation significance to both the stimulation protocol category and the implant coordinates.}
-                Multivariate (protocol and operative feature) comparisons of signal intensity in the VTA region of interest.
+                \\textbf{We resolve the sensitivity of VTA activation to both the stimulation protocol category and the implant coordinates.}
+                Depicted are multivariate (protocol and operative feature) comparisons of signal intensity in the VTA region of interest.
                 ',
-        label='fig:var',
+        label='fig:mv',
         )}
 \end{sansmath}
 
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block_filtered_controlled.py', 'label':'subjects', 'conf':'article/2x3_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation, slices centered on VTA. \\vspace{1.1em}',
-                        'label':'sumb',
+                {'script':'scripts/map_block_filtered_controlled.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on VTA. \\vspace{-.2em}',
+                        'label':'filtered_map',
                         },
-                {'script':'scripts/map_block_filtered_controlled_auto.py', 'label':'subjects', 'conf':'article/2x3_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation, slices centered on langest cluster. \\vspace{1.1em}',
-                        'label':'sumba',
+                {'script':'scripts/map_block_filtered_controlled_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on langest cluster. \\vspace{-.2em}',
+                        'label':'filtered_mapa',
                         },
-                {'script':'scripts/map_phasic_filtered.py', 'label':'subjects', 'conf':'article/2x3_map.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Phasic stimulation, slices centered on VTA. \\vspace{1.1em}',
-                        'label':'sump',
-                        },
-                {'script':'scripts/map_phasic_filtered_auto.py', 'label':'subjects', 'conf':'article/2x3_map.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Phasic stimulation, slices centered on largest cluster. \\vspace{1.1em}',
-                        'label':'sumpa',
-                        },
-                {'script':'scripts/map_block_control.py', 'label':'subjects', 'conf':'article/2x3_map.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Block stimulation of negative control group, slices centered on VTA.',
-                        'label':'sumc',
-                        },
-                {'script':'scripts/map_block_control_auto.py', 'label':'subjects', 'conf':'article/2x3_map.conf', 'options_pre':'{.48\\textwidth}',
-			'caption':'Block stimulation of negative control group, slices centered on largest cluster.',
-                        'label':'sumca',
+                {'script':'scripts/distributions_block_filtered_controlled.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
+                        'caption':'Distribution densities of t-statistic values in the 10 most strongly activated areas.',
+                        'label':'filtered_dist',
                         },
                 ],
         caption='
-                \\textbf{Block stimulation elicits activity in the target and rostral projection areas, phasic stimulation elicits activity in the target and caudal projection areas, whereas control group stimulation elicits no coherent activation pattern.}
-                Depicted are statistical maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis grouped by stimulation protocol category and genotpye.
-                Right-side figures are centered on VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and left hand figures on the largest cluster, respectively.
+                \\textbf{Block stimulation elicits strong and clustered activity in the ventral striatum, particularly the nucleus accumbens.}
+                Depicted are the results of the second-level analysis for block stimulus evoked activity observed in the best implant group animals, and corrected for the negative control baseline.
+                The figures show volumetric population t-statistic maps \\textbf{(\subref{fig:filtered_map}, \subref{fig:filtered_mapa})} thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:filtered_dist})}.
                 ',
-        label='fig:sum',
+        label='fig:filtered',
+        options_pre='\\centering',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\sessionpy{pytex_subfigs(
+        [
+                {'script':'scripts/map_block_other_controlled.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on VTA. \\vspace{-.2em}',
+                        'label':'other_map',
+                        },
+                {'script':'scripts/map_block_other_controlled_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on langest cluster. \\vspace{-.2em}',
+                        'label':'other_mapa',
+                        },
+                {'script':'scripts/distributions_block_other_controlled.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
+                        'caption':'Distribution densities of t-statistic values in the 10 most strongly activated areas.',
+                        'label':'other_dist',
+                        },
+                ],
+        caption='
+                \\textbf{In the rejected implant category group, stimulus evoked activity in response to block stimulation shows a reduced and differently distributed response.}
+                Depicted are results of the second-level analysis for block stimulus evoked activity observed in the rejected implant group animals, and corrected for the negative control baseline.
+                The figures volumetric population t-statistic maps \\textbf{(\subref{fig:other_map}, \subref{fig:other_mapa})} thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:other_dist})}.
+                ',
+        label='fig:other',
+        options_pre='\\centering',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\sessionpy{pytex_subfigs(
+        [
+                {'script':'scripts/map_block_filtered_seed.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on VTA. \\vspace{-.2em}',
+                        'label':'seed_map',
+                        },
+                {'script':'scripts/map_block_filtered_seed_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on langest cluster. \\vspace{-.2em}',
+                        'label':'seed_mapa',
+                        },
+                {'script':'scripts/distributions_block_filtered_seed.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
+                        'caption':'Distribution densities in the 10 regions with the highest functional connectivity to the VTA seed.',
+                        'label':'seed_dist',
+                        },
+                ],
+        caption='
+                \\textbf{Seed-based functional connectivity of VTA shows laterality and a primary projection weighting towards the nucleus accumbens.}
+                Depicted are volumetric population t-statistic maps \\textbf{(\subref{fig:seed_map}, \subref{fig:seed_mapa})} thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:seed_dist})}.
+                ',
+        label='fig:seed',
+        options_pre='\\centering',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\sessionpy{pytex_subfigs(
+        [
+                {'script':'scripts/map_block_control.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on VTA. \\vspace{-.2em}',
+                        'label':'control_map',
+                        },
+                {'script':'scripts/map_block_control_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on langest cluster. \\vspace{-.2em}',
+                        'label':'control_mapa',
+                        },
+                {'script':'scripts/distributions_block_control.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
+                        'caption':'Distribution densities of t-statistic values in the 10 most strongly activated areas.',
+                        'label':'control_dist',
+                        },
+                ],
+        caption='
+                \\textbf{Block stimulation in negative control animals produces no large activation clusters, yet scattered activation hints at some visual excitation and heating artefacts.}
+                Depicted are volumetric population t-statistic maps \\textbf{(\subref{fig:control_map}, \subref{fig:control_mapa})} --- thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:control_dist})}.
+                ',
+        label='fig:control',
+        options_pre='\\centering',
         )}
 \end{sansmath}
