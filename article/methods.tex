@@ -49,6 +49,7 @@ Seed-based functional connectivity analysis was performed by regressing the time
 Brain parcellation for region-based evaluation was performed using non-overlapping multi-center labelling \cite{dsu1,dsu2,dsu3,dsu4}, as distributed in version \textcolor{mg}{\texttt{0.5.3}} of the Mouse Brain Atlases data package \cite{atlases_generator}.
 The mapping operations were performed by a SAMRI function, using the nibabel \cite{nibabel} and nilearn \cite{nilearn} libraries (versions \textcolor{mg}{\texttt{2.3.1}} and \textcolor{mg}{\texttt{0.5.0}}, respectively).
 Clustering for implant group categorization was performed via 1D Kmeans clustering, implemented in the scikit-learn library \cite{scikit-learn}.
+Distribution density visualizations were created using the Scott bandwidth density estimator \cite{Scott1979}.
 
 Higher-level statistical modelling was performed with the Statsmodels software package \cite{statsmodels} (version \textcolor{mg}{\texttt{0.9.9}}).
 Model parameters were estimated using the ordinary least squares method, and a type 3 analysis of variance (ANOVA) was employed to control estimate variability for unbalanced categories.
