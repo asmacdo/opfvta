@@ -8,16 +8,20 @@ data_path = path.abspath('data/implant_coordinates_phasic.csv')
 df = pd.read_csv(data_path)
 lines_markersize = mpl.rcParams['lines.markersize']
 
+df = df.rename(columns={
+	'VTA t': 'VTA t ',
+	'Count': 'Count ',
+	})
+
 cmap = sns.cubehelix_palette(dark=.3, light=.8, as_cmap=True)
 ax = sns.scatterplot(
 	x="PA rel. Bregma [mm]",
 	y="Depth rel. skull [mm]",
-	hue='VTA t',
-	size='Count',
+	hue='VTA t ',
+	size='Count ',
 	data=df,
-	sizes=(15, 150),
+	sizes=(20, 100),
 	palette=cmap,
-	sizes=(3,6),
 	)
 best_coordinates = df.loc[df['Best Cluster']==True]
 plt.scatter(

@@ -25,4 +25,5 @@ ax = swarmplot(
 	data=df,
 	size=mpl.rcParams['lines.markersize'],
 	)
-ax.get_yaxis().set_visible(False)
+plt.ylabel('')
+ax.tick_params(labelleft=False)

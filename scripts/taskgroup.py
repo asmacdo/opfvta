@@ -18,11 +18,11 @@ df = df.loc[df['Genotype_code'] == 'datg']
 # do not take into account unimplanted animals
 df = df[pd.notnull(df['PA rel. Bregma [mm]'])]
 
-df['Implant PA/Depth'] = df['PA rel. Bregma [mm]'].map(str) +'/'+ df['Depth rel. skull [mm]'].map(str)
+df['Implant PA/Depth '] = df['PA rel. Bregma [mm]'].map(str) +'/'+ df['Depth rel. skull [mm]'].map(str)
 
 ax = swarmplot(
-	hue="Implant PA/Depth",
-	x="Task Category",
+	hue='Implant PA/Depth ',
+	x='Task Category',
 	y='Mean VTA t',
 	data=df,
 	)

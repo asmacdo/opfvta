@@ -25,5 +25,6 @@ ax = swarmplot(
 	size=mpl.rcParams['lines.markersize'],
 	data=df,
 	)
-from matplotlib.ticker import NullFormatter
-ax.get_xaxis().set_major_formatter(NullFormatter())
+
+plt.ylabel('')
+ax.tick_params(labelleft=False)
