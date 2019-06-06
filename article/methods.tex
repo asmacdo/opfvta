@@ -46,10 +46,13 @@ First-level regression was applied to the temporally resolved volumetric data vi
 Stimulus-evoked first-level regression was performed using a convolution of the stimulus sequence with an opto-fMRI impulse response function, estimated by a beta fit of previously reported mouse opto-fMRI responses \cite{Grandjean2019}.
 Seed-based functional connectivity analysis was performed by regressing the time course of the voxel most sensitive to the stimulus-evoked activity (per scan) in the VTA region of interest.
 
-Brain parcellation for region-based evaluation was performed using non-overlapping multi-center labelling \cite{dsu1,dsu2,dsu3,dsu4}, as distributed in version \textcolor{mg}{\texttt{0.5.3}} of the Mouse Brain Atlases data package.
+Brain parcellation for region-based evaluation was performed using non-overlapping multi-center labelling \cite{dsu1,dsu2,dsu3,dsu4}, as distributed in version \textcolor{mg}{\texttt{0.5.3}} of the Mouse Brain Atlases data package \cite{atlases_generator}.
+The mapping operations were performed by a SAMRI function, using the nibabel \cite{nibabel} and nilearn \cite{nilearn} libraries (versions \textcolor{mg}{\texttt{2.3.1}} and \textcolor{mg}{\texttt{0.5.0}}, respectively).
+Clustering for implant group categorization was performed via 1D Kmeans clustering, implemented in the scikit-learn library \cite{scikit-learn}.
 
-Higher-level statistical modelling was performed with the Statsmodels (version \textcolor{mg}{\texttt{0.9.9}} \cite{statsmodels}) package.
+Higher-level statistical modelling was performed with the Statsmodels software package \cite{statsmodels} (version \textcolor{mg}{\texttt{0.9.9}}).
 Model parameters were estimated using the ordinary least squares method, and a type 3 analysis of variance (ANOVA) was employed to control estimate variability for unbalanced categories.
+
 
 \subsection{Reproducibility}
 
