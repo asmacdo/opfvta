@@ -1,6 +1,6 @@
 ,Count,Depth rel. skull [mm],PA rel. Bregma [mm],VTA t,Best Cluster
 0,3,4.6,-3.2,1.61,False
-1,2,4.6,-3.3,2.16,False
+1,2,4.6,-3.3,2.16,True
 2,11,4.0,-3.5,1.15,False
 3,1,4.3,-3.5,0.05,False
 4,4,4.4,-3.2,1.67,False
