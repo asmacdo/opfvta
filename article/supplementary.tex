@@ -85,6 +85,12 @@
         )}
 \end{sansmath}
 
+Modelling the individual stimulation protocols in addition to the stimulation category group, reveals a stimulation effect more strongly driven
+by the protocol \py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category") + Task',factor='Task')})
+than by the category \py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category") + Task',factor='Q("Task Category")')}).
+This is expected due to the additional degrees of freedom, however, this model is less reliable to to the reduced sample size and strong sample size imbalances across the individual stimulation protocols.
+
+
 Modelling interaction effects we observe the depth
 (\sessionpy{boilerplate.anova(expression='Q("Task Category")*C(Q("Depth rel. skull [mm]")) + Q("Task Category")*C(Q("PA rel. Bregma [mm]"))',factor='C(Q("Depth rel. skull [mm]"))')})
 or the PA coordinates
