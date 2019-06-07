@@ -19,11 +19,74 @@ def events_tab(events_path):
 	df_tex = df.to_latex(index=False, escape=False)
 	return df_tex
 
+def posthoc_t(comparison,
+	data_path='data/functional_t.csv',
+	groups_path='data/groups.csv',
+	dependent_variable='Q("Mean VTA t")',
+	expression='Q("Task Category") + C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) - 1 ',
+	exclusion_criteria={},
+	genotype='datg',
+	task_category='',
+	**kwargs
+	):
+	data = pd.read_csv(path.abspath(data_path))
+	groups = pd.read_csv(path.abspath(groups_path))
+
+	df = pd.merge(data, groups, on='Subject', how='outer')
+	if genotype:
+		df = df.loc[df['Genotype_code'] == genotype]
+	if task_category:
+		df = df.loc[df['Task Category'] == task_category]
+	df = df.dropna(subset=['Depth rel. skull [mm]', 'PA rel. Bregma [mm]','Acquisition'])
+
+	for key in exclusion_criteria.keys():
+		df = df.loc[~df[key].isin(exclusion_criteria[key])]
+
+	formula = '{} ~ {}'.format(dependent_variable, expression)
+	model = smf.ols(formula, df)
+	fit = model.fit()
+	summary = fit.summary()
+	if isinstance(comparison,list):
+		comparison = " = ".join(comparison)
+	t = fit.t_test(comparison)
+	p = float_to_tex(t.pvalue)
+	return p
+
+def factorci(factor,
+	data_path='data/functional_t.csv',
+	groups_path='data/groups.csv',
+	dependent_variable='Q("Mean VTA t")',
+	expression='Q("Task Category") + C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) - 1 ',
+	exclusion_criteria={},
+	genotype='datg',
+	task_category='',
+	**kwargs
+	):
+	data = pd.read_csv(path.abspath(data_path))
+	groups = pd.read_csv(path.abspath(groups_path))
+
+	df = pd.merge(data, groups, on='Subject', how='outer')
+	if genotype:
+		df = df.loc[df['Genotype_code'] == genotype]
+	if task_category:
+		df = df.loc[df['Task Category'] == task_category]
+	df = df.dropna(subset=['Depth rel. skull [mm]', 'PA rel. Bregma [mm]','Acquisition'])
+
+	for key in exclusion_criteria.keys():
+		df = df.loc[~df[key].isin(exclusion_criteria[key])]
+
+	formula = '{} ~ {}'.format(dependent_variable, expression)
+	model = smf.ols(formula, df)
+	fit = model.fit()
+	summary = fit.summary()
+	itex = inline_factor(summary, factor, 'tex', **kwargs)
+	return tex
+
 def anova(
 	data_path='data/functional_t.csv',
 	groups_path='data/groups.csv',
 	dependent_variable='Q("Mean VTA t")',
-	expression='Q("Depth rel. skull [mm]") + Q("PA rel. Bregma [mm]") + Q("Task Category")',
+	expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',
 	factor='Q("Task Category")',
 	genotype='datg',
 	task_category='',
@@ -38,11 +101,13 @@ def anova(
 		df = df.loc[df['Genotype_code'] == genotype]
 	if task_category:
 		df = df.loc[df['Task Category'] == task_category]
-	df = df.dropna(subset=['Depth rel. skull [mm]', 'PA rel. Bregma [mm]'])
+	df = df.dropna(subset=['Depth rel. skull [mm]', 'PA rel. Bregma [mm]','Acquisition'])
 
 	formula = '{} ~ {}'.format(dependent_variable, expression)
 	ols = smf.ols(formula, df).fit()
+	print(ols)
 	summary = sm.stats.anova_lm(ols, typ=typ, robust='hc3')
+	print(summary)
 	tex = inline_anova(summary, factor, 'tex', **kwargs)
 	return tex
 
@@ -89,28 +154,6 @@ def fstatistic(factor,
 	ols = smf.ols(formula, df).fit()
 	anova = sm.stats.anova_lm(ols, typ=2)
 	tex = inline_anova(anova, factor, 'tex', **kwargs)
-	return tex
-
-def factorci(factor,
-	df_path='data/volumes.csv',
-	dependent_variable='Volume Change Factor',
-	expression='Processing*Template',
-	exclusion_criteria={},
-	**kwargs
-	):
-	df_path = path.abspath(df_path)
-	df = pd.read_csv(df_path)
-
-	df = df.loc[df['Processing']!='Unprocessed']
-
-	for key in exclusion_criteria.keys():
-		df = df.loc[~df[key].isin(exclusion_criteria[key])]
-
-	formula = 'Q("{}") ~ {}'.format(dependent_variable, expression)
-	model = smf.mixedlm(formula, df, groups='Uid')
-	fit = model.fit()
-	summary = fit.summary()
-	tex = inline_factor(summary, factor, 'tex', **kwargs)
 	return tex
 
 def corecomparison_factorci(factor,
