@@ -1,6 +1,5 @@
 from samri.plotting.aggregate import roi_distributions
 from samri.report.roi import atlasassignment
-import matplotlib.pyplot as plt
 
 df = atlasassignment('data/seed_l2/alias-block_control/acq-EPI_tstat.nii.gz',
         lateralized=True,
