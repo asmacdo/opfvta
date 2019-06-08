@@ -71,74 +71,58 @@
 \begin{sansmath}
 \py[var]{pytex_subfigs(
         [
-                {'script':'scripts/f_vta_subjects_t.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.35\\textwidth}',
+                {'script':'scripts/f_vta_subjects_t.py', 'label':'mvss', 'conf':'article/3x1.conf', 'options_pre':'{.35\\textwidth}',
                         },
-                {'script':'scripts/implant_depth.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.32\\textwidth}',
+                {'script':'scripts/implant_depth.py', 'label':'mvsd', 'conf':'article/3x1.conf', 'options_pre':'{.32\\textwidth}',
                         },
-                {'script':'scripts/implant_pa.py', 'label':'subjects', 'conf':'article/3x1.conf', 'options_pre':'{.32\\textwidth}',
+                {'script':'scripts/implant_pa.py', 'label':'mvsp', 'conf':'article/3x1.conf', 'options_pre':'{.32\\textwidth}',
                         },
                 ],
         caption='
                 Multivariate (depth and posteroantior) implant coordinate comparisons of signal intensity in the VTA region of interest.
                 ',
-        label='fig:var',
+        label='fig:mvs',
         )}
 \end{sansmath}
-
-Modelling the individual stimulation protocols in addition to the stimulation category group, reveals a stimulation effect more strongly driven
-by the protocol \py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category") + Task',factor='Task')})
-than by the category \py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category") + Task',factor='Q("Task Category")')}).
-This is expected due to the additional degrees of freedom, however, this model is less reliable to to the reduced sample size and strong sample size imbalances across the individual stimulation protocols.
-
-
-Modelling interaction effects we observe the depth
-(\sessionpy{boilerplate.anova(expression='Q("Task Category")*C(Q("Depth rel. skull [mm]")) + Q("Task Category")*C(Q("PA rel. Bregma [mm]"))',factor='C(Q("Depth rel. skull [mm]"))')})
-or the PA coordinates
-(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("PA rel. Bregma [mm]"))')}).
-
-For block stimulation protocols we observe the depth
-(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("Depth rel. skull [mm]"))', task_category='Block')})
-or the PA coordinates
-(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")) + C(Q("PA rel. Bregma [mm]"))',factor='C(Q("PA rel. Bregma [mm]"))', task_category='Block')}).
 
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/map_block_filtered_controlled_auto_.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
                         'caption':'Block stimulation of best implant category group.',
-                        'label':'bs_f',
+                        'label':'ocf',
                         },
                 {'script':'scripts/map_block_other_controlled_auto_.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
                         'caption':'Block stimulation of rejected implant category group.',
-                        'label':'bs_o',
+                        'label':'oco',
                         },
                 {'script':'scripts/implant_coordinates.py', 'conf':'article/3x1_withmap.conf', 'options_pre':'{.32\\textwidth}',
                         'caption':'Implant group segmentation (dotted markers indicate best category).',
-                        'label':'bs_c',
+                        'label':'occ',
                         },
                 ],
         caption='
                 \\textbf{Implant coordinate categorization based on both block and phasic stimulus trials does not show a better projection segmentation than based on block trials only.}
-                Depicted are t-statistic maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided into best and rejected category groups \\textbf{(\subref{fig:bs_f}, \subref{fig:bs_o})}.
+                Depicted are t-statistic maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided into best and rejected category groups \\textbf{(\subref{fig:ocf}, \subref{fig:oco})}.
                 Slices are centered on the largest cluster.
                 ',
-        label='fig:bs_',
+        label='fig:oc',
         )}
 \end{sansmath}
 
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block_filteredManual.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_filteredManual.py', 'label':'mcut', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of rostralmost implant category group, slices centered on VTA. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_block_filtered_autoManual.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_filtered_autoManual.py', 'label':'mcuta', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of rostralmost implant category group, slices centered on largest cluster. \\vspace{1.2em}'
                         },
-                {'script':'scripts/map_block_otherManual.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_otherManual.py', 'label':'mcuto', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of caudalmost implant category group, slices centered on VTA.'
                         },
-                {'script':'scripts/map_block_other_autoManual.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_other_autoManual.py', 'label':'mcutoa', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of caudalmost implant category group, slices centered on largest cluster.'
                         },
                 ],
@@ -147,24 +131,28 @@ or the PA coordinates
                 Depicted are statistical maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
                 Slices are centered on the VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and the largest cluster, respectively.
                 ',
-        label='fig:var',
+        label='fig:cut',
         )}
 \end{sansmath}
 
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation, slices centered on VTA. Thresholded at \\vspace{1.2em}'
+                {'script':'scripts/map_block.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Block stimulation, slices centered on VTA. Thresholded at \\vspace{1.2em}',
+                        'label':'block',
                         },
-                {'script':'scripts/map_block_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation, slices centered on langest cluster. \\vspace{1.2em}'
+                {'script':'scripts/map_block_auto.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Block stimulation, slices centered on langest cluster. \\vspace{1.2em}',
+                        'label':'blocka',
                         },
-                {'script':'scripts/map_phasic.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation, slices centered on VTA.'
+                {'script':'scripts/map_phasic.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Phasic stimulation, slices centered on VTA.',
+                        'label':'phasic',
                         },
-                {'script':'scripts/map_phasic_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation, slices centered on langest cluster.'
+                {'script':'scripts/map_phasic_auto.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Phasic stimulation, slices centered on langest cluster.',
+                        'label':'phasica',
                         },
                 ],
         caption='
