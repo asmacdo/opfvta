@@ -1,25 +1,5 @@
 \section{Results}
 
-We note that the VTA mean t statistic is sensitive to the stimulation protocol category (block and phasic stimulation \py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}).
-
-the depth
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))+C(Q("PA rel. Bregma [mm]"))',factor='C(Q("Depth rel. skull [mm]"))')})
-bot not the PA coordinates
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))+C(Q("PA rel. Bregma [mm]"))',factor='C(Q("PA rel. Bregma [mm]"))')}).
-
-(\py{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))+C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}),
-
-We note that the VTA mean t statistic is sensitive to the stimulation protocol
-(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='Q("Task Category")')}),
-the depth
-(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]"))')}),
-bot not the PA coordinates
-(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("PA rel. Bregma [mm]"))')}),
-and the interaction thereof
-(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]"))*C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}),
-(\sessionpy{boilerplate.anova(expression='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]")) + Q("Task Category")',factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}),
-.
-
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
@@ -145,3 +125,45 @@ and the interaction thereof
         options_pre='\\centering',
         )}
 \end{sansmath}
+
+For analysis, the stimulation protocols are divided into two task groups: phasic stimulation (encompassing protocols where stimulation is delivered in short bursts of up to \SI{1}{\second} in lenght --- \cref{tab:CogP,tab:JPogP}) and block stimulation (where stimulation is delivered in continuous blocks of at least \SI{8}{\second} --- \cref{tab:CogP,tab:JPogP}).
+
+The VTA mean t statistic is sensitive to
+the stimulation protocol category (\sessionpy{boilerplate.anova(factor='Q("Task Category")')}),
+the depth (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]"))')}),
+the PA coordinates (\sessionpy{boilerplate.anova(factor='C(Q("PA rel. Bregma [mm]"))')}),
+and the interaction thereof (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}).
+
+The break-up by phasic and block stimulation is shown in \cref{fig:mv} and --- accounting for the entire model --- both levels are significantly different from zero, with
+the phasic stimulation level of the variable yielding a p-value of $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Phasic]')}$,
+and the block stimulation level yielding a p-value of $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Block]')}$.
+Upon an investigation of the t-statistic map, phasic stimulation, however, reveals no coherent activation pattern (\cref{fig:phasica}).
+
+The main and interaction effects of the implant coordinates variables are better described categorically than linearly (\cref{fig:mvib,fig:mvip,fig:mvs}), and as such, a coordinate group classification was defined by k-means clustering the aggregate values into two clusters (a best cluster and a rejected cluster --- based on the VTA t statistic means in the respective stimulation protocol category).
+This categorization is highlighted in \cref{fig:mvib,fig:mvip}, and shows different clusters for phasic and block stimulation protocols, with phasic stimulation showing a preference for more caudal implant coordinates.
+
+For block stimulation, the best implant category group (\cref{fig:filtered}) and the rejected implant category group (\cref{fig:other}) show not only a difference in overall stimulus-evoked signal intensity, but also a difference in efferent distributions, with the rejected implant category more strongly projecting to caudal brain areas.
+This distinction specifically arises for implant categorization based on block scans, and is not as salient or wholly absent if implants are categorized based on VTA activation in both stimulation protocol categories (\cref{fig:oc}) or based on a posteroanterior delimiter (\cref{fig:cut}).
+
+The activation pattern elicited by block stimulation in the best implant category group shows strong coherent clusters of activation, consistent with reported results from literature.
+The top activation areas are predominantly located in the right hemisphere, with the whole brain parcellation-resolved response showing
+highly significant laterality ($p = \sessionpy{boilerplate.lateral('data/l2/alias-block_filtered_controlled/acq-EPI_tstat.nii.gz')}$)
+Activation is seen in areas surrounding the stimulation site, such as the ventral tegmental decussation and the interpeduncular nucleus.
+The largest activation cluster can be seen in the dopaminergic VTA projection areas, covering subcortical regions in the rostroventral region of the brain (nucleus accumbens, basal forebrain, striatum, and the bed nucleus of the stria terminalis)
+Smaller structures in the vicinity of the above regions, such as the anterior commissure and the medial septum, also show activation.
+
+We disambiguating VTA transmission from VTA excitability by imaging VTA seed-based connectivity, yielding the projection pattern shown in \cref{fig:seed}.
+Clusters identified by seed-based connectivity are comparatively more sparse than those identified by stimulus-evoked activation, yet follow a similar pattern.
+While the top connectivity areas are located in the right hemisphere, the whole brain parcellation-resolved response shows
+no significant laterality ($p = \sessionpy{boilerplate.lateral('data/seed_l2/alias-block_filtered/acq-EPI_tstat.nii.gz')}$)
+Strong activation can be seen in the parcellation areas closely surrounding the seed, such as the ventral tegmental decussation and the closely located interpeduncular nucleus.
+Rostrovental dopaminergic projection areas remain prominently featured, including the nucleus accumbens, ventral tenia tecta, stria terminalis, intermediate nucleus of the endopiriform cortex, and the basal forebrain.
+Additionally, a number of caudal projection areas become apparent in this analysis, including a caudal subdivision of the cingulate cortex (area 29b).
+The medial septum, a smaller structure in the vicinity of the striatum, also shows activity.
+
+Stimulation in negative control animals (which is corrected for in the aforementioned stimulus-evoked analyses) does not show strong dopaminergic activity.
+However, sparse grains of regression scores above $t = 3$ can be observed (\cref{fig:control_mapa}), with the largest cluster in the thalamus, indicative of visual activity.
+Atlas parcellation (\cref{fig:control_dist}) score distributions do not strongly deviate from zero, with the highest score areas being consistent with VTA heating artefacts (ventral tegmental decussation, interpeduncular nucleus, and the cingulate cortex).
+Comparable region t-statistic distributions are also found in the cerebellum (dentate nucleus, lobule 1-3 trunks, and the trunk of the crus).
+Overall the whole brain parcellation-resolved response shows
+no significant laterality ($p = \sessionpy{boilerplate.lateral('data/seed_l2/alias-block_control/acq-EPI_tstat.nii.gz')}$).
