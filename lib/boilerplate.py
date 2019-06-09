@@ -19,6 +19,27 @@ def events_tab(events_path):
 	df_tex = df.to_latex(index=False, escape=False)
 	return df_tex
 
+def report_bound(column,
+	mode='max',
+	unit='',
+	):
+	groups_path = path.abspath('data/groups.csv')
+	groups = pd.read_csv(groups_path)
+
+	filtered = groups[column]
+	if mode == 'min':
+		val = min(filtered)
+	elif mode == 'max':
+		val = max(filtered)
+	elif mode == 'minmax':
+		min_val = min(filtered)
+		max_val = max(filtered)
+		val = '\SIrange{{{}}}{{{}}}{{{}}}'.format(min_val,max_val,unit)
+		return val
+	if unit:
+		val = '\SI{{{}}}{{{}}}'.format(val,unit)
+	return val
+
 def lateral(data_path,
 	):
 	from samri.report.roi import atlasassignment
