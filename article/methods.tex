@@ -3,15 +3,32 @@
 \subsection{Animal Preparation}
 
 To specifically target dopaminergic neurons for optogenetic stimulation, a mouse strain was chosen which expresses Cre recombinase under the Dopamine Transporter (DAT) promoter !!!Besh!!!cite.
-Genotyping via polymerase chain reaction (PCR) using primers listed under !!! was employed to ascertain transgenic construct presence, and a total of \sessionpy{pytex_printonly('scripts/animals_tg.py')} transgenic animals and \sessionpy{pytex_printonly('scripts/animals_wt.py')} control wildtype animals are included in the study.
+Transgenic construct presence was assessed via polymerase chain reaction (PCR) for the Cre construct, using the forward primer ACCAGCCAGCTATCAACTCG and the reverse primer TTGCCCCTGTTTCACTATCC.
+A total of \sessionpy{pytex_printonly('scripts/animals_tg.py')} transgenic animals and \sessionpy{pytex_printonly('scripts/animals_wt.py')} control wildtype animals are included in the study.
 
 The VTA of the animals was injected with a solution containing recombinant Adeno-Associated Viruses (rAAVs).
 The vector delivered a plasmid containing a floxed Channelrhodopsin and YFP construct ---
-pAAV-EF1a-double floxed-hChR2(H134R)-EYFP-WPRE-HGHpA, a gift from Karl Deisseroth (\href{https://www.addgene.org/20298/}{Addgene plasmid \#20298}).
-Construct expression was ascertained post mortem via fluorescent microscopy of formaldehyde fixated \SI{200}{\micro\metre} brain slices.
+pAAV-EF1a-double floxed-hChR2(H134R)-EYFP-WPRE-HGHpA, gifted to a public repository by Karl Deisseroth (\href{https://www.addgene.org/20298/}{Addgene plasmid \#20298}).
+Viral vectors and plasmids were produced by the Viral Vector Facility (VVF) of the Neuroscience Center Zurich (Zentrum für Neurowissenschaften Zürich, ZNZ).
+The solution was prepared at a titer of \SI{5.7e12}{\vg\per\milli\litre} and volumes from
+\sessionpy{boilerplate.report_bound('VirusInjectionProtocol_amount', 'minmax', '\milli\litre')}
+were injected into the right VTA.
+Injection coordinates ranged in the PA direction (relative to bregma) from
+\sessionpy{boilerplate.report_bound('Virus_OrthogonalStereotacticTarget_posteroanterior', 'minmax', '\milli\meter')},
+in depth (relative to the skull) from
+\sessionpy{boilerplate.report_bound('Virus_OrthogonalStereotacticTarget_depth', 'minmax', '\milli\meter')},
+and were located at \SI{0.5}{\milli\meter} right of the midline.
 
-The measured animals were fitted with an optic fiber implant ($\mathrm{l=\SI{4.7}{\milli\meter} \ d=\SI{400}{\micro\meter} \ NA=0.22}$) targeting the right Ventral Tegmental Area in the midbrain.
-The implant target coordinates were varied, covering the set depicted in \cref{fig:mvib,fig:mvip}.
+Construct expression was ascertained post mortem via fluorescent microscopy of formaldehyde fixated \SI{200}{\micro\metre} brain slices.
+Implant target coordinates ranged in the PA direction (relative to bregma) from
+\sessionpy{boilerplate.report_bound('OrthogonalStereotacticTarget_posteroanterior', 'minmax', '\milli\meter')},
+in depth (relative to the skull) from
+\sessionpy{boilerplate.report_bound('OrthogonalStereotacticTarget_depth', 'minmax', '\milli\meter')},
+and were located
+\sessionpy{boilerplate.report_bound('OrthogonalStereotacticTarget_leftright', 'minmax', '\milli\meter')}
+right of the midline.
+
+The measured animals were fitted with an optic fiber implant ($\mathrm{l=\SI{4.7}{\milli\meter} \ d=\SI{400}{\micro\meter} \ NA=0.22}$) targeting the right VTA.
 
 The right side of the VTA was stimulated via an Omicron LuxX 488-60 laser (\SI{488}{\nano\meter}) tuned to \SI{30}{\milli\watt} at contact with the fiber implant, according to the protocols listed in \cref{tab:CogB,tab:CogBr,tab:CogBl,tab:CogBm,tab:CogMwf,tab:CogP,tab:JPogP}.
 
@@ -55,8 +72,9 @@ Higher-level statistical modelling was performed with the Statsmodels software p
 Model parameters were estimated using the ordinary least squares method, and a type 3 analysis of variance (ANOVA) was employed to control estimate variability for unbalanced categories.
 
 
-\subsection{Reproducibility}
+\subsection{Reproducibility and Open Data}
 
-The source code for this document and all data analysis shown herein (including registration and QC workflow execution) is published according to the RepSeP specifications \cite{repsep}.
+The resulting t-statistic maps (i.e. the top-level data) which document the baseline fMRI dopaminergic fingerprint in the mouse model are distributed along the source-code of all analyses \cite{me}.
 The BIDS \cite{bids} data archive which serves as the raw data recourse for this document is openly distributed \cite{opfvta_bidsdata}, as is the full instruction set for recreating this document \cite{me}.
-The data analysis execution and document compilation has been tested repeatedly on numerous machines, and as such we attest that all figures and statistics presented can be reproduced based solely on the raw data, dependency list, and analysis scripts which we distribute.
+The source code for this document and all data analysis shown herein (including registration and QC workflow execution) is published according to the RepSeP specifications \cite{repsep}.
+The data analysis execution and document compilation has been tested repeatedly on numerous machines, and as such we attest that the figures and statistics presented can be reproduced based solely on the raw data, dependency list, and analysis scripts which we distribute.
