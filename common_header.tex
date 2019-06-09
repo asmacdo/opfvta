@@ -1,7 +1,7 @@
 \usepackage{makecell}
 \usepackage{siunitx}
 
-\sisetup{per-mode=symbol, detect-all} % will use the current font for typesetting
+\sisetup{per-mode=symbol, detect-all, range-units = single} % will use the current font for typesetting
 \newcommand\SIci[5]{\SI{#1}{#2}, {#3}CI: \SIrange{#4}{#5}{#2}}
 
 \DeclareSIUnit[number-unit-product = {}]
