@@ -1,7 +1,9 @@
 \section{Background}
 
 \begin{figure*}[h!]
-	\begin{subfigure}{.53\textwidth}
+	\centering
+	\hspace*{\fill}
+	\begin{subfigure}{.527\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/model_literature}
 		\caption{
@@ -10,24 +12,25 @@
 			Abbreviations: Hipp (Hippocampus), DS (Dorsal Striatum), NAcc (Nucleus Accumbens), OT (Olfactory Tuberculum), mPFC (medial Prefrontal Cortex), TT (Tenia Tecta).
 			}
 		\label{fig:ml}
-	\end{subfigure}
-	\begin{subfigure}{.45\textwidth}
+	\end{subfigure}\hfill
+	\begin{subfigure}{.44\textwidth}
 		\centering
 		\vspace{-1em}
 		%\includegraphics[width=\textwidth]{data/model_dopaminergic}
 		\includedot[width=1.1\textwidth]{data/network_model}
-		\vspace{-0.95em}
+		\vspace{-0.8em}
 		\caption{
 			Simplified network model of 1-step signal transduction following optogenetic stimulation of the VTA.
 			The $\mathrm{u_1}$ weighting corresponds to VTA somatic excitability and $\mathrm{u_{2a},u_{2b},u_{2c}}$ and $\mathrm{u_{2d}}$ correspond to transmission at the dopaminergic synapses in the respective projection areas.
 			}
 		\label{fig:md}
 	\end{subfigure}
-	\begin{subfigure}{.96\textwidth}
+	\hspace*{\fill}
+	\begin{subfigure}{.985\textwidth}
 		\centering
 		\missingfigure[figwidth=0.40\textwidth]{dopaminergic cell schematic}
 		\caption{
-			Schematic overview of a dopaminergic neuron, which can be applied to model all cells in the nucleus.
+			Schematic overview, which can be applied to model the dopaminergic neurons of the VTA.
 			Due to the projection distance and the manifold projection areas the soma is located in the VTA, and the synapses in one or multiple other voxels in the projection areas.
 			}
 		\label{fig:nm}
@@ -57,7 +60,7 @@ and is a common target for pharmacological interventions.
 Manipulation of the dopaminergic system extends widely beyond the medical field, and includes performance-enhancing \cite{Mehta2000,Turner2003}, as well as recreational usage \cite{DiChiara1988}.
 As such, better and more predictively powerful models of the dopaminergic system can enhance numerous aspects of human activity, in the clinic and beyond.
 
-Neuroscience experimentation in human subjects is methodologically constrained, and consequently at a strong competitive disadvantage of offering cell biological insights.
+Neuroscience experimentation in human subjects is methodologically constrained, and consequently at a strong competitive disadvantage for offering cell biological insights.
 Due to the high evolutionary conservation of the dopaminergic system, however, it is an excellent candidate for translational study.
 Of the common model animals, the mouse offers advantages not only absent from higher primates, but from most other model animals in general.
 These include short generation spans, broad availability of transgenic lines, highly accessible histology, and the most compact size among mammalian model organism brains.
