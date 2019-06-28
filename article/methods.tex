@@ -2,11 +2,28 @@
 
 \subsection{Animal Preparation}
 
-To specifically target dopaminergic neurons for optogenetic stimulation, a mouse strain was chosen which expresses Cre recombinase under the Dopamine Transporter (DAT) promoter \cite{dat}.
+\begin{sansmath}
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.95\textwidth]{img/optogenetics}
+	\caption{
+		Schematic of optogenetic cell selection and activation.
+		Orange denotes dopaminergic cells, gray enlarged elements on the cell periphery indicate channelrhodopsin expression, and cyan segments on the cell periphery denote depolarization events.
+		Note that by placing the stimulation fiber tip and the injection site at the same position, the selection effects of the second and third procedures are mutually redundant.
+		}
+	\label{fig:og}
+\end{figure*}
+\end{sansmath}
+
+VTA dopaminergic neurons were specifically targeted via optogenetic stimulation.
+As shown in \cref{fig:og}, this process entails a triple selection process.
+Firstly, cells are selected based on gene expression (via a transgenic mouse strain), secondly the location is selected based on the injection site, and thirdly, activation is based on the overlap of the aforementioned selection steps with the optic fiber tip.
+
+A mouse strain was chosen which expresses Cre recombinase under the Dopamine Transporter (DAT) promoter \cite{dat}.
 Transgenic construct presence was assessed via polymerase chain reaction (PCR) for the Cre construct, using the forward primer ACCAGCCAGCTATCAACTCG and the reverse primer TTGCCCCTGTTTCACTATCC.
 A total of \sessionpy{pytex_printonly('scripts/animals_tg.py')} transgenic animals and \sessionpy{pytex_printonly('scripts/animals_wt.py')} control wildtype animals are included in the study.
 
-The VTA of the animals was injected with a solution containing recombinant Adeno-Associated Viruses (rAAVs).
+The right VTA of the animals was injected with a solution containing recombinant Adeno-Associated Viruses (rAAVs).
 The vector delivered a plasmid containing a floxed Channelrhodopsin and YFP construct:
 pAAV-EF1a-double floxed-hChR2(H134R)-EYFP-WPRE-HGHpA, gifted to a public repository by Karl Deisseroth (\href{https://www.addgene.org/20298/}{Addgene plasmid \#20298}).
 Viral vectors and plasmids were produced by the Viral Vector Facility (VVF) of the Neuroscience Center Zurich (Zentrum für Neurowissenschaften Zürich, ZNZ).
