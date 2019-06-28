@@ -50,7 +50,7 @@ def lateral(data_path,
 		value_label=value_label,
 		)
 	df[value_label] = df[value_label].apply(lambda x: np.mean([float(i) for i in x.split(', ')]))
-	p = ttest_rel(df.loc[df['side']=='left',value_label], df.loc[df['side']=='right',value_label]).pvalue
+	p = ttest_rel(df.loc[df['Side']=='left',value_label], df.loc[df['Side']=='right',value_label]).pvalue
 	p = float_to_tex(p)
 	return p
 
