@@ -8,16 +8,16 @@
                         'label':'mvt',
                         },
                 {'script':'scripts/implant_coordinates_block.py', 'conf':'article/3x1_coordinates.conf', 'options_pre':'{.322\\textwidth}',
-                        'caption':'Implant coordinate comparison for block stimulation trials (dotted markers indicate best category).',
+                        'caption':'Implant coordinate comparison for block stimulation trials (inner dots indicate best category group).',
                         'label':'mvib',
                         },
                 {'script':'scripts/implant_coordinates_phasic.py', 'conf':'article/3x1_coordinates.conf', 'options_pre':'{.322\\textwidth}',
-                        'caption':'Implant coordinate comparison for phasic stimulation trials (dotted markers indicate best category).',
+                        'caption':'Implant coordinate comparison for phasic stimulation trials (inner dots indicate best category group).',
                         'label':'mvip',
                         },
                 ],
         caption='
-                \\textbf{We resolve the sensitivity of VTA activation to both the stimulation protocol category and the implant coordinates.}
+                \\textbf{Sensitivity of VTA activation to both stimulation protocol category and implant coordinates.}
                 Depicted are multivariate (protocol and operative feature) comparisons of signal intensity in the VTA region of interest.
                 ',
         label='fig:mv',
@@ -32,7 +32,7 @@
                         'label':'filtered_map',
                         },
                 {'script':'scripts/map_block_filtered_controlled_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on langest cluster. \\vspace{-.2em}',
+                        'caption':'Slices centered on largest cluster. \\vspace{-.2em}',
                         'label':'filtered_mapa',
                         },
                 {'script':'scripts/distributions_block_filtered_controlled.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
@@ -58,7 +58,7 @@
                         'label':'other_map',
                         },
                 {'script':'scripts/map_block_other_controlled_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on langest cluster. \\vspace{-.2em}',
+                        'caption':'Slices centered on largest cluster. \\vspace{-.2em}',
                         'label':'other_mapa',
                         },
                 {'script':'scripts/distributions_block_other_controlled.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
@@ -67,7 +67,7 @@
                         },
                 ],
         caption='
-                \\textbf{In the rejected implant category group, stimulus evoked activity in response to block stimulation shows a reduced and differently distributed response.}
+                \\textbf{In the rejected implant category group, stimulus evoked activity in response to block stimulation is reduced and differently distributed.}
                 Depicted are results of the second-level analysis for block stimulus evoked activity observed in the rejected implant group animals, and corrected for the negative control baseline.
                 The figures show volumetric population t-statistic maps \\textbf{(\subref{fig:other_map}, \subref{fig:other_mapa})} thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:other_dist})}.
                 ',
@@ -84,7 +84,7 @@
                         'label':'seed_map',
                         },
                 {'script':'scripts/map_block_filtered_seed_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on langest cluster. \\vspace{-.2em}',
+                        'caption':'Slices centered on largest cluster. \\vspace{-.2em}',
                         'label':'seed_mapa',
                         },
                 {'script':'scripts/distributions_block_filtered_seed.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
@@ -93,7 +93,7 @@
                         },
                 ],
         caption='
-                \\textbf{Seed-based functional connectivity of the VTA shows a primary projection weighting towards the right nucleus accumbens.}
+                \\textbf{VTA seed-based functional connectivity shows a primary projection weighting towards the right nucleus accumbens.}
                 Depicted are volumetric population t-statistic maps \\textbf{(\subref{fig:seed_map}, \subref{fig:seed_mapa})} thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:seed_dist})}.
                 ',
         label='fig:seed',
@@ -109,7 +109,7 @@
                         'label':'control_map',
                         },
                 {'script':'scripts/map_block_control_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on langest cluster. \\vspace{-.2em}',
+                        'caption':'Slices centered on largest cluster. \\vspace{-.2em}',
                         'label':'control_mapa',
                         },
                 {'script':'scripts/distributions_block_control.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
@@ -118,7 +118,7 @@
                         },
                 ],
         caption='
-                \\textbf{Block stimulation in negative control animals produces no large activation clusters, yet scattered activation hints at some visual excitation and heating artefacts.}
+                \\textbf{Block stimulation in control animals produces no large activation clusters, yet scattered activation hints at some visual excitation and heating artefacts.}
                 Depicted are volumetric population t-statistic maps \\textbf{(\subref{fig:control_map}, \subref{fig:control_mapa})} --- thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:control_dist})}.
                 ',
         label='fig:control',
@@ -130,25 +130,26 @@
 	\begin{subfigure}{.269\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/sub-6591_slice-b1_zoom-5_scene-3_transmission-yfp-comb_straight.png}
-                \caption{}
+                \caption{\SI{3.05}{\milli\meter} caudal of Bregma.}
                 \label{fig:h6591}
 	\end{subfigure}
 	\begin{subfigure}{.43\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/sub-6589_slice-a4_zoom-5_scene-2_transmission-yfp-comb_straight.png}
-                \caption{}
+                \caption{\SI{3.5}{\milli\meter} caudal of Bregma.}
 		\label{fig:h6589}
 	\end{subfigure}
 	\begin{subfigure}{.2728\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{img/sub-6589_slice-a4_zoom-10_scene-2_transmission-yfp-comb_straight.png}
-                \caption{}
+                \caption{\SI{3.5}{\milli\meter} caudal of Bregma.}
 		\label{fig:h6589z}
 	\end{subfigure}
         \vspace{-.5em}
 	\caption{
 		\textbf{Fiber implantation causes strong local cell displacement in the VTA.}
                 Depicted are YFP (coexpressed with Channelrhodopsin) fluorescent microscopy images of the VTA, overlain on a corresponding transmission microscopy image of the same focal plane.
+                All slices are seen in neurological orientation (the right of the image corresponds to the right of the animal).
                 A higher magnification of \textbf{(\subref{fig:h6589})} is depicted in \textbf{(\subref{fig:h6589z})}.
                 White bars indicate a scale of \SI{500}{\micro\meter}.
                 }
@@ -163,18 +164,19 @@ the stimulation target depth (\sessionpy{boilerplate.anova(factor='C(Q("Depth re
 the stimulation target PA coordinates (\sessionpy{boilerplate.anova(factor='C(Q("PA rel. Bregma [mm]"))')}),
 and the interaction of the depth and PA target coordinate (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}).
 
-The break-up by phasic and block stimulation is shown in \cref{fig:mv} and --- accounting for the entire model --- both levels are significantly different from zero, with
+The break-up by phasic and block stimulation is shown in \cref{fig:mv} and --- accounting for the entire model, including target coordinates --- both levels are significantly different from zero, with
 the phasic stimulation level of the variable yielding a p-value of $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Phasic]')}$,
 and the block stimulation level yielding a p-value of $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Block]')}$.
 Upon an investigation of the t-statistic map, phasic stimulation, however, reveals no coherent activation pattern (\cref{fig:phasica}).
 
-The main and interaction effects of the implant coordinates variables are better described categorically than linearly (\cref{fig:mvib,fig:mvip,fig:mvs}).
-Consequently, a best-implant group can best be determined via a delineation of categorical implant coordinate values.
-We perform this operation by classifying the implant coordinates into a “best” and “rejected” group, via k-means clustering the aggregate VTA t-statistic scores into two clusters.
-This categorization is highlighted in \cref{fig:mvib,fig:mvip}, and shows different cluster assignments for phasic and block stimulation protocols, with phasic stimulation showing a preference for more caudal implant coordinates.
+The main and interaction effects of the implant coordinate variables are better described categorically than linearly (\cref{fig:mvib,fig:mvip,fig:mvs}).
+Consequently, a best-implant group can most reliably be determined based on a categorical classification of implant coordinate levels.
+We classify the implant coordinates into a “best” and “rejected” group, via k-means clustering the aggregate VTA t-statistic scores into two clusters.
+This categorization is highlighted in \cref{fig:mvib,fig:mvip}, and shows different cluster assignments for phasic and block stimulation protocols, with phasic stimulation showing a trend towards more caudal implant coordinates.
 
-For block stimulation, the best implant category group (\cref{fig:filtered}) and the rejected implant category group (\cref{fig:other}) show not only a difference in overall stimulus-evoked signal intensity, but also a difference in efferent distributions, with the rejected implant category more strongly projecting to caudal brain areas.
-This distinction specifically arises for implant categorization based on block scans, and is not as salient or wholly absent if implants are categorized based on VTA activation in both stimulation protocol categories (\cref{fig:oc}) or based on a posteroanterior delimiter (\cref{fig:cut}).
+For block stimulation, the best implant category group (\cref{fig:filtered}) and the rejected implant category group (\cref{fig:other}) show not only a difference in overall stimulus-evoked signal intensity, but also a difference in efferent distribution, with the rejected implant category more strongly projecting to caudal brain areas.
+This distinction specifically arises for implant categorization based on block scan VTA t-statistic means.
+It is not as salient or wholly absent if implants are categorized based on VTA activation in both stimulation protocol categories (\cref{fig:oc}) or based on a posteroanterior delimiter (\cref{fig:cut}).
 
 The activation pattern elicited by block stimulation in the best implant category group shows strong coherent clusters of activation, consistent with reported results from literature.
 The top activation areas are predominantly located in the right hemisphere, with the whole brain parcellation-resolved response showing
@@ -189,16 +191,16 @@ While the top connectivity areas are located in the right hemisphere, the whole 
 no significant laterality ($p = \sessionpy{boilerplate.lateral('data/seed_l2/alias-block_filtered/acq-EPI_tstat.nii.gz')}$).
 Strong activation can be seen in the parcellation areas closely surrounding the seed, such as the ventral tegmental decussation and the closely located interpeduncular nucleus.
 Rostrovental dopaminergic projection areas remain prominently featured, including the nucleus accumbens, ventral tenia tecta, stria terminalis, intermediate nucleus of the endopiriform cortex, and the basal forebrain.
-Additionally, a number of caudal projection areas become apparent in this analysis, including a caudal subdivision of the cingulate cortex (area 29b).
+A number of caudal projection areas become apparent in this analysis, including a caudal subdivision of the cingulate cortex (area 29b).
 The medial septum, a smaller structure in the vicinity of the striatum, also shows activity.
 
-Stimulation in negative control animals (which is corrected for in the aforementioned stimulus-evoked analyses) does not show strong dopaminergic activity.
-However, sparse grains of regression scores above $t = 3$ can be observed (\cref{fig:control_mapa}), with the largest cluster in the thalamus, indicative of visual activity.
+Stimulation in control animals (which is corrected for in the aforementioned stimulus-evoked analyses) does not show strong dopaminergic activity.
+However, sparse grains of regression scores above $t = 3$ can be observed (\cref{fig:control_mapa}), with the largest cluster in the thalamus, suggesting visual activity.
 Atlas parcellation (\cref{fig:control_dist}) score distributions do not strongly deviate from zero, with the highest score areas being consistent with VTA heating artefacts (ventral tegmental decussation, interpeduncular nucleus, and the cingulate cortex).
 Comparable region t-statistic distributions are also found in the cerebellum (dentate nucleus, lobule 1-3 trunks, and the trunk of the crus).
 Overall the whole brain parcellation-resolved response shows
 no significant laterality ($p = \sessionpy{boilerplate.lateral('data/seed_l2/alias-block_control/acq-EPI_tstat.nii.gz')}$).
 
-Histological analysis of the targeting site reveals that the optic fiber implant displaces the Channelrhodopsin and YFP labelled neurons of the VTA (\cref{fig:h}).
-The effect is seen independently of the targeting area and the speed of implant insertion (\SIrange{10}{50}{\micro\meter\per\second}).
+Histological analysis of the targeting site reveals that the optic fiber implant displaces the channelrhodopsin and YFP labelled neurons of the VTA (\cref{fig:h}).
+The effect is seen independently of the targeting area or the speed of implant insertion (\SIrange{10}{50}{\micro\meter\per\second}).
 Higher magnification (\cref{fig:h6589z}) reveals, however, that labeled filaments remain in the imediate vecinity of the fiber tip.

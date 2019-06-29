@@ -2,64 +2,66 @@
 
 \subsection{Whole-Brain Dopaminergic Map}
 
-In this document we present the first whole-brain fMRI map of baseline VTA dopaminergic activity in the mouse.
+In this article we present the first whole-brain opto-fMRI map of VTA dopaminergic activity in the mouse.
 This mapping, published both as voxelwise reusable data, as well as discussed in terms of regions of interest in the article text, provides a valuable resource for model animal study of the dopaminergic system.
 The regions of interest identified as dopaminergic targets in fMRI are largely consistent with histological and electrophysiologic literature.
-This indicates that fMRI is well suited to interrogate the mouse dopaminergic system, in a fashion which remains consistent with other methods, but brings numerous advantages, such as non-invasiveness and whole-brain coverage to bear.
+This indicates that opto-fMRI is well suited to interrogate the mouse dopaminergic system, in a fashion which remains consistent with other methods, but brings numerous advantages to bear, such as iterative longitudinal recording, and whole-brain coverage.
 
 The predominant VTA projection area identified both in literature and by stimulus-evoked analysis in our study is the nucleus accumbens.
-This area is widely-involved in numerous neuropsychological phenomena, and its activation further supports the method's suitability to resolve meaningful brain function and increase the predictability of novel interventions via animal testing.
-Compared to the literature, there are also a small number of notable differences in the distribution of significant efferent projections.
+This area is involved in numerous neuropsychological phenomena, and its activation further supports the method's suitability to resolve meaningful brain function and increase the predictability of novel interventions via animal testing.
+Compared to the literature, we also identify a number of differences in the distribution of significant efferent projections.
 The amygdala, hippocampus, and the medial prefrontal cortex --- known targets for VTA dopaminergic projections --- are not activated in opto-fMRI.
-Since opto-fMRI is commonly capable of resolving these brain structures \cite{Lebhardt2015,Grandjean2019}, it is likely that this absence is due to a yet unknown biological feature of dopaminergic transmission.
+Since opto-fMRI can reliably resolve the hippocampus and cortex \cite{Lebhardt2015,Grandjean2019}, it is likely that the lack of signal in these areas is due to a yet undocumented biological feature of dopaminergic transmission.
+We speculate that this may be related to signal relay of block stimulation type signal.
 
 Our assay also offers evidence for VTA dopaminergic innervation of the dorsal striatum, a connection absent from textbook summaries.
 The dorsal striatum is a projection area commonly associated with dopaminergic innervation from the substantia nigra.
-The distinction between these two dopaminergic nuclei and their two pathways --- mesocorticolimbic (stemming from the VTA) and nigrostriatal (stemming from the substantia nigra) --- forms the basis for dopaminergic modelling.
+The distinction between these two dopaminergic nuclei and their two pathways --- mesocorticolimbic (originating the VTA) and nigrostriatal (originating in the substantia nigra) --- forms the basis for dopaminergic modelling.
 In conjunction with other recent literature \cite{Lohani2016,Pan2010}, we cast doubt on this dichotomy, at least in as far as suggesting that the VTA also innervates nigrostriatal projection areas, and does so to a functionally significant extent.
 
-Our results indicate that the 2-step network-model analysis of dopaminergic opto-fMRI (\cref{fig:seed}) is capable of resolving projection areas, but is significantly less powerful than stimulus-evoked analysis (\cref{fig:filtered}).
-This method highlights only a small number of activation clusters meeting the threshold, and fails to show signal laterality.
+We perform a VTA seed-based connectivity analysis which attempts to disambiguate primary activation from subsequent signal transmission (according to a simple 1-step signal relay model depicted in \cref{fig:nm}).
+Our results indicate that this analysis is capable of resolving projection areas, but is significantly less powerful than stimulus-evoked analysis (\cref{fig:filtered}).
+The method thus highlights only a small number of activation clusters meeting the threshold, and fails to show signal laterality.
 This is an interesting outcome, as --- given the superior performance of stimulus-evoked analysis --- it describes two possible features of dopaminergic neurotransmission in the VTA.
-The first is that the signal transduction of the primary stimulation via the VTA has higher fidelity than the fMRI measurement of VTA activity itself (i.e. VTA activity is relayed accurately, but outweighed by noise).
+The first is that the relay of primary VTA stimulation has higher fidelity than the fMRI measurement of VTA activity itself (i.e. VTA activity is relayed accurately, but outweighed by noise).
 The second is that there is a significant threshold to dopaminergic neurotransmission, by which fMRI-measurable baseline activity is predominantly not propagated (i.e. VTA activity is measured accurately, but is relayed in a strongly filtered fashion).
 
 \subsection{Methodological Overview}
 
-In addition to describing the results of a novel assay, this article acts as a guide for assay reproduction and refinement.
-Particularly, this article examines the effects of stimulus protocol categories and targeting coordinates on the method's performance.
-Based on these results we formulate a number of recommendations for either emulating or improving the assay.
+In addition to describing the results of a novel assay, this article presents evidence-based recommendations for assay reuse and refinement.
+Particularly, we examines the effects of stimulus protocol categories and targeting coordinates on the method's performance.
 
 The optic stimulation target coordinate break-down in \cref{fig:mv} shows that, in block stimulation trials, more rostral coordinates elicit stronger VTA activity.
-Additionally, we see that target depth also significantly influences VTA activation, but to a lesser extent than the PA coordinates.
+We see that target depth also significantly influences VTA activation, but to a lesser extent than the PA coordinates.
 Based on present data we recommend targeting the optic implant at
 a posteroanterior distance of \SI{-3.05}{\milli\meter} from bregma,
 a left-right distance of \SIrange{0.5}{0.55}{\milli\meter} from the midline,
 and a depth of \SI{4.5}{\milli\meter} from the skull surface.
-Further coordinate exploration may also be useful, particularly investigating the performance of different depths at a PA placement of of \SI{-3.05}{\milli\meter} from bregma.
-We can only recommend further exploration of more rostral coordinates with caution, as neuroanatomy suggests that further progression towards bregma may stimulate specific efferent fibers rather than the VTA.
+Further coordinate exploration may also be useful, particularly investigating the performance of different depths at a PA placement of \SI{-3.05}{\milli\meter} from bregma.
+We advise caution in further exploration of more rostral coordinates, as neuroanatomy suggests that further progression towards bregma may stimulate specific efferent fibers rather than the VTA.
 
 Comparison of implant-coordinate resolved VTA activity between phasic and block stimulation categories indicates that there may be different coordinate susceptibilities contingent on the stimulation protocol.
 The presented phasic stimulation protocols, however, do not elicit activity patterns strong enough to document (\cref{fig:mvt,fig:phasica}).
 This may owe to features of neuronal susceptibility to phasic stimulation protocols, but also to the intrinsically lower statistical power of such stimulation protocols in fMRI.
 While this hypothesis is strongly speculative, we highlight that it is testable, and more caudal coordinates should be revisited upon strong alterations to the stimulation protocol.
 
-Regarding the distribution of activation across projection areas, we note a particularly strong and unexpected divergence between the most sensitive and the least sensitive implant coordinate categories upon block stimulation (\cref{fig:filtered,fig:other}).
+Regarding the distribution of activation across projection areas, we note a particularly strong and unexpected divergence between the most and least sensitive implant coordinate categories upon block stimulation (\cref{fig:filtered,fig:other}).
 This is a meaningful feature, since we do not notice only a difference in efferent signal intensity, but also in distribution, arguably even primarily so.
 Adding to the novelty of the feature, is that this activity is scarcely represented in the forebrain, and more so in the hindbrain.
 This effect may be related to the activation of descending dopaminergic projections, and should be further interrogated in the endeavour of understanding the cross-connectivity between deep brain nuclei.
 
 The activity patterns in negative control animals are narrow in their extent (\cref{fig:control}), and --- when controlled for --- do not meaningfully impact the dopaminergic block stimulation contrast (\cref{fig:filtered,fig:uncontrolled}).
-There are, however, distinct traces of both heating artefacts and visual stimulation.
-On account of these we recommend using eye occlusion, dark or dark-painted ferrule sleeves, as well as lower laser intensities (than the present \SI{30}{\milli\watt}) in future experiments.
+Based on the activation distribution, however, there are distinct indicators of potential heating artefacts and visual stimulation.
+On account of these we recommend using eye occlusion, dark or dark-painted ferrule sleeves, as well as lower laser intensities (than the \SI{30}{\milli\watt} used in this study) in future experiments.
 
-Based on the qualitative picture in \cref{fig:h}, we observe that the construct expression extent is very broad.
-Additionally, while stimulus-evoked activation yields significant laterality, there remain strong and large clusters of contralateral actvation as well.
-Since this is not a feature representative of the ascending dopaminergic system, we suggest that the virus amount injected as part of the assay could significantly be reduced, and that a good guiding value would be
+Based on the qualitative picture in \cref{fig:h}, we observe that the construct is expressed over a large area, extending to the contralateral VTA of the injection site.
+Additionally, while stimulus-evoked activation yields significant laterality, there remain strong and large clusters of contralateral activation.
+Contralateral projection is not a feature representative of the ascending dopaminergic system, and previous opto-fMRI work in rats \cite{Lohani2016} has not indicated such an effect.
+We suggest that the virus amount injected as part of the assay could significantly be reduced, and that a good starting value would be
 \sessionpy{boilerplate.report_bound('VirusInjectionProtocol_amount', 'min', '\milli\litre')} (the minimal value in this study),
-and that further decreases can incrementally be attempted from that level.
+which could be further decreased over repeated iterations.
 
 Lastly, the most salient qualitative feature of \cref{fig:h} is the displacement of labelled neurons from the area in the proximity of the optic fiber implant tip.
 This feature is consistent across animals and implantation sites, and is cause for concern, since it limits the extent to which cells can be optically stimulated.
-Particularly, such a feature could exacerbate issues arising from heat artefacts, since the maximum SNR that can be increased by stronger light stimulation may be capped to an unnecessarily low level.
-In the effort to mitigate this feature we recommend usage of thinner optic fiber implants (e.g. \SI{200}{\micro\meter}, as opposed to the present \SI{400}{\micro\meter}).
+Particularly, such a feature could exacerbate issues arising from heat artefacts, since the maximum SNR attainable via stronger light stimulation may be capped to an unnecessarily low level.
+In the effort to mitigate this feature we recommend usage of thinner optic fiber implants (e.g. \SI{200}{\micro\meter}, as opposed to the \SI{400}{\micro\meter} used in this study).
