@@ -156,13 +156,13 @@
 	\label{fig:h}
 \end{figure*}
 
-For analysis, the stimulation protocols are divided into two task groups: phasic stimulation (encompassing protocols where stimulation is delivered in short bursts of up to \SI{1}{\second} in lenght --- \cref{tab:CogP,tab:JPogP}) and block stimulation (where stimulation is delivered in continuous blocks of at least \SI{8}{\second} --- \cref{tab:CogP,tab:JPogP}).
+For analysis, the stimulation protocols are divided into two task groups: phasic stimulation (encompassing protocols where stimulation is delivered in short bursts of up to \SI{1}{\second} in lenght --- \cref{tab:CogP,tab:JPogP}) and block stimulation (where stimulation is delivered in continuous blocks of at least \SI{8}{\second} --- \cref{tab:CogB,tab:CogBr,tab:CogBm,tab:CogMwf}).
 
 The VTA mean t statistic is sensitive to
 the stimulation protocol category (\sessionpy{boilerplate.anova(factor='Q("Task Category")')}),
 the stimulation target depth (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]"))')}),
 the stimulation target PA coordinates (\sessionpy{boilerplate.anova(factor='C(Q("PA rel. Bregma [mm]"))')}),
-and the interaction of the depth and PA target coordinate (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}).
+and the interaction of the depth and PA target coordinates (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}).
 
 The break-up by phasic and block stimulation is shown in \cref{fig:mv} and --- accounting for the entire model, including target coordinates --- both levels are significantly different from zero, with
 the phasic stimulation level of the variable yielding a p-value of $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Phasic]')}$,
@@ -171,7 +171,7 @@ Upon an investigation of the t-statistic map, phasic stimulation, however, revea
 
 The main and interaction effects of the implant coordinate variables are better described categorically than linearly (\cref{fig:mvib,fig:mvip,fig:mvs}).
 Consequently, a best-implant group can most reliably be determined based on a categorical classification of implant coordinate levels.
-We classify the implant coordinates into a “best” and “rejected” group, via k-means clustering the aggregate VTA t-statistic scores into two clusters.
+We classify the implant coordinates into a “best” and a “rejected” group, via k-means clustering the aggregate VTA t-statistic scores into two clusters.
 This categorization is highlighted in \cref{fig:mvib,fig:mvip}, and shows different cluster assignments for phasic and block stimulation protocols, with phasic stimulation showing a trend towards more caudal implant coordinates.
 
 For block stimulation, the best implant category group (\cref{fig:filtered}) and the rejected implant category group (\cref{fig:other}) show not only a difference in overall stimulus-evoked signal intensity, but also a difference in efferent distribution, with the rejected implant category more strongly projecting to caudal brain areas.
@@ -196,7 +196,7 @@ The medial septum, a smaller structure in the vicinity of the striatum, also sho
 
 Stimulation in control animals (which is corrected for in the aforementioned stimulus-evoked analyses) does not show strong dopaminergic activity.
 However, sparse grains of regression scores above $t = 3$ can be observed (\cref{fig:control_mapa}), with the largest cluster in the thalamus, suggesting visual activity.
-Atlas parcellation (\cref{fig:control_dist}) score distributions do not strongly deviate from zero, with the highest score areas being consistent with VTA heating artefacts (ventral tegmental decussation, interpeduncular nucleus, and the cingulate cortex).
+Atlas parcellation (\cref{fig:control_dist}) score distributions do not strongly deviate from zero, with the highest score areas being in the vecinity of the fiber tip, and thus consistent with VTA heating artefacts (ventral tegmental decussation, interpeduncular nucleus, and the cingulate cortex).
 Comparable region t-statistic distributions are also found in the cerebellum (dentate nucleus, lobule 1-3 trunks, and the trunk of the crus).
 Overall the whole brain parcellation-resolved response shows
 no significant laterality ($p = \sessionpy{boilerplate.lateral('data/seed_l2/alias-block_control/acq-EPI_tstat.nii.gz')}$).
