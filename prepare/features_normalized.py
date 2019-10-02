@@ -1,26 +1,36 @@
 import os
 import pandas as pd
-from samri.fetch.local import prepare_feature_map
+from samri.fetch.local import prepare_abi_connectivity_maps
+from samri.fetch.model import abi_connectivity_map
 from samri.utilities import bids_autofind_df
 
 scratch_dir = '~/.scratch/opfvta'
 
+#selection in once place to avoid divergence
 df = pd.read_csv('../data/features_structural.csv')
+invert_lr_experiments = df.loc[df['laterality']=='left', 'identifier'].tolist()
 
-region_data_template = '/usr/share/ABI-connectivity-data/Ventral_tegmental_area-{}/'
-target_path_template = '~/.scratch/opfvta/features_normalized/sub-{my_id}/ses-1/anat/sub-{my_id}_ses-1_cope.nii.gz'
+# Compute cumulative map for all projections
+abi_connectivity_map('Ventral_tegmental_area',
+	invert_lr_experiments=invert_lr_experiments,
+	#exclude_experiments=df.loc[df['exclude'], 'identifier'].tolist(),
+	save_as_zstat='../data/vta_projection_zstat.nii.gz',
+	save_as_tstat='../data/vta_projection_tstat.nii.gz',
+	save_as_cope='../data/vta_projection_cope.nii.gz',
+	)
 
-region_data_template = os.path.abspath(os.path.expanduser(region_data_template))
+# Create normalized features
+target_path_template = '~/.scratch/opfvta/features_normalized/sub-{experiment}/ses-1/anat/sub-{experiment}_ses-1_cope.nii.gz'
+
+## ABI connectivity
 target_path_template = os.path.abspath(os.path.expanduser(target_path_template))
-for ix, row in df.iterrows():
-	identifier = row['identifier']
-	invert = row['laterality'] == 'left'
-	prepare_feature_map(region_data_template.format(identifier),
-		invert_lr=invert,
-		scaling='normalize',
-		save_as=target_path_template.format(my_id=identifier)
-		)
+prepare_abi_connectivity_maps('Ventral_tegmental_area',
+	invert_lr_experiments=invert_lr_experiments,
+	reposit_path=target_path_template,
+	scaling='normalize',
+	)
 
+## Functional data
 df = bids_autofind_df('{}/l1/'.format(scratch_dir),
 	path_template='sub-{{subject}}/ses-{{session}}/'\
 		'sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_{{modality}}_betas.nii.gz',
@@ -35,3 +45,5 @@ for ix, row in df.iterrows():
 		scaling='normalize',
 		save_as=feature_path,
 		)
+
+
