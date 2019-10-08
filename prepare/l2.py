@@ -1,5 +1,6 @@
 from os import path
 from samri.pipelines import glm
+import numpy as np
 import pandas as pd
 import portage
 
@@ -125,7 +126,21 @@ glm.l2_controlled_effect(seed_base,
 	control_match={'subject':control_animals},
 	run_mode='fe',
 	)
-
+### Feature comparison
+glm.l2_controlled_effect('~/.scratch/opfvta/features_normalized',
+	workflow_name='features_l2',
+	out_dir='{}/features_l2'.format(scratch_dir),
+	mask='/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii',
+	n_jobs_percentage=.33,
+	exclude={'task':[
+		'JPogP',
+		'CogP',
+		],},
+	out_base=scratch_dir,
+	match={'subject':filtered_animals,'type':[np.nan]},
+	control_match={'type':['anat']},
+	run_mode='fe',
+	)
 
 ## Phasic
 coordinates_path = path.abspath('../data/implant_coordinates_phasic.csv')

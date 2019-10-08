@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from samri.fetch.local import prepare_abi_connectivity_maps
+from samri.fetch.local import prepare_abi_connectivity_maps, prepare_feature_map
 from samri.fetch.model import abi_connectivity_map
 from samri.utilities import bids_autofind_df
 
