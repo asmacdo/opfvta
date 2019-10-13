@@ -9,6 +9,7 @@ scratch_dir = '~/.scratch/opfvta'
 #selection in once place to avoid divergence
 df = pd.read_csv('../data/features_structural.csv')
 invert_lr_experiments = df.loc[df['laterality']=='left', 'identifier'].tolist()
+invert_lr_experiments = [str(i) for i in invert_lr_experiments]
 
 # Compute cumulative map for all projections
 abi_connectivity_map('Ventral_tegmental_area',
