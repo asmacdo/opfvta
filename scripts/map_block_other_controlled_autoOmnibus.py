@@ -1,6 +1,6 @@
 import samri.plotting.maps as maps
 
-stat_map = 'data/l2_/alias-block_other_controlled/acq-EPI_tstat.nii.gz'
+stat_map = 'data/l2Omnibus/alias-block_other_controlled/acq-EPI_tstat.nii.gz'
 template = '/usr/share/mouse-brain-atlases/dsurqec_40micron_masked.nii'
 
 maps.stat3D(stat_map,
