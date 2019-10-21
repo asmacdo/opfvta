@@ -204,3 +204,31 @@ no significant laterality ($p = \sessionpy{boilerplate.lateral('data/seed_l2/ali
 Histological analysis of the targeting site reveals that the optic fiber implant displaces the channelrhodopsin and YFP labelled neurons of the VTA (\cref{fig:h}).
 The effect is seen independently of the targeting area or the speed of implant insertion (\SIrange{10}{50}{\micro\meter\per\second}).
 Higher magnification (\cref{fig:h6589z}) reveals, however, that labeled filaments remain in the imediate vecinity of the fiber tip.
+
+\begin{sansmath}
+\sessionpy{pytex_subfigs(
+        [
+                {'script':'scripts/map_features_filtered.py', 'label':'subjects', 'conf':'article/2asymetric_map.conf',
+                        'options_pre':'{.41\\textwidth}',
+                        'options_pre_caption':'\\vspace{1.55em}',
+                        'caption':'Comparison t-statistic showing Slices centered on largest cluster, statistical map thresholded at . \\vspace{.8em}',
+                        'label':'filtered_map',
+                        },
+                {'script':'scripts/distributions_features_filtered.py', 'label':'subjects', 'conf':'article/2asymetric_distributions.conf',
+                        'options_pre':'{.585\\textwidth}',
+                        'caption':'Slices centered on largest cluster. \\vspace{.8em}',
+                        'label':'filtered_mapa',
+                        },
+                {'script':'scripts/features_filtered_coronal.py', 'label':'tasks', 'conf':'article/coronal.conf', 'options_pre':'{.99\\textwidth}',
+                        'caption':'Distribution densities of t-statistic values in the 10 most strongly activated areas.',
+                        'label':'filtered_dist',
+                        'options_post':'\\vspace{.7em}',
+                        },
+                ],
+        caption='
+                \\textbf{Activity measured by the opto-fMRI assay overlaps with the VTA projection map.}
+                ',
+        label='fig:filtered',
+        options_pre='\\centering',
+        )}
+\end{sansmath}
