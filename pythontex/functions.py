@@ -281,34 +281,6 @@ def latex_figure(name, environment,
 		options_pre=options_pre,
 		options_post=options_post,
 		)
-
-pytex.bio_fignum = 0
-#global pytex # try without this line
-def bio_fig(gdd, fname=None, caption=None, label=None):
-#		global pytex # and this one, should work
-	if fname is None:
-		fname = 'pythontex-files-pres/biopython_fig_{0}-{1}.pdf'.format(pytex.id, pytex.bio_fignum)
-	gdd.write(fname, "PDF")
-	template = '''
-	\\begin{{figure}}
-	\\centering
-	\\includegraphics{{{fname}}}
-	\\caption{{ {label} {caption} }}
-	\\end{{figure}}
-	'''
-	if caption is None:
-		caption = ''
-	if label is None:
-		label = ''
-	else:
-		if not label.startswith('fig:'):
-			label = 'fig:' + label
-		label = '\\label{{{0}}}'.format(label)
-	template = template.format(fname=fname.rsplit('.', 1)[0], label=label, caption=caption)
-	print(template)
-	pytex.add_created(fname)
-	pytex.bio_fignum += 1
-	return template
 \end{pythontexcustomcode}
 \begin{pythontexcustomcode}[end]{py}
 \end{pythontexcustomcode}
