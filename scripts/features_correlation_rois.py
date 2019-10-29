@@ -30,6 +30,9 @@ g = sns.regplot('Functional Mean ROI t', 'Structural Mean ROI t',
 	data=df,
 	color="tab:blue",
 	scatter_kws={'s':linewidth*10},
+	line_kws={
+		'label':'$\mathrm{{\\rho={}\;(p={})}}$'.format(r_rois_tex,p_rois_tex),
+		},
 	)
-plt.plot([], [], '', label='$\mathrm{{\\rho={}\;(p={})}}$'.format(r_rois_tex,p_rois_tex))
-legend = plt.legend(handletextpad=0.0, handlelength=0)
+
+legend = plt.legend(handletextpad=0.0, handlelength=0,markerscale=0)
