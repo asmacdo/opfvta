@@ -87,11 +87,15 @@ def pytex_subfigs(scripts,
 	placement='[h]',
 	options_pre='',
 	options_post='',
+	data=[],
+	figure_format='pgf',
+	main_env='figure*',
 	):
 	"""
 	Executes a series of Python scripts, grabbing the figures individually, and placing them as subfigures in a figure environment
 	"""
-	subfigs = '\\begin{{figure*}}{}\n'.format(placement)
+	pytex.add_dependencies(*data)
+	subfigs = '\\begin{{{}}}{}\n'.format(main_env,placement)
 	if options_pre:
 		subfigs += '{}\n'.format(options_pre)
 	for script in scripts:
@@ -119,6 +123,10 @@ def pytex_subfigs(scripts,
 			script_options_pre_caption = script['options_pre_caption']
 		except KeyError:
 			script_options_pre_caption = ''
+		try:
+			script_figure_format = script['figure_format']
+		except KeyError:
+			script_figure_format = figure_format
 		subfig = pytex_fig(script['script'],
 			conf=script_conf,
 			caption=script_caption,
@@ -127,6 +135,7 @@ def pytex_subfigs(scripts,
 			options_post=script_options_post,
 			options_pre=script_options_pre,
 			options_pre_caption=script_options_pre_caption,
+			figure_format=script_figure_format,
 			)
 		subfigs += subfig
 		subfigs += '\\hfill\n'
@@ -136,7 +145,7 @@ def pytex_subfigs(scripts,
 		subfigs += '\\label{{{}}}\n'.format(label)
 	if options_post:
 		subfigs += '{}\n'.format(options_post)
-	subfigs += '\\end{figure*}'
+	subfigs += '\\end{{{}}}'.format(main_env)
 	return subfigs
 
 def pytex_fig(script,
@@ -148,6 +157,8 @@ def pytex_fig(script,
 	options_post='',
 	options_pre='[htp]',
 	options_pre_caption='',
+	data=[],
+	figure_format='pgf',
 	):
 	'''
 	Executes a Python script while applying the custom style.
@@ -172,18 +183,19 @@ def pytex_fig(script,
 	except NameError:
 		if isinstance(conf, str):
 			conf = [conf]
-	figure_styles = [document_style]+conf
+	figure_styles = [document_style]+conf+data
 	pytex.add_dependencies(*figure_styles)
 	with plt.style.context(figure_styles):
 		exec(open(script).read())
 	if multicol:
 		environment='figure*'
-	fig = latex_figure(save_fig(), environment,
+	fig = latex_figure(save_fig(ext='.{}'.format(figure_format)), environment,
 		caption=caption,
 		label=label,
 		options_post=options_post,
 		options_pre=options_pre,
 		options_pre_caption=options_pre_caption,
+		figure_format=figure_format,
 		)
 	return fig
 
@@ -210,7 +222,7 @@ def save_fig(name='', legend=False, fig=None, ext='.pgf'):
 		name = 'auto_fig_{}-{}'.format(pytex.id, fig_count)
 		fig_count += 1
 	else:
-		if len(name) > 4 and name[:-4] in ['.pgf', '.svg', '.png', '.jpg']:
+		if len(name) > 4 and name[:-4] in ['.pdf', '.pgf', '.svg', '.png', '.jpg']:
 			name, ext = name.rsplit('.', 1)
 
 	# Get current figure if figure isn't specified
@@ -259,6 +271,7 @@ def latex_figure(name, environment,
 	options_post='',
 	options_pre_caption='',
 	options_pre='[htp]',
+	figure_format='pgf',
 	):
 	"""
 	Auto wrap `name` in a LaTeX figure environment.
@@ -267,8 +280,11 @@ def latex_figure(name, environment,
 	if not name:
 		name = save_fig()
 	content = '\\centering\n'
-	content += '\\makeatletter\\let\\input@path\\Ginput@path\\makeatother\n'
-	content += '\\input{%s.pgf}\n' % name
+	if figure_format == 'pgf':
+		content += '\\makeatletter\\let\\input@path\\Ginput@path\\makeatother\n'
+		content += '\\input{{{}.{}}}\n'.format(name, figure_format)
+	elif figure_format == 'pdf':
+		content += '\\includegraphics{{{}}}\n'.format(name)
 	if options_pre_caption:
 		content += '{}\n'.format(options_pre_caption)
 	if not label:
@@ -281,6 +297,7 @@ def latex_figure(name, environment,
 		options_pre=options_pre,
 		options_post=options_post,
 		)
+
 \end{pythontexcustomcode}
 \begin{pythontexcustomcode}[end]{py}
 \end{pythontexcustomcode}
