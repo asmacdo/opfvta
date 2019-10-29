@@ -1,4 +1,4 @@
-# Opto-fMRI of the Ventral Tegmental Area
+# A Whole-Brain Map and Assay Parameter Analysis of Mouse VTA Dopaminergic Activation
 
 These are the content files used to generate scientific communication materials for the “Opto-fMRI of Ventral Tegmental Area” project.
 
