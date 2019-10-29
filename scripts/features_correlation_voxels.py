@@ -31,5 +31,5 @@ g = sns.regplot('Functional Voxel t', 'Structural Voxel t',
 	color="tab:gray",
 	scatter_kws={'s':linewidth},
 	)
-plt.plot([], [], '', label='$\mathrm{{ρ={}\;(p={})}}$'.format(r_rois_tex,p_rois_tex))
+plt.plot([], [], '', label='$\mathrm{{\\rho={}\;(p={})}}$'.format(r_rois_tex,p_rois_tex))
 legend = plt.legend(handletextpad=0.0, handlelength=0)
