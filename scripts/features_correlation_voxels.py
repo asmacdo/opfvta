@@ -1,4 +1,5 @@
 import json
+import matplotlib as mpl
 import pandas as pd
 import seaborn as sns
 
@@ -10,13 +11,15 @@ img2_voxels = [float(i) for i in correlation_data['voxelwise']['structural']]
 
 df = pd.DataFrame(
 	{
-		'functional': img1_voxels,
-		'structural': img2_voxels,
+		'Functional Voxel t': img1_voxels,
+		'Structural Voxel t': img2_voxels,
 		}
 	)
 
-g = sns.jointplot('functional', 'structural',
+linewidth = mpl.rcParams['lines.linewidth']
+g = sns.regplot('Functional Voxel t', 'Structural Voxel t',
+	ci=99,
 	data=df,
-	kind="reg",
-	color="m",
+	color="tab:gray",
+	scatter_kws={'s':linewidth},
 	)

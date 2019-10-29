@@ -1,4 +1,5 @@
 import json
+import matplotlib as mpl
 import pandas as pd
 import seaborn as sns
 
@@ -10,13 +11,15 @@ img2_rois = [float(i) for i in correlation_data['regionwise']['structural']]
 
 df = pd.DataFrame(
 	{
-		'functional': img1_rois,
-		'structural': img2_rois,
+		'Functional Mean ROI t': img1_rois,
+		'Structural Mean ROI t': img2_rois,
 		}
 	)
 
-g = sns.jointplot('functional', 'structural',
+linewidth = mpl.rcParams['lines.linewidth']
+g = sns.regplot('Functional Mean ROI t', 'Structural Mean ROI t',
+	ci=99,
 	data=df,
-	kind="reg",
-	color="m",
+	color="tab:blue",
+	scatter_kws={'s':linewidth*10},
 	)
