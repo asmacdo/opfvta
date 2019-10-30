@@ -1,4 +1,12 @@
 import samri.plotting.maps as maps
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
+
+COLORS_PLUS = plt.cm.plasma(np.linspace(0., 1, 128))
+COLORS_MINUS = plt.cm.viridis(np.linspace(0, 1, 128))
+COLORS = np.vstack((COLORS_MINUS, COLORS_PLUS[::-1]))
+MYMAP = mcolors.LinearSegmentedColormap.from_list('my_colormap', COLORS)
 
 scratch_dir = '~/.scratch/opfvta/'
 
@@ -11,6 +19,5 @@ maps.stat3D(stat_map,
 	show_plot=False,
 	threshold=3,
 	threshold_mesh=3,
-	positive_only=True,
-        cmap='plasma_r',
+	cmap=MYMAP,
 	)
