@@ -79,7 +79,7 @@
                         },
                 ],
         caption='
-                Multivariate (depth and posteroantior) implant coordinate comparisons of signal intensity in the VTA region of interest.
+                Multifactorial (depth and posteroantior) implant coordinate comparisons of signal intensity in the VTA region of interest.
                 ',
         label='fig:mvs',
         )}
@@ -89,51 +89,66 @@
 \sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/map_block_filtered_controlled_autoOmnibus.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
-                        'caption':'Block stimulation of best implant category group.',
+                        'options_post':'\\vspace{1em}',
+                        'caption':'Block stimulation of best implant category group (omnibus classification).',
                         'label':'ocf',
                         },
                 {'script':'scripts/map_block_other_controlled_autoOmnibus.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
-                        'caption':'Block stimulation of rejected implant category group.',
+                        'options_post':'\\vspace{1em}',
+                        'caption':'Block stimulation of rejected implant category group (omnibus classification).',
                         'label':'oco',
                         },
                 {'script':'scripts/implant_coordinates.py', 'conf':'article/3x1_withmap.conf', 'options_pre':'{.32\\textwidth}',
-                        'caption':'Implant group segmentation (dotted markers indicate best category).',
+                        'options_post':'\\vspace{1em}',
+                        'caption':'Omnibus implant coordinate classification (dotted markers indicate best category).',
                         'label':'occ',
+                        },
+                {'script':'scripts/map_block_filteredManual.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
+                        'caption':'Block stimulation of rostralmost implant category group.',
+                        'label':'pcf',
+                        },
+                {'script':'scripts/map_block_otherManual.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
+                        'caption':'Block stimulation of caudalmost implant category group.',
+                        'label':'pco',
+                        },
+                {'script':'scripts/implant_coordinates_pa.py', 'conf':'article/3x1_withmap.conf', 'options_pre':'{.32\\textwidth}',
+                        'caption':'PA-coordinate implant classification (dotted markers indicate rostralmost category).',
+                        'label':'pcc',
                         },
                 ],
         caption='
-                \\textbf{Implant coordinate categorization based on both block and phasic stimulus trials does not show a better projection segmentation than based on block trials only.}
-                Depicted are t-statistic maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided into best and rejected category groups \\textbf{(\subref{fig:ocf}, \subref{fig:oco})}.
+                \\textbf{Neither omnibus (block and phasic stimulus trial-based) nor PA-coordinate classification show a better projection segmentation than block trial-based classification.}
+                Depicted are t-statistic maps (centerd on largest cluster, thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided into best and rejected \\textbf{(\subref{fig:ocf}, \subref{fig:oco})}, or rostralmost and caudalmost \\textbf{(\subref{fig:pcf}, \subref{fig:pco})}.
                 Slices are centered on the largest cluster.
                 ',
         label='fig:oc',
         )}
 \end{sansmath}
 
-\begin{sansmath}
-\sessionpy{pytex_subfigs(
-        [
-                {'script':'scripts/map_block_filteredManual.py', 'label':'mcut', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of rostralmost implant category group, slices centered on VTA. \\vspace{1.2em}'
-                        },
-                {'script':'scripts/map_block_filtered_autoManual.py', 'label':'mcuta', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of rostralmost implant category group, slices centered on largest cluster. \\vspace{1.2em}'
-                        },
-                {'script':'scripts/map_block_otherManual.py', 'label':'mcuto', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of caudalmost implant category group, slices centered on VTA.'
-                        },
-                {'script':'scripts/map_block_other_autoManual.py', 'label':'mcutoa', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of caudalmost implant category group, slices centered on largest cluster.'
-                        },
-                ],
-        caption='
-                \\textbf{Implant coordinate categorization based on a PA coordinate separation at -3.25 does not show better projection segmentation than block stimulus trial categorization.}
-                Depicted are statistical maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
-                Slices are centered on the VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and the largest cluster, respectively.
-                ',
-        label='fig:cut',
-        )}
-\end{sansmath}
+%\begin{sansmath}
+%\sessionpy{pytex_subfigs(
+%        [
+%                {'script':'scripts/map_block_filteredManual.py', 'label':'mcut', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+%                        'caption':'Block stimulation of rostralmost implant category group, slices centered on VTA. \\vspace{1.2em}'
+%                        },
+%                {'script':'scripts/map_block_filtered_autoManual.py', 'label':'mcuta', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+%                        'caption':'Block stimulation of rostralmost implant category group, slices centered on largest cluster. \\vspace{1.2em}'
+%                        },
+%                {'script':'scripts/map_block_otherManual.py', 'label':'mcuto', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+%                        'caption':'Block stimulation of caudalmost implant category group, slices centered on VTA.'
+%                        },
+%                {'script':'scripts/map_block_other_autoManual.py', 'label':'mcutoa', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+%                        'caption':'Block stimulation of caudalmost implant category group, slices centered on largest cluster.'
+%                        },
+%                ],
+%        caption='
+%                \\textbf{Implant coordinate categorization based on a PA coordinate separation at -3.25 does not show better projection segmentation than block stimulus trial categorization.}
+%                Depicted are statistical maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
+%                Slices are centered on the VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and the largest cluster, respectively.
+%                ',
+%        label='fig:cut',
+%        )}
+%\end{sansmath}
 
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
@@ -200,5 +215,20 @@
                 Slices are centered on the largest cluster.
                 ',
         label='fig:uncontrolled',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\sessionpy{pytex_fig(
+        'scripts/distributions_features_filtered_neg.py',
+        conf='article/distributions.conf',
+        caption='
+                Volumetric plot of the right VTA region of interest used as a mask to extract VTA signal for multifactorial statistical modelling and k-means clustering.
+                \\vspace{-1em}
+                ',
+        label='dffn',
+        options_pre='\\centering\n',
+        environment='figure*',
+        figure_format='pdf',
         )}
 \end{sansmath}
