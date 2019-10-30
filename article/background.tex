@@ -75,7 +75,7 @@ Of particular relevance to pharmacological research, the mouse possesses a high 
 As it coordinates phenomena such as perception, decision, and action, the function of the brain is highly holistic.
 Consequently, localized study of the brain only offers limited insight into the etiology of these phenomena, just as localized manipulations of the brain only offer very limited control over its function.
 This consideration not only recommends the study of widely projecting neurotransmitter systems, but also suggests that whole-brain measurement techniques are uniquely suited to describe them.
-Owing to its deep penetration, high rostrocaudal coverage, and large-scale usage in human studies, functional MRI (fMRI) is thus one of the foremost methods for studying how the dopaminergic system modulates brain function.
+Owing to its deep penetration, high rostrocaudal coverage, and large-scale usage in human studies, fMRI is one of the foremost methods for studying how the dopaminergic system modulates brain function.
 
 Imaging a neurotransmitter system comprised of a small number of cells, based only on endogenous signalling, is highly unreliable due to a very low signal to noise ratio (SNR).
 This issue can, however, be surmounted by introducing exogenous signal, via stimulation.
@@ -89,18 +89,18 @@ The combination of this stimulation method with fMRI is commonly referred to as 
 
 In the interest of developing a powerful dopaminergic opto-fMRI assay with maximal brain coverage, optogenetic stimulation is best leveraged by selecting a stimulation site with the highest number of dopaminergic projections.
 While the dopaminergic system is centralized in the midbrain, it consists not of one, but of two pairs of lateralized nuclei, the Ventral Tegmental Area (VTA), and Substantia Nigra pars compacta (SNc).
-Of these, the VTA has the broader distribution of efferents, whereas the SNc projects primarily to the dorsal striatum \cite{Pan2010}.
+Of these, the VTA has the broader distribution of efferents (\cref{fig:ml}), whereas the SNc projects primarily to the dorsal striatum \cite{Pan2010}.
 
 The most popular means of producing spatially resolved sensitivity summaries from fMRI, and opto-fMRI in particular, is general linear modelling (GLM) of stimulus evoked activity \cite{Friston1995}.
 For this purpose, a precisely specified stimulus train is presented to the brain, and convolved with an impulse response function (IRF) for analysis.
 Subsequently, a mass univariate regression analysis is performed across all voxels, allowing them to be assigned parameter values, which denote the strength of activation, as adjusted for the sample noise.
 While powerful, this approach is also strongly limiting, since it implies that all voxels in the brain are exposed in an indistinguishable fashion to the stimulation.
-Particularly in cases where stimulation is introduced via well-known pathways, a simple network model for signal transmission can easily be implemented via seed-based connectivity (\cref{fig:nm}).
+Particularly in cases where stimulation is introduced via well-known pathways, a simple network model for signal transmission can easily be implemented via seed-based functional connectivity (\cref{fig:nm}).
 Additionally, in the case of neurotransmitter systems with colocalized cell bodies and long efferent projections, the macroscopic resolution of fMRI can be used to distinguish cell biological processes.
 This is done by mapping somatodendritic processes (e.g. excitability upon depolarization at the soma) to “cell-body“ voxels, and signal transmission at the synapse to “projection“ voxels (\cref{fig:cm}).
 
 To enable the whole-brain modelling of human VTA dopaminergic function in mice, three novel research outputs need to be produced.
 Firstly, a proof-of-principle study needs to be conducted and a dataset published, which documents the feasibility of dopaminergic VTA opto-fMRI in the mouse.
 The study design needs to include controlled but significant methodological variation, in order to lay a reliable and well-informed foundation for the technique.
-Secondly, parameter variation effects need to be described and evaluated, to ascertain what conclusions pertaining to dopaminergic function can already be drawn, and in how far the method can be re-used as a dopaminergic system assay.
-Lastly, a voxelwise summary of baseline dopaminergic function needs to be published in a standard volumetric space, to easily enable co-registration, result integration, and result comparison.
+Secondly, parameter variation effects need to be described and evaluated, to ascertain what conclusions pertaining to functional dopaminergic control of brain activity are generalizable, and in how far the method can be re-used as a dopaminergic system assay.
+Lastly, a voxelwise summary of dopaminergic function in the healthy adult mouse needs to be published in a standard volumetric space, to easily enable co-registration, result integration, and result comparison with treatment or disease model studies.
