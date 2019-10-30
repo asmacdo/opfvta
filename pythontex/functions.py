@@ -152,7 +152,6 @@ def pytex_fig(script,
 	conf=[],
 	caption='',
 	label='',
-	multicol=False,
 	environment='figure',
 	options_post='',
 	options_pre='[htp]',
@@ -187,8 +186,6 @@ def pytex_fig(script,
 	pytex.add_dependencies(*figure_styles)
 	with plt.style.context(figure_styles):
 		exec(open(script).read())
-	if multicol:
-		environment='figure*'
 	fig = latex_figure(save_fig(ext='.{}'.format(figure_format)), environment,
 		caption=caption,
 		label=label,
