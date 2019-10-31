@@ -35,4 +35,4 @@ g = sns.regplot('Functional Mean ROI t', 'Structural Mean ROI t',
 		},
 	)
 
-legend = plt.legend(handletextpad=0.0, handlelength=0,markerscale=0)
+legend = plt.legend()

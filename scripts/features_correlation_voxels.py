@@ -35,4 +35,4 @@ g = sns.regplot('Functional Voxel t', 'Structural Voxel t',
 		},
 	)
 
-legend = plt.legend(handletextpad=0.0, handlelength=0,markerscale=0)
+legend = plt.legend()
