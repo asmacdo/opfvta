@@ -99,13 +99,19 @@
                         'label':'ffc',
                         },
                 {'script':'scripts/features_correlation_rois.py', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Region-wise regression plot between functional and structural projection maps (same as in \\textbf{\subref{fig:ffc}}).',
+                        'caption':'
+                                Region-wise regression plot between functional and structural projection maps (same as iin \\textbf{\subref{fig:ffc}}).
+                                Tinted area indicates the \\SI{99}{\percent} confidence interval of the regression estimate.
+                                ',
                         'options_pre_caption':'\\vspace{-1.5em}',
                         'label':'fcr',
                         'figure_format':'pdf',
                         },
                 {'script':'scripts/features_correlation_voxels.py', 'conf':'article/1col_with_margins.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Voxel-wise regression plot between functional and structural projection maps (same as in \\textbf{\subref{fig:ffc}}).',
+                        'caption':'
+                                Voxel-wise regression plot between functional and structural projection maps (same as in \\textbf{\subref{fig:ffc}}).
+                                Tinted area indicates the \\SI{99}{\percent} confidence interval of the regression estimate.
+                                ',
                         'options_pre_caption':'\\vspace{-1.5em}',
                         'label':'fcv',
                         'figure_format':'pdf',
@@ -113,7 +119,7 @@
                 ],
         caption='
                 \\textbf{Comparing VTA functional activation to structural projection data reveals broadly similar patterns, with differences in the contralateral and the dorsal ipsilateral striatum.}
-                Depicted is the overlay \\textbf{(\subref{fig:ffc})} and correlation \\textbf{(\subref{fig:ffc}, \subref{fig:fcv})} of population-level maps, alongside contrast statistic values, taking into account variability across subjects \\textbf{(\subref{fig:mff}, \subref{fig:dff})}.
+                Depicted are contrast statistic values, taking into account variability across subjects \\textbf{(\subref{fig:mff}, \subref{fig:dff})}, alongside an overlay \\textbf{(\subref{fig:ffc})} and correlation analyses \\textbf{(\subref{fig:fcr}, \subref{fig:fcv})} of the the population-level functional and structural statistic maps.
                 ',
         label='fig:f',
         options_pre='\\centering\n\\vspace{-2em}',
