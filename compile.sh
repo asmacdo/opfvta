@@ -7,7 +7,7 @@ WHITELIST="
 	slides.tex
 	"
 
-if [ $TARGET == "all" ] || [ "$TARGET" == "" ]; then
+if [ "$TARGET" = "all" ] || [ "$TARGET" = "" ]; then
 	for ITER_TARGET in *.tex; do
 		if [[ $WHITELIST =~ (^|[[:space:]])$ITER_TARGET($|[[:space:]]) ]];then
 			ITER_TARGET=${ITER_TARGET%".tex"}
@@ -15,12 +15,12 @@ if [ $TARGET == "all" ] || [ "$TARGET" == "" ]; then
 		fi
 	done
 else
-	pdflatex -shell-escape ${TARGET}.tex &&\
-	pythontex.py ${TARGET}.tex &&\
-	pdflatex -shell-escape ${TARGET}.tex &&\
-	bibtex ${TARGET} &&\
-	pdflatex -shell-escape ${TARGET}.tex &&\
-	pdflatex -shell-escape ${TARGET}.tex
-	pdflatex -shell-escape ${TARGET}.tex
-	pdflatex -shell-escape ${TARGET}.tex
+	pdflatex -shell-escape ${TARGET}.tex || die
+	pythontex.py ${TARGET}.tex || die
+	pdflatex -shell-escape ${TARGET}.tex || die
+	bibtex ${TARGET} || die
+	pdflatex -shell-escape ${TARGET}.tex || die
+	pdflatex -shell-escape ${TARGET}.tex || die
+	pdflatex -shell-escape ${TARGET}.tex || die
+	pdflatex -shell-escape ${TARGET}.tex || die
 fi
