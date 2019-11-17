@@ -15,12 +15,12 @@ if [ "$TARGET" = "all" ] || [ "$TARGET" = "" ]; then
 		fi
 	done
 else
-	pdflatex -shell-escape ${TARGET}.tex || die
-	pythontex.py ${TARGET}.tex || die
-	pdflatex -shell-escape ${TARGET}.tex || die
-	bibtex ${TARGET} || die
-	pdflatex -shell-escape ${TARGET}.tex || die
-	pdflatex -shell-escape ${TARGET}.tex || die
-	pdflatex -shell-escape ${TARGET}.tex || die
-	pdflatex -shell-escape ${TARGET}.tex || die
+	pdflatex -shell-escape ${TARGET}.tex || exit 1
+	pythontex.py ${TARGET}.tex || exit 1
+	pdflatex -shell-escape ${TARGET}.tex || exit 1
+	bibtex ${TARGET} || exit 1
+	pdflatex -shell-escape ${TARGET}.tex || exit 1
+	pdflatex -shell-escape ${TARGET}.tex || exit 1
+	pdflatex -shell-escape ${TARGET}.tex || exit 1
+	pdflatex -shell-escape ${TARGET}.tex || exit 1
 fi
