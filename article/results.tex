@@ -1,6 +1,7 @@
 \section{Results}
 
 \begin{sansmath}
+%%% But I am using color.
 \sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/taskgroup.py', 'conf':'article/3x1.conf', 'options_pre':'{.322\\textwidth}',
@@ -41,8 +42,8 @@
                         },
                 ],
         caption='
-                \\textbf{Block stimulation elicits strong and clustered activity in the ventral striatum, particularly the nucleus accumbens.}
-                Depicted are the results of the second-level analysis for block stimulus evoked activity observed in the best implant group animals, and corrected for the negative control baseline.
+                \\textbf{Block stimulation elicits strong and clustered activity in the ventral striatum, in particular the nucleus accumbens.}
+                Depicted are the results of the second-level analysis for block stimulus evoked activity, as observed in the best implant group animals and corrected for the wild type control response.
                 The figures show volumetric population t-statistic maps \\textbf{(\subref{fig:filtered_map}, \subref{fig:filtered_mapa})} thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:filtered_dist})}.
                 ',
         label='fig:filtered',
@@ -51,6 +52,7 @@
 \end{sansmath}
 
 \begin{sansmath}
+%%% I'd rather keep the main statement as a full sentence.
 \sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/map_block_other_controlled.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
@@ -68,7 +70,7 @@
                 ],
         caption='
                 \\textbf{In the rejected implant category group, stimulus evoked activity in response to block stimulation is reduced and differently distributed.}
-                Depicted are results of the second-level analysis for block stimulus evoked activity observed in the rejected implant group animals, and corrected for the negative control baseline.
+                Depicted are results of the second-level analysis for block stimulus evoked activity, as observed in the best implant group animals and corrected for the wild type control response.
                 The figures show volumetric population t-statistic maps \\textbf{(\subref{fig:other_map}, \subref{fig:other_mapa})} thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:other_dist})}.
                 ',
         label='fig:other',
@@ -100,7 +102,7 @@
                         },
                 {'script':'scripts/features_correlation_rois.py', 'conf':'article/1col.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'
-                                Region-wise regression plot between functional and structural projection maps (same as iin \\textbf{\subref{fig:ffc}}).
+                                Region-wise regression plot between functional and structural projection maps (same as in \\textbf{\subref{fig:ffc}}).
                                 Tinted area indicates the \\SI{99}{\percent} confidence interval of the regression estimate.
                                 ',
                         'options_pre_caption':'\\vspace{-1.5em}',
@@ -118,7 +120,7 @@
                         },
                 ],
         caption='
-                \\textbf{Comparing VTA functional activation to structural projection data reveals broadly similar patterns, with differences in the contralateral and the dorsal ipsilateral striatum.}
+                \\textbf{Comparing VTA functional activation to structural projection data reveals good correspondence, with deviations involving the contralateral and the dorsal ipsilateral striatum.}
                 Depicted are contrast statistic values, taking into account variability across subjects \\textbf{(\subref{fig:mff}, \subref{fig:dff})}, alongside an overlay \\textbf{(\subref{fig:ffc})} and correlation analyses \\textbf{(\subref{fig:fcr}, \subref{fig:fcv})} of the the population-level functional and structural statistic maps.
                 ',
         label='fig:f',
@@ -168,7 +170,7 @@
                         },
                 ],
         caption='
-                \\textbf{Block stimulation in control animals produces no large activation clusters, yet scattered activation hints at some visual excitation and heating artefacts.}
+                \\textbf{Block stimulation in wild type control animals produces no large activation clusters, yet scattered activation hints at some visual excitation and heating artefacts.}
                 Depicted are volumetric population t-statistic maps \\textbf{(\subref{fig:control_map}, \subref{fig:control_mapa})} --- thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:control_dist})}.
                 ',
         label='fig:control',
@@ -198,22 +200,27 @@
         \vspace{-.5em}
 	\caption{
 		\textbf{Fiber implantation causes strong local cell displacement in the VTA.}
-                Depicted are YFP (coexpressed with Channelrhodopsin) fluorescent microscopy images of the VTA, overlain on a corresponding transmission microscopy image of the same focal plane.
+                Depicted are YFP (coexpressed with Channelrhodopsin) fluorescent microscopy images of the VTA, overlaid on corresponding transmission microscopy images of the same focal plane.
                 All slices are seen in neurological orientation (the right of the image corresponds to the right of the animal).
                 A higher magnification of \textbf{(\subref{fig:h6589})} is depicted in \textbf{(\subref{fig:h6589z})}.
-                White bars indicate a scale of \SI{500}{\micro\meter}.
+                White bars indicate a scale of \SI{500}{\micro\meter}, and slices are shown in neurological orientation.
                 }
 	\label{fig:h}
 \end{figure*}
 
-For analysis, the numerous stimulation protocols tested are divided into two categories: phasic stimulation (encompassing protocols where stimulation is delivered in short bursts of up to \SI{1}{\second} in lenght --- \cref{tab:CogP,tab:JPogP}) and block stimulation (where stimulation is delivered in continuous blocks of at least \SI{8}{\second} --- \cref{tab:CogB,tab:CogBr,tab:CogBm,tab:CogMwf}).
+Opto-fMRI experiments were carried out in mice expressing Cre recombinase under the dopamine transporter promoter \cite{dat}, after transfection of the right VTA with a recombinant adeno-associated viral vector containing floxed channelrhodopsin (ChR2) and yellow fluorescent protein (YFP) and implantation of an optic fiber with its tip at the right VTA.
+For analysis, the various stimulation protocols tested are divided into two categories:
+block stimulation (where stimulation is delivered in continuous blocks of at least \SI{8}{\second} --- \cref{tab:CogB,tab:CogBr,tab:CogBm,tab:CogMwf}).
+and
+phasic stimulation (encompassing protocols where stimulation is delivered in short bursts of up to \SI{1}{\second} in lenght --- \cref{tab:CogP,tab:JPogP})
 
-The VTA mean t statistic is sensitive to
+The VTA mean t statistic is found sensitive to
 the stimulation protocol category (\sessionpy{boilerplate.anova(factor='Q("Task Category")')}),
 the stimulation target depth (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]"))')}),
-the stimulation target PA coordinates (\sessionpy{boilerplate.anova(factor='C(Q("PA rel. Bregma [mm]"))')}),
+the stimulation target posteroanterior (PA) coordinates (\sessionpy{boilerplate.anova(factor='C(Q("PA rel. Bregma [mm]"))')}),
 and the interaction of the depth and PA target coordinates (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}).
 
+%%% I mention this, because looking at the graphic naïvely it would seem as phasic stimulation has no effect at all. It *almost* has no significant effect, but that only becomes obvious in the full model.
 The break-up by phasic and block stimulation is shown in \cref{fig:mv} and --- accounting for the entire model, including target coordinates --- both levels are significantly different from zero, with
 the phasic stimulation level of the variable yielding a p-value of $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Phasic]')}$,
 and the block stimulation level yielding a p-value of $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Block]')}$.
@@ -222,44 +229,48 @@ Upon an investigation of the t-statistic map, phasic stimulation, however, revea
 The main and interaction effects of the implant coordinate variables are better described categorically than linearly (\cref{fig:mvib,fig:mvip,fig:mvs}).
 Consequently, a best-implant group can most reliably be determined based on a categorical classification of implant coordinates.
 We classify the implant coordinates into a “best” and a “rejected” group, by k-means clustering the aggregate VTA t-statistic scores into two clusters.
-This categorization is highlighted in \cref{fig:mvib,fig:mvip}, and shows different cluster assignments for phasic and block stimulation protocols, with phasic stimulation showing a trend towards more caudal implant coordinates.
+This categorization is highlighted in \cref{fig:mvib,fig:mvip}, and shows different cluster assignments for phasic and block stimulation protocols, with phasic stimulation showing a weak trend towards more caudal implant coordinates.
 
-For block stimulation, the best implant category group (\cref{fig:filtered}) and the rejected implant category group (\cref{fig:other}) show not only a difference in overall stimulus-evoked signal intensity, but also a difference in efferent distribution, with the rejected implant category more strongly projecting to caudal brain areas.
+%%% Just saying the projections are weaker is not an additional statement.
+For block stimulation, the best implant category group (\cref{fig:filtered}) and the rejected implant category group (\cref{fig:other}) show not only a difference in overall stimulus-evoked signal intensity, but also a difference in efferent distribution, with the rejected implant category only sparsely projecting to rostral brain areas.
 This distinction specifically arises for implant categorization based on block scan VTA t-statistic means.
-It is not as salient or wholly absent if implants are categorized based on VTA activation in both stimulation protocol categories (\cref{fig:occ}) or based on a posteroanterior delimiter (\cref{fig:pcc}).
+It is not as salient or completely absent if implants are categorized based on VTA activation in both stimulation protocol categories (\cref{fig:occ}) or based on a posteroanterior implant coordinate delimiter (\cref{fig:pcc}).
 
 The activation pattern elicited by block stimulation in the best implant category group shows strong coherent clusters of activation.
 The top activation areas are predominantly located in the right hemisphere, with the whole brain parcellation-resolved response showing
 highly significant laterality ($p = \sessionpy{boilerplate.lateral('data/l2/alias-block_filtered_controlled/acq-EPI_tstat.nii.gz')}$).
 Activation is seen in regions surrounding the stimulation site, such as the ventral tegmental decussation and the interpeduncular nucleus.
-The largest activation cluster can be seen in the dopaminergic VTA projection areas, covering subcortical regions in the rostroventral region of the brain (nucleus accumbens, basal forebrain, striatum, and the bed nucleus of the stria terminalis)
-Smaller structures in the vicinity of the above regions, such as the anterior commissure and the medial septum, also show activation.
+The largest activation cluster can be seen in the dopaminergic VTA projection areas, covering subcortical regions in the rostroventral region of the brain (nucleus accumbens, basal forebrain, striatum, and the bed nucleus of the stria terminalis), while somewhat weaker activation was observed in smaller structures in the vicinity of the above regions, such as the anterior commissure and the medial septum.
 
-This activation pattern is consistent with published structural projection data (\cref{fig:f}).
+This activation pattern is consistent with structural projection data, as published by the Allen Brain Institute \cite{abic} (\cref{fig:f}).
+%%% Voxel level is a more parsimonious specific term which I would like to keep consistent throughout the document.
 At the parcellation level, we see a moderately strong positive correlation between functional activation and strunctural projection (\cref{fig:fcr}), which is weaker at the voxel level (\cref{fig:fcv}).
 Qualitatively, a strong overlap of the thresholded activation and projection maps is seen in the midbrain VTA area, while a moderate overlap is observable both in the rostral and caudal projection areas (\cref{fig:ffc}).
 Inspecting the the most salient differences (\cref{fig:mff,fig:dff}), we observe that the activation map most notably encompasses additional areas of activation in the contralateral hemisphere (particularly the contralateral nucleus accumbens, with activity extending into the anterior comissure region).
-Additionally, there are salient differences around the edges of the ipsilateral striatum, most notably in the claustrum and the fundus of the striatum, extending into close regions such as the anterior comissure.
+In addition, there are salient differences around the edges of the ipsilateral striatum, most notably in the claustrum and the fundus of the striatum, extending into close regions such as the anterior comissure.
 The pattern of activation, however, appears to encompass all regions with dense structural projections, with areas where structural projection overshoots functional activation being few and dispersed.
-These smal clusters amount to weakly negative contrast distributions in regions such as the trunk of the cerebellum, the amygdalopiriform and cortical amygdaloid areas, and a medial subdivision of the cinglate cortex (\cref{fig:dffn}).
+These smal clusters amount to weak negative contrast distributions in regions such as the trunk of the cerebellum, the amygdalopiriform and cortical amygdaloid areas, and a medial subdivision of the cinglate cortex (\cref{fig:dffn}).
 
-We disambiguate VTA transmission from VTA excitability by imaging VTA seed-based functional connectivity, yielding the projection pattern shown in \cref{fig:seed}.
-Clusters thus identified are comparatively more sparse than those identified by stimulus-evoked activation, yet follow a similar pattern.
-While the top functional connectivity areas are located in the right hemisphere, the whole brain parcellation-resolved response shows
+We differentiate VTA transmission from VTA excitability by mapping functional connectivity using a seed region in the right VTA, which yielded the projection pattern shown in \cref{fig:seed}.
+The clusters identified were more sparse compared to those identified by stimulus-evoked activation, yet follow a similar pattern.
+While the top functional connectivity areas are located in the right hemisphere, the whole brain parcellation-resolved response displays
 no significant laterality ($p = \sessionpy{boilerplate.lateral('data/seed_l2/alias-block_filtered/acq-EPI_tstat.nii.gz')}$).
-Strong activation can be seen in the parcellation regions closely surrounding the seed, such as the ventral tegmental decussation and the closely located interpeduncular nucleus.
+Strong activation can be seen in the parcellation regions surrounding the seed, such as the ventral tegmental decussation and the closely located interpeduncular nucleus.
+%%% I would like to avoid putting the verb at the end.
 Rostrovental dopaminergic projection areas remain prominently featured, including the nucleus accumbens, ventral tenia tecta, stria terminalis, intermediate nucleus of the endopiriform cortex, and the basal forebrain.
+%%% I would like to keep the section in the present tense.
 A number of caudal projection areas become apparent in this analysis, including a caudal subdivision of the cingulate cortex.
 The medial septum, a smaller structure in the vicinity of the striatum, also shows activity.
 
-Stimulation in control animals (which is corrected for in the aforementioned stimulus-evoked analyses) does not show strong dopaminergic activity.
-However, sparse grains of regression scores above $t = 3$ can be observed, with the largest cluster in the thalamus, suggesting visual activity (\cref{fig:control_mapa}).
-Atlas parcellation (\cref{fig:control_dist}) score distributions do not strongly deviate from zero, with the highest score areas being in the vecinity of the fiber, and thus consistent with VTA heating artefacts (ventral tegmental decussation, interpeduncular nucleus, and the caudal cingulate cortex).
+Stimulation in wild type control animals (which is corrected for in the aforementioned stimulus-evoked analyses) does not show strong dopaminergic activity.
+%%% They're really more grains than patches.
+However, sparse grains of regression scores of $t \geq 3$ can be observed, with the largest cluster in the lateral geniculate nucleus are of the thalamus, suggesting visual activity (\cref{fig:control_mapa}).
+Atlas parcellation (\cref{fig:control_dist}) score distributions do not strongly deviate from zero, with the highest score areas being in the vecinity of the fiber, which might indicate VTA heating artefacts (ventral tegmental decussation, interpeduncular nucleus, and the caudal cingulate cortex).
 Comparable region t-statistic distributions are also found in the cerebellum (dentate nucleus, lobule 1-3 trunks, and the trunk of the crus).
 Overall the whole brain parcellation-resolved response shows
 no significant laterality ($p = \sessionpy{boilerplate.lateral('data/seed_l2/alias-block_control/acq-EPI_tstat.nii.gz')}$).
 
 Histological analysis of the targeting site reveals that the optic fiber implant displaces the YFP labelled neurons of the VTA (\cref{fig:h}).
-The effect is seen independently of the targeting area or the speed of implant insertion (\SIrange{10}{50}{\micro\meter\per\second}).
+This dislocation was observed irrespective of the targeting area or the speed of implant insertion (\SIrange{10}{50}{\micro\meter\per\second}).
 Higher magnification (\cref{fig:h6589z}) reveals, however, that labeled filaments remain in the imediate vecinity of the fiber tip.
 

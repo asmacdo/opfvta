@@ -244,24 +244,6 @@ glm.l2_common_effect(l1_base,
 		],
 	run_mode='fe',
 	)
-glm.l2_common_effect(l1_base,
-	workflow_name='l2Onmibus',
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
-	groupby='subject_set',
-	n_jobs_percentage=.33,
-	exclude={'task':[
-		'CogBl',
-		'CogBr',
-		'CogMwf',
-		'CogBr',
-		],},
-	out_base=scratch_dir,
-	target_set=[
-		{'subject':filtered_animals, 'alias':'phasic_filtered'},
-		{'subject':other_animals, 'alias':'phasic_other'},
-		],
-	run_mode='fe',
-	)
 glm.l2_controlled_effect(l1_base,
 	workflow_name='alias-block_filtered_controlled',
 	out_dir='{}/l2Omnibus/alias-block_filtered_controlled'.format(scratch_dir),
@@ -301,20 +283,32 @@ other_group = groups.loc[
 filtered_animals = [str(i) for i in filtered_group['Subject'].tolist()]
 other_animals = [str(i) for i in other_group['Subject'].tolist()]
 
-glm.l2_common_effect(l1_base,
-	workflow_name='l2Manual',
+glm.l2_controlled_effect(l1_base,
+	workflow_name='alias-block_filtered_controlled',
+	out_dir='{}/l2Manual/alias-block_filtered_controlled'.format(scratch_dir),
 	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
-	groupby='subject_set',
 	n_jobs_percentage=.33,
 	exclude={'task':[
 		'JPogP',
 		'CogP',
 		],},
 	out_base=scratch_dir,
-	target_set=[
-		{'subject':filtered_animals, 'alias':'block_filtered'},
-		{'subject':other_animals, 'alias':'block_other'},
-		],
+	match={'subject':filtered_animals},
+	control_match={'subject':control_animals},
+	run_mode='fe',
+	)
+glm.l2_controlled_effect(l1_base,
+	workflow_name='alias-block_other_controlled',
+	out_dir='{}/l2Manual/alias-block_other_controlled'.format(scratch_dir),
+	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	n_jobs_percentage=.33,
+	exclude={'task':[
+		'JPogP',
+		'CogP',
+		],},
+	out_base=scratch_dir,
+	match={'subject':other_animals},
+	control_match={'subject':control_animals},
 	run_mode='fe',
 	)
 

@@ -6,7 +6,7 @@
 \sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogB.tsv'),
                 label='CogB',
-                caption='CogB stimulation protocol.',
+                caption='Block stimulation protocol, coded “CogB”.',
                 options_pre='[h!] \\scriptsize \\centering \\resizebox{\\columnwidth}{!}{',
                 data='data/CogB.tsv',
                 options_post='}',
@@ -15,7 +15,7 @@
 \sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogBr.tsv'),
                 label='CogBr',
-                caption='CogBr stimulation protocol.',
+                caption='Block stimulation protocol, coded “CogBr”.',
                 options_pre='[h!] \\scriptsize \\centering \\resizebox{\\columnwidth}{!}{',
                 data='data/CogBr.tsv',
                 options_post='}',
@@ -24,7 +24,7 @@
 \sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogBl.tsv'),
                 label='CogBl',
-                caption='CogBl stimulation protocol.',
+                caption='Block stimulation protocol, coded “CogBl”.',
                 options_pre='[h!] \\scriptsize \\centering \\resizebox{\\columnwidth}{!}{',
                 data='data/CogBl.tsv',
                 options_post='}',
@@ -33,7 +33,7 @@
 \sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogBm.tsv'),
                 label='CogBm',
-                caption='CogBm stimulation protocol.',
+                caption='Block stimulation protocol, coded “CogBm”.',
                 options_pre='[h!] \\scriptsize \\centering \\resizebox{\\columnwidth}{!}{',
                 data='data/CogBm.tsv',
                 options_post='}',
@@ -42,7 +42,7 @@
 \sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogMwf.tsv'),
                 label='CogMwf',
-                caption='CogMwf stimulation protocol.',
+                caption='Block stimulation protocol, coded “CogMwf”.',
                 options_pre='[h!] \\scriptsize \\centering \\resizebox{\\columnwidth}{!}{',
                 data='data/CogMwf.tsv',
                 options_post='}',
@@ -51,7 +51,7 @@
 \sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/CogP.tsv'),
                 label='CogP',
-                caption='CogP stimulation protocol.',
+                caption='Phasic stimulation protocol, coded “CogP”.',
                 options_pre='[h!] \\scriptsize \\centering \\resizebox{\\columnwidth}{!}{',
                 data='data/CogP.tsv',
                 options_post='}',
@@ -60,7 +60,7 @@
 \sessionpy{
         pytex_tab(inner_tabular=boilerplate.events_tab('data/JPogP.tsv'),
                 label='JPogP',
-                caption='JPogP stimulation protocol.',
+                caption='Phasic stimulation protocol, coded “JPogP”.',
                 options_pre='[h!] \\scriptsize \\centering \\resizebox{\\columnwidth}{!}{',
                 data='data/JPogP.tsv',
                 options_post='}',
@@ -80,6 +80,7 @@
                 ],
         caption='
                 Multifactorial (depth and posteroantior) implant coordinate comparisons of signal intensity in the VTA region of interest.
+                Protocols coded as in \cref{tab:CogB,tab:CogBr,tab:CogBm,tab:CogMwf,tab:CogP,tab:JPogP}.
                 ',
         label='fig:mvs',
         )}
@@ -103,11 +104,11 @@
                         'caption':'Omnibus implant coordinate classification (dotted markers indicate best category).',
                         'label':'occ',
                         },
-                {'script':'scripts/map_block_filteredManual.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
+                {'script':'scripts/map_block_filtered_controlledManual.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
                         'caption':'Block stimulation of rostralmost implant category group.',
                         'label':'pcf',
                         },
-                {'script':'scripts/map_block_otherManual.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
+                {'script':'scripts/map_block_other_controlledManual.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
                         'caption':'Block stimulation of caudalmost implant category group.',
                         'label':'pco',
                         },
@@ -119,6 +120,7 @@
         caption='
                 \\textbf{Neither omnibus (block and phasic stimulus trial-based) nor PA-coordinate classification show a better projection segmentation than block trial-based classification.}
                 Depicted are t-statistic maps (centerd on largest cluster, thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided into best and rejected \\textbf{(\subref{fig:ocf}, \subref{fig:oco})}, or rostralmost and caudalmost \\textbf{(\subref{fig:pcf}, \subref{fig:pco})}.
+                All maps are adjusted for the wild type control stimulation effects.
                 Slices are centered on the largest cluster.
                 ',
         label='fig:oc',
@@ -198,7 +200,7 @@
         'scripts/distributions_features_filtered_neg.py',
         conf='article/distributions.conf',
         caption='
-                Volumetric plot of the right VTA region of interest used as a mask to extract VTA signal for multifactorial statistical modelling and k-means clustering.
+                Distribution densities of t-statistics, showing the regions were VTA structural projections exceed functional activation most strongly.
                 \\vspace{-1em}
                 ',
         label='dffn',

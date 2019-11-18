@@ -63,4 +63,3 @@ for sub_dir in os.listdir(bids_dir):
 
 subjects_info = subjects_info.drop('birth_date', 1)
 subjects_info.to_csv('{}/participants.tsv'.format(bids_dir), sep='\t', index=False)
-subjects_info.to_csv('../data/participants.tsv'.format(bids_dir), sep='\t', index=False)
