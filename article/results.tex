@@ -1,7 +1,6 @@
 \section{Results}
 
 \begin{sansmath}
-%%% But I am using color.
 \sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/taskgroup.py', 'conf':'article/3x1.conf', 'options_pre':'{.322\\textwidth}',
@@ -28,67 +27,89 @@
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block_filtered_controlled.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on VTA. \\vspace{-.2em}',
-                        'label':'filtered_map',
+                {'script':'scripts/map_block_filtered_controlled.py', 'conf':'article/2asymetric_map.conf',
+                        'options_pre':'{.39\\textwidth}',
+                        'options_pre_caption':'\\vspace{-.5em}',
+                        'caption':'Second-level t-statistic map for block-stimulus-evoked activity in best implant group animals (corrected for the wild type control response).\\vspace{.5em}',
+                        'label':'mbfc',
                         },
-                {'script':'scripts/map_block_filtered_controlled_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on largest cluster. \\vspace{-.2em}',
-                        'label':'filtered_mapa',
+                {'script':'scripts/distributions_block_filtered_controlled.py', 'conf':'article/2asymetric_distributions.conf',
+                        'options_pre':'{.595\\textwidth}\\vspace{-.4em}',
+                        'options_pre_caption':'\\vspace{-2em}',
+                        'caption':'Distribution densities of statistic values from block-stimulus-evoked activity analysis in best implant group animals (corrected for the wildtype control response). Depicted are the 10 most strongly activated areas.',
+                        'label':'dbfc',
                         },
-                {'script':'scripts/distributions_block_filtered_controlled.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
-                        'caption':'Distribution densities of t-statistic values in the 10 most strongly activated areas.',
-                        'label':'filtered_dist',
+                {'script':'scripts/map_block_other_controlled.py', 'conf':'article/2asymetric_map.conf',
+                        'options_pre':'{.39\\textwidth}',
+                        'options_pre_caption':'\\vspace{-.5em}',
+                        'caption':'Second-level t-statistic map for block-stimulus-evoked activity in rejected implant group animals (corrected for the wild type control response).\\vspace{.5em}',
+                        'label':'mboc',
+                        },
+                {'script':'scripts/distributions_block_other_controlled.py', 'conf':'article/2asymetric_distributions.conf',
+                        'options_pre':'{.595\\textwidth}\\vspace{-.4em}',
+                        'options_pre_caption':'\\vspace{-2em}',
+                        'caption':'Distribution densities of statistic values from block-stimulus-evoked activity analysis in rejected implant group animals (corrected for the wild type control response). Depicted are the 10 most strongly activated areas.',
+                        'label':'dboc',
+                        },
+                {'script':'scripts/map_block_filtered_seed.py', 'conf':'article/2asymetric_map.conf',
+                        'options_pre':'{.39\\textwidth}',
+                        'options_pre_caption':'\\vspace{-.5em}',
+                        'caption':'Second-level t-statistic map for VTA seed-based functional connectivity during block stimulation in best implant group animals (VTA region in green).\\vspace{.5em}',
+                        'label':'mbfs',
+                        },
+                {'script':'scripts/distributions_block_filtered_seed.py', 'conf':'article/2asymetric_distributions.conf',
+                        'options_pre':'{.595\\textwidth}\\vspace{-.4em}',
+                        'options_pre_caption':'\\vspace{-2em}',
+                        'caption':'Distribution densities of statistic values from seed-based functional connectivity analysis of best implant group animal block stimulation scans. Depicted are the 10 most strongly activated areas.',
+                        'label':'dbfs',
                         },
                 ],
         caption='
-                \\textbf{Block stimulation elicits strong and clustered activity in the ventral striatum, in particular the nucleus accumbens.}
-                Depicted are the results of the second-level analysis for block stimulus evoked activity, as observed in the best implant group animals and corrected for the wild type control response.
-                The figures show volumetric population t-statistic maps \\textbf{(\subref{fig:filtered_map}, \subref{fig:filtered_mapa})} thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:filtered_dist})}.
+                \\textbf{Block stimulation elicits strong ventral striatal activity in the best implant group, more rostrally weighted activity in the rejected implant group, and generates similar but weaker contrasts for VTA seed-based analysis.}
+                The figures show volumetric population t-statistic maps \\textbf{(\subref{fig:mbfc}, \subref{fig:mbfs}, \subref{fig:mboc})} thresholded at $\mathrm{t \geq 3}$ and centered on the VTA target, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:dbfc}, \subref{fig:dboc}, \subref{fig:dbfs})}.
                 ',
         label='fig:filtered',
         options_pre='\\centering',
         )}
 \end{sansmath}
 
-\begin{sansmath}
-%%% I'd rather keep the main statement as a full sentence.
-\sessionpy{pytex_subfigs(
-        [
-                {'script':'scripts/map_block_other_controlled.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on VTA. \\vspace{-.2em}',
-                        'label':'other_map',
-                        },
-                {'script':'scripts/map_block_other_controlled_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on largest cluster. \\vspace{-.2em}',
-                        'label':'other_mapa',
-                        },
-                {'script':'scripts/distributions_block_other_controlled.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
-                        'caption':'Distribution densities of t-statistic values in the 10 most strongly activated areas.',
-                        'label':'other_dist',
-                        },
-                ],
-        caption='
-                \\textbf{In the rejected implant category group, stimulus evoked activity in response to block stimulation is reduced and differently distributed.}
-                Depicted are results of the second-level analysis for block stimulus evoked activity, as observed in the best implant group animals and corrected for the wild type control response.
-                The figures show volumetric population t-statistic maps \\textbf{(\subref{fig:other_map}, \subref{fig:other_mapa})} thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:other_dist})}.
-                ',
-        label='fig:other',
-        options_pre='\\centering',
-        )}
-\end{sansmath}
+%\begin{sansmath}
+%\sessionpy{pytex_subfigs(
+%        [
+%                {'script':'scripts/map_block_filtered_seed.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+%                        'caption':'Slices centered on the VTA annotation (delineated in pink). \\vspace{-.2em}',
+%                        'label':'seed_map',
+%                        },
+%                {'script':'scripts/map_block_filtered_seed_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+%                        'caption':'Slices centered on largest cluster. \\vspace{-.2em}',
+%                        'label':'seed_mapa',
+%                        },
+%                {'script':'scripts/distributions_block_filtered_seed.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
+%                        'caption':'Distribution densities in the 10 regions with the highest functional connectivity to the VTA seed.',
+%                        'label':'seed_dist',
+%                        },
+%                ],
+%        caption='
+%                \\textbf{VTA seed-based functional connectivity shows a primary projection weighting towards the right nucleus accumbens.}
+%                Depicted are volumetric population t-statistic maps \\textbf{(\subref{fig:seed_map}, \subref{fig:seed_mapa})} thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:seed_dist})}.
+%                ',
+%        label='fig:seed',
+%        options_pre='\\centering',
+%        )}
+%\end{sansmath}
+
 
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/map_features_filtered.py', 'conf':'article/2asymetric_map.conf',
                         'options_pre':'{.39\\textwidth}',
-                        'options_pre_caption':'\\vspace{.5em}',
+                        'options_pre_caption':'\\vspace{-1.6em}',
                         'caption':'Contrast between VTA functional activation and structural projections, showing slices centered on largest cluster, statistical map thresholded at $\mathrm{3 \geq t \geq 3}$. \\vspace{.8em}',
                         'label':'mff',
                         },
                 {'script':'scripts/distributions_features_filtered.py', 'conf':'article/2asymetric_distributions.conf',
-                        'options_pre':'{.595\\textwidth}\\vspace{-1.55em}',
+                        'options_pre':'{.595\\textwidth}\\vspace{-1.6em}',
                         'options_pre_caption':'\\vspace{-1.5em}',
                         'caption':'Distribution densities of t-statistics, showing the regions were VTA functional activation exceedes structural projections most strongly. As seen in \\textbf{(\subref{fig:mff})}, structural projection only sparsely exceedes functional activation (distributions under \\textbf{\cref{fig:dffn}}).\\vspace{.8em}',
                         'label':'dff',
@@ -125,31 +146,6 @@
                 ',
         label='fig:f',
         options_pre='\\centering\n\\vspace{-2em}',
-        )}
-\end{sansmath}
-
-\begin{sansmath}
-\sessionpy{pytex_subfigs(
-        [
-                {'script':'scripts/map_block_filtered_seed.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on the VTA annotation (delineated in pink). \\vspace{-.2em}',
-                        'label':'seed_map',
-                        },
-                {'script':'scripts/map_block_filtered_seed_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Slices centered on largest cluster. \\vspace{-.2em}',
-                        'label':'seed_mapa',
-                        },
-                {'script':'scripts/distributions_block_filtered_seed.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
-                        'caption':'Distribution densities in the 10 regions with the highest functional connectivity to the VTA seed.',
-                        'label':'seed_dist',
-                        },
-                ],
-        caption='
-                \\textbf{VTA seed-based functional connectivity shows a primary projection weighting towards the right nucleus accumbens.}
-                Depicted are volumetric population t-statistic maps \\textbf{(\subref{fig:seed_map}, \subref{fig:seed_mapa})} thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:seed_dist})}.
-                ',
-        label='fig:seed',
-        options_pre='\\centering',
         )}
 \end{sansmath}
 
@@ -220,7 +216,6 @@ the stimulation target depth (\sessionpy{boilerplate.anova(factor='C(Q("Depth re
 the stimulation target posteroanterior (PA) coordinates (\sessionpy{boilerplate.anova(factor='C(Q("PA rel. Bregma [mm]"))')}),
 and the interaction of the depth and PA target coordinates (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}).
 
-%%% I mention this, because looking at the graphic naïvely it would seem as phasic stimulation has no effect at all. It *almost* has no significant effect, but that only becomes obvious in the full model.
 The break-up by phasic and block stimulation is shown in \cref{fig:mv} and --- accounting for the entire model, including target coordinates --- both levels are significantly different from zero, with
 the phasic stimulation level of the variable yielding a p-value of $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Phasic]')}$,
 and the block stimulation level yielding a p-value of $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Block]')}$.
@@ -231,8 +226,7 @@ Consequently, a best-implant group can most reliably be determined based on a ca
 We classify the implant coordinates into a “best” and a “rejected” group, by k-means clustering the aggregate VTA t-statistic scores into two clusters.
 This categorization is highlighted in \cref{fig:mvib,fig:mvip}, and shows different cluster assignments for phasic and block stimulation protocols, with phasic stimulation showing a weak trend towards more caudal implant coordinates.
 
-%%% Just saying the projections are weaker is not an additional statement.
-For block stimulation, the best implant category group (\cref{fig:filtered}) and the rejected implant category group (\cref{fig:other}) show not only a difference in overall stimulus-evoked signal intensity, but also a difference in efferent distribution, with the rejected implant category only sparsely projecting to rostral brain areas.
+For block stimulation, the best implant category group (\cref{fig:filtered}) and the rejected implant category group (\cref{fig:other}) show not only a difference in overall stimulus-evoked signal intensity, but also a difference in efferent distribution, with the rejected implant category efferent spectrum more strongly weighted towards caudal brain areas.
 This distinction specifically arises for implant categorization based on block scan VTA t-statistic means.
 It is not as salient or completely absent if implants are categorized based on VTA activation in both stimulation protocol categories (\cref{fig:occ}) or based on a posteroanterior implant coordinate delimiter (\cref{fig:pcc}).
 
@@ -243,7 +237,6 @@ Activation is seen in regions surrounding the stimulation site, such as the vent
 The largest activation cluster can be seen in the dopaminergic VTA projection areas, covering subcortical regions in the rostroventral region of the brain (nucleus accumbens, basal forebrain, striatum, and the bed nucleus of the stria terminalis), while somewhat weaker activation was observed in smaller structures in the vicinity of the above regions, such as the anterior commissure and the medial septum.
 
 This activation pattern is consistent with structural projection data, as published by the Allen Brain Institute \cite{abic} (\cref{fig:f}).
-%%% Voxel level is a more parsimonious specific term which I would like to keep consistent throughout the document.
 At the parcellation level, we see a moderately strong positive correlation between functional activation and strunctural projection (\cref{fig:fcr}), which is weaker at the voxel level (\cref{fig:fcv}).
 Qualitatively, a strong overlap of the thresholded activation and projection maps is seen in the midbrain VTA area, while a moderate overlap is observable both in the rostral and caudal projection areas (\cref{fig:ffc}).
 Inspecting the the most salient differences (\cref{fig:mff,fig:dff}), we observe that the activation map most notably encompasses additional areas of activation in the contralateral hemisphere (particularly the contralateral nucleus accumbens, with activity extending into the anterior comissure region).
@@ -256,14 +249,11 @@ The clusters identified were more sparse compared to those identified by stimulu
 While the top functional connectivity areas are located in the right hemisphere, the whole brain parcellation-resolved response displays
 no significant laterality ($p = \sessionpy{boilerplate.lateral('data/seed_l2/alias-block_filtered/acq-EPI_tstat.nii.gz')}$).
 Strong activation can be seen in the parcellation regions surrounding the seed, such as the ventral tegmental decussation and the closely located interpeduncular nucleus.
-%%% I would like to avoid putting the verb at the end.
 Rostrovental dopaminergic projection areas remain prominently featured, including the nucleus accumbens, ventral tenia tecta, stria terminalis, intermediate nucleus of the endopiriform cortex, and the basal forebrain.
-%%% I would like to keep the section in the present tense.
 A number of caudal projection areas become apparent in this analysis, including a caudal subdivision of the cingulate cortex.
 The medial septum, a smaller structure in the vicinity of the striatum, also shows activity.
 
 Stimulation in wild type control animals (which is corrected for in the aforementioned stimulus-evoked analyses) does not show strong dopaminergic activity.
-%%% They're really more grains than patches.
 However, sparse grains of regression scores of $t \geq 3$ can be observed, with the largest cluster in the lateral geniculate nucleus are of the thalamus, suggesting visual activity (\cref{fig:control_mapa}).
 Atlas parcellation (\cref{fig:control_dist}) score distributions do not strongly deviate from zero, with the highest score areas being in the vecinity of the fiber, which might indicate VTA heating artefacts (ventral tegmental decussation, interpeduncular nucleus, and the caudal cingulate cortex).
 Comparable region t-statistic distributions are also found in the cerebellum (dentate nucleus, lobule 1-3 trunks, and the trunk of the crus).

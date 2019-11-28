@@ -71,7 +71,7 @@
 \begin{sansmath}
 \py[var]{pytex_subfigs(
         [
-                {'script':'scripts/f_vta_subjects_t.py', 'label':'mvss', 'conf':'article/3x1.conf', 'options_pre':'{.35\\textwidth}',
+                {'script':'scripts/f_vta_subjects_t.py', 'label':'mvss', 'conf':'article/3x1_labelspace.conf', 'options_pre':'{.35\\textwidth}',
                         },
                 {'script':'scripts/implant_depth.py', 'label':'mvsd', 'conf':'article/3x1.conf', 'options_pre':'{.32\\textwidth}',
                         },
@@ -118,7 +118,7 @@
                         },
                 ],
         caption='
-                \\textbf{Neither omnibus (block and phasic stimulus trial-based) nor PA-coordinate classification show a better projection segmentation than block trial-based classification.}
+                \\textbf{Neither omnibus (block and phasic stimulus based) nor PA-coordinate classification show a better projection segmentation than block trial-based classification.}
                 Depicted are t-statistic maps (centerd on largest cluster, thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided into best and rejected \\textbf{(\subref{fig:ocf}, \subref{fig:oco})}, or rostralmost and caudalmost \\textbf{(\subref{fig:pcf}, \subref{fig:pco})}.
                 All maps are adjusted for the wild type control stimulation effects.
                 Slices are centered on the largest cluster.
@@ -130,17 +130,9 @@
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation, slices centered on VTA. Thresholded at \\vspace{1.2em}',
-                        'label':'block',
-                        },
                 {'script':'scripts/map_block_auto.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation, slices centered on largest cluster. \\vspace{1.2em}',
                         'label':'blocka',
-                        },
-                {'script':'scripts/map_phasic.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation, slices centered on VTA.',
-                        'label':'phasic',
                         },
                 {'script':'scripts/map_phasic_auto.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Phasic stimulation, slices centered on largest cluster.',
@@ -153,6 +145,40 @@
                 Slices are centered on the VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and the largest cluster, respectively.
                 ',
         label='fig:all',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\sessionpy{pytex_fig(
+        'scripts/distributions_features_filtered_neg.py',
+        conf='article/distributions.conf',
+        caption='
+                Distribution densities of t-statistics, showing the regions were VTA structural projections exceed functional activation most strongly.
+                \\vspace{-1em}
+                ',
+        label='dffn',
+        options_pre='\\centering\n',
+        environment='figure*',
+        figure_format='pdf',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\sessionpy{pytex_subfigs(
+        [
+                {'script':'scripts/map_block_filtered_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Block stimulation of best implant category group',
+                        },
+                {'script':'scripts/map_block_other_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Block stimulation of rejected implant category group.',
+                        },
+                ],
+        caption='
+                \\textbf{The uncorrected population-level response to block stimulation does not significantly differ from the wild type control corrected results in \cref{fig:mbfc,fig:mofc}.}
+                Depicted are t-statistic maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
+                Slices are centered on the largest cluster.
+                ',
+        label='fig:uncontrolled',
         )}
 \end{sansmath}
 
@@ -173,39 +199,5 @@
                 Conceptually this comparison is not of primary interest, since seed-based functional connectivity attempts to include precisely the baseline functioning of the system into the evaluation.
                 ',
         label='fig:sc',
-        )}
-\end{sansmath}
-
-\begin{sansmath}
-\sessionpy{pytex_subfigs(
-        [
-                {'script':'scripts/map_block_filtered_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of best implant category group',
-                        },
-                {'script':'scripts/map_block_other_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation of rejected implant category group.',
-                        },
-                ],
-        caption='
-                \\textbf{The uncorrected population-level response to block stimulation does not significantly differ from the negative-control corrected results in \cref{fig:filtered_mapa,fig:other_mapa}.}
-                Depicted are t-statistic maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
-                Slices are centered on the largest cluster.
-                ',
-        label='fig:uncontrolled',
-        )}
-\end{sansmath}
-
-\begin{sansmath}
-\sessionpy{pytex_fig(
-        'scripts/distributions_features_filtered_neg.py',
-        conf='article/distributions.conf',
-        caption='
-                Distribution densities of t-statistics, showing the regions were VTA structural projections exceed functional activation most strongly.
-                \\vspace{-1em}
-                ',
-        label='dffn',
-        options_pre='\\centering\n',
-        environment='figure*',
-        figure_format='pdf',
         )}
 \end{sansmath}

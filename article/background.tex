@@ -1,13 +1,10 @@
 \section{Background}
 
-%%% I really liked this :'(
-%%% Maybe we should keep it for some bigger-picture context?
 %The ultimate assessment standard for knowledge is its ability to inform action.
 %As such, neuroscience incrementally aims to support the development of meaningful and predictable control of the brain.
 %Within this endeavour, it is the most easily accessible components of the brain, given current technology, which can provide the greatest opportunities for advancement.
 
 The dopaminergic system is an evolutionarily well-conserved \cite{Yamamoto2011}, strongly localized, and widely projecting set of neurons (\cref{fig:ml}).
-%%% “Degree centrality“ is a specific graph theory term
 On account of the small number of dopaminergic neurons ($\approx300,000$ in humans \cite{rice2016}, $\approx10,000$ in rats \cite{german1993}, and $\approx4,000$ in mice \cite{triarhou1988}), tractography commonly fails to resolve the degree centrality of the dopaminergic system, and thus it is not commonly depicted as a significant network node.
 However, it is precisely the small number of widely branching and closely similar neurons, which makes the dopaminergic system a credible candidate for truly node-like function in coordinating brain activity.
 As is expected given such salient features, the system is widely implicated in neuropsychiatric phenomena (including
@@ -28,6 +25,7 @@ As such, better and more predictively powerful models of the dopaminergic system
 	\hspace*{\fill}
 	\begin{subfigure}{.527\textwidth}
 		\centering
+		\vspace{-1em}
 		\includegraphics[width=\textwidth]{img/model_literature}
 		\caption{
 			Schematic map of VTA dopaminergic projections \cite{Aransay2015,Fields2007,Ikemoto2007,Hnasko2012,Pan2010}.
@@ -38,9 +36,9 @@ As such, better and more predictively powerful models of the dopaminergic system
 	\end{subfigure}\hfill
 	\begin{subfigure}{.44\textwidth}
 		\centering
-		\vspace{-1em}
+		\vspace{-2em}
 		\includedot[width=1.1\textwidth]{data/network_model}
-		\vspace{-0.6em}
+		\vspace{-2em}
 		\caption{
 			Simplified network model of 1-step signal relay following optogenetic stimulation of the VTA.
 			The $\mathrm{u_1}$ weighting corresponds to VTA somatic excitability and $\mathrm{u_{2a},u_{2b},u_{2c}}$ and $\mathrm{u_{2d}}$ correspond to transmission at the dopaminergic synapses in the respective projection areas.
@@ -50,6 +48,7 @@ As such, better and more predictively powerful models of the dopaminergic system
 	\hspace*{\fill}
 	\begin{subfigure}{.985\textwidth}
 		\centering
+		\vspace{.5em}
 		\includegraphics[width=\textwidth]{img/da}
 		\caption{
 			Schematic overview of VTA dopaminergic neurons, with the soma located in the VTA and synapses in one or multiple other projection area voxels.
@@ -58,16 +57,25 @@ As such, better and more predictively powerful models of the dopaminergic system
 			}
 		\label{fig:cm}
 	\end{subfigure}
+	\begin{subfigure}{.985\textwidth}
+		\centering
+		\vspace{.5em}
+		\includegraphics[width=0.95\textwidth]{img/optogenetics}
+		\caption{
+			Schematic of optogenetic cell selection and activation.
+			Orange denotes dopaminergic cells, gray enlarged elements on the cell periphery indicate channelrhodopsin expression, and cyan segments on the cell periphery denote depolarization events.
+			}
+		\label{fig:og}
+	\end{subfigure}
 	\caption{
-		\textbf{The cell biological compartmentalization of dopaminergic neurotransmission (and susceptibility to psychopharmacology) can partly be mapped onto neuroanatomical features by a simple network model.}
+		\textbf{The cell biological compartmentalization of dopaminergic neurotransmission (and susceptibility to psychopharmacology) can partly be mapped onto neuroanatomical features by a simple network model, using optogenetics.}
 		Depicted are schematic overviews of the VTA dopaminergic system at various spatial resolutions.
 		}
 	\label{fig:m}
 \end{figure*}
 \end{sansmath}
 
-%%% I think my version is more concise.
-Neuroscience experimentation in human subjects is methodologically constrained, and must rely extensively on model animal research for cell biological insights, which are instrumental to the refinement of interventions.
+Experimentation in human subjects is methodologically constrained, and thus neuroscience relies on other methods, such as model animal research, for cell biological insights, which are instrumental to the refinement of interventions.
 Due to high evolutionary conservation, the dopaminergic system is an excellent candidate for translational study.
 Of the common model animals, the mouse offers significant advantages compared not only to non-human primates but also to most other model animals.
 These include short generation spans, broad availability of transgenic lines, highly accessible histology, and the smallest size among mammalian model organisms.
@@ -75,14 +83,10 @@ Far from trivial, this latter trait offers a significant advantage for numerous 
 Furthermore, the small size greatly increases experiment scalability and multi-center reproducibility, beyond even what can be achieved by rat studies.
 Of particular relevance to pharmacological research, the mouse possesses a high metabolic rate, allowing for rapid drug clearance and thus high contrast in repeated drug administration sessions.
 
-%%% I think this appropriately addresses the distinction between localized interventions and whole-brain effects and measurement.
-%%% Nowhere do I say that merely the efferent spectrum is the reason for study.
-As it coordinates phenomena such as perception, decision, and action, the function of the brain is highly holistic.
-Consequently, localized study of the brain only offers limited insight into the etiology of these phenomena, just as localized manipulations of the brain only offer very limited control over its function.
-This consideration not only recommends the study of widely projecting neurotransmitter systems, but also whole-brain measurement techniques are uniquely suited to describe them.
-Owing to its deep penetration, high rostrocaudal coverage, and large-scale usage in human studies, fMRI is one of the foremost methods for studying how the dopaminergic system modulates brain function.
+As it coordinates phenomena such as perception, decision, and action, the function of the brain is highly holistic, suggesting the use of whole-brain measurement techniques for its characterization.
+This is particularly true for monoaminergic neurotransmitter systems, for which focal interventions can have wide-ranging effects.
+Owing to its deep penetration, high rostrocaudal coverage, and large-scale usage in human studies, fMRI is one of the foremost methods for studying dopaminergic modulation of brain function.
 
-%%% Imaging is broader than mapping.
 Imaging a neurotransmitter system comprised of a small number of cells, based only on spontaneous activity, is highly unreliable due to a very low signal to noise ratio (SNR).
 This limitation can, however, be overcome by introducing exogenous stimuli.
 While the colocalization of widely projecting dopaminergic cell bodies into nuclei makes targeting comparatively easy, dopaminergic nuclei also contain notable populations of non-dopaminergic cells.
@@ -101,14 +105,10 @@ For this purpose, a precisely specified stimulus train is presented to the brain
 Subsequently, a mass univariate regression analysis is performed across all voxels, allowing them to be assigned parameter values, which denote the strength of activation adjusted for the sample noise.
 While powerful, this approach implies that all voxels in the brain are exposed in an indistinguishable fashion to the stimulation, a questionable assumption in view of the actual network architecture.
 Particularly in cases where stimulation is introduced via well-known pathways, a simple network model for signal transmission could be detailed via seed-based functional connectivity (\cref{fig:nm}).
-%%% I would like to keep the specific mention of macroscopic resolution being able to distinguish cell biological processes.
-Moreover, for neurotransmitter systems with colocalized cell bodies and long efferent projections, the macroscopic resolution of fMRI can be used to distinguish cell biological processes.
-This is done by mapping somatodendritic processes (e.g. excitability upon depolarization at the soma) to “cell-body“ voxels, and signal transmission at the synapse to “projection“ voxels (\cref{fig:cm}).
+Moreover, for neurotransmitter systems with colocalized cell bodies and long efferent projections, the macroscopic resolution of fMRI allows mapping somatodendritic processes (e.g. excitability upon depolarization at the soma) to “cell-body“ voxels, and signal transmission at the synapse to “projection“ voxels (\cref{fig:cm}).
 
-In this study aimed at whole-brain modelling of human VTA dopaminergic function in mice, three novel research outputs need to be produced.
-%%% Could not read
-Firstly, a proof-of-principle study needs to be conducted and a dataset published, which documents the feasibility of dopaminergic VTA opto-fMRI in the mouse.
-The study design needs to include controlled methodological variations, in order to lay a reliable and well-informed foundation for the technique.
-Secondly, parameter variation effects need to be described and evaluated, to ascertain what conclusions pertaining to functional dopaminergic control of brain activity are generalizable, and in how far the method can be re-used as a dopaminergic system assay.
-%%% I like it better in the original, otherwise the subject is too far removed from the predicate.
-Lastly, a voxelwise summary of dopaminergic function in the healthy adult mouse needs to be published in a standard volumetric space, to easily enable co-registration, result integration, and result comparison with treatment or disease model studies.
+This study pertaining to whole-brain modelling of human VTA dopaminergic function in mice aims to produce three novel research outputs.
+Firstly, proof-of-principle documenting the feasibility of dopaminergic VTA opto-fMRI in the mouse should be demonstrated, and a reference dataset published.
+Correspondingly, the study design needs to include controlled methodological variations, in order to lay a reliable and well-informed foundation for the technique.
+Secondly, parameter variation effects should be described and evaluated, to ascertain what conclusions pertaining to functional dopaminergic control of brain activity are generalizable, and in how far the method can be re-used as a dopaminergic system assay.
+Lastly, a voxelwise summary of dopaminergic function in the healthy adult mouse should be published in a standard volumetric space, to facilitate co-registration, result integration, operative targeting, and evaluation of treatment or pathology induced effects.
