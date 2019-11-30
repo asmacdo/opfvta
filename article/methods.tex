@@ -4,14 +4,14 @@
 
 VTA dopaminergic neurons were specifically targeted via optogenetic stimulation.
 As shown in \cref{fig:og}, this entails a triple selection process.
-Firstly, cells are selected based on gene expression (via a transgenic mouse strain), secondly the location is selected based on the injection site, and thirdly, activation is based on the overlap of the aforementioned selection steps with irradiation volume covered by the optic fiber.
+Firstly, cells are selected based on gene expression (via a transgenic mouse strain), secondly the location is selected based on the injection site, and thirdly, activation is based on the overlap of the aforementioned selection steps with the irradiation volume covered by the optic fiber.
 
 A mouse strain was chosen, which expresses Cre recombinase under the dopamine transporter (DAT) promoter \cite{dat}.
 Transgenic construct presence was assessed via polymerase chain reaction (PCR) for the Cre construct, using the forward primer ACCAGCCAGCTATCAACTCG and the reverse primer TTGCCCCTGTTTCACTATCC.
 A total of \sessionpy{pytex_printonly('scripts/animals_tg.py')} transgenic animals and \sessionpy{pytex_printonly('scripts/animals_wt.py')} control wild type animals are included in the study.
 The animal sample consisted of \py{pytex_printonly('scripts/sex.py')}, with a group average age of \py{pytex_printonly('scripts/age.py')} at the study onset.
 
-The right VTA (\cref{fig:seed_map}, green contour) of the animals was injected with a recombinant Adeno-Associated Virus (rAAV) solution.
+The right VTA (\cref{fig:mbfs}, green contour) of the animals was injected with a recombinant Adeno-Associated Virus (rAAV) solution.
 The vector delivered a plasmid containing a floxed channelrhodopsin and YFP construct:
 pAAV-EF1a-double floxed-hChR2(H134R)-EYFP-WPRE-HGHpA, gifted to a public repository by Karl Deisseroth (\href{https://www.addgene.org/20298/}{Addgene plasmid \#20298}).
 Viral vectors and plasmids were produced by the Viral Vector Facility (VVF) of the Neuroscience Center Zurich (Zentrum für Neurowissenschaften Zürich, ZNZ).
@@ -22,7 +22,7 @@ Injection coordinates ranged in the PA direction from
 \sessionpy{boilerplate.report_bound('Virus_OrthogonalStereotacticTarget_posteroanterior', 'minmax', '\milli\meter')} (relative to bregma),
 in depth from
 \sessionpy{boilerplate.report_bound('Virus_OrthogonalStereotacticTarget_depth', 'minmax', '\milli\meter')} (relative to the skull),
-and were located at \SI{0.5}{\milli\meter} right of the midline.
+and were located \SI{0.5}{\milli\meter} right of the midline.
 Construct expression was ascertained post mortem by fluorescent microscopy of formaldehyde fixed \SI{200}{\micro\metre} brain slices.
 
 For optical stimulation, animals were fitted with an optic fiber implant ($\mathrm{l=\SI{4.7}{\milli\meter} \ d=\SI{400}{\micro\meter} \ NA=0.22}$) targeting the right VTA, at least two weeks before imaging.
@@ -34,7 +34,9 @@ and were located
 \sessionpy{boilerplate.report_bound('OrthogonalStereotacticTarget_leftright', 'minmax', '\milli\meter')}
 right of the midline.
 
-For stimulation, an Omicron LuxX 488-60 laser (\SI{488}{\nano\meter}) was used, with a power of \SI{30}{\milli\watt} at contact with the fiber implant, according to the protocols listed in \cref{tab:CogB,tab:CogBr,tab:CogBl,tab:CogBm,tab:CogMwf,tab:CogP,tab:JPogP}.
+For stimulation, an Omicron LuxX 488-60 laser (\SI{488}{\nano\meter}) was used, tuned to a power of \SI{30}{\milli\watt} at contact with the fiber implant, according to the protocols listed in \cref{tab:CogB,tab:CogBr,tab:CogBl,tab:CogBm,tab:CogMwf,tab:CogP,tab:JPogP}.
+Stimulation protocols were delivered to the laser and recorded to disk via the COSplayer device \cite{cosplay}.
+Animal physiology, preparation, and measurement metadata were tracked with the LabbookDB database framework \cite{ldb}.
 
 \subsection{MR Acquisition}
 
@@ -42,9 +44,8 @@ Over the course of preparation and measurement, animals were provided a constant
 For animal preparation, anesthesia was induced with \SI{3}{\percent} isoflurane, and maintained at \SIrange{2}{3}{\percent} during preparation --- contingent on animal reflexes.
 Animals were fixed to a heated MRI-compatible cradle via ear bars and a face mask equipped with a bite hook.
 A subcutaneous (s.c.; right dorsal) and intravenous (i.v.; tail vein) infusion line were applied.
-Two delivery lines were attached to the animal: one subcutaneous (right dorsal) and one intravenous (tail vein).
-After animal fixation, a bolus of medetomidine hydrochloride (Domitor, Pfizer Pharmaceuticals, UK) was delivered s.c. to a total dose of \SI{100}{\micro\gram\per\kilo\gram\per\BW} and the inhalation anesthetic was reduced to \SI{1.5}{\percent} isoflurane.
-After a \SI{5}{\minute} interval, the inhalation anesthetic was set to \SI{0.5}{\percent} and medetomidine was continuously delivered at \SI{200}{\micro\gram\per\kilo\gram\per\BW\per\hour} for the duration of the experiment.
+After animal fixation, a bolus of medetomidine hydrochloride (Domitor, Pfizer Pharmaceuticals, UK) was delivered s.c. to a total dose of \SI{100}{\nano\gram\per\gram\per\BW} and the inhalation anesthetic was reduced to \SI{1.5}{\percent} isoflurane.
+After a \SI{5}{\minute} interval, the inhalation anesthetic was set to \SI{0.5}{\percent} and medetomidine was continuously delivered at \SI{200}{\nano\gram\per\gram\per\BW\per\hour} for the duration of the experiment.
 This anesthetic protocol is closely based on extensive research into animal preparation for fMRI \cite{Grandjean2014}.
 
 All data were acquired with a Bruker Biospec system (\SI{7}{\tesla}, \SI{16}{\centi\meter} bore), and an in-house built transmit/receive surface coil, engineered to permit optic fiber implant protrusion.
@@ -52,8 +53,7 @@ All data were acquired with a Bruker Biospec system (\SI{7}{\tesla}, \SI{16}{\ce
 Anatomical scans were acquired via a TurboRARE sequence, with a RARE factor of 8, an echo time (TE) of \SI{30}{\milli\second}, an inter-echo spacing of \SI{10}{\milli\second}, and a repetition time (TR) of \SI{2.95}{\second}.
 Thirty adjacent (no slice gap) coronal slices were recorded with an nominal in-plane resolution of $\mathrm{\Delta x(\nu)=\Delta y(\phi)=\SI{75}{\micro\meter}}$, and a slice thickness of $\mathrm{\Delta z(t)=\SI{450}{\micro\meter}}$.
 
-%%% Could not read comment
-Functional scans were acquired with a flip angle of \SI{60}{\degree} and with $\mathrm{TR/TE = \SI{1000}{\milli\second}/\SI{5.9}{\milli\second}}$.
+Functional scans were acquired with a gradient-echo EPI sequence, a flip angle of \SI{60}{\degree}, and $\mathrm{TR/TE = \SI{1000}{\milli\second}/\SI{5.9}{\milli\second}}$.
 Thirty adjacent (no slice gap) coronal slices were recorded with an nominal in-plane resolution of $\mathrm{\Delta x(\nu)=\Delta y(\phi)=\SI{225}{\micro\meter}}$, and a slice thickness of $\mathrm{\Delta z(t)=\SI{450}{\micro\meter}}$.
 Changes in cerebral blood volume (CBV) are measured as a proxy of neuronal activity following the administration of an intravascular iron oxide nanoparticle based contrast agent (Endorem, Laboratoire Guebet SA, France).
 The contrast agent ($\SI{30.24}{\micro\gram\per\gram\per\BW}$) is delivered as an i.v. bolus \SI{10}{\minute} prior to the fMRI data acquisition, to achieve a pseudo steady-state blood concentration.
@@ -80,15 +80,15 @@ Seed-based functional connectivity analysis was performed by regressing the time
 
 Brain parcellation for region-based evaluation was performed using a non-overlapping multi-center labelling \cite{dsu1,dsu2,dsu3,dsu4}, as distributed in version \textcolor{mg}{\texttt{0.5.3}} of the Mouse Brain Atlases data package \cite{atlases_generator}.
 The mapping operations were performed by a SAMRI function, using the nibabel \cite{nibabel} and nilearn \cite{nilearn} libraries (versions \textcolor{mg}{\texttt{2.3.1}} and \textcolor{mg}{\texttt{0.5.0}}, respectively).
-Classification of implant coordinates into “best” and “rejected” categories was performed via 1D k-means clustering, implemented in the scikit-learn library \cite{scikit-learn}.
-Distribution density visualizations were created using the Scott bandwidth density estimator \cite{Scott1979}.
+Classification of implant coordinates into “best” and “rejected” categories was performed via 1D k-means clustering, implemented in the scikit-learn library \cite{scikit-learn} (version \textcolor{mg}{\texttt{0.20.3}}).
+Distribution density visualizations were created using the Scott bandwidth density estimator \cite{Scott1979}, as implemented in the seaborn software package (\textcolor{mg}{\texttt{0.9.0}}).
 
 Higher-level statistical modelling was performed with the Statsmodels software package \cite{statsmodels} (version \textcolor{mg}{\texttt{0.9.9}}), and the SciPy software package \cite{scipy} (version \textcolor{mg}{\texttt{1.1.0}}).
 Model parameters were estimated using the ordinary least squares method, and a type 3 analysis of variance (ANOVA) was employed to control estimate variability for unbalanced categories.
 All t-tests producing explicitly noted p-values are two-tailed.
 
 The VTA structural projection data used to compare and contrast the activation maps produced in this study was sourced from the Allen Brain Institute (ABI) mouse brain connectome dataset \cite{abic}.
-As the target promoter of this study (DAT) is not included in the ABI connectome study, all available promoters were used (ultimately including Sty17, Erbb4, Slc6a3, Th, Cck, Pdzk1ip1, Chrna2, Hdc, Slc18a2, Calb2, and Rasgrf2).
+As the target promoter of this study (DAT) is not included in the ABI connectome study, all available promoters were used (Sty17, Erbb4, Slc6a3, Th, Cck, Pdzk1ip1, Chrna2, Hdc, Slc18a2, Calb2, and Rasgrf2).
 Datasets with left-handed VTA injection sides were flipped to provide right-hand VTA projection estimates.
 The data was converted and registered to the DSURQEC template space by the ABI Connectivity Data Generator package \cite{abic_g}.
 For the second-level statistical comparison between functional activation and structural projection, individual activation (betas) and projection maps were normalized to a common scale by subtracting the average and dividing by the standard deviation.
@@ -98,6 +98,5 @@ Software management relevant for the exact reproduction of the aforementioned en
 \subsection{Reproducibility and Open Data}
 
 The resulting t-statistic maps (i.e. the top-level data visualized in this document), which document the opto-fMRI dopaminergic fingerprint in the mouse model, are distributed along the source-code of all analyses \cite{me}.
-The BIDS \cite{bids} data archive which serves as the raw data recourse for this document is openly distributed \cite{opfvta_bidsdata}, as is the full instruction set for recreating this document \cite{me}.
-The source code for this document and all data analysis shown herein is published according to the RepSeP specifications \cite{repsep}.
-The data analysis execution and document compilation has been tested repeatedly on numerous machines, and as such we attest that the figures and statistics presented can be reproduced based solely on the raw data, dependency list, and analysis scripts which we distribute.
+The BIDS \cite{bids} data archive which serves as the raw data recourse for this document is openly distributed \cite{opfvta_bidsdata}, as is the full instruction set for recreating this document from the aforementioned raw data \cite{me}.
+The source code for this document and all data analysis shown herein is structured according to the RepSeP specifications \cite{repsep}.

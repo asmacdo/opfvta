@@ -149,21 +149,6 @@
 \end{sansmath}
 
 \begin{sansmath}
-\sessionpy{pytex_fig(
-        'scripts/distributions_features_filtered_neg.py',
-        conf='article/distributions.conf',
-        caption='
-                Distribution densities of t-statistics, showing the regions were VTA structural projections exceed functional activation most strongly.
-                \\vspace{-1em}
-                ',
-        label='dffn',
-        options_pre='\\centering\n',
-        environment='figure*',
-        figure_format='pdf',
-        )}
-\end{sansmath}
-
-\begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
                 {'script':'scripts/map_block_filtered_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
@@ -174,7 +159,7 @@
                         },
                 ],
         caption='
-                \\textbf{The uncorrected population-level response to block stimulation does not significantly differ from the wild type control corrected results in \cref{fig:mbfc,fig:mofc}.}
+                \\textbf{The uncorrected population-level response to block stimulation does not significantly differ from the wild type control corrected results in \cref{fig:mbfc,fig:mboc}.}
                 Depicted are t-statistic maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
                 Slices are centered on the largest cluster.
                 ',
@@ -199,5 +184,45 @@
                 Conceptually this comparison is not of primary interest, since seed-based functional connectivity attempts to include precisely the baseline functioning of the system into the evaluation.
                 ',
         label='fig:sc',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\sessionpy{pytex_fig(
+        'scripts/distributions_features_filtered_neg.py',
+        conf='article/distributions.conf',
+        caption='
+                Distribution densities of t-statistics, showing the regions were VTA structural projections exceed functional activation most strongly.
+                \\vspace{-1em}
+                ',
+        label='dffn',
+        options_pre='\\centering\n',
+        environment='figure*',
+        figure_format='pdf',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\sessionpy{pytex_subfigs(
+        [
+                {'script':'scripts/map_block_control.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on VTA. \\vspace{-.2em}',
+                        'label':'control_map',
+                        },
+                {'script':'scripts/map_block_control_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Slices centered on largest cluster. \\vspace{-.2em}',
+                        'label':'control_mapa',
+                        },
+                {'script':'scripts/distributions_block_control.py', 'label':'tasks', 'conf':'article/distributions.conf', 'options_pre':'{.95\\textwidth}',
+                        'caption':'Distribution densities of t-statistic values in the 10 most strongly activated areas.',
+                        'label':'control_dist',
+                        },
+                ],
+        caption='
+                \\textbf{Block stimulation in wild type control animals produces no large activation clusters, yet scattered activation hints at some visual excitation and heating artefacts.}
+                Depicted are volumetric population t-statistic maps \\textbf{(\subref{fig:control_map}, \subref{fig:control_mapa})} --- thresholded at $\mathrm{t \geq 3}$, as well as a break-down of activation along atlas parcellation regions \\textbf{(\subref{fig:control_dist})}.
+                ',
+        label='fig:control',
+        options_pre='\\centering',
         )}
 \end{sansmath}

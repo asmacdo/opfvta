@@ -8,6 +8,6 @@ maps.slices(heatmap_image,
 	ratio=7/5.,
 	auto_figsize=False,
 	style=False,
-	position_hspace=-0.1,
+	position_vspace=0,
 	positive_only=True,
 	)
