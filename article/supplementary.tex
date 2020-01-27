@@ -67,6 +67,31 @@
                 )
         }
 
+\clearpage
+
+In a linear modelling of the implant coordinate variables, the VTA mean t statistic is found sensitive only to
+the stimulation protocol category
+(\sessionpy{boilerplate.anova(
+        expression='Q("Depth rel. skull [mm]")*Q("PA rel. Bregma [mm]") + Q("Task Category")',
+        factor='Q("Task Category")',
+        )}),
+but not the stimulation target depth
+(\sessionpy{boilerplate.anova(
+        expression='Q("Depth rel. skull [mm]")*Q("PA rel. Bregma [mm]") + Q("Task Category")',
+        factor='Q("Depth rel. skull [mm]")',
+        )}),
+the stimulation target posteroanterior (PA) coordinates
+(\sessionpy{boilerplate.anova(
+        expression='Q("Depth rel. skull [mm]")*Q("PA rel. Bregma [mm]") + Q("Task Category")',
+        factor='Q("PA rel. Bregma [mm]")',
+        )}),
+and the interaction of the depth and PA target coordinates
+(\sessionpy{boilerplate.anova(
+        expression='Q("Depth rel. skull [mm]")*Q("PA rel. Bregma [mm]") + Q("Task Category")',
+        factor='Q("Depth rel. skull [mm]"):Q("PA rel. Bregma [mm]")',
+        )}).
+
+
 
 \begin{sansmath}
 \py[var]{pytex_subfigs(
@@ -80,7 +105,7 @@
                 ],
         caption='
                 Multifactorial (depth and posteroantior) implant coordinate comparisons of signal intensity in the VTA region of interest.
-                Protocols coded as in \cref{tab:CogB,tab:CogBr,tab:CogBm,tab:CogMwf,tab:CogP,tab:JPogP}.
+                Protocols coded as in \cref{tab:CogB,tab:CogBr,tab:CogBl,tab:CogBm,tab:CogMwf,tab:CogP,tab:JPogP}.
                 ',
         label='fig:mvs',
         )}
@@ -89,39 +114,38 @@
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block_filtered_controlled_autoOmnibus.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
+                {'script':'scripts/map_block_filtered_controlled_auto.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
                         'options_post':'\\vspace{1em}',
-                        'caption':'Block stimulation of best implant category group (omnibus classification).',
+                        'caption':'Block stimulation of best implant category group (according to VTA activation), centered on largest cluster.',
                         'label':'ocf',
                         },
-                {'script':'scripts/map_block_other_controlled_autoOmnibus.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
+                {'script':'scripts//map_block_filtered_controlled.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
                         'options_post':'\\vspace{1em}',
-                        'caption':'Block stimulation of rejected implant category group (omnibus classification).',
+                        'caption':'Block stimulation of rejected implant category group (according to VTA activation), centered on VTA.',
                         'label':'oco',
                         },
-                {'script':'scripts/implant_coordinates.py', 'conf':'article/3x1_withmap.conf', 'options_pre':'{.32\\textwidth}',
+                {'script':'scripts/implant_coordinates_block_mini.py', 'conf':'article/3x1_withmap.conf', 'options_pre':'{.32\\textwidth}',
                         'options_post':'\\vspace{1em}',
-                        'caption':'Omnibus implant coordinate classification (dotted markers indicate best category).',
+                        'caption':'VTA activation-based implant coordinate classification (dotted markers indicate best category).',
                         'label':'occ',
                         },
                 {'script':'scripts/map_block_filtered_controlledManual.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
-                        'caption':'Block stimulation of rostralmost implant category group.',
+                        'caption':'Block stimulation of rostralmost implant category group, centered on VTA.',
                         'label':'pcf',
                         },
                 {'script':'scripts/map_block_other_controlledManual.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
-                        'caption':'Block stimulation of caudalmost implant category group.',
+                        'caption':'Block stimulation of caudalmost implant category group, centered on largest cluster.',
                         'label':'pco',
                         },
-                {'script':'scripts/implant_coordinates_pa.py', 'conf':'article/3x1_withmap.conf', 'options_pre':'{.32\\textwidth}',
+                {'script':'scripts/implant_coordinates_pa_mini.py', 'conf':'article/3x1_withmap.conf', 'options_pre':'{.32\\textwidth}',
                         'caption':'PA-coordinate implant classification (dotted markers indicate rostralmost category).',
                         'label':'pcc',
                         },
                 ],
         caption='
-                \\textbf{Neither omnibus (block and phasic stimulus based) nor PA-coordinate classification show a better projection segmentation than block trial-based classification.}
+                \\textbf{PA-coordinate-based classification does not show a better projection segmentation than block trial-based classification.}
                 Depicted are t-statistic maps (centerd on largest cluster, thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided into best and rejected \\textbf{(\subref{fig:ocf}, \subref{fig:oco})}, or rostralmost and caudalmost \\textbf{(\subref{fig:pcf}, \subref{fig:pco})}.
                 All maps are adjusted for the wild type control stimulation effects.
-                Slices are centered on the largest cluster.
                 ',
         label='fig:oc',
         )}
@@ -130,11 +154,11 @@
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block_auto.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_filtered.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation, slices centered on largest cluster. \\vspace{1.2em}',
                         'label':'blocka',
                         },
-                {'script':'scripts/map_phasic_auto.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_phasic_filtered_auto.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Phasic stimulation, slices centered on largest cluster.',
                         'label':'phasica',
                         },
@@ -143,6 +167,7 @@
                 \\textbf{No negative activation patterns are salient upon block VTA stimulation, and no coherent activation patterns of any sort after phasic VTA stimulation.}
                 Depicted are t-statistic maps (thresholded at $\mathrm{\lvert t \\rvert \geq 3}$) of second-level analyses, divided by stimulation category and binning all implant coordinates.
                 Slices are centered on the VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and the largest cluster, respectively.
+                All maps are adjusted for the wild type control stimulation effects.
                 ',
         label='fig:all',
         )}
@@ -151,17 +176,17 @@
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
-                {'script':'scripts/map_block_filtered_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_filtered.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of best implant category group',
                         },
-                {'script':'scripts/map_block_other_auto.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                {'script':'scripts/map_block_other.py', 'label':'subjects', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
                         'caption':'Block stimulation of rejected implant category group.',
                         },
                 ],
         caption='
                 \\textbf{The uncorrected population-level response to block stimulation does not significantly differ from the wild type control corrected results in \cref{fig:mbfc,fig:mboc}.}
                 Depicted are t-statistic maps (thresholded at $\mathrm{t \geq 3}$) of the second-level analysis for block stimulation protocols, divided by implant category group.
-                Slices are centered on the largest cluster.
+                Slices are centered on the VTA region of interest.
                 ',
         label='fig:uncontrolled',
         )}
@@ -187,15 +212,42 @@
         )}
 \end{sansmath}
 
+%\begin{sansmath}
+%\sessionpy{pytex_subfigs(
+%        [
+%                {'script':'scripts/map_features_filtered.py', 'conf':'article/2asymetric_map.conf',
+%                        'options_pre':'{.39\\textwidth}',
+%                        'options_pre_caption':'\\vspace{-1.6em}',
+%                        'caption':'Contrast between VTA functional activation and structural projections, showing slices centered on largest cluster, statistical map thresholded at $\mathrm{3 \geq t \geq 3}$. \\vspace{.8em}',
+%                        'label':'mff',
+%                        },
+%                {'script':'scripts/distributions_features_filtered_neg.py', 'conf':'article/2asymetric_distributions.conf',
+%                        'options_pre':'{.595\\textwidth}\\vspace{-1.6em}',
+%                        'options_pre_caption':'\\vspace{-1.5em}',
+%                        'caption':'Distribution densities of t-statistics, showing the regions where VTA structural projections exceed functional actiivation most strongly.\\vspace{.8em}',
+%                        'label':'dffn',
+%                        },
+%                ],
+%        caption='
+%                \\textbf{Comparing VTA functional activation to structural projection data reveals good correspondence, with deviations involving the contralateral and the dorsal ipsilateral striatum.}
+%                Depicted are contrast statistic values, taking into account variability across subjects \\textbf{(\subref{fig:mffa}, \subref{fig:dff})}, alongside an overlay \\textbf{(\subref{fig:ffc})} and correlation analyses \\textbf{(\subref{fig:fcr}, \subref{fig:fcv})} of the the population-level functional and structural statistic maps.
+%                ',
+%        label='fig:dummy',
+%        options_pre='\\centering\n\\vspace{-2em}',
+%        )}
+%\end{sansmath}
+
 \begin{sansmath}
 \sessionpy{pytex_fig(
-        'scripts/distributions_features_filtered_neg.py',
-        conf='article/distributions.conf',
+        'scripts/features_filtered_coronal_contour.py',
+        conf='article/coronal.conf',
         caption='
-                Distribution densities of t-statistics, showing the regions were VTA structural projections exceed functional activation most strongly.
+                Coronal slice overlay, showing the VTA functional activation t-statistic heatmap (as in \\textbf{\\cref{fig:mbfc}}), and the VTA structural projection outline, both thresholded at $\mathrm{t \geq 3}$.
+                Interpretation of this figure as showcasing a complementarity in the patterns is cautioned, as qualitative inspection of thresholded data does not accurately capture variation in the statistic distributions.
+                For statements regarding the compariosn of functional activation and structural projection, \cref{fig:fcr,fig:fcv,fig:ffc} are more suitable. 
                 \\vspace{-1em}
                 ',
-        label='dffn',
+        label='ffcc',
         options_pre='\\centering\n',
         environment='figure*',
         figure_format='pdf',

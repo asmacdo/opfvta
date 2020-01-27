@@ -17,7 +17,6 @@ bru2bids(data_dir,
 	structural_match={
 		'acquisition':['TurboRARE'],
 		},
-	keep_crashdump=True,
 	out_base=base_dir,
 	dataset_name='OPFVTA',
 	dataset_license='CC-BY',

@@ -20,4 +20,5 @@ maps.stat3D(stat_map,
 	threshold=3,
 	threshold_mesh=3,
 	cmap=MYMAP,
+	cut_coords=(0.55,-3.45,-4.8),
 	)
