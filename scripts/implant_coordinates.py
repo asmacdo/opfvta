@@ -20,7 +20,7 @@ ax = sns.scatterplot(
 	hue='VTA t ',
 	size='Count ',
 	data=df,
-	sizes=(20, 100),
+	sizes=(10, 200),
 	palette=cmap,
 	)
 best_coordinates = df.loc[df['Best Cluster']==True]

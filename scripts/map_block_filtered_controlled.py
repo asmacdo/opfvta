@@ -11,5 +11,4 @@ maps.stat3D(stat_map,
 	threshold=3,
 	threshold_mesh=3,
 	positive_only=True,
-	#cmap='autumn_r',
 	)

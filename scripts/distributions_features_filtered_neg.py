@@ -8,6 +8,7 @@ df = atlasassignment(stat_map,
         lateralized=True,
         value_label='t Values',
         )
+df['Structure'] = df['Structure'].replace({'Accessory olfactory bulb: glomerular, external plexiform and mitral cell layer': 'Accessory olfactory bulb: glomerular, external plexiform, mitral layers',})
 
 df['Structure'] = df['Structure'].str.title()
 roi_distributions(df,
@@ -19,6 +20,6 @@ roi_distributions(df,
         cmap='viridis_r',
         value_label='t Values',
         bw=.1,
-        #text_side='right',
+        text_side='right',
         hspace=-0.5,
         )
