@@ -21,7 +21,10 @@ if [ ! -d ~/.scratch/opfvta/bids ]; then
 	fi
 fi
 
-python preprocess.py || exit 1
+if [ ! -d ~/.scratch/opfvta/preprocess ]; then
+	python preprocess.py || exit 1
+fi
+
 python l1.py || exit 1
 python features.py || exit 1
 python functional_data.py || exit 1
