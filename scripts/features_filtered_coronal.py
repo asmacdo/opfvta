@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 import samri.plotting.maps as maps
 
-COLORS_PLUS = plt.cm.plasma(np.linspace(0., 1, 128))
-COLORS_MINUS = plt.cm.viridis(np.linspace(0, 1, 128))
+COLORS_PLUS = plt.cm.spring(np.linspace(0., 1, 128))
+COLORS_MINUS = plt.cm.summer(np.linspace(0, 1, 128))
 COLORS = np.vstack((COLORS_MINUS, COLORS_PLUS[::-1]))
 MYMAP = mcolors.LinearSegmentedColormap.from_list('my_colormap', COLORS)
 
