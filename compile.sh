@@ -2,6 +2,7 @@
 
 TARGET="${1}"
 WHITELIST="
+	article_mp.tex
 	article.tex
 	poster.tex
 	slides.tex
