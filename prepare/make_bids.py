@@ -46,7 +46,7 @@ for sub_dir in os.listdir(bids_dir):
 		sessions_file = os.path.join(sub_path,'{}_sessions.tsv'.format(sub_dir))
 		if os.path.isfile(sessions_file):
 			sessions = pd.read_csv(sessions_file, sep='\t')
-			sessions['irregularities']=''
+			#sessions['irregularities']='n/a'
 			first_session_date = sessions['acq_time'].min()
 			first_session_date = datetime.strptime(first_session_date,'%Y-%m-%dT%H:%M:%S')
 			age = first_session_date - subjects_info.loc[subjects_info['subject']==sub_dir[4:],'birth_date']
@@ -57,8 +57,11 @@ for sub_dir in os.listdir(bids_dir):
 				mydate_date = datetime.strptime(mydate,'%Y-%m-%dT%H:%M:%S')
 				irregularity_list = irregularities.loc[irregularities['Measurement_date']==mydate_date,'Irregularity_description'].tolist()
 				irregularity_list = '; '.join(irregularity_list)
+				if not irregularity_list:
+					irregularity_list = 'n/a'
 				sessions.loc[sessions['acq_time']==mydate,'irregularities'] = irregularity_list
 			sessions.to_csv(sessions_file, sep='\t', index=False)
 
 subjects_info = subjects_info.drop('birth_date', 1)
+subjects_info.insert(loc=0, column='participant_id', value=subjects_info['subject'])
 subjects_info.to_csv('{}/participants.tsv'.format(bids_dir), sep='\t', index=False)
