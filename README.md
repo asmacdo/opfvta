@@ -49,7 +49,7 @@ cd /path/to/opfvta
 ./compile.sh
 ```
 
-This analysis may take up to 15 minutes on personal computers.
+This analysis may take up to 20 minutes on personal computers.
 
 ### Full Analysis Stack
 
