@@ -20,9 +20,9 @@ While other dependencies will very likely be available from your distribution's 
 You can manually install it via the following commands:
 
 ```
-wget chymera.eu/distfiles/opfvta_bidsdata-1.2.tar.xz
-tar xf opfvta_bidsdata-1.2.tar.xz
-mv opfvta_bidsdata-1.2 /usr/share/opfvta_bidsdata
+wget chymera.eu/distfiles/opfvta_bidsdata-2.0.tar.xz
+tar xf opfvta_bidsdata-2.0.tar.xz
+mv opfvta_bidsdata-2.0 /usr/share/opfvta_bidsdata
 ```
 
 The latter command may require superuser access.
@@ -33,7 +33,9 @@ Total install time will take upwards of an hour on personal computers with no pr
 This is a [RepSeP](https://github.com/TheChymera/RepSeP)-style document.
 The data processing step is run asynchronously from the document compilation, and you may choose to reproduce either the top-level statistics (“demo” reproduction) or the entire analysis starting from the raw data (“full analysis stack” reproduction).
 
-The data processing for the full analysis stack will by default take place in `~/.scratch`, which we suggest can be created as a symlink to a volume which has more space (at least 400GB):
+The data processing for the full analysis stack will by default take place in `~/.scratch`.
+The analysis requires just under 200GB available storage space.
+If this is unavailable in the home partition we suggest creating a symlink to a volume which meets this requirement:
 
 ```
 mkdir /mnt/largevolume/.scratch
@@ -47,7 +49,7 @@ cd /path/to/opfvta
 ./compile.sh
 ```
 
-This analysis may take up to 5 minutes on personal computers.
+This analysis may take up to 15 minutes on personal computers.
 
 ### Full Analysis Stack
 
@@ -56,4 +58,4 @@ cd /path/to/opfvta
 ./produce.sh
 ```
 
-This analysis may take up over 24 hours on personal computers.
+This analysis may take over 24 hours on personal computers.
