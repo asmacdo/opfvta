@@ -3,79 +3,84 @@
 \subsection{Whole-Brain Dopaminergic Map}
 
 In this article we present the first whole-brain opto-fMRI map of VTA dopaminergic activity in the mouse.
-Published as voxelwise reusable data and discussed in terms of regions of interest in the article text, this constitutes an essential resource for model animal study of the dopaminergic system.
+Published as voxelwise reusable data and discussed in terms of regions of interest in the article text, this constitutes an essential resource for preclinical investigation of the dopaminergic system.
 The areas identified as functional VTA dopaminergic targets are largely consistent with histological and electrophysiologic literature (as summarized in \cref{fig:ml}).
-This highlights the suitability of opto-fMRI for interrogating the mouse dopaminergic system, in addition to such advantages as longitudinal recording capability and whole-brain coverage.
+This highlights the suitability of opto-fMRI for interrogating the mouse dopaminergic system, which opens the way for longitudinal recording with whole-brain coverage.
 
 The predominant VTA projection area identified both in literature and in our study is the nucleus accumbens.
 This area is involved in numerous neuropsychological phenomena, and its activation further supports the method's suitability to resolve meaningful brain function and increase the predictability of novel interventions using the mouse model organism.
 
 Throughout most brain regions, we observe a high degree of correspondence between functional activation and structural projection density.
-We do, however, also resolve a number of notable differences between opto-fMRI derived projection areas and the structural substrate of the dopaminergic system.
+Yet, we also document a number of notable differences between opto-fMRI derived projection areas and the structural substrate of the dopaminergic system.
 Overall, the contrast between function and structure shows stronger signal and wider coverage for the functional activation pattern, particularly in projection areas.
 Notably, the functional map extends into the contralateral ventral striatum, and both the contralateral and ipsilateral dorsal striatum.
-The first of these features corresponds to an extension of the functional map to the contralateral VTA in the midbrain, and is further supported by the contralateral projection areas showing lower overall significance scores than the ipsilateral areas (\cref{fig:dbfc,fig:dbfs}).
+Activation of the contralateral ventral striatum might be attributed to an extension of the functional map to the contralateral VTA.
+This interpretation is supported by the contralateral projection areas showing lower overall significance scores than the ipsilateral areas (\cref{fig:dbfc,fig:dbfs}).
+%The first of these features corresponds to an extension of the functional map to the contralateral VTA in the midbrain, and is further supported by the contralateral projection areas showing lower overall significance scores than the ipsilateral areas (\cref{fig:dbfc,fig:dbfs}).
 The explanation of projection area extension into the dorsal striatum on account of secondary activation of the ipsilateral substantia nigra is however less reliable, since the most relevant cluster of increased functional activation --- the dorsomedial striatum --- can be observed bilaterally, though potential nigral activation is only seen ipsilaterally (\cref{fig:ffc}).
-Not least of all, the local deformation of the VTA upon fiber implantation may confound parcellation in the vicinity of the fiber tip (\cref{fig:h}).
+Together with other recent literature \cite{Lohani2016,Pan2010}, it is also possible that VTA activation on its own elicits dorsomedial striatial activity.
+Not least of all, the local deformation of the VTA upon fiber implantation may additionally confound parcellation in the vicinity of the fiber tip (\cref{fig:h}).
 
-The distinction between the two pairs of dopaminergic nuclei and their two pathways --- mesocorticolimbic (originating in the VTA and projecting into the ventral striatum) and nigrostriatal (originating in the substantia nigra and projecting into the dorsal striatum) --- forms the basis for dopaminergic modelling.
-In this context, the dorsomedial striatum has received attention in conjunction with associative rather than sensorimotor function (which is commonly ascribed to the nigrostriatal pathway) \cite{Liljeholm2012,Yin2005}.
-Together with other recent literature \cite{Lohani2016,Pan2010}, our results contribute to a body of evidence questioning the strict dichotomy of dopaminergic pathways, and suggesting that VTA activation may also functional responses in some projection areas commonly classified as nigrostriatal.
+%The distinction between the two pairs of dopaminergic nuclei and their two pathways --- mesocorticolimbic (originating in the VTA and projecting into the ventral striatum) and nigrostriatal (originating in the substantia nigra and projecting into the dorsal striatum) --- forms the basis for dopaminergic modelling.
+%In this context, the dorsomedial striatum has received attention in conjunction with associative rather than sensorimotor function (which is commonly ascribed to the nigrostriatal pathway) \cite{Liljeholm2012,Yin2005}.
 
-The amygdala, hippocampus, and the medial prefrontal cortex --- known targets for VTA dopaminergic projections --- do not reveal strong activation in opto-fMRI.
-Comparison with published structural projection data, however, indicates that this is due to low fiber bundle density, as these areas also do not show high amounts of structural projections.
-Partly negative t-statistic distributions of the contrast between functional activation and structural projection can be observed in areas adjacent to the amygdala (\cref{fig:dffn}), though it should be noted that they are comparable to differences observed in the cerebellar white matter.
+Negative contrasts clusters between functional activation and structural projection are overall very sparse (\cref{fig:dffn}).
+Yet, the amygdala, hippocampus, and the medial prefrontal cortex --- known targets for VTA dopaminergic projections --- do not reveal strong activation in opto-fMRI.
+Comparison with published structural projection data indicates that this is due to low fiber bundle density, as these areas also do not show high amounts of structural projections.
+%Partly negative t-statistic distributions of the contrast between functional activation and structural projection can be observed in areas adjacent to the amygdala , though it should be noted that they are comparable to differences observed in the cerebellar white matter.
 
-We also present a VTA seed-based connectivity analysis which attempts to differentiate primary activation from subsequent signal transmission (according to a simple 1-step signal relay model depicted in \cref{fig:nm}).
-Our results indicate that this analysis is capable of resolving projection areas, but is significantly less powerful than stimulus-evoked analysis (\cref{fig:mbfc}).
-VTA seed based analysis highlights only a small number of activation clusters and fails to show signal laterality.
+In the pursuit of differentiating primary activation from subsequent signal transmission (and resolving a dopaminergic graph relay model, as depicted in \cref{fig:nm}) we present an additional analysis workflow based on VTA seed-based connectivity.
+Our results indicate that this analysis is capable of identifying projection areas, but is significantly less powerful than stimulus-evoked analysis (\cref{fig:mbfc}).
+VTA seed based analysis highlights only a small number of activation clusters and fails to show significant projection laterality.
 This is an interesting outcome, as --- given the superior performance of stimulus-evoked analysis --- it describes two possible features of dopaminergic neurotransmission in the VTA.
 The first is that the relay of primary VTA stimulation has higher fidelity than the fMRI measurement of VTA activity itself (i.e. VTA activity is relayed accurately, but outweighed by measurement noise).
 The second is that there is a significant threshold to dopaminergic neurotransmission, by which fMRI-measurable baseline activity is predominantly not propagated (i.e. VTA activity is measured accurately, but is relayed in a strongly filtered fashion).
+The seed-based analysis workflow, however successfully disambiguates VTA activation from adjacent midbrain activation (including for the contralateral VTA, which is outside of the seed region of interest).
+This indicates that VTA susceptibility to optogenetic stimulation may have a unique signature compared to surrounding midbrain tissue in which activation is also elicited in opto-fMRI.
 
 \subsection{Assay Parameters}
 
-In addition to describing the results of a novel assay, this article presents evidence-based suggestions for assay reuse and refinement.
-In particular, we detail the effects of stimulus protocol categories and optogenetic targeting coordinates on the performance of the method.
+This article presents an evidence-based outline for assay reuse and refinement.
+In particular, we detail the effects of stimulus protocol categories and optogenetic targeting coordinates coordinates on the performance of the method.
 
-The optic stimulation target coordinate break-down in \cref{fig:mv} shows that, in block stimulation trials, more rostral and deeper implant coordinates elicit stronger VTA activity.
-Based on present data we recommend targeting the optic implant at
+The break-down of target coordinates for optical stimulation (\cref{fig:mv}) indicates that more rostral and deeper implant coordinates elicit stronger VTA signal responses to block stimulation trials.
+Based on our data we suggest targeting the optic implant at
 a posteroanterior distance of \SI{-3.05}{\milli\meter} from bregma,
 a left-right distance of \SIrange{0.5}{0.55}{\milli\meter} from the midline,
 and a depth of \SI{4.5}{\milli\meter} from the skull surface.
 Additional coordinate exploration might be advisable, though further progression towards bregma may lead to direct stimulation of specific efferent fibers rather than the VTA.
 
-The absence of strong VTA activation effects as well as coherent activity patterns elicited by phasic stimulation (\cref{fig:mvt,fig:phasica}) highlights that phasic stimulation is unable to elicit activation measurable by the assay in its current form.
-The overall low susceptibility to phasic stimulation is most likely due to the intrinsically lower statistical power of such stimulation protocols in fMRI, but might also reflect lower neuronal susceptibility to phasic stimulation.
-While this hypothesis is strongly speculative, we highlight that it is testable, and phasic stimulation should be revisited upon strong alterations to the measurement protocol or experiment design.
+The absence of VTA activation as well as coherent activity patterns elicited by phasic stimulation (\cref{fig:mvt,fig:phasica}) highlights that phasic stimulation is unable to elicit activation measurable by the assay in its current form.
+The overall low susceptibility to phasic stimulation is most likely due to the intrinsically lower statistical power of such stimulation protocols in fMRI, and phasic stimulation whole-brain imaging may remain unattainable pending significant advances in the field of fMRI.
 
 Regarding the distribution of activation across projection areas, we note a strong and unexpected divergence between the most sensitive (“best”) and least sensitive (“rejected”) implant coordinate category responses to block stimulation (\cref{fig:mbfc,fig:mboc}).
 In addition to a difference in VTA and efferent signal intensity (expected as per the selection criterion), we also notice a different pattern of target areas.
 Interestingly, the activity pattern elicited in the “rejected” group is more strongly weighted towards the hindbrain, and the efferent pattern includes the periaqueductal gray, a prominent brainstem nucleus involved in emotional regulation \cite{Benarroch2012}.
 This effect might be related to the activation of descending dopaminergic projections, though further investigation is needed to clarify this point and, in general, to better understand the cross-connectivity between deep brain nuclei.
 
-The activation patterns in wild type control animals are narrow in their extent (\cref{fig:control}), and --- when controlled for --- do not meaningfully impact the dopaminergic block stimulation contrast (\cref{fig:mbfc,fig:uncontrolled}).
+The activation patterns in wild type control animals are narrow in their extent (\cref{fig:control}), and --- whether or not they are controlled for in the form of a second-level contrast --- do not meaningfully impact the dopaminergic block stimulation contrast (\cref{fig:mbfc,fig:uncontrolled}).
 Based on the activation distribution, however, it may be inferred that trace heating artefacts (midbrain activation) and visual stimulation (lateral geniculate nucleus thalamic activation) are present.
 On account of this, for further experiments, we suggest using eye occlusion, dark or dark-painted ferrule sleeves, as well as laser intensities lower than the \SI{30}{\milli\watt} (\SI{239}{\milli\watt\per\milli\meter\squared}) used in this study.
 
 While stimulus-evoked analysis displayed significant laterality, large clusters of significant activation were also observed on the contralateral side.
-Fluorescence microscopy (\cref{fig:ffc}) revealed that the expression of the viral construct injected at the site of the right VTA extends over a large area, that encompasses the contralateral VTA.
+Fluorescence microscopy (\cref{fig:ffc}) revealed that expression of the viral construct injected at the site of the right VTA extends over a large area, that encompasses the contralateral VTA.
 Inspection of the functional map at the midbrain stimulation site corroborates that activity in fact spreads to the contralateral VTA (\cref{fig:mbfc}).
 This explains the occurrence of contralateral fMRI responses, which are most likely weaker due to a lower photon fluence at the site of the left VTA.
-Together, these data suggest that the virus amount injected for the assay could be significantly reduced, to less than the
+Together, these data suggest that the solution volume and virus amount injected for the assay could be significantly reduced, to less than the
 \sessionpy{boilerplate.report_bound('VirusInjectionProtocol_amount', 'min', '\micro\litre')}
 (\SI{5.7e12}{\vg\per\milli\litre})
 used as the minimal volume in this study.
 
-Lastly, the most salient qualitative feature of \cref{fig:h} is the displacement of labelled neurons from the area in the proximity of the optic fiber implant tip.
+The most salient qualitative feature of \cref{fig:h} is, however, the displacement of labelled neurons from the area in the proximity of the optic fiber implant tip.
 This feature was consistent across animals and implantation sites, and is cause for concern, since it limits the extent to which cells can be optically stimulated.
 Particularly, such a feature could exacerbate limitations arising from heating artefacts, since the maximum SNR attainable at a particular level of photon fluence may be capped to an unnecessarily low level.
 This effect might be mitigated by using thinner optic fiber implants (e.g. $\diameter$\SI{200}{\micro\meter}, as opposed to the $\diameter$\SI{400}{\micro\meter} fibers used in this study).
 
 \subsection{Conclusion}
 
-In this article we present the first whole-brain map of VTA dopaminergic signalling in the mouse, and publish it in a standard space aligned with stereotactic manipulation coordinates \cite{me}.
+In this article we demonstrate the suitability of opto-fMRI for investigating a neurotransmitter system which exhibits node-like function in coordinating brain activity.
+We thus present the first whole-brain map of VTA dopaminergic signalling in the mouse, and report the results in a standard space aligned with stereotactic coordinates \cite{me}.
 We determine that the mapping is consistent with known structural projections, and note the instances where differences are observed.
-Further, we explore network structure aware analysis via functional connectivity, finding that the assay provides limited support for signal relay imaging.
-As part of this work we perform an in-depth investigation of experimental variation, and summarize evidence-based instructions for assay reuse.
+Further, we explore network structure aware analysis via functional connectivity, finding that the assay provides superior identification of the VTA, but limited support for signal relay imaging.
+In-depth investigation of experimental variation, based on open source and reusable workflows, supports the current findings by identifying detailed evidence-based instructions for assay reuse.
 The results herein published provide a reference dopaminergic stimulus-evoked functional neurophenotype map and a novel and thoroughly documented workflow for the preclinical imaging of dopaminergic function, both of which are crucial to elucidating the etiology of numerous disorders and improving psychopharmacological interventions in health and disease.
