@@ -13,6 +13,19 @@ df = atlasassignment(stat_map,
 #df = df.replace('Accessory olfactory bulb: glomerular, external plexiform and mitral cell layer','Accessory olfactory bulb: glomerular, external plexiform, mitral layers')
 
 df['Structure'] = df['Structure'].str.title()
+df['Structure'] = df['Structure'].replace({
+        'Anterior':'Ant.',
+        'Endopiriform Claustrum':'EC',
+        'Intermediate':'Int.',
+        'Medial':'Med.',
+        'Nucleus':'Nc.',
+        'Pars':'p.',
+        'Posterior':'Post.',
+        'White Matter':'WM',
+        },
+        regex=True,
+        )
+
 roi_distributions(df,
         max_rois=10,
         exclude_tissue_type=['CSF'],
