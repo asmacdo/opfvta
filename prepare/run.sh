@@ -17,7 +17,7 @@ if [ ! -d ~/.scratch/opfvta/bids ]; then
 	else
 		echo "No OPFVTA BIDS data distribution found, processing from scanner OPFVTA data:"
 		[ -d ~/.scratch/opfvta ] || mkdir ~/.scratch/opfvta
-		python make_bids.py
+		python make_bids.py || exit 1
 	fi
 fi
 
