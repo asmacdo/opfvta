@@ -1,8 +1,8 @@
 \section{Background}
 
-%%The ultimate assessment standard for knowledge is its ability to inform action.
-%%As such, neuroscience incrementally aims to support the development of meaningful and predictable control of the brain.
-%%Within this endeavour, it is the most easily accessible components of the brain, given current technology, which can provide the greatest opportunities for advancement.
+%The ultimate assessment standard for knowledge is its ability to inform action.
+%As such, neuroscience incrementally aims to support the development of meaningful and predictable control of the brain.
+%Within this endeavour, it is the most easily accessible components of the brain, given current technology, which can provide the greatest opportunities for advancement.
 
 The dopaminergic system consists of a strongly localized, and widely projecting set of neurons with cell bodies clustered in the midbrain into two lateralized nucleus pairs, the Substantia Nigra pars compacta (SNc) and the Ventral Tegmental Area (VTA, \cref{fig:ml}).
 On account of the small number of dopaminergic neurons ($\approx300,000$ in humans \cite{rice2016}, $\approx10,000$ in rats \cite{german1993}, and $\approx4,000$ in mice \cite{triarhou1988}), tractography commonly fails to resolve the degree centrality of this neurotransmitter system, precluding it from being a prominent node in such graph representations of the brain.
@@ -86,13 +86,13 @@ Lastly, due to high evolutionary conservation \cite{Yamamoto2011}, the dopaminer
 %This is particularly true for monoaminergic neurotransmitter systems, where focal interventions can have wide-ranging effects.
 %Owing to its deep penetration, high rostrocaudal coverage, and large-scale usage in human studies, fMRI is one of the foremost methods for studying dopaminergic modulation of brain function.
 
-Imaging a neurotransmitter system comprised of a small number of cells, based only on spontaneous activity, is highly unreliable due to a very low signal to noise ratio (SNR).
+Imaging a neurotransmitter system comprised of a small number of cells based only on spontaneous activity is highly unreliable due to an intrinsically low signal to noise ratio (SNR).
 This limitation can, however, be overcome by introducing exogenous stimulation.
-While the colocalization of widely projecting dopaminergic cell bodies into nuclei makes broad targeting feasible, dopaminergic nuclei also contain notable populations of non-dopaminergic cells, which may confound an intended dopaminergic read-out \cite{Taylor2014}.
+While the colocalization of widely projecting dopaminergic cell bodies into nuclei renders large-scale targeting feasible, dopaminergic nuclei also contain notable populations of non-dopaminergic cells, which may confound an intended dopaminergic read-out \cite{Taylor2014}.
 In order to specifically target dopaminergic cells, they need to be sensitized to an otherwise inert stimulus in a transcription-dependent manner.
 This can be achieved via optogenetics, which is based on light-stimulation of cells expressing light-sensitive proteins such as channelrhodopsin \cite{Boyden2005}.
 Cell-type selectivity can be achieved by Cre-conditional channelrhodopsin vector delivery \cite{Orban1992} to transgenic animals expressing Cre-recombinase under a dopaminergic promoter.
-Following protein expression, stimulation can be delivered via an implanted optic fiber.
+Following protein expression, stimuli can be delivered via an implanted optic fiber.
 The combination of this stimulation method with fMRI is commonly referred to as opto-fMRI and can provide information on functional connectivity between a primary activation site and associated projection areas \cite{Desai2011,Grandjean2019}.
 
 %The majority of dopaminergic cell bodies are clustered in the midbrain into two lateralized nucleus pairs, the Ventral Tegmental Area (VTA) and Substantia Nigra pars compacta (SNc).
@@ -105,7 +105,7 @@ The combination of this stimulation method with fMRI is commonly referred to as 
 %Particularly in cases where stimulation is introduced via well-known pathways, a simple network model for signal transmission could be explored via seed-based functional connectivity (\cref{fig:nm}).
 %Moreover, for neurotransmitter systems with colocalized cell bodies and long efferent projections, the macroscopic resolution of fMRI allows mapping somatodendritic processes (e.g. excitability upon depolarization at the soma) to “cell-body“ voxels, and signal transmission at the synapse to “projection“ voxels (\cref{fig:cm}).
 
-The current study and whole-brain modelling of VTA dopaminergic function in mice aims to produce three novel research outputs.
+The current study on whole-brain modelling of VTA dopaminergic function in mice aims to produce three novel research outputs.
 Firstly, a proof-of-principle documenting the feasibility of midbrain dopaminergic opto-fMRI in the mouse should be demonstrated, and results should be benchmarked with present knowledge regarding structural projections.
 Secondly, the procedure needs to be optimized by systematic variation of experimental parameters in order to ascertain reliability and reproducibility, as is required for a general-purpose dopaminergic system assay.
 Lastly, a reference neurophenotype of stimulus-evoked dopaminergic function (represented as a brain-wide voxelwise map) should be published in standard space to facilitate co-registered data integration, operative targeting, and comparative evaluation of pathology or treatment induced effects.

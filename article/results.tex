@@ -161,13 +161,14 @@
 	\label{fig:h}
 \end{figure*}
 
-Opto-fMRI experiments were carried out in mice expressing Cre recombinase under the dopamine transporter promoter \cite{dat}, with Cre-conditional viral vector induced expression of channelrhodopsin (ChR2) and yellow fluorescent protein (YFP) in the dopaminergic midbrain, and with an optic fiber pointing above the right VTA.
-An array of different stimulation protocols were applied to the animals, consisting of variations within two main categories:
-block stimulation (where stimulation is delivered in continuous blocks of at least \SI{8}{\second} --- \cref{tab:CogB,tab:CogBr,tab:CogBl,tab:CogBm,tab:CogMwf})
+Opto-fMRI experiments were carried out in C57BL/6 mice expressing Cre recombinase under the dopamine transporter promoter \cite{dat}, with Cre-conditional viral vector induced expression of channelrhodopsin (ChR2) and yellow fluorescent protein (YFP) in the dopaminergic midbrain.
+Light stimuli were delivered via an optic fiber pointing above the right VTA.
+Different stimulation protocols were applied to the animals, consisting of variations within two main categories:
+block stimulation (with light stimuli delivered in continuous blocks of at least \SI{8}{\second} --- \cref{tab:CogB,tab:CogBr,tab:CogBl,tab:CogBm,tab:CogMwf})
 and
-phasic stimulation (encompassing protocols where stimulation is delivered in short bursts of up to \SI{1}{\second} in lenght --- \cref{tab:CogP,tab:JPogP}).
+phasic stimulation (with light stimuli delivered in short bursts of up to \SI{1}{\second} in lenght --- \cref{tab:CogP,tab:JPogP}).
 
-The VTA mean t statistic is determined to be sensitive to
+In the analysis of the resulting data, the VTA mean t statistic is found sensitive to
 the stimulation protocol category (\sessionpy{boilerplate.anova(factor='Q("Task Category")')}),
 the stimulation target depth (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]"))')}),
 % Results before methods:
@@ -175,14 +176,17 @@ the stimulation target depth (\sessionpy{boilerplate.anova(factor='C(Q("Depth re
 the stimulation target PA coordinates (\sessionpy{boilerplate.anova(factor='C(Q("PA rel. Bregma [mm]"))')}),
 but not the interaction of the depth and PA target coordinates (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}).
 
-The break-up by phasic and block stimulation is shown in \cref{fig:mv} and significance is evaluated accounting for the entire model, including target coordinates.
-The phasic stimulation level of the variable yields a p-value of $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Phasic]')}$,
-and the block stimulation level yielding a p-value of $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Block]')}$.
-Upon investigation of the t-statistic map, phasic stimulation, also reveals no coherent activation pattern at the whole-brain level(\cref{fig:phasica}).
+The break-up by phasic and block stimulation is shown in \cref{fig:mv} and the significance evaluated accounting for the entire model, including target coordinates.
+The phasic and block levels of the stimulation variable yield p-values of
+$\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Phasic]')}$
+and
+$\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Block]')}$,
+respectively.
+Upon investigation of the t-statistic map, phasic stimulation further reveals no coherent activation pattern at the whole-brain level(\cref{fig:phasica}).
 
 The main and interaction effects of the implant coordinate variables are better described categorically than linearly (\cref{fig:mvs,fig:mvib}).
-Consequently, the most suitable implant coordinate group for the assay can best be determined based on a categorical classification of implant coordinates.
-We classify the implant coordinates into a “best” and a “rejected” group, by k-means clustering the aggregate VTA t-statistic scores into two clusters.
+Consequently, the most suitable implant coordinate group for the assay can best be determined on the basis of categorical classification of implant coordinates.
+We classify the implant coordinates into a “best” and a “rejected” group by k-means clustering the aggregate VTA t-statistic scores into two clusters.
 This categorization is highlighted in \cref{fig:mvib}.
 
 For block stimulation, the best implant category group (\cref{fig:mbfc}) and the rejected implant category group (\cref{fig:mboc}) show not only a difference in overall stimulus-evoked signal intensity, but also a difference in efferent distribution, with the rejected implant category efferent spectrum more strongly weighted towards caudal brain areas.
@@ -192,20 +196,22 @@ The activation pattern elicited by block stimulation in the best implant categor
 The top activation areas are predominantly located in the right hemisphere, with the whole brain parcellation-resolved response showing
 highly significant laterality ($p = \sessionpy{boilerplate.lateral('data/l2/alias-block_filtered_controlled/acq-EPI_tstat.nii.gz')}$).
 Activation is seen in regions surrounding the stimulation site, such as the ventral tegmental decussation and the interpeduncular nucleus.
-The largest activation cluster can be seen in the dopaminergic VTA projection areas, covering subcortical regions in the rostroventral region of the brain (nucleus accumbens, striatum, and the basal forebrain), while weaker activation was observed in smaller structures in the vicinity of the above regions, such as the fasciculus retroflexus, anterior commissure and the claustrum.
+The largest activation cluster encompasses well-known dopaminergic VTA projection areas in the subcortical rostroventral regions of the brain (nucleus accumbens, striatum, and the basal forebrain), with weaker activation observed in smaller structures in the vicinity of these regions, such as the fasciculus retroflexus, anterior commissure and the claustrum.
 
 This activation pattern is is largely consistent with structural projection data, as published by the Allen Brain Institute \cite{abic} with a few notable distinctions (\cref{fig:f}).
 At the parcellation level, we see a moderately strong positive correlation between functional activation and structural projection (\cref{fig:fcr}), which is weaker at the voxel level (\cref{fig:fcv}).
 In the midbrain, the coronal slice map shows areas of increased functional activation with respect to structural projection density in the contralateral VTA and the ipsilateral substantia nigra.
 Coherent clusters of increased activation are also observed in projection areas, most prominently in the ipsilateral and contralateral dorsomedial striatum (\cref{fig:ffc}).
-Parcellation area distributions (\cref{fig:dffp,fig:dffn}), show the activation map encompassing additional areas of activation in the contralateral hemisphere (particularly the contralateral nucleus accumbens, with activity extending into the claustrum).
-The pattern of activation encompasses all regions with dense structural projections, with areas where structural projection overshoots functional activation being few and dispersed.
-These small clusters amount to weak negative contrast distributions in regions, predominantly in the cerebellum (\cref{fig:dffn}).
+Parcellation-based distributions (\cref{fig:dffp,fig:dffn}) show this increased activation map encompassing additional areas in the contralateral hemisphere, in particular the contralateral nucleus accumbens, with activity extending into the claustrum.
+%% Should we keep this?
+%%The pattern of increased activation thus includes all regions with dense structural projections.
+Areas for which structural projections clearly outweigh the functional response are few and dispersed.
+These small clusters yield only weak negative contrast distributions and are located predominantly in the cerebellum (\cref{fig:dffn}).
 %These small clusters amount to weak negative contrast distributions in regions such as the cerebellum, the olfactory bulb, and the amygdaloid area (\cref{fig:dffn}).
 
 We differentiate VTA transmission from VTA excitability by mapping functional connectivity using a seed region in the right VTA, which yielded the projection pattern shown in \cref{fig:mbfs}.
-These clusters were more sparse compared to those identified by stimulus-evoked analysis, yet follow a similar distribution.
-While the top functional connectivity areas are located in the right hemisphere, the whole brain parcellation-resolved response displays
+These clusters are more sparse compared to those identified by stimulus-evoked analysis, yet follow a similar distribution.
+While areas displaying the highest functional connectivity are located in the right hemisphere, the whole brain parcellation-resolved response displays
 no significant laterality ($p = \sessionpy{boilerplate.lateral('data/seed_l2/alias-block_filtered/acq-EPI_tstat.nii.gz')}$).
 Strong activation can be seen in the parcellation regions surrounding the seed, such as the ventral tegmental decussation and the closely located interpeduncular nucleus.
 In the midbrain, seed-based functional connectivity highlights both the ipsilateral and the contralateral VTA with great specificity, unlike sitmulus-evoked analysis (\cref{fig:mbfs,fig:mbfc}).
@@ -213,12 +219,11 @@ Rostrovental dopaminergic projection areas remain prominently featured, includin
 
 Stimulation in wild type control animals (which is corrected for in the aforementioned stimulus-evoked analyses) does not exhibit a pattern of activity consistent with dopaminergic projections.
 Sparse grains containing regression scores of $t \geq 3$ can be observed, with the largest cluster in the lateral geniculate nucleus area of the thalamus, suggesting visual activity (\cref{fig:control_mapa}).
-Atlas parcellation score distributions (\cref{fig:control_dist}) do not strongly deviate from zero, with the highest score areas being in the vicinity of the fiber, which might indicate VTA heating artefacts.
+Atlas parcellation score distributions (\cref{fig:control_dist}) do not strongly deviate from zero, with the highest scoring areas being in the vicinity of the fiber, possibly indicating VTA heating artefacts.
 Comparable region t-statistic distributions are also found in areas of the cerebellum.
 Overall the whole brain parcellation-resolved response shows
 no significant laterality ($p = \sessionpy{boilerplate.lateral('data/seed_l2/alias-block_control/acq-EPI_tstat.nii.gz')}$).
 
 Histological analysis of the targeting site reveals that the optic fiber implant displaces the YFP labelled neurons of the VTA (\cref{fig:h}).
 This dislocation was observed irrespective of the targeting area or the speed of implant insertion (\SIrange{10}{50}{\micro\meter\per\second}).
-Higher magnification (\cref{fig:h6589z}) reveals, however, that labeled filaments and soma remain in the imediate vecinity of the fiber tip.
-
+Yet, labelled filaments and soma remain in the imediate vecinity of the fiber tip, as seen in higher magnification images (\cref{fig:h6589z}.
