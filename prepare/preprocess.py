@@ -14,4 +14,5 @@ generic(bids_base,
 	structural_match={'acquisition':['TurboRARE'],},
         workflow_name='preprocess',
 	out_base=scratch_dir,
+	n_jobs_percentage=0.75,
 	)

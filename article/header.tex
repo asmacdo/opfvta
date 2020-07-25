@@ -3,28 +3,44 @@
 \usepackage[T1]{fontenc}
 \usepackage{geometry}
 	\geometry{
-		top=0.8cm,
-		bottom=1.1cm,
-		left=1.75cm,
-		right=1.75cm,
+		top=1cm,
+		bottom=1.5cm,
+		left=2cm,
+		right=2cm,
 		includehead,
 		includefoot,
 	}
-\usepackage[hidelinks]{hyperref}
-\usepackage{graphicx}
 \usepackage{lastpage}
-\usepackage[iso]{isodate}
-\usepackage{booktabs}
-\usepackage{graphviz}
-\usepackage{subcaption}
 \usepackage[font={small,sf},labelfont={bf}]{caption}
 \usepackage{nameref}
-\usepackage{sansmath}
-\usepackage[defaultlines=3,all]{nowidow}
-\usepackage{amsmath}
-\usepackage{cleveref}
-\usepackage{wasysym}
-\usepackage{afterpage}
+\usepackage{makecell}
+\usepackage[all]{nowidow}
+\usepackage[hidelinks]{hyperref}
+
+\input{common_header.tex}
+
+% Article-specific configuration
+\begin{pythontexcustomcode}[begin]{py}
+DOC_STYLE="article/main.conf"
+pytex.add_dependencies(
+	DOC_STYLE,
+	"1col.conf",
+	"2asymetric_map.conf",
+	"2x1_distributions.conf",
+	"3x1_labelspace.conf",
+	"coronal.conf",
+	"1col_with_margins.conf",
+	"2x1.conf",
+	"2x1_map.conf",
+	"3x1_map.conf",
+	"distributions.conf",
+	"2asymetric_distributions.conf",
+	"2x1_coordinates.conf",
+	"3x1.conf",
+	"3x1_withmap.conf",
+	"main.conf",
+	)
+\end{pythontexcustomcode}
 
 %VARIABLES
 %set up a more stable buffers (the normal ones gets blanked after the titlepage is invoked)
@@ -33,10 +49,6 @@
 \let\myauthor\@author
 \let\mydate\@date
 \makeatother
-
-%\renewcommand{\floatpagefraction}{0.5}
-%\renewcommand{\topfraction}{0.8}
-%\renewcommand{\bottomfraction}{0.4}
 
 %HEADER/FOOTER
 \usepackage{fancyhdr}
@@ -102,23 +114,8 @@
 \titleformat{\subsubsection}[hang]{\footnotesize\usefont{T1}{phv}{b}{n}\color{Black}}{}{0em}{#1}%
 \titlespacing{\subsubsection}{0em}{0.75em}{0em}
 
-% Pythontex
-\usepackage[autoprint=false, gobble=auto, pyfuture=all]{pythontex} %create figures on-line directly from python!
-\usepackage{pgf} %we need this backend
 
-\input{pythontex/functions.py}
-\begin{pythontexcustomcode}[begin]{py}
-DOC_STYLE = 'article/main.conf'
-pytex.add_dependencies(DOC_STYLE,
-	'data/functional_t.csv',
-	'data/groups.csv',
-	'lib/utils.py',
-	'lib/categorical.py',
-	'lib/boilerplate.py',
-	)
-\end{pythontexcustomcode}
-
-% Grey definitiosn.
+% Grey definitions.
 \definecolor{dg}{gray}{0.25}
 \definecolor{mg}{gray}{0.55}
 \definecolor{lg}{gray}{0.73}
@@ -131,6 +128,5 @@ pytex.add_dependencies(DOC_STYLE,
 \newcommand{\niceus}{\texttt{\_}}
 
 %BIBLIOGRAPHY
-\usepackage[numbers]{natbib}
 %\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex}
 %\addbibresource{bib.bib}
