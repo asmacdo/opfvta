@@ -6,7 +6,7 @@ from labbookdb.report.selection import animal_id, parameterized
 from datetime import datetime
 
 db_path = '~/syncdata/meta.db'
-data_dir = '~/ni_data/ofM.vta/'
+data_dir = '/usr/share/opfvta_brudata'
 scratch_dir = os.path.expanduser('~/.scratch')
 base_dir = '{}/opfvta'.format(scratch_dir)
 bru2bids(data_dir,
