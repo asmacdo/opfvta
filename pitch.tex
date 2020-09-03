@@ -1,4 +1,4 @@
-\input{slides/header.tex}
+\input{pitch/header.tex}
 
 \title[Whole-Brain Map and Assay Parameter Analysisof Mouse VTA Dopaminergic Activation --- ISMRM 2020]{A Whole-Brain Map and Assay Parameter Analysisof Mouse VTA Dopaminergic Activation}
 \subtitle{ISMRM 2020\\\href{https://bitbucket.org/TheChymera/opfvta}{\small\texttt{[ bitbucket.org/TheChymera/opfvta ]}}}
@@ -69,11 +69,11 @@
 			\begin{frame}{}
 				\sessionpy{pytex_subfigs(
 					[
-						{'script':'scripts/taskgroup.py', 'conf':'slides/2x1.conf', 'options_pre':'{.48\\textwidth}',
+						{'script':'scripts/taskgroup.py', 'conf':'pitch/2x1.conf', 'options_pre':'{.48\\textwidth}',
 							'options_pre_caption':'\\vspace{-2.1em}',
 							'caption':'Task group comparison for animals targeted at all explored combinations of implant coordinates.',
 							},
-						{'script':'scripts/implant_coordinates_block.py', 'conf':'slides/2x1_coordinates.conf', 'options_pre':'{.48\\textwidth}',
+						{'script':'scripts/implant_coordinates_block.py', 'conf':'pitch/2x1_coordinates.conf', 'options_pre':'{.48\\textwidth}',
 							'options_pre_caption':'\\vspace{-1.1em}',
 							'caption':'Block stimulation trial coordinates (inner dots indicate best category group).',
 							},
@@ -85,11 +85,11 @@
 				\vspace{-.3em}
 				\sessionpy{pytex_subfigs(
 					[
-						{'script':'scripts//map_block_filtered_controlled.py', 'conf':'slides/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+						{'script':'scripts//map_block_filtered_controlled.py', 'conf':'pitch/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
 							'options_pre_caption':'\\vspace{-2.5em}',
 							'caption':'Centered on VTA.',
 							},
-						{'script':'scripts/map_block_filtered_controlled_auto.py', 'conf':'slides/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+						{'script':'scripts/map_block_filtered_controlled_auto.py', 'conf':'pitch/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
 							'options_pre_caption':'\\vspace{-2.5em}',
 							'caption':'Centered on largest cluster.',
 							},
@@ -101,11 +101,11 @@
 				\vspace{-.6em}
 				\sessionpy{pytex_subfigs(
 					[
-						{'script':'scripts//map_block_filtered_seed.py', 'conf':'slides/2asymmetric_map.conf', 'options_pre':'{.4\\textwidth}',
+						{'script':'scripts//map_block_filtered_seed.py', 'conf':'pitch/2asymmetric_map.conf', 'options_pre':'{.4\\textwidth}',
 							'options_pre_caption':'\\vspace{-1.3em}',
 							'caption':'Centered on VTA, seed region in green.',
 							},
-						{'script':'scripts/distributions_block_filtered_seed.py', 'conf':'slides/2asymmetric_distributions.conf', 'options_pre':'{.59\\textwidth}',
+						{'script':'scripts/distributions_block_filtered_seed.py', 'conf':'pitch/2asymmetric_distributions.conf', 'options_pre':'{.59\\textwidth}',
 							'options_pre_caption':'\\vspace{-2.5em}',
 							'caption':'Centered on largest cluster.',
 							},
@@ -117,7 +117,7 @@
 				\vspace{-.45em}
 				\sessionpy{pytex_fig(
 					'scripts/features_filtered_coronal.py',
-					conf='slides/coronal.conf',
+					conf='pitch/coronal.conf',
 					options_pre_caption='\\vspace{-1.3em}',
 					caption='
 						\\scriptsize
@@ -144,19 +144,19 @@
 %	\section{Features}
 %		\subsection{Create All Graphic Elements Directly from Source.}
 %			\begin{frame}{}
-%				\py{pytex_fig('scripts/3dplot.py', conf='slides/3dplot.conf', label='3dplot', caption='A 3D plot.')}
+%				\py{pytex_fig('scripts/3dplot.py', conf='pitch/3dplot.conf', label='3dplot', caption='A 3D plot.')}
 %			\end{frame}
 %			\begin{frame}{}
 %				\vspace{-.3em}
 %				\setlength\abovecaptionskip{-5pt}
-%				\py{pytex_fig('scripts/bsc_percentage.py', conf='slides/tall.conf', label='bsc_percentage', caption='Percentage of Bachelor’s degrees conferred to women in the U.S.A. by major (1970-2011).')}
+%				\py{pytex_fig('scripts/bsc_percentage.py', conf='pitch/tall.conf', label='bsc_percentage', caption='Percentage of Bachelor’s degrees conferred to women in the U.S.A. by major (1970-2011).')}
 %			\end{frame}
 %			\begin{frame}{And So Much More}
 %				\py{pytex_subfigs(
 %					[
-%						{'script':'scripts/vc_violin.py', 'label':'vcv', 'conf':'slides/1col.conf', 'options_pre':'{.48\\textwidth}',
+%						{'script':'scripts/vc_violin.py', 'label':'vcv', 'conf':'pitch/1col.conf', 'options_pre':'{.48\\textwidth}',
 %						},
-%						{'script':'scripts/vcc_violin.py', 'label':'vccv','conf':'slides/1col.conf', 'options_pre':'{.48\\textwidth}',
+%						{'script':'scripts/vcc_violin.py', 'label':'vccv','conf':'pitch/1col.conf', 'options_pre':'{.48\\textwidth}',
 %						},
 %						],
 %					environment='figure',
@@ -164,7 +164,7 @@
 %					)}
 %			\end{frame}
 	%\section{References}
-		% We use biblatex here, see `slides/header.tex`
+		% We use biblatex here, see `pitch/header.tex`
 		%\bibliographystyle{unsrt}
 		%\bibliography{./bib}
 		\tiny
