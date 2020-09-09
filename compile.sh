@@ -11,10 +11,6 @@ WHITELIST="
 declare -A BIBER_LIST;
 BIBER_LIST["pitch"]=1;
 BIBER_LIST["slides"]=1;
-#if (('list[$myvar]')); then echo "$myvar is in the list"; fi
-
-echo ${BIBER_LIST[@]}
-echo ${BIBER_LIST["$TARGET"]}
 
 if [[ "$TARGET" = "all" ]] || [[ "$TARGET" = "" ]]; then
 	for ITER_TARGET in *.tex; do
