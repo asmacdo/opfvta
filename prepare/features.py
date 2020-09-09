@@ -12,7 +12,7 @@ invert_lr_experiments = df.loc[df['laterality']=='left', 'identifier'].tolist()
 invert_lr_experiments = [str(i) for i in invert_lr_experiments]
 
 # Create normalized features
-target_path_template = '~/.scratch/opfvta/features_normalized/sub-{experiment}/ses-1/anat/sub-{experiment}_ses-1_cope.nii.gz'
+target_path_template = '~/.scratch/opfvta/features_normalized/sub-{experiment}/ses-1/anat/sub-{experiment}_ses-1_desc-cope.nii.gz'
 
 ## ABI connectivity
 target_path_template = os.path.abspath(os.path.expanduser(target_path_template))
@@ -34,13 +34,13 @@ abi_connectivity_map('ventral_tegmental_area',
 ## Functional data
 df = bids_autofind_df('{}/l1/'.format(scratch_dir),
 	path_template='sub-{{subject}}/ses-{{session}}/'\
-		'sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_{{modality}}_betas.nii.gz',
+		'sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_desc-betas_{{modality}}.nii.gz',
 	match_regex='.+sub-(?P<sub>.+)/ses-(?P<ses>.+)/'\
-		'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_(?P<modality>cbv|bold)_betas\.nii\.gz',
+		'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_desc-betas_(?P<modality>cbv|bold)\.nii\.gz',
 	)
 for ix, row in df.iterrows():
 	beta_path = row['path']
-	feature_path = beta_path.replace('_betas.','_cope.')
+	feature_path = beta_path.replace('desc-betas','desc-cope')
 	feature_path = feature_path.replace('/l1/','/features_normalized/')
 	prepare_feature_map(beta_path,
 		scaling='normalize',
