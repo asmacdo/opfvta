@@ -18,9 +18,10 @@ bru2bids(data_dir,
 		'acquisition':['TurboRARE'],
 		},
 	out_base=base_dir,
-	dataset_name='OPFVTA',
-	dataset_license='CC-BY',
 	dataset_authors=['Horea Ioan-Ioanas', 'Bechara John Saab', 'Markus Rudin'],
+	dataset_funding=['Swiss National Science Foundation Grant 10030-179257'],
+	dataset_license='CC-BY',
+	dataset_name='OPFVTA',
 	)
 
 # Add irregularity metadata
