@@ -52,7 +52,7 @@ for sub_dir in os.listdir(bids_dir):
 			first_session_date = datetime.strptime(first_session_date,'%Y-%m-%dT%H:%M:%S')
 			age = first_session_date - subjects_info.loc[subjects_info['subject']==sub_dir[4:],'birth_date']
 			age = age/np.timedelta64(1, 'D')
-			age = np.round(age)
+			age = int(np.round(age))
 			subjects_info.loc[subjects_info['subject']==sub_dir[4:],'age [d]'] = age
 			for mydate in sessions['acq_time'].unique():
 				mydate_date = datetime.strptime(mydate,'%Y-%m-%dT%H:%M:%S')
