@@ -6,7 +6,7 @@ from labbookdb.report.selection import animal_id, parameterized
 from datetime import datetime
 
 db_path = '~/syncdata/meta.db'
-data_dir = '~/ni_data/ofM.vta/'
+data_dir = '/usr/share/opfvta_brudata'
 scratch_dir = os.path.expanduser('~/.scratch')
 base_dir = '{}/opfvta'.format(scratch_dir)
 bru2bids(data_dir,
@@ -18,9 +18,10 @@ bru2bids(data_dir,
 		'acquisition':['TurboRARE'],
 		},
 	out_base=base_dir,
-	dataset_name='OPFVTA',
-	dataset_license='CC-BY',
 	dataset_authors=['Horea Ioan-Ioanas', 'Bechara John Saab', 'Markus Rudin'],
+	dataset_funding=['Swiss National Science Foundation Grant 10030-179257'],
+	dataset_license='CC-BY',
+	dataset_name='OPFVTA',
 	)
 
 # Add irregularity metadata
@@ -51,7 +52,8 @@ for sub_dir in os.listdir(bids_dir):
 			first_session_date = datetime.strptime(first_session_date,'%Y-%m-%dT%H:%M:%S')
 			age = first_session_date - subjects_info.loc[subjects_info['subject']==sub_dir[4:],'birth_date']
 			age = age/np.timedelta64(1, 'D')
-			age = np.round(age)
+			age = age.values[0]
+			age = int(np.round(age))
 			subjects_info.loc[subjects_info['subject']==sub_dir[4:],'age [d]'] = age
 			for mydate in sessions['acq_time'].unique():
 				mydate_date = datetime.strptime(mydate,'%Y-%m-%dT%H:%M:%S')

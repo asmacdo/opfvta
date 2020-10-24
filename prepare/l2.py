@@ -126,7 +126,7 @@ glm.l2_controlled_effect(seed_base,
 	control_match={'subject':control_animals},
 	run_mode='fe',
 	)
-### Feature comparison
+## Feature comparison
 glm.l2_controlled_effect('~/.scratch/opfvta/features_normalized',
 	workflow_name='features_l2',
 	out_dir='{}/features_l2'.format(scratch_dir),
@@ -137,12 +137,12 @@ glm.l2_controlled_effect('~/.scratch/opfvta/features_normalized',
 		'CogP',
 		],},
 	out_base=scratch_dir,
-	match={'subject':filtered_animals,'type':[np.nan]},
-	control_match={'type':['anat']},
+	match={'subject':filtered_animals,'datatype':[np.nan]},
+	control_match={'datatype':['anat']},
 	run_mode='fe',
 	)
 
-## Phasic
+### Phasic
 coordinates_path = path.abspath('../data/implant_coordinates_phasic.csv')
 coordinates = pd.read_csv(coordinates_path)
 best_coordinates = coordinates.loc[coordinates['Best Cluster']==True]

@@ -23,9 +23,9 @@ task_categories = {
 # VTA Significance
 in_df = bids_autofind_df('{}/l1/'.format(scratch_dir),
 	path_template='sub-{{subject}}/ses-{{session}}/'\
-		'sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_{{modality}}_pfstat.nii.gz',
+		'sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_desc-pfstat_{{modality}}.nii.gz',
 	match_regex='.+sub-(?P<sub>.+)/ses-(?P<ses>.+)/'\
-		'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_(?P<modality>cbv|bold)_pfstat\.nii\.gz',
+		'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_desc-pfstat_(?P<modality>cbv|bold)\.nii\.gz',
 	)
 df_ = df_significant_signal(in_df,
 	mask_path='{}/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
@@ -55,9 +55,9 @@ df.to_csv('../data/functional_significance.csv')
 # VTA t
 in_df = bids_autofind_df('{}/l1/'.format(scratch_dir),
 	path_template='sub-{{subject}}/ses-{{session}}/'\
-		'sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_{{modality}}_tstat.nii.gz',
+		'sub-{{subject}}_ses-{{session}}_task-{{task}}_acq-{{acquisition}}_run-{{run}}_desc-tstat_{{modality}}.nii.gz',
 	match_regex='.+sub-(?P<sub>.+)/ses-(?P<ses>.+)/'\
-		'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_(?P<modality>cbv|bold)_tstat\.nii.gz',
+		'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_desc-tstat_(?P<modality>cbv|bold)\.nii.gz',
 	)
 df = df_roi_data(in_df,
 	mask_path='../data/vta_right.nii.gz',
