@@ -6,10 +6,18 @@ import numpy as np
 
 db_path='~/syncdata/meta.db'
 
+participants_path = path.abspath(path.expanduser('~/.scratch/opfvta/bids/participants.tsv'))
+try:
+        participants_df = pd.read_csv(participants_path, sep='\t')
+except FileNotFoundError:
+        participants_path = '/usr/share/opfvta_bidsdata/participants.tsv'
+        participants_df = pd.read_csv(participants_path, sep='\t')
+ids = [str(i) for i in participants_df['subject'].unique()]
+ids = [animal_id(db_path, 'ETH/AIC',i) for i in ids]
+
 df = animals_by_genotype(db_path, ['datg','dawt'])
-ids = [str(i) for i in df['Animal_id'].unique()]
 df = df.rename(columns={'Animal_id':'Subject'})
-df['Subject'] = df['Subject'].apply(lambda x: animal_id('~/syncdata/meta.db','ETH/AIC',str(x),reverse=True))
+df['Subject'] = df['Subject'].apply(lambda x: animal_id(db_path,'ETH/AIC',str(x),reverse=True))
 df = df.drop(['Genotype_id'], axis=1)
 
 _operations = animal_operations(db_path, animal_ids=ids)
@@ -51,7 +59,4 @@ operations = operations.rename(columns={'Animal_id':'Subject'})
 operations['Subject'] = operations['Subject'].apply(lambda x: animal_id(db_path, 'ETH/AIC', x, reverse=True))
 df = pd.merge(df, operations, on='Subject', how='inner')
 df = df.loc[df['Subject']!='FailedIDQuery']
-# Remove DR implanted animals
-df = df.loc[df['OrthogonalStereotacticTarget_reference']!='lambda']
-df = df.loc[df['OrthogonalStereotacticTarget_depth'].notnull()]
 df.to_csv('../data/groups.csv')
