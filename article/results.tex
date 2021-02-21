@@ -15,6 +15,9 @@
         caption='
                 \\textbf{VTA activation is sensitive to the stimulation protocol category and the implant coordinates, with different trends in block and phasic stimulation trials.}
                 Depicted are multifactorial (protocol and implant coordinates) comparisons of signal intensity in the VTA region of interest.
+                Abbreviations:
+                PA (posteroanterior)
+                rel. (relative to)
                 ',
         label='fig:mv',
         )}
@@ -176,7 +179,7 @@ the stimulation target depth (\sessionpy{boilerplate.anova(factor='C(Q("Depth re
 the stimulation target PA coordinates (\sessionpy{boilerplate.anova(factor='C(Q("PA rel. Bregma [mm]"))')}),
 but not the interaction of the depth and PA target coordinates (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]")):C(Q("PA rel. Bregma [mm]"))')}).
 
-The break-up by phasic and block stimulation is shown in \cref{fig:mv} and the significance evaluated accounting for the entire model, including target coordinates.
+The break-up by phasic and block stimulation is shown in \cref{fig:mv} and significance is evaluated accounting for the entire statistical model, consisting of categorical terms for both the stimulus category and the coordinates.
 The phasic and block levels of the stimulation variable yield p-values of
 $\sessionpy{boilerplate.posthoc_t('Q("Task Category")[Phasic]')}$
 and
@@ -193,8 +196,8 @@ For block stimulation, the best implant category group (\cref{fig:mbfc}) and the
 This distinction specifically arises for implant categorization based on block scan VTA t-statistic means, and is not as salient if implants are categorized based on a posteroanterior implant coordinate delimiter (\cref{fig:oc}).
 
 The activation pattern elicited by block stimulation in the best implant category group shows strong coherent clusters of activation.
-The top activation areas are predominantly located in the right hemisphere, with the whole brain parcellation-resolved response showing
-highly significant laterality ($p = \sessionpy{boilerplate.lateral('data/l2/alias-block_filtered_controlled/acq-EPI_tstat.nii.gz')}$).
+The top activation areas are predominantly located in the right hemisphere, with
+highly significant laterality ($p = \sessionpy{boilerplate.lateral('data/l2/alias-block_filtered_controlled/acq-EPI_tstat.nii.gz')}$) seen in the comparison of left and right hemisphere atlas parcellation region averages.
 Activation is seen in regions surrounding the stimulation site, such as the ventral tegmental decussation and the interpeduncular nucleus.
 The largest activation cluster encompasses well-known dopaminergic VTA projection areas in the subcortical rostroventral regions of the brain (nucleus accumbens, striatum, and the basal forebrain), with weaker activation observed in smaller structures in the vicinity of these regions, such as the fasciculus retroflexus, anterior commissure and the claustrum.
 

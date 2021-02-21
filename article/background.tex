@@ -88,7 +88,7 @@ Lastly, due to high evolutionary conservation \cite{Yamamoto2011}, the dopaminer
 
 Imaging a neurotransmitter system comprised of a small number of cells based only on spontaneous activity is highly unreliable due to an intrinsically low signal to noise ratio (SNR).
 This limitation can, however, be overcome by introducing exogenous stimulation.
-While the colocalization of widely projecting dopaminergic cell bodies into nuclei renders large-scale targeting feasible, dopaminergic nuclei also contain notable populations of non-dopaminergic cells, which may confound an intended dopaminergic read-out \cite{Taylor2014}.
+While the colocalization of widely projecting dopaminergic cell bodies into nuclei renders temporally precise and population-wide targeting feasible, dopaminergic nuclei also contain notable sub-populations of non-dopaminergic cells, which may confound an intended dopaminergic read-out \cite{Taylor2014}.
 In order to specifically target dopaminergic cells, they need to be sensitized to an otherwise inert stimulus in a transcription-dependent manner.
 This can be achieved via optogenetics, which is based on light-stimulation of cells expressing light-sensitive proteins such as channelrhodopsin \cite{Boyden2005}.
 Cell-type selectivity can be achieved by Cre-conditional channelrhodopsin vector delivery \cite{Orban1992} to transgenic animals expressing Cre-recombinase under a dopaminergic promoter.
@@ -105,9 +105,13 @@ The combination of this stimulation method with fMRI is commonly referred to as 
 %Particularly in cases where stimulation is introduced via well-known pathways, a simple network model for signal transmission could be explored via seed-based functional connectivity (\cref{fig:nm}).
 %Moreover, for neurotransmitter systems with colocalized cell bodies and long efferent projections, the macroscopic resolution of fMRI allows mapping somatodendritic processes (e.g. excitability upon depolarization at the soma) to “cell-body“ voxels, and signal transmission at the synapse to “projection“ voxels (\cref{fig:cm}).
 
-The current study on whole-brain modelling of VTA dopaminergic function in mice aims to produce three novel research outputs.
-Firstly, a proof-of-principle documenting the feasibility of midbrain dopaminergic opto-fMRI in the mouse should be demonstrated, and results should be benchmarked with present knowledge regarding structural projections.
-Secondly, the procedure needs to be optimized by systematic variation of experimental parameters in order to ascertain reliability and reproducibility, as is required for a general-purpose dopaminergic system assay.
+Key questions surrounding VTA function in preclinical models are, firstly, method feasibility in animal models more accessible to transgenic techniques, such as the mouse; and secondly, a mapping of the efferent spectrum for dopaminergic VTA output.
+In particular, in the study of the Rat VTA, it has both been suggested that the efferent dopaminergic spectrum encompasses but extends beyond well-documented structural projections \cite{Lohani2016} --- or alternatively, that VTA dopaminergic efferences are comparatively sparse and that based on translational insight the dopaminergic paradigm of motivation-related VTA function could be questioned \cite{Brocka2018}.
+
+The current study of whole-brain VTA dopaminergic function in mice aims to produce three novel research outputs.
+Firstly, a proof-of-principle documenting the feasibility of midbrain dopaminergic opto-fMRI in the mouse should be demonstrated, using a protocol which affords qualitative comparability with extant rat data, such as block stimulation and right VTA targeting.
+Pursuing open questions in the field, results should be quantitatively benchmarked with respect to histologically documented structural projections in the mouse.
+Secondly, the procedure needs to be optimized by systematic variation of experimental parameters (such as targeting and stimulation protocol variations) in order to ascertain reliability and reproducibility, as is required for a general-purpose dopaminergic system assay.
 Lastly, a reference neurophenotype of stimulus-evoked dopaminergic function (represented as a brain-wide voxelwise map) should be published in standard space to facilitate co-registered data integration, operative targeting, and comparative evaluation of pathology or treatment induced effects.
 
 These goals presuppose not only the production of experimental data, but also the development of a transparent, reliable, and publicly accessible analysis workflow, which leverages pre-existing standards for mouse brain data processing \cite{irsabi} and extends them to the statistical analysis.
