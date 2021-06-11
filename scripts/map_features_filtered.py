@@ -11,7 +11,7 @@ MYMAP = mcolors.LinearSegmentedColormap.from_list('my_colormap', COLORS)
 scratch_dir = '~/.scratch/opfvta/'
 
 stat_map = "data/features_l2/_tstat.nii.gz"
-template = "/usr/share/mouse-brain-atlases/dsurqec_40micron_masked.nii"
+template = "/usr/share/mouse-brain-templates/dsurqec_40micron_masked.nii"
 
 maps.stat3D(stat_map,
 	scale=0.3,

@@ -11,7 +11,7 @@ seed_base = '{}/seed_l1/'.format(scratch_dir)
 
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='task',
 	n_jobs_percentage=.33,
 	out_base=scratch_dir,
@@ -52,7 +52,7 @@ control_animals = [str(i) for i in control_group['Subject'].tolist()]
 
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
 	exclude={'task':[
@@ -70,7 +70,7 @@ glm.l2_common_effect(l1_base,
 glm.l2_controlled_effect(l1_base,
 	workflow_name='alias-block_filtered_controlled',
 	out_dir='{}/l2/alias-block_filtered_controlled'.format(scratch_dir),
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	n_jobs_percentage=.33,
 	exclude={'task':[
 		'JPogP',
@@ -84,7 +84,7 @@ glm.l2_controlled_effect(l1_base,
 glm.l2_controlled_effect(l1_base,
 	workflow_name='alias-block_other_controlled',
 	out_dir='{}/l2/alias-block_other_controlled'.format(scratch_dir),
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	n_jobs_percentage=.33,
 	exclude={'task':[
 		'JPogP',
@@ -97,7 +97,7 @@ glm.l2_controlled_effect(l1_base,
 	)
 glm.l2_common_effect(seed_base,
 	workflow_name='seed_l2',
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
 	exclude={'task':[
@@ -115,7 +115,7 @@ glm.l2_common_effect(seed_base,
 glm.l2_controlled_effect(seed_base,
 	workflow_name='alias-block_filtered_controlled',
 	out_dir='{}/seed_l2/alias-block_filtered_controlled'.format(scratch_dir),
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	n_jobs_percentage=.33,
 	exclude={'task':[
 		'JPogP',
@@ -130,7 +130,7 @@ glm.l2_controlled_effect(seed_base,
 glm.l2_controlled_effect('~/.scratch/opfvta/features_normalized',
 	workflow_name='features_l2',
 	out_dir='{}/features_l2'.format(scratch_dir),
-	mask='/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii',
+	mask='/usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii',
 	n_jobs_percentage=.33,
 	exclude={'task':[
 		'JPogP',
@@ -169,7 +169,7 @@ control_animals = [str(i) for i in control_group['Subject'].tolist()]
 
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
 	exclude={'task':[
@@ -187,7 +187,7 @@ glm.l2_common_effect(l1_base,
 	)
 glm.l2_common_effect(seed_base,
 	workflow_name='seed_l2',
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
 	exclude={'task':[
@@ -230,7 +230,7 @@ other_animals = [str(i) for i in other_group['Subject'].tolist()]
 
 glm.l2_common_effect(l1_base,
 	workflow_name='l2Omnibus',
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
 	exclude={'task':[
@@ -247,7 +247,7 @@ glm.l2_common_effect(l1_base,
 glm.l2_controlled_effect(l1_base,
 	workflow_name='alias-block_filtered_controlled',
 	out_dir='{}/l2Omnibus/alias-block_filtered_controlled'.format(scratch_dir),
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	n_jobs_percentage=.33,
 	exclude={'task':[
 		'JPogP',
@@ -261,7 +261,7 @@ glm.l2_controlled_effect(l1_base,
 glm.l2_controlled_effect(l1_base,
 	workflow_name='alias-block_other_controlled',
 	out_dir='{}/l2Omnibus/alias-block_other_controlled'.format(scratch_dir),
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	n_jobs_percentage=.33,
 	exclude={'task':[
 		'JPogP',
@@ -286,7 +286,7 @@ other_animals = [str(i) for i in other_group['Subject'].tolist()]
 glm.l2_controlled_effect(l1_base,
 	workflow_name='alias-block_filtered_controlled',
 	out_dir='{}/l2Manual/alias-block_filtered_controlled'.format(scratch_dir),
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	n_jobs_percentage=.33,
 	exclude={'task':[
 		'JPogP',
@@ -300,7 +300,7 @@ glm.l2_controlled_effect(l1_base,
 glm.l2_controlled_effect(l1_base,
 	workflow_name='alias-block_other_controlled',
 	out_dir='{}/l2Manual/alias-block_other_controlled'.format(scratch_dir),
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	n_jobs_percentage=.33,
 	exclude={'task':[
 		'JPogP',
@@ -316,7 +316,7 @@ glm.l2_controlled_effect(l1_base,
 animals = [str(i) for i in groups['Subject'].tolist()]
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
 	exclude={'task':[
@@ -332,7 +332,7 @@ glm.l2_common_effect(l1_base,
 
 glm.l2_common_effect(l1_base,
 	workflow_name='l2',
-	mask='{}usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask='{}usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	groupby='subject_set',
 	n_jobs_percentage=.33,
 	exclude={'task':[

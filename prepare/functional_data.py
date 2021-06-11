@@ -28,7 +28,7 @@ in_df = bids_autofind_df('{}/l1/'.format(scratch_dir),
 		'.*?_task-(?P<task>.+)_acq-(?P<acquisition>.+)_run-(?P<run>.+)_desc-pfstat_(?P<modality>cbv|bold)\.nii\.gz',
 	)
 df_ = df_significant_signal(in_df,
-	mask_path='{}/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii'.format(prefix),
+	mask_path='{}/usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii'.format(prefix),
 	exclude_ones=True,
 	)
 df = df_significant_signal(df_,

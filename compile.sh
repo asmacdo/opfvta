@@ -21,6 +21,7 @@ if [[ "$TARGET" = "all" ]] || [[ "$TARGET" = "" ]]; then
 	done
 else
 	pdflatex -shell-escape "${TARGET}.tex" || { echo "Initial pdflatex failed"; exit $ERRCODE; }
+	pdflatex -shell-escape "${TARGET}.tex" || { echo "Initial pdflatex failed"; exit $ERRCODE; }
 	pythontex.py ${TARGET}.tex || exit 1
 	pdflatex -shell-escape "${TARGET}.tex" || { echo "Post-PythonTeX pdflatex failed"; exit $ERRCODE; }
 	if ((${BIBER_LIST["$TARGET"]})); then

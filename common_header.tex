@@ -16,6 +16,8 @@
 % Needs to be loaded after hyperref
 \usepackage{cleveref}
 
+\DeclareUnicodeCharacter{2212}{\textendash}
+
 % PythonTeX
 \usepackage[autoprint=false, gobble=auto, keeptemps=all, pyfuture=all]{pythontex} % create figures on-line directly from python!
 \usepackage{pgf}
@@ -39,5 +41,3 @@ pytex.add_dependencies(
 \DeclareSIUnit\BW{BW}
 \DeclareSIUnit[number-unit-product = {}]
 	\vg{vg}
-
-\DeclareUnicodeCharacter{2212}{-}

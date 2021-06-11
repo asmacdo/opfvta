@@ -9,7 +9,7 @@ img2 = '../data/vta_projection_tstat.nii.gz'
 correlation_data = {}
 
 img1_voxels, img2_voxels = voxels_for_comparison(img1, img2,
-	mask_path='/usr/share/mouse-brain-atlases/dsurqec_200micron_mask.nii',
+	mask_path='/usr/share/mouse-brain-templates/dsurqec_200micron_mask.nii',
 	resample_voxel_size=[0.225,0.45,0.225],
 	)
 correlation_data['voxelwise'] = {}

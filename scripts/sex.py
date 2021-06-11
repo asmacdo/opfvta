@@ -1,7 +1,7 @@
 import pandas as pd
 from os import path
 
-data_path = path.abspath(path.expanduser('~/.scratch/opfvta/bids/participants.tsv'))
+data_path = path.abspath(path.expanduser('data/participants.tsv'))
 try:
 	df = pd.read_csv(data_path, sep='\t')
 except FileNotFoundError:
