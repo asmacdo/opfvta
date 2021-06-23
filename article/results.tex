@@ -16,8 +16,9 @@
                 \\textbf{VTA activation is sensitive to the stimulation protocol category and the implant coordinates, with different trends in block and phasic stimulation trials.}
                 Depicted are multifactorial (protocol and implant coordinates) comparisons of signal intensity in the VTA region of interest.
                 Abbreviations:
-                PA (posteroanterior)
-                rel. (relative to)
+                n (sample size),
+                PA (posteroanterior),
+                rel. (relative to).
                 ',
         label='fig:mv',
         )}
@@ -170,8 +171,9 @@ Different stimulation protocols were applied to the animals, consisting of varia
 block stimulation (with light stimuli delivered in continuous blocks of at least \SI{8}{\second} --- \cref{tab:CogB,tab:CogBr,tab:CogBl,tab:CogBm,tab:CogMwf})
 and
 phasic stimulation (with light stimuli delivered in short bursts of up to \SI{1}{\second} in lenght --- \cref{tab:CogP,tab:JPogP}).
+Additionally, the dataset details the effects of variation in the posteroainerior (PA) coordinates and the implant depth (equivalent to the dorsoventral coordinate of the fiber endpoint), specified relative to bregma and the skull surface, respectively.
 
-In the analysis of the resulting data, the VTA mean t statistic is found sensitive to
+In the analysis of the resulting data, the mean t-statistic for the stimulation regressor fit across the VTA region of interest is found sensitive to
 the stimulation protocol category (\sessionpy{boilerplate.anova(factor='Q("Task Category")')}),
 the stimulation target depth (\sessionpy{boilerplate.anova(factor='C(Q("Depth rel. skull [mm]"))')}),
 % Results before methods:
@@ -189,8 +191,7 @@ Upon investigation of the t-statistic map, phasic stimulation further reveals no
 
 The main and interaction effects of the implant coordinate variables are better described categorically than linearly (\cref{fig:mvs,fig:mvib}).
 Consequently, the most suitable implant coordinate group for the assay can best be determined on the basis of categorical classification of implant coordinates.
-We classify the implant coordinates into a “best” and a “rejected” group by k-means clustering the aggregate VTA t-statistic scores into two clusters.
-This categorization is highlighted in \cref{fig:mvib}.
+We classify the implant coordinates into a “best” and a “rejected” group by k-means clustering the aggregate VTA t-statistic scores into two clusters, and find spatial coherence for the “best” coordinate group (categorization highlighted in \cref{fig:mvib}).
 
 For block stimulation, the best implant category group (\cref{fig:mbfc}) and the rejected implant category group (\cref{fig:mboc}) show not only a difference in overall stimulus-evoked signal intensity, but also a difference in efferent distribution, with the rejected implant category efferent spectrum more strongly weighted towards caudal brain areas.
 This distinction specifically arises for implant categorization based on block scan VTA t-statistic means, and is not as salient if implants are categorized based on a posteroanterior implant coordinate delimiter (\cref{fig:oc}).

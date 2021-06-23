@@ -10,6 +10,7 @@ A C57BL/6-based mouse strain was chosen, which expresses Cre recombinase under t
 Transgenic construct presence was assessed via polymerase chain reaction (PCR) for the Cre construct, using the forward primer ACCAGCCAGCTATCAACTCG and the reverse primer TTGCCCCTGTTTCACTATCC.
 A total of \sessionpy{pytex_printonly('scripts/genotypes.py')} are included in the study.
 The animal sample consisted of \py{pytex_printonly('scripts/sex.py')}, with a group average age of \py{pytex_printonly('scripts/age.py')} at the study onset.
+The sample size was determined based on the range found sufficient to uncover opto-fMRI results in the mouse serotonergic system \cite{Grandjean2019}.
 
 The right VTA (\cref{fig:mbfs}, green contour) of the animals was injected with a recombinant Adeno-Associated Virus (rAAV) solution.
 The vector delivered a plasmid containing a floxed channelrhodopsin and YFP construct:
@@ -53,13 +54,19 @@ This anesthetic protocol is closely based on extensive research into animal prep
 All data were acquired with a Bruker Biospec system (\SI{7}{\tesla}, \SI{16}{\centi\meter} bore), and an in-house built transmit/receive surface coil, engineered to permit optic fiber implant protrusion.
 
 Anatomical scans were acquired via a TurboRARE sequence, with a RARE factor of 8, an echo time (TE) of \SI{30}{\milli\second}, an inter-echo spacing of \SI{10}{\milli\second}, and a repetition time (TR) of \SI{2.95}{\second}.
-Thirty adjacent (no slice gap) coronal slices were recorded with an nominal in-plane resolution of $\mathrm{\Delta x(\nu)=\Delta y(\phi)=\SI{75}{\micro\meter}}$, and a slice thickness of $\mathrm{\Delta z(t)=\SI{450}{\micro\meter}}$.
+Thirty adjacent (no slice gap) coronal slices were recorded with a nominal in-plane resolution of $\mathrm{\Delta x(\nu)=\Delta y(\phi)=\SI{75}{\micro\meter}}$ (sampled as 180 voxels sagittally and 120 voxels horizontally), and a slice thickness of $\mathrm{\Delta z(t)=\SI{450}{\micro\meter}}$.
 
 Functional scans were acquired with a gradient-echo EPI sequence, a flip angle of \SI{60}{\degree}, and $\mathrm{TR/TE = \SI{1000}{\milli\second}/\SI{5.9}{\milli\second}}$.
-Thirty adjacent (no slice gap) coronal slices were recorded with an nominal in-plane resolution of $\mathrm{\Delta x(\nu)=\Delta y(\phi)=\SI{225}{\micro\meter}}$, and a slice thickness of $\mathrm{\Delta z(t)=\SI{450}{\micro\meter}}$.
-Changes in cerebral blood volume (CBV) are measured as a proxy of neuronal activity following the administration of an intravascular iron oxide nanoparticle based contrast agent (Endorem, Laboratoire Guebet SA, France).
+Thirty adjacent (no slice gap) coronal slices were recorded with a nominal in-plane resolution of $\mathrm{\Delta x(\nu)=\Delta y(\phi)=\SI{225}{\micro\meter}}$ (sampled as 60 voxels sagittally and 29 voxels horizontally), and a slice thickness of $\mathrm{\Delta z(t)=\SI{450}{\micro\meter}}$.
+Functional scans were acquired over a period of \SI{25}{\minute}, totalling 1500 repetitions.
+Changes in cerebral blood volume (CBV) are measured as a proxy of neuronal activity following the administration of an intravascular iron oxide nanoparticle based contrast agent (Endorem, Laboratoire Guebet SA, France) \cite{cbv}.
 The contrast agent ($\SI{30.24}{\micro\gram\per\gram\per\BW}$) is delivered as an i.v. bolus \SI{10}{\minute} prior to the fMRI data acquisition, to achieve a pseudo steady-state blood concentration.
 This contrast is chosen to enable short echo-time imaging thereby minimizing artefacts caused by gradients in magnetic susceptibility.
+
+The total duration of the scan session, including induction, preparation, and scanning (including the \SI{10}{\minute} delay after contrast agent administration, taking place between the structural and functional scan) was approximately \SI{80}{\minute}.
+
+MR acquisition was performed blindly with respect to the implant parameter variation, the measurement order was not systematically separated between the conditions.
+All animal experiments and handling were performed in accordance with the relevant requirements of the Cantonal Veterinary Office of Zurich, under licence ZH263/14 and extension ZH128/18.
 
 \subsection{Preprocessing}
 
@@ -86,7 +93,7 @@ Classification of implant coordinates into “best” and “rejected” categor
 Distribution density visualizations were created using the Scott bandwidth density estimator \cite{Scott1979}, as implemented in the seaborn software package (\textcolor{mg}{\texttt{0.9.0}}).
 
 Higher-level statistical modelling was performed with the Statsmodels software package \cite{statsmodels} (version \textcolor{mg}{\texttt{0.9.9}}), and the SciPy software package \cite{scipy} (version \textcolor{mg}{\texttt{1.1.0}}).
-Model parameters were estimated using the ordinary least squares method, and a type 3 analysis of variance (ANOVA) was employed to control estimate variability for unbalanced categories.
+Model parameters were estimated using the ordinary least squares method, and a type 3 analysis of variance (ANOVA) and a heteroscedasticity consistent covariance matrix \cite{long2000} were employed to control estimate variability for unbalanced categories.
 All t-tests producing explicitly noted p-values are two-tailed.
 
 The VTA structural projection data used to compare and contrast the activation maps produced in this study was sourced from the Allen Brain Institute (ABI) mouse brain connectome dataset \cite{abic}.
@@ -96,6 +103,8 @@ The data was converted and registered to the DSURQEC template space by the ABI C
 For the second-level statistical comparison between functional activation and structural projection, individual activation (betas) and projection maps were normalized to a common scale by subtracting the average and dividing by the standard deviation.
 
 Software management relevant for the exact reproduction of the aforementioned environment was performed via neuroscience package install instructions for the Gentoo Linux distribution \cite{ng}.
+
+All data analysis was performed on the entire dataset, without any data being removed, and in the absence of individual category investigation.
 
 \subsection{Reproducibility and Open Data}
 

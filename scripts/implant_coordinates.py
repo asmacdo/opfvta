@@ -10,7 +10,7 @@ lines_markersize = mpl.rcParams['lines.markersize']
 
 df = df.rename(columns={
 	'VTA t': 'VTA t ',
-	'Count': 'Count ',
+	'Count': 'N ',
 	})
 
 cmap = sns.cubehelix_palette(dark=.3, light=.8, as_cmap=True)
@@ -18,7 +18,7 @@ ax = sns.scatterplot(
 	x="PA rel. Bregma [mm]",
 	y="Depth rel. skull [mm]",
 	hue='VTA t ',
-	size='Count ',
+	size='N ',
 	data=df,
 	sizes=(10, 200),
 	palette=cmap,

@@ -12,11 +12,13 @@
 \usepackage[section]{placeins}
 \usepackage{amsmath}
 \usepackage{wasysym} % needed for diameter symbol
+\usepackage[hidelinks]{hyperref}
 
 % Needs to be loaded after hyperref
 \usepackage{cleveref}
 
-\DeclareUnicodeCharacter{2212}{\textendash}
+%\DeclareUnicodeCharacter{2212}{\textendash}
+%\DeclareUnicodeCharacter{2212}{$$-$$}
 
 % PythonTeX
 \usepackage[autoprint=false, gobble=auto, keeptemps=all, pyfuture=all]{pythontex} % create figures on-line directly from python!

@@ -6,6 +6,7 @@ WHITELIST="
 	poster.tex
 	pitch.tex
 	slides.tex
+	review.tex
 	"
 
 declare -A BIBER_LIST;
