@@ -1,0 +1,84 @@
+\reviewersection
+
+\setcounter{point}{-1}
+
+\begin{point}
+	While the feasibility is impressively shown, two aspects limit the aim of this publication as a methodological assay. A similar article from the authors where largely the same techniques are used is accessible in bioRxiv (https://doi.org/10.1101/2020.08.10.243899). Here in addition
+to the assay on controls the authors describe a comparison with drug treated animals. Hence the novelty of the here presented manuscript lies more in the application on dopaminergic VTA projections than in the assay itself. To enhance this focus a comparison of left and right VTA
+activation as well as a comparison with a disease model would be beneficial. The second aspect, though not as fundamental, is that the authors used an iron oxide nanoparticle enhanced CBV based method for fMRI. This surely is an accepted fMRI method. However, most labs use BOLD
+contrast based fMRI, which additionally limits the value as a general methodological work
+\end{point}
+\begin{reply}
+	We thank the reviewer for the interest in our broader work.
+	This article is indeed intended to document the baseline use of the dopaminergic opto-fMRI assay and its coherence with structural projections in as much detail as feasible, in order to inform precisely the studies which the reviewer has also found intuitive.
+	We think that extending the scope, while certainly making the article broader, would detract from the detail presented thus far, which is crucial for reliable implementation and derivation of the method --- by both us and other researchers.
+	Beyond this conceptual rationale, current device maintenance issues at the new institute where the authors have relocated preclude us from producing such complementary data within an appropriate time frame.
+\end{reply}
+
+\begin{point}
+	I admit that the manuscript in its current form is tough to read. As it starts with the results part some of the experimental methods and parameter should be added in short. This way the reader has a basic understanding of the conducted works ground structure helping to grasp the
+results and figures. The impression arises that this was missed due to the methodological relation to the paper mentioned above. I suggest rewriting the results section accordingly.
+\end{point}
+\begin{reply}
+	We agree that the sequence of the presented information matter could be confusing in a way which was not obvious to us while editing.
+	To address this issue we have restructured our manuscript to include the methods section first, and have reiterated the core aspects of data variability --- which we inspect in the results section --- in brief as we introduce the analysis.
+\end{reply}
+
+\begin{point}
+	For the RARE and EPI sequences matrix size, field of view, and total scan time are missing. At least one of these needs mentioning to allow calculation of the others. In addition, for the fMRI EPI sequence the number of repetitions is crucial to know the in this case especially
+relevant scan time.
+\end{point}
+\begin{reply}
+	We thank the reviewer for drawing attention to this incomplete technical information.
+	We have now added the matrix size, the total scan time, and the number of repetitions to the methods section.
+\end{reply}
+
+\begin{point}
+	The dataset used for benchmarking is released for public use, but basic information about the dataset is missing from the methods, e.g., the strain(s?) and suppliers are not given. Moreover, it is implied in the methods that the "animals" are mice, but as the title of the
+paper refers to "small animal imaging", the phrasing is ambiguous. Were the animals anaesthetised for the scanning? If so, how? Were they restrained?
+\end{point}
+\begin{reply}
+	The details inquired for by the reviewer are already present in the methods section, the animals are described in the “Animal Preparation” subsection, and the anesthesia under “MR Acquisition”.
+	To reiterate in brief here, the strain was bread by the facilities of the University of Zurich and consisted of DAT-Cre C57BL/6 mice, the animals were anesthetizes via medatomidine and isoflurane (concentrations and induction/maintenance are described in detail in the methods section), and were restrained with carbon fiber ear bars and a bite hook.
+\end{reply}
+
+\begin{point}
+	Another question that arises is how the time span of 10 minutes prior to the contrast agent injection was achieved? Most likely, the data acquisition was paused after injection. Thus, how long was the total measurement time for the animals?
+\end{point}
+\begin{reply}
+	We thank the reviewer for highlighting this omission, for the 10 minute waiting period there was simply a pause between the end of the structural scan and the beginning of the functional scan.
+	We have now added the total duration of the measurement session in the methods text.
+\end{reply}
+
+\begin{point}
+	For the seed based connectivity analysis, a single voxel was used. A comparison with other voxels and/or the complete atlas or activation based VTA region, as seeds would support the credibility of this approach.
+\end{point}
+\begin{reply}
+	The approach used was to select the voxel most sensitive to optogenetic stimulation within the VTA region of interest for each scan.
+	The respective analysis code can be seen in the current version of our data analysis package, under the following link: \href{https://github.com/IBT-FMI/SAMRI/blob/6e811dd96e1d545e7081dcb2ff2a57485fb7219d/samri/report/roi.py#L79}{\texttt{samri/report/roi.py\#L79}}.
+	This was settled on after repeated testing so as to offer the best signal to noise, and all other approaches provide even lower SNR.
+	As the analysis presented already suffers from low SNR as compared to the stimulus-evoked analysis, presenting alternative approaches would not contribute any information to the evaluation.
+\end{reply}
+
+\begin{point}
+	The sum of transgenic and control animals (31) do not match the sum of male and female animals (33). If mixed genders and the large age differences of the used animals do not have an impact on the consistency of the results this needs to be discussed.
+\end{point}
+\begin{reply}
+	We thank the reviewer for noticing this error, and have now fixed it.
+\end{reply}
+
+\begin{point}
+	A statement on animal handling guidelines followed and the according animal experimental ethics allowance number are missing. In terms of good animal experimental practise, these are mandatory.
+\end{point}
+\begin{reply}
+	We have now added the appropriate information to fulfill this requirement.
+\end{reply}
+
+\begin{point}
+	A reference to contrast enhanced CBV fMRI would be desirable. When referencing own work (Refs: [28, 33, 35, 48, 51, 52]) the authors do not provide enough information to find these. A web address, or in case of abstracts a number would be beneficial.
+\end{point}
+\begin{reply}
+	We thank the reviewer for highlighting this omission.
+	We have now added both a reference for the CBV fMRI methods, as well as DOI identifiers for the indicated references.
+\end{reply}
+
