@@ -20,61 +20,6 @@ Lastly, due to high evolutionary conservation \cite{Yamamoto2011}, the dopaminer
 %Manipulation of the dopaminergic system extends widely beyond the medical field, and includes performance-enhancement \cite{Mehta2000,Turner2003}, as well recreation \cite{DiChiara1988}.
 %As such, better and more predictively powerful models of the dopaminergic system can improve numerous aspects of human activity, in the clinic and beyond.
 
-\begin{sansmath}
-\begin{figure*}[h!]
-	\centering
-	\hspace*{\fill}
-	\begin{subfigure}{.527\textwidth}
-		\centering
-		\vspace{-1em}
-		\includegraphics[width=\textwidth]{img/model_literature}
-		\caption{
-			Schematic map of VTA dopaminergic projections \cite{Aransay2015,Fields2007,Ikemoto2007,Pan2010}.
-			Dotted structures are off-slice, and projection arrows do not reflect actual fiber bundle paths.
-			Abbreviations: Hipp (Hippocampus), DS (Dorsal Striatum), NAcc (Nucleus Accumbens), OT (Olfactory Tuberculum), mPFC (medial Prefrontal Cortex), TT (Tenia Tecta).
-			}
-		\label{fig:ml}
-	\end{subfigure}\hfill
-	\begin{subfigure}{.44\textwidth}
-		\centering
-		\vspace{-2em}
-		\includedot[width=1.1\textwidth]{data/network_model}
-		\vspace{-0.6em}
-		\caption{
-			Simplified network model of 1-step signal relay following optogenetic stimulation of the VTA.
-			The $\mathrm{u_1}$ weighting corresponds to VTA somatic excitability and $\mathrm{u_{2a},u_{2b},u_{2c}}$ and $\mathrm{u_{2d}}$ correspond to transmission at the dopaminergic synapses in the respective projection areas.
-			}
-		\label{fig:nm}
-	\end{subfigure}
-	\hspace*{\fill}
-	\begin{subfigure}{.985\textwidth}
-		\centering
-		\vspace{.5em}
-		\includegraphics[width=\textwidth]{img/da}
-		\caption{
-			Schematic overview of VTA dopaminergic neurons, with the soma located in the VTA and synapses in one or multiple other projection area voxels.
-			Excitability at the soma are contingent on $\mathrm{D_2}$ autoinhibition, while transmission at the synapse is contingent on dopamine metabolism, turnover, and postsynaptic $\mathrm{D_1}$ expression.
-			Abbreviations: AC (adenylyl cyclase), DA (dopamine), DAT (dopamine transporter), MAO (monoamine oxydase), VMAT (vesicular monoamine transporter), Tyr (tyrosine) \cite{Torres2003}.
-			}
-		\label{fig:cm}
-	\end{subfigure}
-	\begin{subfigure}{.985\textwidth}
-		\centering
-		\vspace{.5em}
-		\includegraphics[width=0.95\textwidth]{img/optogenetics}
-		\caption{
-			Schematic of optogenetic cell selection and activation.
-			Orange denotes dopaminergic cells, gray enlarged elements on the cell periphery indicate channelrhodopsin expression, and cyan segments on the cell periphery denote depolarization events.
-			}
-		\label{fig:og}
-	\end{subfigure}
-	\caption{
-		\textbf{The cell biological compartmentalization of dopaminergic neurotransmission (and susceptibility to psychopharmacology) can partly be mapped onto neuroanatomical features by a simple network model, using optogenetics.}
-		Depicted are schematic overviews of the VTA dopaminergic system at various spatial resolutions.
-		}
-	\label{fig:m}
-\end{figure*}
-\end{sansmath}
 
 %Experimentation in human subjects is methodologically constrained, and thus neuroscience relies on other context, such as model animal research, for cell biological insights, which are instrumental to the refinement of interventions.
 %Of the common model animals, the mouse offers significant advantages including short generation spans, broad availability of transgenic lines, highly accessible histology, and the smallest size among mammalian model organisms.
