@@ -114,6 +114,28 @@ and the interaction of the depth and PA target coordinates
 \begin{sansmath}
 \sessionpy{pytex_subfigs(
         [
+                {'script':'scripts/map_block_filtered.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Block stimulation, slices centered on largest cluster. \\vspace{1.2em}',
+                        'label':'blocka',
+                        },
+                {'script':'scripts/map_phasic_filtered_auto.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
+                        'caption':'Phasic stimulation, slices centered on largest cluster.',
+                        'label':'phasica',
+                        },
+                ],
+        caption='
+                \\textbf{No negative activation patterns are salient upon block VTA stimulation, and no coherent activation patterns of any sort after phasic VTA stimulation.}
+                Depicted are t-statistic maps (thresholded at $\mathrm{\\lvert t \\rvert \geq 3}$) of second-level analyses, divided by stimulation category and binning all implant coordinates.
+                Slices are centered on the VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and the largest cluster, respectively.
+                All maps are adjusted for the wild type control stimulation effects.
+                ',
+        label='fig:all',
+        )}
+\end{sansmath}
+
+\begin{sansmath}
+\sessionpy{pytex_subfigs(
+        [
                 {'script':'scripts/map_block_filtered_controlled_auto.py', 'conf':'article/3x1_map.conf', 'options_pre':'{.32\\textwidth}',
                         'options_post':'\\vspace{1em}',
                         'caption':'Block stimulation of best implant category group (according to VTA activation), centered on largest cluster.',
@@ -148,28 +170,6 @@ and the interaction of the depth and PA target coordinates
                 All maps are adjusted for the wild type control stimulation effects.
                 ',
         label='fig:oc',
-        )}
-\end{sansmath}
-
-\begin{sansmath}
-\sessionpy{pytex_subfigs(
-        [
-                {'script':'scripts/map_block_filtered.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Block stimulation, slices centered on largest cluster. \\vspace{1.2em}',
-                        'label':'blocka',
-                        },
-                {'script':'scripts/map_phasic_filtered_auto.py', 'conf':'article/2x1_map.conf', 'options_pre':'{.48\\textwidth}',
-                        'caption':'Phasic stimulation, slices centered on largest cluster.',
-                        'label':'phasica',
-                        },
-                ],
-        caption='
-                \\textbf{No negative activation patterns are salient upon block VTA stimulation, and no coherent activation patterns of any sort after phasic VTA stimulation.}
-                Depicted are t-statistic maps (thresholded at $\mathrm{\\lvert t \\rvert \geq 3}$) of second-level analyses, divided by stimulation category and binning all implant coordinates.
-                Slices are centered on the VTA coordinates ($\mathrm{RAS = 0.5/-3.2/-4.5}$) and the largest cluster, respectively.
-                All maps are adjusted for the wild type control stimulation effects.
-                ',
-        label='fig:all',
         )}
 \end{sansmath}
 
