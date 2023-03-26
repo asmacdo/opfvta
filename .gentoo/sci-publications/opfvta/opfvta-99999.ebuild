@@ -3,14 +3,16 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3{9..11} )
+PYTHON_COMPAT=( python3_{9..11} )
+
+inherit distutils-r1
 
 DESCRIPTION="Whole-Brain Map and Assay Analysis of Mouse VTA Dopaminergic Activation"
 HOMEPAGE="https://bitbucket.org/TheChymera/opfvta"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="-scanner-data"
+IUSE="scanner-data"
 KEYWORDS=""
 
 DEPEND=""
