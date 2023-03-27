@@ -20,7 +20,7 @@ While other dependencies will very likely be available from your distribution's 
 You can manually install it via the following commands:
 
 ```
-wget chymera.eu/distfiles/opfvta_bidsdata-2.0.tar.xz
+wget https://zenodo.org/record/3575149/files/opfvta_bidsdata-2.0.tar.xz
 tar xf opfvta_bidsdata-2.0.tar.xz
 mv opfvta_bidsdata-2.0 /usr/share/opfvta_bidsdata
 ```
