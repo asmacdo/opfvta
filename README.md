@@ -17,10 +17,12 @@ cd .gentoo
 ### Manual Data Download (only if automated Gentoo dependency management is unavailable)
 
 While other dependencies will very likely be available from your distribution's own package manager, the data package of this publication is probably not.
-You can manually install it via the following commands:
+To check you can query your distribution's package manager index for “opfvta” and see if you can spot a bidsdata package.
+On Gentoo you would find `sci-biology/opfvta_bidsdata`, which as mentioned before would be automatically pulled in as a dependency by the package ebuild found under [`.gentoo/sci-biology/opfvta`](.gentoo/sci-publications/opfvta/opfvta-99999.ebuild).
+Alternatively, you can manually install the data package via the following commands:
 
 ```
-wget chymera.eu/distfiles/opfvta_bidsdata-2.0.tar.xz
+wget https://zenodo.org/record/3575149/files/opfvta_bidsdata-2.0.tar.xz
 tar xf opfvta_bidsdata-2.0.tar.xz
 mv opfvta_bidsdata-2.0 /usr/share/opfvta_bidsdata
 ```
