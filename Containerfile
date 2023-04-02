@@ -10,7 +10,7 @@ COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
 
 RUN emerge --noreplace dev-vcs/git
 
-COPY . /opfvta
+COPY .[^opfvta_bids]* /opfvta
 
 RUN rm -f /opfvta/.gentoo/metadata/layout.conf
 RUN rm -f /opfvta/.gentoo/overlays/science
