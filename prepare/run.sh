@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+EXEC_PYTHON="python3"
 
-PREFIX=`python -c "import portage; print(portage.root)"`
+# PREFIX=`$EXEC_PYTHON -c "import portage; print(portage.root)"`
+PREFIX="/"
 
 if [ ! -d ~/.scratch ]; then
 	echo "You seem to be lacking a ~/.scratch/ directory."
@@ -11,25 +13,25 @@ if [ ! -d ~/.scratch ]; then
 fi
 
 if [ ! -d ~/.scratch/opfvta/bids ]; then
-	if [ -d "${PREFIX}usr/share/opfvta_bidsdata" ]; then
+	if [ -d "/usr/share/opfvta_bidsdata" ]; then
 		[ -d ~/.scratch/opfvta ] || mkdir ~/.scratch/opfvta
-		ln -s "${PREFIX}usr/share/opfvta_bidsdata" ~/.scratch/opfvta/bids
+		ln -s "/usr/share/opfvta_bidsdata" ~/.scratch/opfvta/bids
 	else
 		echo "No OPFVTA BIDS data distribution found, processing from scanner OPFVTA data:"
 		[ -d ~/.scratch/opfvta ] || mkdir ~/.scratch/opfvta
-		python make_bids.py || exit 1
-		python groups.py || exit 1
+		$EXEC_PYTHON make_bids.py || exit 1
+		$EXEC_PYTHON groups.py || exit 1
 	fi
 fi
 
 if [ ! -d ~/.scratch/opfvta/preprocess ]; then
-	python preprocess.py || exit 1
+	$EXEC_PYTHON preprocess.py || exit 1
 fi
 
-python l1.py || exit 1
-python features.py || exit 1
-python functional_data.py || exit 1
-python implant_coordinates.py || exit 1
-python l2.py || exit 1
+$EXEC_PYTHON l1.py || exit 1
+$EXEC_PYTHON features.py || exit 1
+$EXEC_PYTHON functional_data.py || exit 1
+$EXEC_PYTHON implant_coordinates.py || exit 1
+$EXEC_PYTHON l2.py || exit 1
 rsync -avP --exclude='*_cope.nii*' --exclude='*_zstat.nii*' ~/.scratch/opfvta/*l2* ../data/ || exit 1
-python correlation_data.py
+$EXEC_PYTHON correlation_data.py

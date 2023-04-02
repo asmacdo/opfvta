@@ -1,0 +1,13 @@
+matplotlib
+# numpy removed float in 1.24
+numpy~=1.22.0
+pandas
+seaborn
+statsmodels
+# pythontex
+# samri @ git+https://github.com/IBT-FMI/SAMRI.git
+pybids<=0.6.5
+
+
+# FOR AUSTIN DONT MERGE
+ipdb  

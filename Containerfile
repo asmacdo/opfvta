@@ -1,36 +1,30 @@
-# name the portage image
-FROM gentoo/portage:latest as portage
+FROM docker.io/library/debian:bullseye
 
-# based on stage3 image
-# FROM gentoo/stage3:amd64-hardened-20200905
-FROM gentoo/stage3:latest
+RUN apt-get update
 
-# copy the entire portage volume in
-COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
+# buster default is python2
+RUN apt-get install -y python3.6
 
-RUN emerge --noreplace dev-vcs/git
+# LaTex
+RUN apt-get install -y \
+      texlive-science \
+      texlive-xetex \
+      texlive-publishers
 
-COPY .[^opfvta_bids]* /opfvta
+RUN apt-get install -y python3-pip
+RUN apt-get install -y git
 
-RUN rm -f /opfvta/.gentoo/metadata/layout.conf
-RUN rm -f /opfvta/.gentoo/overlays/science
-RUN rm -f /etc/portage/repos.conf/science.conf
+COPY requirements.txt /opt/apt/requirements.txt
+WORKDIR /opt/apt
+RUN pip3 install -r requirements.txt
 
-COPY reproduce/science.conf /etc/portage/repos.conf/science.conf
-COPY reproduce/make.conf /etc/make.conf
-COPY .gentoo/package.accept_keywords/gen /etc/portage/package.accept_keywords
+COPY SAMRI/ /opt/apt/SAMRI/
+WORKDIR /opt/apt/SAMRI
+RUN pip3 install .
 
-RUN emerge --sync science
+COPY LabbookDB/ /opt/apt/LabbookDB/
+WORKDIR /opt/apt/LabbookDB/
+RUN pip3 install .
 
-COPY opfvta_bidsdata-2.0/* /usr/share/opfvta_bidsdata/
-
-RUN sed -i -e "s/sci-biology\/ants//g" /var/db/repos/science/profiles/package.mask
-RUN sed -i -e "s/sci-biology\/samri//g" /var/db/repos/science/profiles/package.mask
-RUN echo "sci-biology/opfvta_bidsdata-2.0" > /etc/portage/profile/package.provided
-RUN echo ">=media-libs/harfbuzz-7.1.0 icu" > /etc/portage/package.use
-
-RUN FEATURES="-ipc-sandbox -mount-sandbox -network-sandbox -pid-sandbox" \
-  emerge texlive-latexextra --autounmask-write &&
-  /asmacdo/.gentoo/install.sh
-
-# latex errors, files not found RETURN to proceed
+COPY . /opfvta
+WORKDIR /opfvta
