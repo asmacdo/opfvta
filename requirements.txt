@@ -6,7 +6,7 @@ seaborn
 statsmodels
 # pythontex
 # samri @ git+https://github.com/IBT-FMI/SAMRI.git
-pybids<=0.6.5
+pybids
 
 
 # FOR AUSTIN DONT MERGE
