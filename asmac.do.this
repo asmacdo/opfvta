@@ -1,0 +1,23 @@
+Good repo
+  rm this repo and clone fresh
+  `git submodule update --init --recursive`
+  # We need 0.4.2 because 0.5 requires python 3.8.
+  # I rolled back to 3.7 since I think you used 3.6, but we might try 3.8 if we keep hitting troubles.
+  manually ensure that SAMRI is on 0.4.2-fixups
+  manually ensure that LabbookDB is on 0.4.2-fixups
+
+Get data
+  put the opfvta data in scratch/opfvta/bids
+  download and extract mousebrain atlas mouse-brain-templates-0.5.3
+  `wget http://resources.chymera.eu/distfiles/mouse-brain-templates-0.5.3.tar.xz`
+
+
+Mount templates(aka atlas) and bids data
+
+`podman build . -f Containerfile -t base && podman run -it -v ../scratch:/root/.scratch:Z -v ../mouse-brain-templates-0.5.3:/usr/share/mouse-brain-atlases:Z base /bin/bash`
+
+
+Inside container ./produce.sh > ~/.scratch/PRODUCEOUT/1.txt
+
+
+
