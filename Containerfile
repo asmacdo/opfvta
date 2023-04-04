@@ -31,3 +31,4 @@ WORKDIR /opfvta
 # Ideally fsl container should be its own container and run that way
 # https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation/Linux#Containers
 RUN python3 fslinstaller.py
+ENV PATH "$PATH:/usr/local/fsl/bin/"

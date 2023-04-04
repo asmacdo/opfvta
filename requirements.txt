@@ -14,6 +14,7 @@ pybids~=0.6.5
 
 # FOR AUSTIN DONT MERGE
 ipdb  
+pipdeptree
 
 # nipype
 # module 'networkx' has no attribute 'to_scipy_sparse_matrix'
