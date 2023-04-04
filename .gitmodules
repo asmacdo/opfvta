@@ -1,6 +1,6 @@
-[submodule "SAMRI"]
-	path = SAMRI
-	url = https://github.com/asmacdo/SAMRI.git
 [submodule "LabbookDB"]
 	path = LabbookDB
 	url = https://github.com/asmacdo/LabbookDB.git
+[submodule "SAMRI"]
+	path = SAMRI
+	url = https://github.com/asmacdo/SAMRI.git
