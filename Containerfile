@@ -1,9 +1,8 @@
-FROM docker.io/library/debian:bullseye
+FROM docker.io/library/python:3.7-bullseye
 
 RUN apt-get update
 
 # buster default is python2
-RUN apt-get install -y python3.6
 
 # LaTex
 RUN apt-get install -y \

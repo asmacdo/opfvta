@@ -1,3 +1,1 @@
-# create a ../scratch dir
-# copy the bids data into scratch/bids/
-podman build . -f Containerfile -t base && podman run -it -v ../scratch:/root/.scratch:Z base
+podman build . -f Containerfile -t base && podman run -it -v ../scratch:/root/.scratch:Z -v ../mouse-brain-templates-0.5.3:/usr/share/mouse-brain-atlases:Z base /bin/bash
