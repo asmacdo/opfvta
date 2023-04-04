@@ -1,0 +1,6 @@
+[submodule "SAMRI"]
+	path = SAMRI
+	url = git@github.com:asmacdo/SAMRI.git
+[submodule "LabbookDB"]
+	path = LabbookDB
+	url = git@github.com:asmacdo/LabbookDB.git
