@@ -11,11 +11,11 @@ fi
 
 pushd ../
 	podman build . \
-		-f Containerfile.partial \
+		-f .containerization/Containerfile.partial \
 		-t opfvta-gentoo
 
 	# podman build . \
-	#       -f Containerfile \
+	#       -f .containerization/Containerfile \
 	#       -t opfvta-gentoo
 
 	podman run -it \
