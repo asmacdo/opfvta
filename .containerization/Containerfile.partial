@@ -21,8 +21,8 @@ RUN rsync -avP /opfvta/.gentoo/portage/ /etc/portage/
 RUN rsync -avP /opfvta/.gentoo/overlay/ /var/db/repos/local_opfvta/
 RUN emerge --sync science
 
+# This is only if we distribute data separately
 RUN echo "sci-biology/opfvta_bidsdata-2.0" > /etc/portage/profile/package.provided
-#RUN echo ">=media-libs/harfbuzz-7.1.0 icu" > /etc/portage/package.use/zz-portage
 
 RUN pushd /var/db/repos/local_opfvta/sci-misc/opfvta; ebuild opfvta-99999.ebuild manifest; popd
 #RUN FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox" emerge -v opfvta --autounmask-continue

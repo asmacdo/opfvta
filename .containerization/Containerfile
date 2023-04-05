@@ -11,18 +11,14 @@ COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
 RUN emerge --noreplace dev-vcs/git
 RUN emerge --noreplace sys-apps/portage
 
-## Remove after it works and we're no longer debugging
-RUN emerge --noreplace app-editors/vim sys-apps/the_silver_searcher app-portage/eix
-## End remove
-
 COPY . /opfvta
 
 RUN rsync -avP /opfvta/.gentoo/portage/ /etc/portage/
 RUN rsync -avP /opfvta/.gentoo/overlay/ /var/db/repos/local_opfvta/
 RUN emerge --sync science
 
+# This is only if we distribute data separately
 RUN echo "sci-biology/opfvta_bidsdata-2.0" > /etc/portage/profile/package.provided
-#RUN echo ">=media-libs/harfbuzz-7.1.0 icu" > /etc/portage/package.use/zz-portage
 
 RUN pushd /var/db/repos/local_opfvta/sci-misc/opfvta; ebuild opfvta-99999.ebuild manifest; popd
 RUN FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox" emerge -v opfvta --autounmask-continue
