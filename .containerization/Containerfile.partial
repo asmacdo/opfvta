@@ -19,7 +19,12 @@ COPY . /opfvta
 
 RUN rsync -avP /opfvta/.gentoo/portage/ /etc/portage/
 RUN rsync -avP /opfvta/.gentoo/overlay/ /var/db/repos/local_opfvta/
-RUN emerge --sync science
+
+# Moving gentoo repo from default rsync to git
+RUN rm /var/db/repos/gentoo -rf
+
+# Getting everything via git
+RUN emerge --sync science gentoo
 
 # This is only if we distribute data separately
 RUN echo "sci-biology/opfvta_bidsdata-2.0" > /etc/portage/profile/package.provided
