@@ -1,3 +1,8 @@
+# Pinned commits for the dependency tree state
+ARG gentoo_hash=0f6aa0646baad09881e581250e24a4e018e14abc
+ARG science_hash=a3ee59439b944fb12f7398f587ed6aac601fb96d
+
+
 # name the portage image
 FROM gentoo/portage:latest as portage
 
@@ -27,8 +32,9 @@ RUN rm /var/db/repos/gentoo -rf
 RUN emerge --sync science gentoo
 
 # Pinning dependency tree state via git
-RUN pushd /var/db/repos/science; git fetch --depth=9999; git checkout a3ee59439b944fb12f7398f587ed6aac601fb96d; popd
-RUN pushd /var/db/repos/gentoo; git fetch --depth=9999; git checkout 0f6aa0646baad09881e581250e24a4e018e14abc; popd
+# TODO control the history via dat
+RUN pushd /var/db/repos/science; git fetch origin $science_hash; git checkout $science_hash; popd
+RUN pushd /var/db/repos/gentoo; git fetch origin $gentoo_hash; git checkout $gentoo_hash; popd
 
 # This is only if we distribute data separately
 RUN echo "sci-biology/opfvta_bidsdata-2.0" > /etc/portage/profile/package.provided
