@@ -26,6 +26,10 @@ RUN rm /var/db/repos/gentoo -rf
 # Getting everything via git
 RUN emerge --sync science gentoo
 
+# Pinning dependency tree state via git
+RUN pushd /var/db/repos/science; git fetch --depth=9999; git checkout a3ee59439b944fb12f7398f587ed6aac601fb96d; popd
+RUN pushd /var/db/repos/gentoo; git fetch --depth=9999; git checkout 0f6aa0646baad09881e581250e24a4e018e14abc; popd
+
 # This is only if we distribute data separately
 RUN echo "sci-biology/opfvta_bidsdata-2.0" > /etc/portage/profile/package.provided
 
