@@ -2,7 +2,6 @@
 ARG gentoo_hash=0f6aa0646baad09881e581250e24a4e018e14abc
 ARG science_hash=a3ee59439b944fb12f7398f587ed6aac601fb96d
 
-
 # name the portage image
 FROM gentoo/portage:latest as portage
 
