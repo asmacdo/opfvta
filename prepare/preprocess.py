@@ -10,7 +10,7 @@ bids_base = path.join(scratch_dir,'bids')
 groups_path = path.abspath('../data/groups.csv')
 groups = pd.read_csv(groups_path)
 groups = groups.loc[groups['OrthogonalStereotacticTarget_depth'].notnull()]
-subjects = groups.Subject.unique()
+subjects = list(groups.Subject.unique())
 
 # Preprocess all of the data:
 generic(bids_base,
