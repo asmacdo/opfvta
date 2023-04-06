@@ -9,15 +9,17 @@ if [ ! -d ~/.local/share/data/opfvta_bidsdata ]; then
 	rm opfvta_bidsdata*
 fi
 
-#podman build . \
-#	-f Containerfile.partial \
-#	-t opfvta-gentoo
+pushd ..
+      #podman build . \
+      #	-f .containerization/Containerfile.partial \
+      #	-t opfvta-gentoo
 
-podman build . \
-      -f Containerfile \
-      -t opfvta-gentoo
+      podman build . \
+	    -f .containerization/Containerfile \
+	    -t opfvta-gentoo
 
-podman run -it \
-	-v ~/.local/share/data/opfvta_bidsdata:/usr/share/opfvta_bidsdata:Z \
-	--detach \
-	opfvta-gentoo /bin/bash
+      podman run -it \
+	      -v ~/.local/share/data/opfvta_bidsdata:/usr/share/opfvta_bidsdata:Z \
+	      --detach \
+	      opfvta-gentoo /bin/bash
+popd
