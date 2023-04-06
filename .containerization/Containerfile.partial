@@ -1,6 +1,5 @@
 # Pinned commits for the dependency tree state
 ARG gentoo_hash=0f6aa0646baad09881e581250e24a4e018e14abc
-ARG science_hash=a1178bdeed13a9f087da91759e2c9b8bac0f065f
 
 # name the portage image
 FROM gentoo/portage:latest as portage
@@ -32,7 +31,6 @@ RUN emerge --sync science gentoo
 
 # Pinning dependency tree state via git
 # Not pinning science since we might still want to fix things on it
-#RUN pushd /var/db/repos/science; git fetch origin $science_hash; git checkout $science_hash; popd
 RUN pushd /var/db/repos/gentoo; git fetch origin $gentoo_hash; git checkout $gentoo_hash; popd
 
 # This is only if we distribute data separately
