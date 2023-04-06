@@ -11,10 +11,12 @@ fi
 
 podman build . \
 	-f Containerfile.partial \
+	--name opfvta \
 	-t opfvta-gentoo
 
 # podman build . \
 #       -f Containerfile \
+#	--name opfvta \
 #       -t opfvta-gentoo
 
 podman run -it \
