@@ -1,6 +1,6 @@
 # Pinned commits for the dependency tree state
 ARG gentoo_hash=0f6aa0646baad09881e581250e24a4e018e14abc
-ARG science_hash=be5fc54187e2e93f78cafd5dfd9a553fe76d4642
+ARG science_hash=615b67c6f42ae6cfb951b9a5620583ffad287278
 
 # name the portage image
 FROM gentoo/portage:latest as portage
