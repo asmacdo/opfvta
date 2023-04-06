@@ -13,7 +13,7 @@ FROM gentoo/stage3:latest
 COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
 
 RUN emerge --noreplace dev-vcs/git
-RUN emerge --noreplace sys-apps/portage
+RUN emerge -v1u portage
 
 COPY . /opfvta
 
