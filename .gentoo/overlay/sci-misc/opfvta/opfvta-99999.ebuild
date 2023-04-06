@@ -3,10 +3,6 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
-
-inherit distutils-r1
-
 DESCRIPTION="Whole-Brain Map and Assay Analysis of Mouse VTA Dopaminergic Activation"
 HOMEPAGE="https://bitbucket.org/TheChymera/opfvta"
 
@@ -18,14 +14,14 @@ KEYWORDS=""
 DEPEND=""
 RDEPEND="
 	app-text/texlive[publishers,science,xetex]
-	dev-python/matplotlib[${PYTHON_USEDEP}]
-	dev-python/numpy[${PYTHON_USEDEP}]
-	dev-python/pandas[${PYTHON_USEDEP}]
-	>=dev-python/seaborn-0.9.0[${PYTHON_USEDEP}]
-	>=dev-python/statsmodels-0.9.0[${PYTHON_USEDEP}]
-	>=dev-tex/pythontex-0.16[${PYTHON_USEDEP}]
+	dev-python/matplotlib
+	dev-python/numpy
+	dev-python/pandas
+	>=dev-python/seaborn-0.9.0
+	>=dev-python/statsmodels-0.9.0
+	>=dev-tex/pythontex-0.16
 	media-gfx/graphviz
-	>=sci-biology/samri-0.4[${PYTHON_USEDEP}]
+	sci-biology/samri
 	scanner-data? ( sci-biology/opfvta_data )
 	!scanner-data? ( sci-biology/opfvta_bidsdata )
 "
