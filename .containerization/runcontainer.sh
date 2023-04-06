@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
 if [ ! -d ~/.local/share/data/opfvta_bidsdata ]; then
-	mkdir -p ~/.local/share/data/opfvta_bidsdata
-	pushd ~/.local/share/data/opfvta_bidsdata
-	wget "https://zenodo.org/record/3575149/files/opfvta_bidsdata-2.0.tar.xz"
-	tar xvf "opfvta_bidsdata-2.0.tar.xz"
-	mv opfvta_bidsdata-2.0/* .
-	rm opfvta_bidsdata*
+      mkdir -p ~/.local/share/data/opfvta_bidsdata
+      pushd ~/.local/share/data/opfvta_bidsdata
+	    wget "https://zenodo.org/record/3575149/files/opfvta_bidsdata-2.0.tar.xz"
+	    tar xvf "opfvta_bidsdata-2.0.tar.xz"
+	    mv opfvta_bidsdata-2.0/* .
+	    rm opfvta_bidsdata*
+      popd
 fi
 
 pushd ..
