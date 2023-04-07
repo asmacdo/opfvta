@@ -2,6 +2,7 @@
 ARG gentoo_hash=0f6aa0646baad09881e581250e24a4e018e14abc
 ARG science_hash=1c2d9c184a6d79f1308b5b2ce3b39bca76a8fce9
 
+# TODO: pin gentoo and stage image as well if we want a timecapsule
 # name the portage image
 FROM gentoo/portage:latest as portage
 
