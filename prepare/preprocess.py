@@ -11,6 +11,7 @@ groups_path = path.abspath('../data/groups.csv')
 groups = pd.read_csv(groups_path)
 groups = groups.loc[groups['OrthogonalStereotacticTarget_depth'].notnull()]
 subjects = list(groups.Subject.unique())
+subjects = [str(i) for i in subjects]
 
 # Preprocess all of the data:
 generic(bids_base,
