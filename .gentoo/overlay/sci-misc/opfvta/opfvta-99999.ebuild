@@ -22,6 +22,7 @@ RDEPEND="
 	>=dev-tex/pythontex-0.16
 	media-gfx/graphviz
 	sci-biology/samri
+	sci-biology/ABI-connectivity-data
 	scanner-data? ( sci-biology/opfvta_data )
 	!scanner-data? ( sci-biology/opfvta_bidsdata )
 "
