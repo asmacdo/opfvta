@@ -20,7 +20,7 @@ img1_rois, img2_rois, roi_names = rois_for_comparison(img1, img2)
 
 correlation_data['regionwise'] = {}
 keep=[]
-for i in range(len(img1_rois)-1):
+for i in range(len(img1_rois)):
 	if math.isnan(img1_rois[i]) or math.isnan(img2_rois[i]):
 		keep.append(False)
 	keep.append(True)
