@@ -137,8 +137,8 @@ glm.l2_controlled_effect('~/.scratch/opfvta/features_normalized',
 		'CogP',
 		],},
 	out_base=scratch_dir,
-	match={'subject':filtered_animals,'datatype':[np.nan]},
-	control_match={'datatype':['anat']},
+	match={'subject':filtered_animals,'type':[np.nan]},
+	control_match={'type':['anat']},
 	run_mode='fe',
 	)
 
