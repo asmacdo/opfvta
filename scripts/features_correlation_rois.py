@@ -25,7 +25,9 @@ df = pd.DataFrame(
 	)
 
 linewidth = mpl.rcParams['lines.linewidth']
-g = sns.regplot('Functional Mean ROI t', 'Structural Mean ROI t',
+g = sns.regplot(
+	x='Functional Mean ROI t',
+	y='Structural Mean ROI t',
 	ci=99,
 	data=df,
 	color="tab:blue",

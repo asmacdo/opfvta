@@ -25,7 +25,9 @@ df = pd.DataFrame(
 	)
 
 linewidth = mpl.rcParams['lines.linewidth']
-g = sns.regplot('Functional Voxel t', 'Structural Voxel t',
+g = sns.regplot(
+	x='Functional Voxel t',
+	y='Structural Voxel t',
 	ci=99,
 	data=df,
 	color="tab:gray",
