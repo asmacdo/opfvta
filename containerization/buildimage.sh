@@ -6,5 +6,6 @@ pushd ..
        podman build . \
                -f .containerization/Containerfile \
                -t opfvta-gentoo
+               -v ~/.local/cache/distfiles:/var/cache/distfiles
 
 popd
