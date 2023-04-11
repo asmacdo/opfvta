@@ -1,6 +1,7 @@
 # Pinned commits for the dependency tree state
 ARG gentoo_hash=0f6aa0646baad09881e581250e24a4e018e14abc
 ARG science_hash=1c2d9c184a6d79f1308b5b2ce3b39bca76a8fce9
+ARG FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox"
 
 # TODO: pin gentoo and stage image as well if we want a timecapsule
 # name the portage image
@@ -13,7 +14,7 @@ FROM gentoo/stage3:latest
 # copy the entire portage volume in
 COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
 
-RUN emerge --noreplace dev-vcs/git
+RUN emerge -v --noreplace dev-vcs/git
 RUN emerge -v1u portage
 
 COPY . /opfvta
@@ -35,5 +36,5 @@ RUN pushd /var/db/repos/gentoo; git fetch origin $gentoo_hash; git checkout $gen
 RUN echo "sci-biology/opfvta_bidsdata-2.0" > /etc/portage/profile/package.provided
 
 RUN pushd /var/db/repos/local_opfvta/sci-misc/opfvta; ebuild opfvta-99999.ebuild manifest; popd
-RUN FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox" emerge -v opfvta --autounmask-continue
+RUN emerge -v opfvta --autounmask-continue
 RUN source /etc/profile
