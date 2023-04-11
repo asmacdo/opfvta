@@ -77,12 +77,12 @@ push:
 # 		${FQDN_INPUT_DATA} \
 # 		/bin/sh
 #
-scatch:
-	podman volume create output
+# scatch:
+# 	podman volume create output
 
+# Notice this doesnt drop you into a shell and the container is deleted after use
 run:
 	podman run \
-		-d \
 		-it \
 		--rm \
 		-v ../input_data/opfvta-bids:/usr/share/opfvta_bidsdata \
@@ -90,6 +90,7 @@ run:
 		-v ../top_level_data/:/root/.scratch
 		${FQDN_IMAGE}
 
+# Use this to run a shell
 handtest:
 	podman run \
 		-it \
