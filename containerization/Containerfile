@@ -27,4 +27,5 @@ RUN pushd /var/db/repos/local_opfvta/sci-misc/opfvta; ebuild opfvta-99999.ebuild
 RUN emerge -v opfvta --autounmask-continue
 RUN source /etc/profile
 
-ENTRYPOINT ["/opfvta/produce.sh"]
+WORKDIR "/opfvta"
+ENTRYPOINT ["/opfvta/containerization/use-make.sh"]
