@@ -14,12 +14,16 @@
 % Article-specific configuration
 \begin{pythontexcustomcode}[begin]{py}
 DOC_STYLE="pitch/main.conf"
+JOBNAME="pitch"
 pytex.add_dependencies(
 	DOC_STYLE,
 	'pitch/2x1.conf',
 	'pitch/2x1_coordinates.conf',
 	)
 \end{pythontexcustomcode}
+
+% This does not go into the common header as it needs to be imputed after the document-specific variables are defined.
+\input{/usr/share/repsep/functions.py}
 
 % Custom beamer styling and colors
 \setbeamersize{text margin left=0.8em,text margin right=0.8em}
