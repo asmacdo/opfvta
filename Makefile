@@ -65,7 +65,8 @@ upload-slides: slides.pdf
 
 # Data preparation
 
-
+data:	$(wildcard prepare/*)
+	pushd prepare && ./run.sh
 
 
 ######## Containerized ########
