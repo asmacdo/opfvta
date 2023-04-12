@@ -1,6 +1,6 @@
 # Pinned commits for the dependency tree state
 ARG gentoo_hash=0f6aa0646baad09881e581250e24a4e018e14abc
-ARG science_hash=b9b7ea94c0bf72b97d1313abe231d48e3ceaf440
+ARG science_hash=070212d8e9c7225ad07099f12bd30c24017c5e56
 ARG FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox"
 
 FROM opfvta-base
